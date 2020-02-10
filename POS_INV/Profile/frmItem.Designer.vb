@@ -37,6 +37,7 @@ Partial Class frmItem
         Me.DataGridViewButtonColumn1 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.DataGridViewButtonColumn2 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.btn_Add = New System.Windows.Forms.Button()
         Me.cboCategory = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -63,7 +64,6 @@ Partial Class frmItem
         Me.btn_new_Brand = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.MetroTabControl1.SuspendLayout()
         Me.tp_Items.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,7 +84,7 @@ Partial Class frmItem
         Me.MetroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MetroTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.MetroTabControl1.Name = "MetroTabControl1"
-        Me.MetroTabControl1.SelectedIndex = 2
+        Me.MetroTabControl1.SelectedIndex = 0
         Me.MetroTabControl1.Size = New System.Drawing.Size(1248, 470)
         Me.MetroTabControl1.TabIndex = 0
         Me.MetroTabControl1.UseSelectable = True
@@ -215,6 +215,15 @@ Partial Class frmItem
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1240, 67)
         Me.Panel2.TabIndex = 3
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(789, 22)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(63, 17)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Filter By:"
         '
         'btn_Add
         '
@@ -455,15 +464,6 @@ Partial Class frmItem
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Search:"
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(789, 22)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(63, 17)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Filter By:"
-        '
         'frmItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -472,7 +472,7 @@ Partial Class frmItem
         Me.Controls.Add(Me.MetroTabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmItem"
-        Me.Text = "frmItem"
+        Me.Text = "`"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MetroTabControl1.ResumeLayout(False)
         Me.tp_Items.ResumeLayout(False)
