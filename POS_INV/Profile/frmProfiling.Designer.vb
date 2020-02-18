@@ -31,12 +31,16 @@ Partial Class frmProfiling
         Me.btn_Item = New System.Windows.Forms.Button()
         Me.btn_User = New System.Windows.Forms.Button()
         Me.pnl_Mid = New System.Windows.Forms.Panel()
+        Me.btn_Close = New System.Windows.Forms.Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.pnlHeader.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlHeader
         '
+        Me.pnlHeader.Controls.Add(Me.Panel2)
         Me.pnlHeader.Controls.Add(Me.Label21)
         Me.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlHeader.Location = New System.Drawing.Point(0, 0)
@@ -151,6 +155,24 @@ Partial Class frmProfiling
         Me.pnl_Mid.Size = New System.Drawing.Size(1272, 560)
         Me.pnl_Mid.TabIndex = 3
         '
+        'btn_Close
+        '
+        Me.btn_Close.Location = New System.Drawing.Point(20, 12)
+        Me.btn_Close.Name = "btn_Close"
+        Me.btn_Close.Size = New System.Drawing.Size(63, 53)
+        Me.btn_Close.TabIndex = 1
+        Me.btn_Close.Text = " "
+        Me.btn_Close.UseVisualStyleBackColor = True
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.btn_Close)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel2.Location = New System.Drawing.Point(1169, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(103, 85)
+        Me.Panel2.TabIndex = 2
+        '
         'frmProfiling
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -166,6 +188,7 @@ Partial Class frmProfiling
         Me.pnlHeader.ResumeLayout(False)
         Me.pnlHeader.PerformLayout()
         Me.Panel1.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -179,4 +202,6 @@ Partial Class frmProfiling
     Friend WithEvents btn_Supplier As Button
     Friend WithEvents btn_Branch As Button
     Friend WithEvents pnl_Mid As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents btn_Close As Button
 End Class

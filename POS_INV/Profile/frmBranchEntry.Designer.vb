@@ -74,10 +74,11 @@ Partial Class frmBranchEntry
         '
         'tb_Address
         '
-        Me.tb_Address.Location = New System.Drawing.Point(117, 71)
+        Me.tb_Address.Location = New System.Drawing.Point(104, 71)
         Me.tb_Address.MaxLength = 100
         Me.tb_Address.Name = "tb_Address"
-        Me.tb_Address.Size = New System.Drawing.Size(540, 22)
+        Me.tb_Address.ShortcutsEnabled = False
+        Me.tb_Address.Size = New System.Drawing.Size(553, 22)
         Me.tb_Address.TabIndex = 0
         '
         'Label7
@@ -101,7 +102,7 @@ Partial Class frmBranchEntry
         'lbl_Id
         '
         Me.lbl_Id.AutoSize = True
-        Me.lbl_Id.Location = New System.Drawing.Point(34, 136)
+        Me.lbl_Id.Location = New System.Drawing.Point(34, 123)
         Me.lbl_Id.Name = "lbl_Id"
         Me.lbl_Id.Size = New System.Drawing.Size(64, 17)
         Me.lbl_Id.TabIndex = 58

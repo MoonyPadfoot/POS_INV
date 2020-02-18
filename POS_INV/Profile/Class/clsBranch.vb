@@ -18,6 +18,7 @@ Public Class clsBranch
             DisconnectDatabase()
             MsgBox(ex.Message, vbCritical)
         End Try
+        DisconnectDatabase()
         Return False
     End Function
     Public Function edit()
@@ -34,7 +35,10 @@ Public Class clsBranch
 
         Catch ex As Exception
             DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
         End Try
+        DisconnectDatabase()
+        Return False
     End Function
     Public Function delete()
         Try
@@ -46,8 +50,11 @@ Public Class clsBranch
             DisconnectDatabase()
             loadAutosuggest()
         Catch ex As Exception
-
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
         End Try
+        DisconnectDatabase()
+        Return False
     End Function
     Public Sub loadRecord()
         Dim i As Integer
@@ -95,4 +102,42 @@ Public Class clsBranch
         DisconnectDatabase()
         frmBranch.lbl_row_Count.Text = "(" & frmBranch.DataGridView1.RowCount & ") Record(s) found."
     End Sub
+    Public Function checkBranchExists() 'checks if branch is already in use in other tables(user, stock)
+        Try
+            ConnectDatabase()
+            Dim query = "SELECT branch_id FROM user WHERE branch_id = @branch_id"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@branch_id", BranchId)
+            Dim count = Convert.ToInt16(cm.ExecuteScalar())
+            If count > 0 Then
+                Return True
+                DisconnectDatabase()
+            End If
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
+    Public Function checkBranchDuplicate()
+        Try
+            ConnectDatabase()
+            Dim query = "SELECT branch_address FROM branch WHERE branch_address = @branch_address"
+            Dim cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@branch_address", BranchName)
+            dr = cm.ExecuteReader
+            If dr.HasRows Then
+                dr.Close()
+                DisconnectDatabase()
+                Return True
+            End If
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        dr.Close()
+        DisconnectDatabase()
+        Return False
+    End Function
 End Class

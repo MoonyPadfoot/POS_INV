@@ -43,4 +43,14 @@
             .Show()
         End With
     End Sub
+
+    Private Sub btn_Close_Click(sender As Object, e As EventArgs) Handles btn_Close.Click
+        With frmMain
+            .btn_Pos.Enabled = True
+            .btn_Inventory.Enabled = True
+            .btn_Customer.Enabled = True
+            .btn_sales_Report.Enabled = True
+        End With
+        Me.Close()
+    End Sub
 End Class

@@ -30,14 +30,14 @@ Partial Class frmUser
         Me.tbSearch = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewButtonColumn3 = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.DataGridViewButtonColumn4 = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.col_Row = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Name = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Username = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Password = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Type = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Active = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Edit = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.col_Delete = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Panel3.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -101,7 +101,7 @@ Partial Class frmUser
         '
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.Column6, Me.DataGridViewTextBoxColumn5, Me.Column8, Me.Column1, Me.Column2, Me.Column7, Me.DataGridViewButtonColumn3, Me.DataGridViewButtonColumn4})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.col_Row, Me.col_Name, Me.col_Username, Me.col_Password, Me.col_Type, Me.col_Active, Me.col_Edit, Me.col_Delete})
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 82)
         Me.DataGridView1.Name = "DataGridView1"
@@ -119,71 +119,72 @@ Partial Class frmUser
         Me.DataGridViewTextBoxColumn4.Visible = False
         Me.DataGridViewTextBoxColumn4.Width = 125
         '
-        'Column6
+        'col_Row
         '
-        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column6.HeaderText = "#"
-        Me.Column6.MinimumWidth = 6
-        Me.Column6.Name = "Column6"
-        Me.Column6.Width = 45
+        Me.col_Row.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.col_Row.HeaderText = "#"
+        Me.col_Row.MinimumWidth = 6
+        Me.col_Row.Name = "col_Row"
+        Me.col_Row.Width = 45
         '
-        'DataGridViewTextBoxColumn5
+        'col_Name
         '
-        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Name"
-        Me.DataGridViewTextBoxColumn5.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.col_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.col_Name.HeaderText = "Name"
+        Me.col_Name.MinimumWidth = 6
+        Me.col_Name.Name = "col_Name"
         '
-        'Column8
+        'col_Username
         '
-        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column8.HeaderText = "Address"
-        Me.Column8.MinimumWidth = 6
-        Me.Column8.Name = "Column8"
+        Me.col_Username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.col_Username.HeaderText = "Username"
+        Me.col_Username.MinimumWidth = 6
+        Me.col_Username.Name = "col_Username"
+        Me.col_Username.Width = 102
         '
-        'Column1
+        'col_Password
         '
-        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column1.HeaderText = "Username"
-        Me.Column1.MinimumWidth = 6
-        Me.Column1.Name = "Column1"
-        Me.Column1.Width = 102
+        Me.col_Password.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.col_Password.HeaderText = "Password"
+        Me.col_Password.MinimumWidth = 6
+        Me.col_Password.Name = "col_Password"
+        Me.col_Password.Width = 98
         '
-        'Column2
+        'col_Type
         '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column2.HeaderText = "Password"
-        Me.Column2.MinimumWidth = 6
-        Me.Column2.Name = "Column2"
-        Me.Column2.Width = 98
+        Me.col_Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.col_Type.HeaderText = "Type"
+        Me.col_Type.MinimumWidth = 6
+        Me.col_Type.Name = "col_Type"
+        Me.col_Type.Width = 69
         '
-        'Column7
+        'col_Active
         '
-        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column7.HeaderText = "Type"
-        Me.Column7.MinimumWidth = 6
-        Me.Column7.Name = "Column7"
-        Me.Column7.Width = 69
+        Me.col_Active.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.col_Active.HeaderText = "Active"
+        Me.col_Active.MinimumWidth = 6
+        Me.col_Active.Name = "col_Active"
+        Me.col_Active.Width = 75
         '
-        'DataGridViewButtonColumn3
+        'col_Edit
         '
-        Me.DataGridViewButtonColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewButtonColumn3.HeaderText = ""
-        Me.DataGridViewButtonColumn3.MinimumWidth = 6
-        Me.DataGridViewButtonColumn3.Name = "DataGridViewButtonColumn3"
-        Me.DataGridViewButtonColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewButtonColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.DataGridViewButtonColumn3.Width = 23
+        Me.col_Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.col_Edit.HeaderText = ""
+        Me.col_Edit.MinimumWidth = 6
+        Me.col_Edit.Name = "col_Edit"
+        Me.col_Edit.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.col_Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.col_Edit.Width = 23
         '
-        'DataGridViewButtonColumn4
+        'col_Delete
         '
-        Me.DataGridViewButtonColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewButtonColumn4.HeaderText = ""
-        Me.DataGridViewButtonColumn4.MinimumWidth = 6
-        Me.DataGridViewButtonColumn4.Name = "DataGridViewButtonColumn4"
-        Me.DataGridViewButtonColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewButtonColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.DataGridViewButtonColumn4.Width = 23
+        Me.col_Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.col_Delete.HeaderText = ""
+        Me.col_Delete.MinimumWidth = 6
+        Me.col_Delete.Name = "col_Delete"
+        Me.col_Delete.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.col_Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.col_Delete.Width = 23
         '
         'frmUser
         '
@@ -209,14 +210,14 @@ Partial Class frmUser
     Friend WithEvents Label3 As Label
     Friend WithEvents tbSearch As TextBox
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewButtonColumn3 As DataGridViewButtonColumn
-    Friend WithEvents DataGridViewButtonColumn4 As DataGridViewButtonColumn
     Friend WithEvents Label4 As Label
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents col_Row As DataGridViewTextBoxColumn
+    Friend WithEvents col_Name As DataGridViewTextBoxColumn
+    Friend WithEvents col_Username As DataGridViewTextBoxColumn
+    Friend WithEvents col_Password As DataGridViewTextBoxColumn
+    Friend WithEvents col_Type As DataGridViewTextBoxColumn
+    Friend WithEvents col_Active As DataGridViewTextBoxColumn
+    Friend WithEvents col_Edit As DataGridViewButtonColumn
+    Friend WithEvents col_Delete As DataGridViewButtonColumn
 End Class

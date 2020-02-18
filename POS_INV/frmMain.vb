@@ -59,6 +59,12 @@
             .BringToFront()
             .Show()
         End With
+        With Me
+            .btn_Pos.Enabled = False
+            .btn_Inventory.Enabled = False
+            .btn_Customer.Enabled = False
+            .btn_sales_Report.Enabled = False
+        End With
     End Sub
 
     Private Sub btn_Logout_Click(sender As Object, e As EventArgs) Handles btn_Logout.Click

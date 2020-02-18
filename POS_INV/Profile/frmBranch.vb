@@ -31,8 +31,13 @@
             Dim result = MsgBox("Are you sure you want to delete this record?", vbYesNo + vbQuestion)
             If result = vbYes Then
                 branch.BranchId = _id
-                branch.delete()
-                branch.loadRecord()
+                If branch.checkBranchExists = False Then
+                    branch.delete()
+                    MsgBox("Record has been successfully deleted.", vbInformation)
+                    branch.loadRecord()
+                Else
+                    MsgBox("Record already in use and therefore can not be deleted.", vbInformation)
+                End If
             End If
         End If
     End Sub
@@ -47,6 +52,20 @@
             branch.searchItem("SELECT * FROM branch WHERE branch_address LIKE @0 ")
         Else
             branch.loadRecord()
+        End If
+    End Sub
+
+    Private Sub btn_Close_Click(sender As Object, e As EventArgs)
+        Me.Close()
+    End Sub
+
+    Private Sub tb_Search_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tb_Search.KeyPress
+        If Not (Asc(e.KeyChar) = 8) Then
+            Dim allowedChars As String = "',- .abcdefghijklmnopqrstuvwxyz1234567890"
+            If Not allowedChars.Contains(e.KeyChar.ToString.ToLower) Then
+                e.KeyChar = ChrW(0)
+                e.Handled = True
+            End If
         End If
     End Sub
 End Class

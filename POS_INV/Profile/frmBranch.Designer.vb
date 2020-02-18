@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmBranch
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmBranch
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -110,7 +110,7 @@ Partial Class frmBranch
         '
         'btn_Add
         '
-        Me.btn_Add.Location = New System.Drawing.Point(804, 27)
+        Me.btn_Add.Location = New System.Drawing.Point(857, 26)
         Me.btn_Add.Name = "btn_Add"
         Me.btn_Add.Size = New System.Drawing.Size(128, 34)
         Me.btn_Add.TabIndex = 0
@@ -131,7 +131,8 @@ Partial Class frmBranch
         Me.tb_Search.Location = New System.Drawing.Point(105, 33)
         Me.tb_Search.MaxLength = 100
         Me.tb_Search.Name = "tb_Search"
-        Me.tb_Search.Size = New System.Drawing.Size(663, 22)
+        Me.tb_Search.ShortcutsEnabled = False
+        Me.tb_Search.Size = New System.Drawing.Size(722, 22)
         Me.tb_Search.TabIndex = 1
         '
         'Panel2
