@@ -50,6 +50,7 @@
             .btn_Inventory.Enabled = True
             .btn_Customer.Enabled = True
             .btn_sales_Report.Enabled = True
+            .btn_Logout.Enabled = True
         End With
         Me.Close()
     End Sub

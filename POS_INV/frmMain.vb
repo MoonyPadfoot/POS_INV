@@ -64,6 +64,7 @@
             .btn_Inventory.Enabled = False
             .btn_Customer.Enabled = False
             .btn_sales_Report.Enabled = False
+            .btn_Logout.Enabled = False
         End With
     End Sub
 

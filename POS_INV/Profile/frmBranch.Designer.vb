@@ -23,17 +23,17 @@ Partial Class frmBranch
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_Row = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_address = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_Edit = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.col_Delete = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btn_Add = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.tb_Search = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lbl_row_Count = New System.Windows.Forms.Label()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Row = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_address = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Edit = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.col_Delete = New System.Windows.Forms.DataGridViewButtonColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -53,49 +53,6 @@ Partial Class frmBranch
         Me.DataGridView1.Size = New System.Drawing.Size(1252, 542)
         Me.DataGridView1.TabIndex = 5
         Me.DataGridView1.TabStop = False
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.Visible = False
-        Me.DataGridViewTextBoxColumn4.Width = 125
-        '
-        'col_Row
-        '
-        Me.col_Row.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.col_Row.HeaderText = "#"
-        Me.col_Row.MinimumWidth = 6
-        Me.col_Row.Name = "col_Row"
-        Me.col_Row.Width = 45
-        '
-        'col_address
-        '
-        Me.col_address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.col_address.HeaderText = "Branch Address"
-        Me.col_address.MinimumWidth = 6
-        Me.col_address.Name = "col_address"
-        '
-        'col_Edit
-        '
-        Me.col_Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.col_Edit.HeaderText = ""
-        Me.col_Edit.MinimumWidth = 6
-        Me.col_Edit.Name = "col_Edit"
-        Me.col_Edit.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.col_Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_Edit.Width = 23
-        '
-        'col_Delete
-        '
-        Me.col_Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.col_Delete.HeaderText = ""
-        Me.col_Delete.MinimumWidth = 6
-        Me.col_Delete.Name = "col_Delete"
-        Me.col_Delete.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.col_Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_Delete.Width = 23
         '
         'Panel1
         '
@@ -152,6 +109,53 @@ Partial Class frmBranch
         Me.lbl_row_Count.Size = New System.Drawing.Size(76, 17)
         Me.lbl_row_Count.TabIndex = 9
         Me.lbl_row_Count.Text = "Row Count"
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.Visible = False
+        Me.DataGridViewTextBoxColumn4.Width = 125
+        '
+        'col_Row
+        '
+        Me.col_Row.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.col_Row.HeaderText = "#"
+        Me.col_Row.MinimumWidth = 6
+        Me.col_Row.Name = "col_Row"
+        Me.col_Row.ReadOnly = True
+        Me.col_Row.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_Row.Width = 45
+        '
+        'col_address
+        '
+        Me.col_address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.col_address.HeaderText = "Branch Address"
+        Me.col_address.MinimumWidth = 6
+        Me.col_address.Name = "col_address"
+        Me.col_address.ReadOnly = True
+        Me.col_address.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'col_Edit
+        '
+        Me.col_Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.col_Edit.HeaderText = ""
+        Me.col_Edit.MinimumWidth = 6
+        Me.col_Edit.Name = "col_Edit"
+        Me.col_Edit.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.col_Edit.Width = 23
+        '
+        'col_Delete
+        '
+        Me.col_Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.col_Delete.HeaderText = ""
+        Me.col_Delete.MinimumWidth = 6
+        Me.col_Delete.Name = "col_Delete"
+        Me.col_Delete.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.col_Delete.Width = 23
         '
         'frmBranch
         '

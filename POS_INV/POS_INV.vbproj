@@ -90,6 +90,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Profile\Class\clsBranch.vb" />
+    <Compile Include="Profile\Class\clsUser.vb" />
     <Compile Include="Profile\frmBranch.Designer.vb">
       <DependentUpon>frmBranch.vb</DependentUpon>
     </Compile>
