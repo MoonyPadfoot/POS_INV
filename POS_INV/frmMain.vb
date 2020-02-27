@@ -70,7 +70,10 @@
 
     Private Sub btn_Logout_Click(sender As Object, e As EventArgs) Handles btn_Logout.Click
         _authLogin = "Login"
-        frmLogin.Show()
-        Me.Close()
+        frmLogin.ShowDialog()
+    End Sub
+
+    Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+        frmLogin.ShowDialog()
     End Sub
 End Class

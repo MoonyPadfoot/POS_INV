@@ -87,7 +87,7 @@ Public Class clsBranch
         frmBranch.tb_Search.AutoCompleteMode = AutoCompleteMode.Suggest
         DisconnectDatabase()
     End Sub
-    Public Sub searchItem(query As String)
+    Public Sub searchBranch(query As String)
         Dim i As Integer
         frmBranch.DataGridView1.Rows.Clear()
         ConnectDatabase()

@@ -11,6 +11,7 @@ Public Class clsUser
     Public Property Branch
     Public Property Active
     Public Property Id
+    Public Property UserSearch
     Public Function save()
         Dim _id As Integer
         Try
@@ -156,4 +157,20 @@ Public Class clsUser
         cm.Parameters.AddWithValue("@username", _username)
         Return cm.ExecuteScalar
     End Function
+    Public Sub searchUser(query As String)
+        Dim i As Integer
+        frmUser.DataGridView1.Rows.Clear()
+        ConnectDatabase()
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@0", UserSearch & "%")
+        dr = cm.ExecuteReader()
+        While dr.Read
+            i += 1
+            frmUser.DataGridView1.Rows.Add(dr.Item("user_id").ToString, i, dr.Item("branch_address").ToString, dr.Item("user_gname").ToString, dr.Item("user_mi").ToString, dr.Item("user_surname").ToString, dr.Item("user_suffix").ToString, dr.Item("username").ToString, dr.Item("user_type").ToString, dr.Item("is_active"), "EDIT", "DELETE")
+        End While
+        dr.Close()
+        DisconnectDatabase()
+        frmUser.lbl_row_Count.Text = "(" & frmUser.DataGridView1.RowCount & ") Record(s) found."
+    End Sub
+
 End Class

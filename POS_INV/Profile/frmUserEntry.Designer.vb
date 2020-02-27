@@ -107,7 +107,7 @@ Partial Class frmUserEntry
         'tb_Suffix
         '
         Me.tb_Suffix.Location = New System.Drawing.Point(178, 162)
-        Me.tb_Suffix.MaxLength = 4
+        Me.tb_Suffix.MaxLength = 10
         Me.tb_Suffix.Name = "tb_Suffix"
         Me.tb_Suffix.ShortcutsEnabled = False
         Me.tb_Suffix.Size = New System.Drawing.Size(82, 22)
@@ -116,7 +116,7 @@ Partial Class frmUserEntry
         'tb_Surname
         '
         Me.tb_Surname.Location = New System.Drawing.Point(178, 121)
-        Me.tb_Surname.MaxLength = 50
+        Me.tb_Surname.MaxLength = 100
         Me.tb_Surname.Name = "tb_Surname"
         Me.tb_Surname.ShortcutsEnabled = False
         Me.tb_Surname.Size = New System.Drawing.Size(496, 22)
@@ -161,7 +161,7 @@ Partial Class frmUserEntry
         'tb_Mi
         '
         Me.tb_Mi.Location = New System.Drawing.Point(178, 79)
-        Me.tb_Mi.MaxLength = 3
+        Me.tb_Mi.MaxLength = 10
         Me.tb_Mi.Name = "tb_Mi"
         Me.tb_Mi.ShortcutsEnabled = False
         Me.tb_Mi.Size = New System.Drawing.Size(82, 22)
@@ -170,7 +170,7 @@ Partial Class frmUserEntry
         'tb_Gname
         '
         Me.tb_Gname.Location = New System.Drawing.Point(178, 39)
-        Me.tb_Gname.MaxLength = 50
+        Me.tb_Gname.MaxLength = 100
         Me.tb_Gname.Name = "tb_Gname"
         Me.tb_Gname.ShortcutsEnabled = False
         Me.tb_Gname.Size = New System.Drawing.Size(496, 22)

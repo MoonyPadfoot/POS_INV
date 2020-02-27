@@ -1,7 +1,7 @@
 ﻿Imports MetroFramework.Forms
 Public Class frmStock
     Private Sub frmStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        MetroTabControl1.SelectedTab = tp_stock_List
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs)

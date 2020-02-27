@@ -49,7 +49,7 @@
     Private Sub tb_Search_TextChanged(sender As Object, e As EventArgs) Handles tb_Search.TextChanged
         If Trim(tb_Search.Text) <> "" Then
             branch.BranchSearch = Trim(tb_Search.Text)
-            branch.searchItem("SELECT * FROM branch WHERE branch_address LIKE @0 ")
+            branch.searchBranch("SELECT * FROM branch WHERE branch_address LIKE @0 ")
         Else
             branch.loadRecord()
         End If
