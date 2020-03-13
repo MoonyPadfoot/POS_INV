@@ -29,6 +29,7 @@ Partial Class frmMain
         Me.Label3 = New System.Windows.Forms.Label()
         Me.pnlFooter = New System.Windows.Forms.Panel()
         Me.pnlHeader = New System.Windows.Forms.Panel()
+        Me.lbl_Username = New System.Windows.Forms.Label()
         Me.btn_Logout = New System.Windows.Forms.Button()
         Me.lbl_Header = New System.Windows.Forms.Label()
         Me.pnlBody = New System.Windows.Forms.Panel()
@@ -101,6 +102,7 @@ Partial Class frmMain
         'pnlHeader
         '
         Me.pnlHeader.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.pnlHeader.Controls.Add(Me.lbl_Username)
         Me.pnlHeader.Controls.Add(Me.btn_Logout)
         Me.pnlHeader.Controls.Add(Me.lbl_Header)
         Me.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top
@@ -108,6 +110,17 @@ Partial Class frmMain
         Me.pnlHeader.Name = "pnlHeader"
         Me.pnlHeader.Size = New System.Drawing.Size(1878, 48)
         Me.pnlHeader.TabIndex = 0
+        '
+        'lbl_Username
+        '
+        Me.lbl_Username.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Username.Location = New System.Drawing.Point(861, 11)
+        Me.lbl_Username.Name = "lbl_Username"
+        Me.lbl_Username.Size = New System.Drawing.Size(156, 26)
+        Me.lbl_Username.TabIndex = 14
+        Me.lbl_Username.Text = "Admin"
+        Me.lbl_Username.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lbl_Username.Visible = False
         '
         'btn_Logout
         '
@@ -236,7 +249,6 @@ Partial Class frmMain
         Me.lbl_Name.Name = "lbl_Name"
         Me.lbl_Name.Size = New System.Drawing.Size(153, 23)
         Me.lbl_Name.TabIndex = 15
-        Me.lbl_Name.Text = "Agapito de Siete Hampaslupa"
         Me.lbl_Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label5
@@ -347,7 +359,6 @@ Partial Class frmMain
         Me.lbl_Type.Name = "lbl_Type"
         Me.lbl_Type.Size = New System.Drawing.Size(156, 26)
         Me.lbl_Type.TabIndex = 13
-        Me.lbl_Type.Text = "Admin"
         Me.lbl_Type.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label1
@@ -413,4 +424,5 @@ Partial Class frmMain
     Friend WithEvents lbl_Type As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents btn_Help As Button
+    Friend WithEvents lbl_Username As Label
 End Class

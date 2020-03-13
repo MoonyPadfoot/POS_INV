@@ -67,14 +67,6 @@ Partial Class frmUser
         Me.tb_search_Cashier = New System.Windows.Forms.TextBox()
         Me.tp_Manager = New System.Windows.Forms.TabPage()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.lbl_row_count_Manager = New System.Windows.Forms.Label()
-        Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.btn_add_Manager = New System.Windows.Forms.Button()
-        Me.cbo_filter_manager = New System.Windows.Forms.ComboBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.tb_search_Manager = New System.Windows.Forms.TextBox()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -85,6 +77,14 @@ Partial Class frmUser
         Me.DataGridViewCheckBoxColumn2 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.col_edit_Manager = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.DataGridViewButtonColumn2 = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.lbl_row_count_Manager = New System.Windows.Forms.Label()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.btn_add_Manager = New System.Windows.Forms.Button()
+        Me.cbo_filter_manager = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.tb_search_Manager = New System.Windows.Forms.TextBox()
         Me.MetroTabControl1.SuspendLayout()
         Me.tp_user_Profile.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -108,7 +108,7 @@ Partial Class frmUser
         Me.MetroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MetroTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.MetroTabControl1.Name = "MetroTabControl1"
-        Me.MetroTabControl1.SelectedIndex = 1
+        Me.MetroTabControl1.SelectedIndex = 2
         Me.MetroTabControl1.Size = New System.Drawing.Size(1271, 579)
         Me.MetroTabControl1.TabIndex = 0
         Me.MetroTabControl1.UseSelectable = True
@@ -127,6 +127,7 @@ Partial Class frmUser
         'DataGridView1
         '
         Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.col_Row, Me.col_Branch, Me.col_Name, Me.col_mi, Me.col_Surname, Me.col_Suffix, Me.col_Username, Me.col_Type, Me.col_Active, Me.col_Edit, Me.col_Delete})
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -344,6 +345,7 @@ Partial Class frmUser
         'DataGridView2
         '
         Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AllowUserToResizeRows = False
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewCheckBoxColumn1, Me.col_edit_Cashier, Me.col_delete_Cashier})
         Me.DataGridView2.Dock = System.Windows.Forms.DockStyle.Fill
@@ -542,6 +544,7 @@ Partial Class frmUser
         'DataGridView3
         '
         Me.DataGridView3.AllowUserToAddRows = False
+        Me.DataGridView3.AllowUserToResizeRows = False
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewCheckBoxColumn2, Me.col_edit_Manager, Me.DataGridViewButtonColumn2})
         Me.DataGridView3.Dock = System.Windows.Forms.DockStyle.Fill
@@ -552,83 +555,6 @@ Partial Class frmUser
         Me.DataGridView3.RowTemplate.Height = 24
         Me.DataGridView3.Size = New System.Drawing.Size(1263, 395)
         Me.DataGridView3.TabIndex = 26
-        '
-        'Panel5
-        '
-        Me.Panel5.Controls.Add(Me.lbl_row_count_Manager)
-        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel5.Location = New System.Drawing.Point(0, 477)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(1263, 60)
-        Me.Panel5.TabIndex = 25
-        '
-        'lbl_row_count_Manager
-        '
-        Me.lbl_row_count_Manager.AutoSize = True
-        Me.lbl_row_count_Manager.Location = New System.Drawing.Point(27, 21)
-        Me.lbl_row_count_Manager.Name = "lbl_row_count_Manager"
-        Me.lbl_row_count_Manager.Size = New System.Drawing.Size(76, 17)
-        Me.lbl_row_count_Manager.TabIndex = 9
-        Me.lbl_row_count_Manager.Text = "Row Count"
-        '
-        'Panel6
-        '
-        Me.Panel6.Controls.Add(Me.Label6)
-        Me.Panel6.Controls.Add(Me.btn_add_Manager)
-        Me.Panel6.Controls.Add(Me.cbo_filter_manager)
-        Me.Panel6.Controls.Add(Me.Label7)
-        Me.Panel6.Controls.Add(Me.tb_search_Manager)
-        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel6.Location = New System.Drawing.Point(0, 0)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(1263, 82)
-        Me.Panel6.TabIndex = 24
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(802, 35)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(63, 17)
-        Me.Label6.TabIndex = 8
-        Me.Label6.Text = "Filter By:"
-        '
-        'btn_add_Manager
-        '
-        Me.btn_add_Manager.Location = New System.Drawing.Point(1103, 26)
-        Me.btn_add_Manager.Name = "btn_add_Manager"
-        Me.btn_add_Manager.Size = New System.Drawing.Size(128, 34)
-        Me.btn_add_Manager.TabIndex = 5
-        Me.btn_add_Manager.Text = "Add Manager"
-        Me.btn_add_Manager.UseVisualStyleBackColor = True
-        '
-        'cbo_filter_manager
-        '
-        Me.cbo_filter_manager.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbo_filter_manager.FormattingEnabled = True
-        Me.cbo_filter_manager.Items.AddRange(New Object() {"Name", "Username"})
-        Me.cbo_filter_manager.Location = New System.Drawing.Point(887, 32)
-        Me.cbo_filter_manager.Name = "cbo_filter_manager"
-        Me.cbo_filter_manager.Size = New System.Drawing.Size(183, 24)
-        Me.cbo_filter_manager.TabIndex = 6
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(37, 35)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(57, 17)
-        Me.Label7.TabIndex = 4
-        Me.Label7.Text = "Search:"
-        '
-        'tb_search_Manager
-        '
-        Me.tb_search_Manager.Location = New System.Drawing.Point(110, 32)
-        Me.tb_search_Manager.MaxLength = 50
-        Me.tb_search_Manager.Name = "tb_search_Manager"
-        Me.tb_search_Manager.ShortcutsEnabled = False
-        Me.tb_search_Manager.Size = New System.Drawing.Size(663, 22)
-        Me.tb_search_Manager.TabIndex = 3
         '
         'DataGridViewTextBoxColumn3
         '
@@ -725,6 +651,83 @@ Partial Class frmUser
         Me.DataGridViewButtonColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewButtonColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.DataGridViewButtonColumn2.Width = 23
+        '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.lbl_row_count_Manager)
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel5.Location = New System.Drawing.Point(0, 477)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(1263, 60)
+        Me.Panel5.TabIndex = 25
+        '
+        'lbl_row_count_Manager
+        '
+        Me.lbl_row_count_Manager.AutoSize = True
+        Me.lbl_row_count_Manager.Location = New System.Drawing.Point(27, 21)
+        Me.lbl_row_count_Manager.Name = "lbl_row_count_Manager"
+        Me.lbl_row_count_Manager.Size = New System.Drawing.Size(76, 17)
+        Me.lbl_row_count_Manager.TabIndex = 9
+        Me.lbl_row_count_Manager.Text = "Row Count"
+        '
+        'Panel6
+        '
+        Me.Panel6.Controls.Add(Me.Label6)
+        Me.Panel6.Controls.Add(Me.btn_add_Manager)
+        Me.Panel6.Controls.Add(Me.cbo_filter_manager)
+        Me.Panel6.Controls.Add(Me.Label7)
+        Me.Panel6.Controls.Add(Me.tb_search_Manager)
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel6.Location = New System.Drawing.Point(0, 0)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(1263, 82)
+        Me.Panel6.TabIndex = 24
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(802, 35)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(63, 17)
+        Me.Label6.TabIndex = 8
+        Me.Label6.Text = "Filter By:"
+        '
+        'btn_add_Manager
+        '
+        Me.btn_add_Manager.Location = New System.Drawing.Point(1103, 26)
+        Me.btn_add_Manager.Name = "btn_add_Manager"
+        Me.btn_add_Manager.Size = New System.Drawing.Size(128, 34)
+        Me.btn_add_Manager.TabIndex = 5
+        Me.btn_add_Manager.Text = "Add Manager"
+        Me.btn_add_Manager.UseVisualStyleBackColor = True
+        '
+        'cbo_filter_manager
+        '
+        Me.cbo_filter_manager.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbo_filter_manager.FormattingEnabled = True
+        Me.cbo_filter_manager.Items.AddRange(New Object() {"Name", "Username"})
+        Me.cbo_filter_manager.Location = New System.Drawing.Point(887, 32)
+        Me.cbo_filter_manager.Name = "cbo_filter_manager"
+        Me.cbo_filter_manager.Size = New System.Drawing.Size(183, 24)
+        Me.cbo_filter_manager.TabIndex = 6
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(37, 35)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(57, 17)
+        Me.Label7.TabIndex = 4
+        Me.Label7.Text = "Search:"
+        '
+        'tb_search_Manager
+        '
+        Me.tb_search_Manager.Location = New System.Drawing.Point(110, 32)
+        Me.tb_search_Manager.MaxLength = 50
+        Me.tb_search_Manager.Name = "tb_search_Manager"
+        Me.tb_search_Manager.ShortcutsEnabled = False
+        Me.tb_search_Manager.Size = New System.Drawing.Size(663, 22)
+        Me.tb_search_Manager.TabIndex = 3
         '
         'frmUser
         '

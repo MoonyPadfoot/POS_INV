@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmLogin
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmLogin
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -94,17 +94,24 @@ Partial Class frmLogin
         '
         'tb_Password
         '
+        Me.tb_Password.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tb_Password.Location = New System.Drawing.Point(150, 138)
+        Me.tb_Password.MaxLength = 30
         Me.tb_Password.Multiline = True
         Me.tb_Password.Name = "tb_Password"
+        Me.tb_Password.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.tb_Password.ShortcutsEnabled = False
         Me.tb_Password.Size = New System.Drawing.Size(348, 34)
         Me.tb_Password.TabIndex = 8
         '
         'tb_username
         '
+        Me.tb_username.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tb_username.Location = New System.Drawing.Point(150, 86)
+        Me.tb_username.MaxLength = 30
         Me.tb_username.Multiline = True
         Me.tb_username.Name = "tb_username"
+        Me.tb_username.ShortcutsEnabled = False
         Me.tb_username.Size = New System.Drawing.Size(348, 34)
         Me.tb_username.TabIndex = 7
         '

@@ -1,4 +1,5 @@
 ﻿Public Class frmMain
+    Dim login As New clsLogin
     Private Sub btnItem_Click(sender As Object, e As EventArgs)
         With frmItem
             .TopLevel = False
@@ -69,11 +70,19 @@
     End Sub
 
     Private Sub btn_Logout_Click(sender As Object, e As EventArgs) Handles btn_Logout.Click
-        _authLogin = "Login"
-        frmLogin.ShowDialog()
+        If MsgBox("Are you sure you want to logout?", vbYesNo + vbQuestion) = vbYes Then
+            lbl_Name.Text = vbNullString
+            lbl_Type.Text = vbNullString
+            lbl_Username.Text = vbNullString
+            _authLogin = "Login"
+            login.SetUsername(lbl_Username.Text)
+            login.setUserLogin(0)
+            frmLogin.ShowDialog()
+        End If
     End Sub
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         frmLogin.ShowDialog()
     End Sub
+
 End Class

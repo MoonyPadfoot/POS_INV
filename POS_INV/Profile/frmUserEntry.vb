@@ -1,6 +1,7 @@
 ﻿Public Class frmUserEntry
     Dim user As New clsUser
     Dim frmUser As New frmUser
+    Dim password As New clsPassword
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         clearControls()
         Me.Close()
@@ -183,4 +184,5 @@
         Next
         Return True
     End Function
+
 End Class

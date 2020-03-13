@@ -72,14 +72,14 @@ Public Class clsUser
         Dim i As Integer
         frmUser.DataGridView1.Rows.Clear()
         ConnectDatabase()
-        Dim query = "SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, username, user_type, is_active FROM user " &
+        Dim query = "SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR) AS _username, user_type, is_active FROM user " &
                     "INNER JOIN user_details ON user.user_id = user_details.user_id " &
                     "INNER JOIN branch ON branch.branch_id = user.branch_id"
         cm = New MySqlCommand(query, con)
         dr = cm.ExecuteReader()
         While dr.Read
             i += 1
-            frmUser.DataGridView1.Rows.Add(dr.Item("user_id").ToString, i, dr.Item("branch_address").ToString, dr.Item("user_gname").ToString, dr.Item("user_mi").ToString, dr.Item("user_surname").ToString, dr.Item("user_suffix").ToString, dr.Item("username").ToString, dr.Item("user_type").ToString, dr.Item("is_active"), "EDIT", "DELETE")
+            frmUser.DataGridView1.Rows.Add(dr.Item("user_id").ToString, i, dr.Item("branch_address").ToString, dr.Item("user_gname").ToString, dr.Item("user_mi").ToString, dr.Item("user_surname").ToString, dr.Item("user_suffix").ToString, dr.Item("_username").ToString, dr.Item("user_type").ToString, dr.Item("is_active"), "EDIT", "DELETE")
         End While
         dr.Close()
         DisconnectDatabase()
@@ -152,7 +152,7 @@ Public Class clsUser
     End Sub
     Public Function loadPassword(_username As String)
         ConnectDatabase()
-        Dim query = "SELECT password FROM user WHERE username=@username"
+        Dim query = "SELECT CAST(password AS CHAR) FROM user WHERE username=@username"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _username)
         Return cm.ExecuteScalar

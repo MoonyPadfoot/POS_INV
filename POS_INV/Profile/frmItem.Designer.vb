@@ -22,15 +22,21 @@ Partial Class frmItem
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MetroTabControl1 = New MetroFramework.Controls.MetroTabControl()
         Me.tp_Items = New System.Windows.Forms.TabPage()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.lbl_row_count_Items = New System.Windows.Forms.Label()
+        Me.dg_Items = New System.Windows.Forms.DataGridView()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btn_Add = New System.Windows.Forms.Button()
         Me.cboCategory = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.tbSearch = New System.Windows.Forms.TextBox()
+        Me.tb_Search = New System.Windows.Forms.TextBox()
         Me.tp_Category = New System.Windows.Forms.TabPage()
         Me.dgCategory = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -63,11 +69,13 @@ Partial Class frmItem
         Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Qty = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewButtonColumn1 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.DataGridViewButtonColumn2 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.MetroTabControl1.SuspendLayout()
         Me.tp_Items.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel5.SuspendLayout()
+        CType(Me.dg_Items, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.tp_Category.SuspendLayout()
         CType(Me.dgCategory, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,7 +100,8 @@ Partial Class frmItem
         '
         'tp_Items
         '
-        Me.tp_Items.Controls.Add(Me.DataGridView2)
+        Me.tp_Items.Controls.Add(Me.Panel5)
+        Me.tp_Items.Controls.Add(Me.dg_Items)
         Me.tp_Items.Controls.Add(Me.Panel2)
         Me.tp_Items.Location = New System.Drawing.Point(4, 38)
         Me.tp_Items.Name = "tp_Items"
@@ -100,19 +109,37 @@ Partial Class frmItem
         Me.tp_Items.TabIndex = 0
         Me.tp_Items.Text = "Manage Items"
         '
-        'DataGridView2
+        'Panel5
         '
-        Me.DataGridView2.AllowUserToAddRows = False
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.Column6, Me.DataGridViewTextBoxColumn2, Me.Column8, Me.col_add_Description, Me.Column7, Me.DataGridViewTextBoxColumn3, Me.Column11, Me.Column9, Me.Column10, Me.DataGridViewButtonColumn1, Me.DataGridViewButtonColumn2})
-        Me.DataGridView2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView2.Location = New System.Drawing.Point(0, 67)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.RowHeadersVisible = False
-        Me.DataGridView2.RowHeadersWidth = 51
-        Me.DataGridView2.RowTemplate.Height = 24
-        Me.DataGridView2.Size = New System.Drawing.Size(1240, 361)
-        Me.DataGridView2.TabIndex = 4
+        Me.Panel5.Controls.Add(Me.lbl_row_count_Items)
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel5.Location = New System.Drawing.Point(0, 368)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(1240, 60)
+        Me.Panel5.TabIndex = 26
+        '
+        'lbl_row_count_Items
+        '
+        Me.lbl_row_count_Items.AutoSize = True
+        Me.lbl_row_count_Items.Location = New System.Drawing.Point(27, 21)
+        Me.lbl_row_count_Items.Name = "lbl_row_count_Items"
+        Me.lbl_row_count_Items.Size = New System.Drawing.Size(76, 17)
+        Me.lbl_row_count_Items.TabIndex = 9
+        Me.lbl_row_count_Items.Text = "Row Count"
+        '
+        'dg_Items
+        '
+        Me.dg_Items.AllowUserToAddRows = False
+        Me.dg_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dg_Items.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.Column6, Me.DataGridViewTextBoxColumn2, Me.Column8, Me.col_add_Description, Me.Column7, Me.DataGridViewTextBoxColumn3, Me.Column11, Me.Column9, Me.Column10, Me.col_Qty, Me.DataGridViewButtonColumn1, Me.DataGridViewButtonColumn2})
+        Me.dg_Items.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dg_Items.Location = New System.Drawing.Point(0, 67)
+        Me.dg_Items.Name = "dg_Items"
+        Me.dg_Items.RowHeadersVisible = False
+        Me.dg_Items.RowHeadersWidth = 51
+        Me.dg_Items.RowTemplate.Height = 24
+        Me.dg_Items.Size = New System.Drawing.Size(1240, 361)
+        Me.dg_Items.TabIndex = 4
         '
         'Panel2
         '
@@ -120,7 +147,7 @@ Partial Class frmItem
         Me.Panel2.Controls.Add(Me.btn_Add)
         Me.Panel2.Controls.Add(Me.cboCategory)
         Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Controls.Add(Me.tbSearch)
+        Me.Panel2.Controls.Add(Me.tb_Search)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
@@ -162,12 +189,14 @@ Partial Class frmItem
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Search:"
         '
-        'tbSearch
+        'tb_Search
         '
-        Me.tbSearch.Location = New System.Drawing.Point(93, 22)
-        Me.tbSearch.Name = "tbSearch"
-        Me.tbSearch.Size = New System.Drawing.Size(663, 22)
-        Me.tbSearch.TabIndex = 3
+        Me.tb_Search.Location = New System.Drawing.Point(93, 22)
+        Me.tb_Search.MaxLength = 100
+        Me.tb_Search.Name = "tb_Search"
+        Me.tb_Search.ShortcutsEnabled = False
+        Me.tb_Search.Size = New System.Drawing.Size(663, 22)
+        Me.tb_Search.TabIndex = 3
         '
         'tp_Category
         '
@@ -389,6 +418,8 @@ Partial Class frmItem
         Me.Column6.HeaderText = "#"
         Me.Column6.MinimumWidth = 6
         Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column6.Width = 45
         '
         'DataGridViewTextBoxColumn2
@@ -397,6 +428,8 @@ Partial Class frmItem
         Me.DataGridViewTextBoxColumn2.HeaderText = "Code"
         Me.DataGridViewTextBoxColumn2.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewTextBoxColumn2.Width = 70
         '
         'Column8
@@ -405,6 +438,8 @@ Partial Class frmItem
         Me.Column8.HeaderText = "Description"
         Me.Column8.MinimumWidth = 6
         Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
         'col_add_Description
         '
@@ -413,6 +448,7 @@ Partial Class frmItem
         Me.col_add_Description.MinimumWidth = 6
         Me.col_add_Description.Name = "col_add_Description"
         Me.col_add_Description.ReadOnly = True
+        Me.col_add_Description.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
         'Column7
         '
@@ -420,6 +456,8 @@ Partial Class frmItem
         Me.Column7.HeaderText = "Brand"
         Me.Column7.MinimumWidth = 6
         Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
         'DataGridViewTextBoxColumn3
         '
@@ -427,31 +465,60 @@ Partial Class frmItem
         Me.DataGridViewTextBoxColumn3.HeaderText = "Category"
         Me.DataGridViewTextBoxColumn3.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewTextBoxColumn3.Width = 94
         '
         'Column11
         '
         Me.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle13.NullValue = Nothing
+        Me.Column11.DefaultCellStyle = DataGridViewCellStyle13
         Me.Column11.HeaderText = "Unit Price"
         Me.Column11.MinimumWidth = 6
         Me.Column11.Name = "Column11"
+        Me.Column11.ReadOnly = True
+        Me.Column11.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column11.Width = 98
         '
         'Column9
         '
         Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle14.NullValue = Nothing
+        Me.Column9.DefaultCellStyle = DataGridViewCellStyle14
         Me.Column9.HeaderText = "Price A"
         Me.Column9.MinimumWidth = 6
         Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column9.Width = 82
         '
         'Column10
         '
         Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column10.DefaultCellStyle = DataGridViewCellStyle15
         Me.Column10.HeaderText = "Price B"
         Me.Column10.MinimumWidth = 6
         Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        Me.Column10.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column10.Width = 82
+        '
+        'col_Qty
+        '
+        Me.col_Qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle16.NullValue = Nothing
+        Me.col_Qty.DefaultCellStyle = DataGridViewCellStyle16
+        Me.col_Qty.HeaderText = "Qty"
+        Me.col_Qty.MinimumWidth = 6
+        Me.col_Qty.Name = "col_Qty"
+        Me.col_Qty.ReadOnly = True
+        Me.col_Qty.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_Qty.Width = 59
         '
         'DataGridViewButtonColumn1
         '
@@ -459,7 +526,8 @@ Partial Class frmItem
         Me.DataGridViewButtonColumn1.HeaderText = ""
         Me.DataGridViewButtonColumn1.MinimumWidth = 6
         Me.DataGridViewButtonColumn1.Name = "DataGridViewButtonColumn1"
-        Me.DataGridViewButtonColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewButtonColumn1.ReadOnly = True
+        Me.DataGridViewButtonColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewButtonColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.DataGridViewButtonColumn1.Width = 23
         '
@@ -469,7 +537,8 @@ Partial Class frmItem
         Me.DataGridViewButtonColumn2.HeaderText = ""
         Me.DataGridViewButtonColumn2.MinimumWidth = 6
         Me.DataGridViewButtonColumn2.Name = "DataGridViewButtonColumn2"
-        Me.DataGridViewButtonColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewButtonColumn2.ReadOnly = True
+        Me.DataGridViewButtonColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewButtonColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.DataGridViewButtonColumn2.Width = 23
         '
@@ -485,7 +554,9 @@ Partial Class frmItem
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MetroTabControl1.ResumeLayout(False)
         Me.tp_Items.ResumeLayout(False)
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
+        CType(Me.dg_Items, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.tp_Category.ResumeLayout(False)
@@ -524,13 +595,15 @@ Partial Class frmItem
     Friend WithEvents btn_new_Brand As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents dg_Items As DataGridView
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btn_Add As Button
     Friend WithEvents cboCategory As ComboBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents tbSearch As TextBox
+    Friend WithEvents tb_Search As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents lbl_row_count_Items As Label
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
@@ -541,6 +614,7 @@ Partial Class frmItem
     Friend WithEvents Column11 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents col_Qty As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewButtonColumn1 As DataGridViewButtonColumn
     Friend WithEvents DataGridViewButtonColumn2 As DataGridViewButtonColumn
 End Class

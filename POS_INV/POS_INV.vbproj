@@ -92,7 +92,10 @@
     </Compile>
     <Compile Include="Profile\Class\clsBranch.vb" />
     <Compile Include="Profile\Class\clsCashier.vb" />
+    <Compile Include="Profile\Class\clsItem.vb" />
+    <Compile Include="Profile\Class\clsLogin.vb" />
     <Compile Include="Profile\Class\clsManager.vb" />
+    <Compile Include="Profile\Class\clsPassword.vb" />
     <Compile Include="Profile\Class\clsUser.vb" />
     <Compile Include="Profile\Class\clsUserList.vb" />
     <Compile Include="Profile\frmBranch.Designer.vb">

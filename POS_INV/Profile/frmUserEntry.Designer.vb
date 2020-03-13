@@ -47,6 +47,8 @@ Partial Class frmUserEntry
         Me.lbl_Id = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.lbl_generate_Pass = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.cb_show_Password = New System.Windows.Forms.CheckBox()
         Me.cbo_Branch = New System.Windows.Forms.ComboBox()
         Me.lbl_branch_Id = New System.Windows.Forms.Label()
@@ -287,6 +289,8 @@ Partial Class frmUserEntry
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.lbl_generate_Pass)
+        Me.GroupBox2.Controls.Add(Me.Label11)
         Me.GroupBox2.Controls.Add(Me.cb_show_Password)
         Me.GroupBox2.Controls.Add(Me.cbo_Branch)
         Me.GroupBox2.Controls.Add(Me.cbo_Active)
@@ -304,6 +308,26 @@ Partial Class frmUserEntry
         Me.GroupBox2.TabIndex = 44
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "User Account Settings"
+        '
+        'lbl_generate_Pass
+        '
+        Me.lbl_generate_Pass.AutoSize = True
+        Me.lbl_generate_Pass.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_generate_Pass.Location = New System.Drawing.Point(503, 135)
+        Me.lbl_generate_Pass.Name = "lbl_generate_Pass"
+        Me.lbl_generate_Pass.Size = New System.Drawing.Size(133, 17)
+        Me.lbl_generate_Pass.TabIndex = 45
+        Me.lbl_generate_Pass.Text = "Generate Password"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(503, 43)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(122, 17)
+        Me.Label11.TabIndex = 44
+        Me.Label11.Text = "Change Password"
         '
         'cb_show_Password
         '
@@ -388,4 +412,6 @@ Partial Class frmUserEntry
     Friend WithEvents lbl_branch_Id As Label
     Friend WithEvents cbo_Branch As ComboBox
     Friend WithEvents cb_show_Password As CheckBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents lbl_generate_Pass As Label
 End Class

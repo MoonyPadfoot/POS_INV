@@ -39,6 +39,9 @@
         frmUserEntry.ShowDialog()
     End Sub
     Private Sub frmUser_Load(sender As Object, e As EventArgs) Handles Me.Load
+        DataGridView3.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None
+        DataGridView2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None
+        DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None
         MetroTabControl1.SelectedTab = tp_user_Profile
         user.loadRecord()
         cashier.loadRecord()
