@@ -26,6 +26,7 @@ Partial Class frmManagerEntry
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btn_Save = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.lbl_change_Pass = New System.Windows.Forms.Label()
         Me.cb_show_Password = New System.Windows.Forms.CheckBox()
         Me.cbo_Active = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -77,6 +78,7 @@ Partial Class frmManagerEntry
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.lbl_change_Pass)
         Me.GroupBox2.Controls.Add(Me.cb_show_Password)
         Me.GroupBox2.Controls.Add(Me.cbo_Active)
         Me.GroupBox2.Controls.Add(Me.Label8)
@@ -90,6 +92,17 @@ Partial Class frmManagerEntry
         Me.GroupBox2.TabIndex = 55
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Manager Account Settings"
+        '
+        'lbl_change_Pass
+        '
+        Me.lbl_change_Pass.AutoSize = True
+        Me.lbl_change_Pass.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_change_Pass.Location = New System.Drawing.Point(139, 92)
+        Me.lbl_change_Pass.Name = "lbl_change_Pass"
+        Me.lbl_change_Pass.Size = New System.Drawing.Size(122, 17)
+        Me.lbl_change_Pass.TabIndex = 46
+        Me.lbl_change_Pass.Text = "Change Password"
+        Me.lbl_change_Pass.Visible = False
         '
         'cb_show_Password
         '
@@ -213,7 +226,7 @@ Partial Class frmManagerEntry
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(116, 52)
         Me.btnCancel.TabIndex = 52
-        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.Text = "Close"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
         'btn_Update
@@ -270,4 +283,5 @@ Partial Class frmManagerEntry
     Friend WithEvents lbl_Id As Label
     Friend WithEvents btnCancel As Button
     Friend WithEvents btn_Update As Button
+    Friend WithEvents lbl_change_Pass As Label
 End Class

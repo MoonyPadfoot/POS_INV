@@ -25,6 +25,7 @@ Partial Class frmCashierEntry
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.lbl_change_Pass = New System.Windows.Forms.Label()
         Me.cb_show_Password = New System.Windows.Forms.CheckBox()
         Me.cbo_Active = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -68,6 +69,7 @@ Partial Class frmCashierEntry
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.lbl_change_Pass)
         Me.GroupBox2.Controls.Add(Me.cb_show_Password)
         Me.GroupBox2.Controls.Add(Me.cbo_Active)
         Me.GroupBox2.Controls.Add(Me.Label8)
@@ -81,6 +83,17 @@ Partial Class frmCashierEntry
         Me.GroupBox2.TabIndex = 50
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Cashier Account Settings"
+        '
+        'lbl_change_Pass
+        '
+        Me.lbl_change_Pass.AutoSize = True
+        Me.lbl_change_Pass.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_change_Pass.Location = New System.Drawing.Point(139, 91)
+        Me.lbl_change_Pass.Name = "lbl_change_Pass"
+        Me.lbl_change_Pass.Size = New System.Drawing.Size(122, 17)
+        Me.lbl_change_Pass.TabIndex = 45
+        Me.lbl_change_Pass.Text = "Change Password"
+        Me.lbl_change_Pass.Visible = False
         '
         'cb_show_Password
         '
@@ -204,7 +217,7 @@ Partial Class frmCashierEntry
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(116, 52)
         Me.btnCancel.TabIndex = 47
-        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.Text = "Close"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
         'btn_Update
@@ -262,7 +275,6 @@ Partial Class frmCashierEntry
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents tb_Username As TextBox
-    Friend WithEvents tb_Password As TextBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents tb_Name As TextBox
     Friend WithEvents Label3 As Label
@@ -271,4 +283,6 @@ Partial Class frmCashierEntry
     Friend WithEvents btn_Update As Button
     Friend WithEvents lbl_search_User As Label
     Friend WithEvents btn_Save As Button
+    Friend WithEvents lbl_change_Pass As Label
+    Friend WithEvents tb_Password As TextBox
 End Class

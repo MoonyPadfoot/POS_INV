@@ -133,6 +133,12 @@
     <Compile Include="Profile\frmCashierEntry.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Profile\frmChangePass.Designer.vb">
+      <DependentUpon>frmChangePass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\frmChangePass.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Profile\frmManagerEntry.Designer.vb">
       <DependentUpon>frmManagerEntry.vb</DependentUpon>
     </Compile>
@@ -349,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Profile\frmCashierEntry.resx">
       <DependentUpon>frmCashierEntry.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profile\frmChangePass.resx">
+      <DependentUpon>frmChangePass.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile\frmManagerEntry.resx">
       <DependentUpon>frmManagerEntry.vb</DependentUpon>

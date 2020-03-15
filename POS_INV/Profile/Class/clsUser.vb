@@ -51,12 +51,9 @@ Public Class clsUser
     Public Function edit()
         Try
             ConnectDatabase()
-            Dim query = "UPDATE user SET password=@password, salt=@salt, user_type=@user_type, branch_id=@branch_id, is_active=@is_active WHERE user_id=@user_id"
+            Dim query = "UPDATE user SET branch_id=@branch_id, is_active=@is_active WHERE user_id=@user_id"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@user_id", Id)
-            cm.Parameters.AddWithValue("@password", Password)
-            cm.Parameters.AddWithValue("@salt", Salt)
-            cm.Parameters.AddWithValue("@user_type", UserType)
             cm.Parameters.AddWithValue("@branch_id", BranchId)
             cm.Parameters.AddWithValue("@is_active", Active)
             cm.ExecuteNonQuery()
@@ -64,6 +61,25 @@ Public Class clsUser
             'loadAutosuggest()
             Return True
 
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
+    Public Function changePass()
+        Try
+            ConnectDatabase()
+            Dim query = "UPDATE user SET password = @password, salt = @salt WHERE username = @username"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@password", Password)
+            cm.Parameters.AddWithValue("@salt", Salt)
+            cm.Parameters.AddWithValue("@username", Username)
+            cm.ExecuteNonQuery()
+            DisconnectDatabase()
+            'loadAutosuggest()
+            Return True
         Catch ex As Exception
             DisconnectDatabase()
             MsgBox(ex.Message, vbCritical)

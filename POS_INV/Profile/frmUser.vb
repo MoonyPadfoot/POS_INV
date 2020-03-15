@@ -8,6 +8,9 @@
         With frmManagerEntry
             .lbl_search_User.Visible = True
             .tb_Username.ReadOnly = False
+            .lbl_change_Pass.Visible = False
+            .tb_Password.Visible = True
+            .cb_show_Password.Visible = True
             .btn_Save.Show()
             .btn_Update.Hide()
             .ShowDialog()
@@ -18,6 +21,9 @@
         With frmCashierEntry
             .lbl_search_User.Visible = True
             .tb_Username.ReadOnly = False
+            .lbl_change_Pass.Visible = False
+            .tb_Password.Visible = True
+            .cb_show_Password.Visible = True
             .btn_Save.Show()
             .btn_Update.Hide()
             .ShowDialog()
@@ -141,6 +147,9 @@
                 .cbo_Active.Text = _is_active
                 .lbl_search_User.Visible = False
                 .tb_Username.ReadOnly = True
+                .lbl_change_Pass.Visible = True
+                .cb_show_Password.Visible = False
+                .tb_Password.Visible = False
                 .btn_Save.Hide()
                 .btn_Update.Show()
                 .tb_Password.Focus()
@@ -186,6 +195,9 @@
                 .cbo_Active.Text = _is_active
                 .lbl_search_User.Visible = False
                 .tb_Username.ReadOnly = True
+                .lbl_change_Pass.Visible = True
+                .tb_Password.Visible = False
+                .cb_show_Password.Visible = False
                 .btn_Save.Hide()
                 .btn_Update.Show()
                 .tb_Password.Focus()

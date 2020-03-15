@@ -54,7 +54,7 @@ Partial Class frmBrandCat
         Me.btn_Cancel.Name = "btn_Cancel"
         Me.btn_Cancel.Size = New System.Drawing.Size(84, 39)
         Me.btn_Cancel.TabIndex = 2
-        Me.btn_Cancel.Text = "Cancel"
+        Me.btn_Cancel.Text = "Close"
         Me.btn_Cancel.UseVisualStyleBackColor = True
         '
         'btn_Update

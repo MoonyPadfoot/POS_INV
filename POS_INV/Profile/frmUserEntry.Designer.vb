@@ -83,7 +83,7 @@ Partial Class frmUserEntry
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(116, 52)
         Me.btnCancel.TabIndex = 36
-        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.Text = "Close"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
         'btn_Update

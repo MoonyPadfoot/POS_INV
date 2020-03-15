@@ -31,7 +31,7 @@ Public Class clsCashier
     Public Function edit()
         Try
             ConnectDatabase()
-            Dim query = "UPDATE cashier SET password = @password, salt = @salt, is_active = @is_active WHERE user_id=@user_id"
+            Dim query = "UPDATE cashier SET is_active = @is_active WHERE user_id=@user_id"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@user_id", Id)
             cm.Parameters.AddWithValue("@password", Password)
@@ -42,6 +42,25 @@ Public Class clsCashier
             'loadAutosuggest()
             Return True
 
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
+    Public Function changePass()
+        Try
+            ConnectDatabase()
+            Dim query = "UPDATE cashier SET password = @password, salt = @salt WHERE username = @username"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@password", Password)
+            cm.Parameters.AddWithValue("@salt", Salt)
+            cm.Parameters.AddWithValue("@username", Username)
+            cm.ExecuteNonQuery()
+            DisconnectDatabase()
+            'loadAutosuggest()
+            Return True
         Catch ex As Exception
             DisconnectDatabase()
             MsgBox(ex.Message, vbCritical)

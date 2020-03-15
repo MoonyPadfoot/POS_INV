@@ -13,7 +13,16 @@ Public Class clsLogin
     Public Function authLogin() As Integer
         Dim salt As String = ""
         ConnectDatabase()
-        Dim query = "SELECT COUNT(*) FROM user WHERE username = @username AND is_active = 1" 'check if active
+        Dim query = "SELECT COUNT(*) FROM user WHERE username = @username" 'check if active
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@username", _Username)
+        Dim count = CInt(cm.ExecuteScalar)
+        If count <> 1 Then
+            DisconnectDatabase()
+            Return 0
+        End If
+
+        query = "SELECT COUNT(*) FROM user WHERE username = @username AND is_active = 1" 'check if active
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         If CInt(cm.ExecuteScalar) <> 1 Then

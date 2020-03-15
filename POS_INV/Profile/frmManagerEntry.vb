@@ -74,29 +74,9 @@
         End Try
     End Sub
     Private Sub btn_Update_Click(sender As Object, e As EventArgs) Handles btn_Update.Click
-        If tb_Password.Text.Length < 8 Then
-            MsgBox("Password must be 8 or more characters long.", vbExclamation)
-            Exit Sub
-        End If
-        If tb_Username.Text.Contains(tb_Password.Text) Then
-            MsgBox("Password and Username must not be the same.", vbExclamation)
-            Exit Sub
-        End If
-        If countEmpty() > 0 Then
-            MsgBox("Please fill in the field(s) before saving.", vbExclamation)
-            Exit Sub
-        End If
         Try
             Dim result = MsgBox("Are you sure you want to update this record?", vbYesNo + vbQuestion)
             If result = vbYes Then
-                password = encryption.hashString(tb_Password.Text & tb_Username.Text)
-                salt = encryption.generateSalt
-                hashedAndSalt = encryption.hashString(String.Format("{0},{1}", password, salt))
-
-                manager.Id = Me.lbl_Id.Text
-                manager.Password = hashedAndSalt
-                manager.Salt = salt
-
                 If cbo_Active.Text = "Yes" Then
                     manager.Active = 1
                 ElseIf cbo_Active.Text = "No" Then
@@ -177,5 +157,15 @@
     Private Sub lbl_search_User_MouseLeave(sender As Object, e As EventArgs) Handles lbl_search_User.MouseLeave
         lbl_search_User.ForeColor = Color.Black
     End Sub
+    Private Sub lbl_change_Pass_Click(sender As Object, e As EventArgs) Handles lbl_change_Pass.Click
+        frmChangePass.lbl_type.Text = 3
+        frmChangePass.ShowDialog()
+    End Sub
+    Private Sub lbl_change_Pass_MouseHover(sender As Object, e As EventArgs) Handles lbl_change_Pass.MouseHover
+        lbl_change_Pass.ForeColor = Color.Blue
+    End Sub
 
+    Private Sub lbl_change_Pass_MouseLeave(sender As Object, e As EventArgs) Handles lbl_change_Pass.MouseLeave
+        lbl_change_Pass.ForeColor = Color.Black
+    End Sub
 End Class
