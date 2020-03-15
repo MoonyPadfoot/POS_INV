@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmSupplierEntry
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,25 +20,24 @@ Partial Class frmSupplierEntry
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnCancel = New System.Windows.Forms.Button()
-        Me.btnUpdate = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.tbFeeA = New System.Windows.Forms.TextBox()
+        Me.btn_Cancel = New System.Windows.Forms.Button()
+        Me.btn_Update = New System.Windows.Forms.Button()
+        Me.btn_Save = New System.Windows.Forms.Button()
+        Me.tb_Address = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.tbDesc = New System.Windows.Forms.TextBox()
+        Me.tb_Name = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.tbServiceCode = New System.Windows.Forms.TextBox()
+        Me.lbl_Id = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
@@ -50,102 +49,99 @@ Partial Class frmSupplierEntry
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(128, 24)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Supplier Entry"
         '
-        'btnCancel
+        'btn_Cancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(570, 190)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(87, 43)
-        Me.btnCancel.TabIndex = 46
-        Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
+        Me.btn_Cancel.Location = New System.Drawing.Point(570, 153)
+        Me.btn_Cancel.Name = "btn_Cancel"
+        Me.btn_Cancel.Size = New System.Drawing.Size(87, 43)
+        Me.btn_Cancel.TabIndex = 4
+        Me.btn_Cancel.Text = "Cancel"
+        Me.btn_Cancel.UseVisualStyleBackColor = True
         '
-        'btnUpdate
+        'btn_Update
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(477, 190)
-        Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(87, 43)
-        Me.btnUpdate.TabIndex = 45
-        Me.btnUpdate.Text = "Update"
-        Me.btnUpdate.UseVisualStyleBackColor = True
+        Me.btn_Update.Location = New System.Drawing.Point(477, 153)
+        Me.btn_Update.Name = "btn_Update"
+        Me.btn_Update.Size = New System.Drawing.Size(87, 43)
+        Me.btn_Update.TabIndex = 3
+        Me.btn_Update.Text = "Update"
+        Me.btn_Update.UseVisualStyleBackColor = True
         '
-        'btnSave
+        'btn_Save
         '
-        Me.btnSave.Location = New System.Drawing.Point(386, 190)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(85, 43)
-        Me.btnSave.TabIndex = 44
-        Me.btnSave.Text = "Save"
-        Me.btnSave.UseVisualStyleBackColor = True
+        Me.btn_Save.Location = New System.Drawing.Point(384, 153)
+        Me.btn_Save.Name = "btn_Save"
+        Me.btn_Save.Size = New System.Drawing.Size(87, 43)
+        Me.btn_Save.TabIndex = 2
+        Me.btn_Save.Text = "Save"
+        Me.btn_Save.UseVisualStyleBackColor = True
         '
-        'tbFeeA
+        'tb_Address
         '
-        Me.tbFeeA.Location = New System.Drawing.Point(161, 151)
-        Me.tbFeeA.Name = "tbFeeA"
-        Me.tbFeeA.Size = New System.Drawing.Size(496, 22)
-        Me.tbFeeA.TabIndex = 42
+        Me.tb_Address.Location = New System.Drawing.Point(120, 114)
+        Me.tb_Address.MaxLength = 100
+        Me.tb_Address.Name = "tb_Address"
+        Me.tb_Address.ShortcutsEnabled = False
+        Me.tb_Address.Size = New System.Drawing.Size(537, 22)
+        Me.tb_Address.TabIndex = 1
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(34, 154)
+        Me.Label7.Location = New System.Drawing.Point(34, 117)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(64, 17)
         Me.Label7.TabIndex = 40
         Me.Label7.Text = "Address:"
         '
-        'tbDesc
+        'tb_Name
         '
-        Me.tbDesc.Location = New System.Drawing.Point(161, 111)
-        Me.tbDesc.Name = "tbDesc"
-        Me.tbDesc.Size = New System.Drawing.Size(496, 22)
-        Me.tbDesc.TabIndex = 39
+        Me.tb_Name.Location = New System.Drawing.Point(120, 74)
+        Me.tb_Name.MaxLength = 50
+        Me.tb_Name.Name = "tb_Name"
+        Me.tb_Name.ShortcutsEnabled = False
+        Me.tb_Name.Size = New System.Drawing.Size(537, 22)
+        Me.tb_Name.TabIndex = 0
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(34, 114)
+        Me.Label3.Location = New System.Drawing.Point(34, 77)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(49, 17)
         Me.Label3.TabIndex = 38
         Me.Label3.Text = "Name:"
         '
-        'Label2
+        'lbl_Id
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(34, 78)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(101, 17)
-        Me.Label2.TabIndex = 37
-        Me.Label2.Text = "Supplier Code:"
-        '
-        'tbServiceCode
-        '
-        Me.tbServiceCode.Location = New System.Drawing.Point(161, 75)
-        Me.tbServiceCode.Name = "tbServiceCode"
-        Me.tbServiceCode.Size = New System.Drawing.Size(403, 22)
-        Me.tbServiceCode.TabIndex = 36
+        Me.lbl_Id.AutoSize = True
+        Me.lbl_Id.Location = New System.Drawing.Point(34, 166)
+        Me.lbl_Id.Name = "lbl_Id"
+        Me.lbl_Id.Size = New System.Drawing.Size(41, 17)
+        Me.lbl_Id.TabIndex = 41
+        Me.lbl_Id.Text = "lbl_Id"
         '
         'frmSupplierEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(696, 255)
+        Me.ClientSize = New System.Drawing.Size(696, 216)
+        Me.Controls.Add(Me.lbl_Id)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.btnCancel)
-        Me.Controls.Add(Me.btnUpdate)
-        Me.Controls.Add(Me.btnSave)
-        Me.Controls.Add(Me.tbFeeA)
+        Me.Controls.Add(Me.btn_Cancel)
+        Me.Controls.Add(Me.btn_Update)
+        Me.Controls.Add(Me.btn_Save)
+        Me.Controls.Add(Me.tb_Address)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.tbDesc)
+        Me.Controls.Add(Me.tb_Name)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.tbServiceCode)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmSupplierEntry"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
@@ -159,13 +155,12 @@ Partial Class frmSupplierEntry
 
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label1 As Label
-    Friend WithEvents btnCancel As Button
-    Friend WithEvents btnUpdate As Button
-    Friend WithEvents btnSave As Button
-    Friend WithEvents tbFeeA As TextBox
+    Friend WithEvents btn_Cancel As Button
+    Friend WithEvents btn_Update As Button
+    Friend WithEvents btn_Save As Button
+    Friend WithEvents tb_Address As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents tbDesc As TextBox
+    Friend WithEvents tb_Name As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents tbServiceCode As TextBox
+    Friend WithEvents lbl_Id As Label
 End Class

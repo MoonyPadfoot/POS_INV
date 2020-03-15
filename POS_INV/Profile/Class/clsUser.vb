@@ -6,6 +6,7 @@ Public Class clsUser
     Public Property Suffix
     Public Property Username
     Public Property Password
+    Public Property Salt
     Public Property UserType
     Public Property BranchId
     Public Property Branch
@@ -16,13 +17,14 @@ Public Class clsUser
         Dim _id As Integer
         Try
             ConnectDatabase()
-            Dim query = "INSERT INTO user (branch_id, username, password, user_type, is_active) " &
-                            "VALUES (@branch_id, @username, @password, @user_type, @is_active); " &
+            Dim query = "INSERT INTO user (branch_id, username, password, salt, user_type, is_active) " &
+                            "VALUES (@branch_id, @username, @password, @salt, @user_type, @is_active); " &
                             "SELECT LAST_INSERT_ID(); "
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@branch_id", BranchId)
             cm.Parameters.AddWithValue("@username", Username)
             cm.Parameters.AddWithValue("@password", Password)
+            cm.Parameters.AddWithValue("@salt", Salt)
             cm.Parameters.AddWithValue("@user_type", UserType)
             cm.Parameters.AddWithValue("@is_active", Active)
             _id = CInt(cm.ExecuteScalar)
@@ -49,10 +51,11 @@ Public Class clsUser
     Public Function edit()
         Try
             ConnectDatabase()
-            Dim query = "UPDATE user SET password=@password, user_type=@user_type, branch_id=@branch_id, is_active=@is_active WHERE user_id=@user_id"
+            Dim query = "UPDATE user SET password=@password, salt=@salt, user_type=@user_type, branch_id=@branch_id, is_active=@is_active WHERE user_id=@user_id"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@user_id", Id)
             cm.Parameters.AddWithValue("@password", Password)
+            cm.Parameters.AddWithValue("@salt", Salt)
             cm.Parameters.AddWithValue("@user_type", UserType)
             cm.Parameters.AddWithValue("@branch_id", BranchId)
             cm.Parameters.AddWithValue("@is_active", Active)

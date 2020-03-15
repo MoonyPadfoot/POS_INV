@@ -1,7 +1,8 @@
 ﻿Public Class frmUserEntry
     Dim user As New clsUser
     Dim frmUser As New frmUser
-    Dim password As New clsPassword
+    Dim encryption As New clsEncryption
+    Dim password, salt, hashedAndSalt
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         clearControls()
         Me.Close()
@@ -46,26 +47,36 @@
             Exit Sub
         End If
         Try
-            user.GName = Trim(Me.tb_Gname.Text)
-            user.Mi = Trim(Me.tb_Mi.Text)
-            user.Surname = Trim(Me.tb_Surname.Text)
-            user.Suffix = Trim(Me.tb_Suffix.Text)
-            user.BranchId = CInt(lbl_branch_Id.Text)
-            user.Username = Me.tb_Username.Text
-            user.Password = Me.tb_Password.Text
-            user.UserType = Me.cbo_Usertype.Text
-            user.Branch = Me.lbl_branch_Id.Text
-            If cbo_Active.Text = "Yes" Then
-                user.Active = 1
-            ElseIf cbo_Active.Text = "No" Then
-                user.Active = 0
-            End If
+
             Dim result = MsgBox("Are you sure you want to save this record?", vbYesNo + vbQuestion)
             If user.checkUserDuplicate = True Then
                 MsgBox("Username is already existing.", vbInformation)
                 Exit Sub
             End If
             If result = vbYes Then
+                user.GName = Trim(Me.tb_Gname.Text)
+                user.Mi = Trim(Me.tb_Mi.Text)
+                user.Surname = Trim(Me.tb_Surname.Text)
+                user.Suffix = Trim(Me.tb_Suffix.Text)
+                user.BranchId = CInt(lbl_branch_Id.Text)
+                user.Username = Me.tb_Username.Text
+                user.UserType = Me.cbo_Usertype.Text
+                user.Branch = Me.lbl_branch_Id.Text
+
+                password = encryption.hashString(tb_Password.Text & tb_Username.Text)
+                salt = encryption.generateSalt
+                hashedAndSalt = encryption.hashString(String.Format("{0},{1}", password, salt))
+
+                user.Id = Me.lbl_Id.Text
+                user.Username = Me.tb_Username.Text '
+                user.Password = hashedAndSalt
+                user.Salt = salt
+
+                If cbo_Active.Text = "Yes" Then
+                    user.Active = 1
+                ElseIf cbo_Active.Text = "No" Then
+                    user.Active = 0
+                End If
                 If user.save = True Then
                     MsgBox("Record has been successfully saved.", vbInformation)
                     clearControls()
@@ -93,16 +104,24 @@
         End If
         Try
             Dim result = MsgBox("Are you sure you want to update this record?", vbYesNo + vbQuestion)
-            user.Id = CInt(Me.lbl_Id.Text)
-            user.UserType = Me.cbo_Usertype.Text
-            user.BranchId = CInt(lbl_branch_Id.Text)
-            user.Password = Me.tb_Password.Text
-            If cbo_Active.Text = "Yes" Then
-                user.Active = 1
-            ElseIf cbo_Active.Text = "No" Then
-                user.Active = 0
-            End If
             If result = vbYes Then
+                user.Id = Me.lbl_Id.Text
+                user.Username = Me.tb_Username.Text '
+                user.UserType = Me.cbo_Usertype.Text
+                user.BranchId = CInt(lbl_branch_Id.Text)
+
+                password = encryption.hashString(tb_Password.Text & tb_Username.Text)
+                salt = encryption.generateSalt
+                hashedAndSalt = encryption.hashString(String.Format("{0},{1}", password, salt))
+
+                user.Password = hashedAndSalt
+                user.Salt = salt
+
+                If cbo_Active.Text = "Yes" Then
+                    user.Active = 1
+                ElseIf cbo_Active.Text = "No" Then
+                    user.Active = 0
+                End If
                 If user.edit = True Then
                     MsgBox("Record has been successfully updated.", vbInformation)
                     frmBranch.tb_Search.Clear()
@@ -185,4 +204,7 @@
         Return True
     End Function
 
+    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles lbl_change_Pass.Click
+
+    End Sub
 End Class

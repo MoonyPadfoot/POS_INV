@@ -31,6 +31,10 @@
             .tb_Surname.ReadOnly = False
             .tb_Suffix.ReadOnly = False
             .tb_Username.ReadOnly = False
+            .lbl_change_Pass.Visible = False
+            .tb_Password.Visible = True
+            .cb_show_Password.Visible = True
+            .cbo_Usertype.Enabled = True
             .cbo_Branch.Items.Clear()
             .btn_Update.Hide()
             .btn_Save.Show()
@@ -79,7 +83,6 @@
                 .tb_Surname.Text = _fName
                 .tb_Suffix.Text = _suffix
                 .tb_Username.Text = _username
-                .tb_Password.Text = user.loadPassword(_username)
                 .cbo_Branch.Text = _branch
                 .cbo_Usertype.Text = _usertype
                 .cbo_Active.Text = _is_active
@@ -88,6 +91,10 @@
                 .tb_Surname.ReadOnly = True
                 .tb_Suffix.ReadOnly = True
                 .tb_Username.ReadOnly = True
+                .lbl_change_Pass.Visible = True
+                .tb_Password.Visible = False
+                .cb_show_Password.Visible = False
+                .cbo_Usertype.Enabled = False
                 .btn_Save.Hide()
                 .btn_Update.Show()
                 .tb_Password.Focus()
@@ -131,7 +138,6 @@
                 .lbl_Id.Text = _id
                 .tb_Name.Text = _gName & " " & _mi & " " & _fName & " " & _suffix
                 .tb_Username.Text = _username
-                .tb_Password.Text = cashier.loadPassword(_username)
                 .cbo_Active.Text = _is_active
                 .lbl_search_User.Visible = False
                 .tb_Username.ReadOnly = True
@@ -177,7 +183,6 @@
                 .lbl_Id.Text = _id
                 .tb_Name.Text = _gName & " " & _mi & " " & _fName & " " & _suffix
                 .tb_Username.Text = _username
-                .tb_Password.Text = manager.loadPassword(_username)
                 .cbo_Active.Text = _is_active
                 .lbl_search_User.Visible = False
                 .tb_Username.ReadOnly = True
@@ -206,17 +211,17 @@
             Select Case cbo_Filter.Text
                 Case "Username"
                     user.UserSearch = Trim(tb_Search.Text)
-                    user.searchUser("SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, username, user_type, is_active FROM user " &
+                    user.searchUser("SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR)AS username, user_type, is_active FROM user " &
                             "INNER JOIN user_details ON user.user_id = user_details.user_id " &
                             "INNER JOIN branch ON branch.branch_id = user.branch_id WHERE user.username LIKE @0")
                 Case "Name"
                     user.UserSearch = Trim(tb_Search.Text)
-                    user.searchUser("SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, username, user_type, is_active FROM user " &
+                    user.searchUser("SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR)AS username, user_type, is_active FROM user " &
                             "INNER JOIN user_details ON user.user_id = user_details.user_id " &
                             "INNER JOIN branch ON branch.branch_id = user.branch_id WHERE user_details.user_gname LIKE @0 OR user_details.user_surname LIKE @0")
                 Case "Branch"
                     user.UserSearch = Trim(tb_Search.Text)
-                    user.searchUser("SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, username, user_type, is_active FROM user " &
+                    user.searchUser("SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR)AS username, user_type, is_active FROM user " &
                             "INNER JOIN user_details ON user.user_id = user_details.user_id " &
                             "INNER JOIN branch ON branch.branch_id = user.branch_id WHERE branch_address LIKE @0")
 
@@ -230,12 +235,12 @@
             Select Case cbo_filter_Cashier.Text
                 Case "Username"
                     cashier.CashierSearch = Trim(tb_search_Cashier.Text)
-                    cashier.searchUser("SELECT cashier.user_id, user_surname, user_gname, user_mi, user_suffix, cashier.username, cashier.is_active FROM cashier " &
+                    cashier.searchUser("SELECT cashier.user_id, user_surname, user_gname, user_mi, user_suffix, CAST(cashier.username AS CHAR) AS _c_username, cashier.is_active FROM cashier " &
                             "INNER JOIN user_details ON cashier.user_id = user_details.user_id " &
                             "INNER JOIN user ON user.user_id = cashier.user_id WHERE cashier.username LIKE @0")
                 Case "Name"
                     cashier.CashierSearch = Trim(tb_search_Cashier.Text)
-                    cashier.searchUser("SELECT cashier.user_id, user_surname, user_gname, user_mi, user_suffix, cashier.username, cashier.is_active FROM cashier " &
+                    cashier.searchUser("SELECT cashier.user_id, user_surname, user_gname, user_mi, user_suffix, CAST(cashier.username AS CHAR) AS _c_username, cashier.is_active FROM cashier " &
                             "INNER JOIN user_details ON cashier.user_id = user_details.user_id " &
                             "INNER JOIN user ON user.user_id = cashier.user_id WHERE user_details.user_gname LIKE @0 OR user_details.user_surname LIKE @0")
             End Select
@@ -248,12 +253,12 @@
             Select Case cbo_filter_manager.Text
                 Case "Username"
                     manager.ManagerSearch = Trim(tb_search_Manager.Text)
-                    manager.searchUser("SELECT manager.user_id, user_surname, user_gname, user_mi, user_suffix, manager.username, manager.is_active FROM manager " &
+                    manager.searchUser("SELECT manager.user_id, user_surname, user_gname, user_mi, user_suffix, CAST(manager.username AS CHAR) AS _m_username, manager.is_active FROM manager " &
                             "INNER JOIN user_details ON manager.user_id = user_details.user_id " &
                             "INNER JOIN user ON user.user_id = manager.user_id WHERE manager.username LIKE @0")
                 Case "Name"
                     manager.ManagerSearch = Trim(tb_search_Manager.Text)
-                    manager.searchUser("SELECT manager.user_id, user_surname, user_gname, user_mi, user_suffix, manager.username, manager.is_active FROM manager " &
+                    manager.searchUser("SELECT manager.user_id, user_surname, user_gname, user_mi, user_suffix, CAST(manager.username AS CHAR) AS _m_username, manager.is_active FROM manager " &
                             "INNER JOIN user_details ON manager.user_id = user_details.user_id " &
                             "INNER JOIN user ON user.user_id = manager.user_id WHERE user_details.user_gname LIKE @0 OR user_details.user_surname LIKE @0")
             End Select

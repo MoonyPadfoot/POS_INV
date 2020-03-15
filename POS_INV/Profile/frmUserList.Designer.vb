@@ -27,13 +27,6 @@ Partial Class frmUserList
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.lbl_row_Count = New System.Windows.Forms.Label()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.cbo_Filter = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.tb_Search = New System.Windows.Forms.TextBox()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_Row = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_Branch = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,6 +38,13 @@ Partial Class frmUserList
         Me.col_Type = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_Active = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.col_Select = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.lbl_row_Count = New System.Windows.Forms.Label()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.cbo_Filter = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.tb_Search = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,73 +106,6 @@ Partial Class frmUserList
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.Size = New System.Drawing.Size(1263, 471)
         Me.DataGridView1.TabIndex = 23
-        '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.lbl_row_Count)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(0, 553)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1263, 60)
-        Me.Panel3.TabIndex = 22
-        '
-        'lbl_row_Count
-        '
-        Me.lbl_row_Count.AutoSize = True
-        Me.lbl_row_Count.Location = New System.Drawing.Point(27, 21)
-        Me.lbl_row_Count.Name = "lbl_row_Count"
-        Me.lbl_row_Count.Size = New System.Drawing.Size(76, 17)
-        Me.lbl_row_Count.TabIndex = 9
-        Me.lbl_row_Count.Text = "Row Count"
-        '
-        'Panel4
-        '
-        Me.Panel4.Controls.Add(Me.Label4)
-        Me.Panel4.Controls.Add(Me.cbo_Filter)
-        Me.Panel4.Controls.Add(Me.Label3)
-        Me.Panel4.Controls.Add(Me.tb_Search)
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel4.Location = New System.Drawing.Point(0, 0)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(1263, 82)
-        Me.Panel4.TabIndex = 21
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(802, 35)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(63, 17)
-        Me.Label4.TabIndex = 8
-        Me.Label4.Text = "Filter By:"
-        '
-        'cbo_Filter
-        '
-        Me.cbo_Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbo_Filter.FormattingEnabled = True
-        Me.cbo_Filter.Items.AddRange(New Object() {"Branch", "Name", "Username"})
-        Me.cbo_Filter.Location = New System.Drawing.Point(887, 32)
-        Me.cbo_Filter.Name = "cbo_Filter"
-        Me.cbo_Filter.Size = New System.Drawing.Size(183, 24)
-        Me.cbo_Filter.TabIndex = 6
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(37, 35)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(57, 17)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Search:"
-        '
-        'tb_Search
-        '
-        Me.tb_Search.Location = New System.Drawing.Point(110, 32)
-        Me.tb_Search.MaxLength = 50
-        Me.tb_Search.Name = "tb_Search"
-        Me.tb_Search.ShortcutsEnabled = False
-        Me.tb_Search.Size = New System.Drawing.Size(663, 22)
-        Me.tb_Search.TabIndex = 3
         '
         'DataGridViewTextBoxColumn4
         '
@@ -278,6 +211,73 @@ Partial Class frmUserList
         Me.col_Select.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.col_Select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.col_Select.Width = 23
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.lbl_row_Count)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel3.Location = New System.Drawing.Point(0, 553)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(1263, 60)
+        Me.Panel3.TabIndex = 22
+        '
+        'lbl_row_Count
+        '
+        Me.lbl_row_Count.AutoSize = True
+        Me.lbl_row_Count.Location = New System.Drawing.Point(27, 21)
+        Me.lbl_row_Count.Name = "lbl_row_Count"
+        Me.lbl_row_Count.Size = New System.Drawing.Size(76, 17)
+        Me.lbl_row_Count.TabIndex = 9
+        Me.lbl_row_Count.Text = "Row Count"
+        '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.Label4)
+        Me.Panel4.Controls.Add(Me.cbo_Filter)
+        Me.Panel4.Controls.Add(Me.Label3)
+        Me.Panel4.Controls.Add(Me.tb_Search)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel4.Location = New System.Drawing.Point(0, 0)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(1263, 82)
+        Me.Panel4.TabIndex = 21
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(802, 35)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(63, 17)
+        Me.Label4.TabIndex = 8
+        Me.Label4.Text = "Filter By:"
+        '
+        'cbo_Filter
+        '
+        Me.cbo_Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbo_Filter.FormattingEnabled = True
+        Me.cbo_Filter.Items.AddRange(New Object() {"Branch", "Name", "Username"})
+        Me.cbo_Filter.Location = New System.Drawing.Point(887, 32)
+        Me.cbo_Filter.Name = "cbo_Filter"
+        Me.cbo_Filter.Size = New System.Drawing.Size(183, 24)
+        Me.cbo_Filter.TabIndex = 6
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(37, 35)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(57, 17)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "Search:"
+        '
+        'tb_Search
+        '
+        Me.tb_Search.Location = New System.Drawing.Point(110, 32)
+        Me.tb_Search.MaxLength = 50
+        Me.tb_Search.Name = "tb_Search"
+        Me.tb_Search.ShortcutsEnabled = False
+        Me.tb_Search.Size = New System.Drawing.Size(663, 22)
+        Me.tb_Search.TabIndex = 3
         '
         'frmUserList
         '

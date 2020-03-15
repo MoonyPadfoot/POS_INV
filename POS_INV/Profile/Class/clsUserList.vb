@@ -7,7 +7,7 @@ Public Class clsUserList
         Dim i As Integer
         frmUserList.DataGridView1.Rows.Clear()
         ConnectDatabase()
-        Dim query = "SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, username, user_type, is_active FROM user " &
+        Dim query = "SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR) AS username, user_type, is_active FROM user " &
                     "INNER JOIN user_details ON user.user_id = user_details.user_id " &
                     "INNER JOIN branch ON branch.branch_id = user.branch_id"
         cm = New MySqlCommand(query, con)

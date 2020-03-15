@@ -1,4 +1,5 @@
 ﻿Public Class frmPos
+    Dim loginPos As New clsLoginPos
     Private Sub frmPos_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Dim obj_Table As New frmPosTable
         'With obj_Table
@@ -15,7 +16,6 @@
         '    .BringToFront()
         '    .Show()
         'End With
-        _authLogin = 2
     End Sub
     Private Sub btn_Add_Click(sender As Object, e As EventArgs) Handles btn_Add.Click
         frmQty.ShowDialog()
@@ -38,6 +38,8 @@
     End Sub
 
     Private Sub btn_Logout_Click(sender As Object, e As EventArgs) Handles btn_Logout.Click
+        loginPos.SetUsername(lbl_Username.Text)
+        loginPos.setUserLogin(0)
         frmMain.Show()
         Me.Close()
     End Sub

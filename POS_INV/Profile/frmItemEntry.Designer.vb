@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmItemEntry
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmItemEntry
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.tb_Code = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -44,6 +44,8 @@ Partial Class frmItemEntry
         Me.tb_add_Desc = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.lbl_Id = New System.Windows.Forms.Label()
+        Me.lbl_brand_Id = New System.Windows.Forms.Label()
+        Me.lbl_category_Id = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -106,7 +108,7 @@ Partial Class frmItemEntry
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(42, 195)
+        Me.Label4.Location = New System.Drawing.Point(42, 197)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(50, 17)
         Me.Label4.TabIndex = 6
@@ -251,11 +253,31 @@ Partial Class frmItemEntry
         Me.lbl_Id.TabIndex = 43
         Me.lbl_Id.Text = "Id"
         '
+        'lbl_brand_Id
+        '
+        Me.lbl_brand_Id.AutoSize = True
+        Me.lbl_brand_Id.Location = New System.Drawing.Point(98, 426)
+        Me.lbl_brand_Id.Name = "lbl_brand_Id"
+        Me.lbl_brand_Id.Size = New System.Drawing.Size(19, 17)
+        Me.lbl_brand_Id.TabIndex = 44
+        Me.lbl_brand_Id.Text = "Id"
+        '
+        'lbl_category_Id
+        '
+        Me.lbl_category_Id.AutoSize = True
+        Me.lbl_category_Id.Location = New System.Drawing.Point(157, 426)
+        Me.lbl_category_Id.Name = "lbl_category_Id"
+        Me.lbl_category_Id.Size = New System.Drawing.Size(19, 17)
+        Me.lbl_category_Id.TabIndex = 45
+        Me.lbl_category_Id.Text = "Id"
+        '
         'frmItemEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(736, 485)
+        Me.Controls.Add(Me.lbl_category_Id)
+        Me.Controls.Add(Me.lbl_brand_Id)
         Me.Controls.Add(Me.lbl_Id)
         Me.Controls.Add(Me.tb_add_Desc)
         Me.Controls.Add(Me.Label10)
@@ -310,4 +332,6 @@ Partial Class frmItemEntry
     Friend WithEvents tb_add_Desc As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents lbl_Id As Label
+    Friend WithEvents lbl_brand_Id As Label
+    Friend WithEvents lbl_category_Id As Label
 End Class

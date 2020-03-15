@@ -2,11 +2,12 @@
     Dim strCurrency As String = ""
     Dim acceptableKey As Boolean = False
     Dim item As New clsItem
+    Dim category As New clsCategory
+    Dim brand As New clsBrand
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btn_Cancel.Click
         clearControls()
         Me.Close()
     End Sub
-
     Private Sub tb_unit_Price_KeyDown(sender As Object, e As KeyEventArgs) Handles tb_unit_Price.KeyDown
         If (e.KeyCode >= Keys.D0 And e.KeyCode <= Keys.D9) OrElse (e.KeyCode >= Keys.NumPad0 And e.KeyCode <= Keys.NumPad9) OrElse e.KeyCode = Keys.Back Then
             acceptableKey = True
@@ -82,7 +83,6 @@
         End If
         e.Handled = True
     End Sub
-
     Private Sub tb_price_B_KeyDown(sender As Object, e As KeyEventArgs) Handles tb_price_B.KeyDown
 
         If (e.KeyCode >= Keys.D0 And e.KeyCode <= Keys.D9) OrElse (e.KeyCode >= Keys.NumPad0 And e.KeyCode <= Keys.NumPad9) OrElse e.KeyCode = Keys.Back Then
@@ -91,7 +91,6 @@
             acceptableKey = False
         End If
     End Sub
-
     Private Sub tb_price_B_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tb_price_B.KeyPress
         ' Check for the flag being set in the KeyDown event.
         If acceptableKey = False Then
@@ -146,16 +145,30 @@
             item.SetCode(Trim(tb_Code.Text))
             item.SetDesc(Trim(tb_Desc.Text))
             item.SetAddDesc(Trim(tb_add_Desc.Text))
-            item.SetBrand(Trim(tb_Brand.Text))
-            item.SetCategory(Trim(tb_Category.Text))
             item.SetUnitPrice(Trim(tb_unit_Price.Text))
             item.SetPriceA(Trim(tb_price_A.Text))
             item.SetPriceB(Trim(tb_price_B.Text))
+
+            brand.SetBrandName(Trim(tb_Brand.Text))
+            category.SetCategoryName(Trim(tb_Category.Text))
+            lbl_brand_Id.Text = brand.BrandId()
+            If CInt(lbl_brand_Id.Text) = -1 Then
+                MsgBox("Please choose an existing Brand, if not create one in the brand module.", vbExclamation)
+                Exit Sub
+            End If
+            lbl_category_Id.Text = category.categoryId()
+            If CInt(lbl_category_Id.Text) = -1 Then
+                MsgBox("Please choose an existing Category, if not create one in the category module.", vbExclamation)
+                Exit Sub
+            End If
+            item.SetCategory(CInt(lbl_category_Id.Text))
+            item.SetBrand(CInt(lbl_brand_Id.Text))
             Dim result = MsgBox("Are you sure you want to save this record?", vbYesNo + vbQuestion)
             If item.checkUserDuplicate = True Then
                 MsgBox("Username is already existing.", vbInformation)
                 Exit Sub
             End If
+
             If result = vbYes Then
                 If item.save = True Then
                     MsgBox("Record has been successfully saved.", vbInformation)
@@ -168,12 +181,60 @@
 
         End Try
     End Sub
+    Private Sub btn_Update_Click(sender As Object, e As EventArgs) Handles btn_Update.Click
+        If countEmpty() = True Then
+            MsgBox("Please fill in the field(s) before saving.", vbExclamation)
+            Exit Sub
+        End If
+        Try
+            item.SetDesc(Trim(tb_Desc.Text))
+            item.SetAddDesc(Trim(tb_add_Desc.Text))
+            item.SetUnitPrice(Trim(tb_unit_Price.Text))
+            item.SetPriceA(Trim(tb_price_A.Text))
+            item.SetPriceB(Trim(tb_price_B.Text))
+
+            brand.SetBrandName(Trim(tb_Brand.Text))
+            category.SetCategoryName(Trim(tb_Category.Text))
+            lbl_category_Id.Text = category.categoryId()
+            If CInt(lbl_category_Id.Text) = -1 Then
+                MsgBox("Please choose an existing Category, if not create one in the category module.", vbCritical)
+                Exit Sub
+            End If
+            lbl_brand_Id.Text = brand.BrandId()
+            If CInt(lbl_brand_Id.Text) = -1 Then
+                MsgBox("Please choose an existing Brand, if not create one in the brand module.", vbCritical)
+                Exit Sub
+            End If
+            item.SetCategory(CInt(lbl_category_Id.Text))
+            item.SetBrand(CInt(lbl_brand_Id.Text))
+            Dim result = MsgBox("Are you sure you want to update this record?", vbYesNo + vbQuestion)
+            If item.checkUserDuplicate = True Then
+                MsgBox("Username is already existing.", vbInformation)
+                Exit Sub
+            End If
+
+            If result = vbYes Then
+                If item.edit = True Then
+                    MsgBox("Record has been successfully updated.", vbInformation)
+                    clearControls()
+                    frmItem.tb_Search.Text = vbNullString
+                    item.loadRecord()
+                End If
+                Me.Close()
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
     Private Sub clearControls()
         For Each cntrl As Control In Me.Controls
             If TypeOf cntrl Is TextBox Then
                 cntrl.Text = vbNullString
             End If
         Next
+        lbl_brand_Id.Text = ""
+        lbl_category_Id.Text = ""
+        lbl_Id.Text = ""
     End Sub
     Private Function countEmpty()
         If tb_Code.Text = vbNullString Then

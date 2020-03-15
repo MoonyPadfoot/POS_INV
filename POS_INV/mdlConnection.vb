@@ -1,6 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
 Module mdlConnection
-    Public _authLogin As String = "Login"
     Public _EntryType As String
     Public con As New MySqlConnection
     Public cm As New MySqlCommand

@@ -1,5 +1,7 @@
 ﻿Public Class frmManagerEntry
     Dim manager As New clsManager
+    Dim encryption As New clsEncryption
+    Dim password, salt, hashedAndSalt
     Private Sub btn_Save_Click(sender As Object, e As EventArgs) Handles btn_Save.Click
         If countEmpty() > 0 Then
             MsgBox("Please fill in the field(s) before saving.", vbExclamation)
@@ -39,20 +41,27 @@
             Exit Sub
         End If
         Try
-            manager.Id = Me.lbl_Id.Text
-            manager.Username = Me.tb_Username.Text '
-            manager.Password = Me.tb_Password.Text
-            If cbo_Active.Text = "Yes" Then
-                manager.Active = 1
-            ElseIf cbo_Active.Text = "No" Then
-                manager.Active = 0
-            End If
+
             Dim result = MsgBox("Are you sure you want to save this record?", vbYesNo + vbQuestion)
             If manager.checkManagerDuplicate = True Then
                 MsgBox("Username is already existing.", vbInformation)
                 Exit Sub
             End If
             If result = vbYes Then
+                password = encryption.hashString(tb_Password.Text & tb_Username.Text)
+                salt = encryption.generateSalt
+                hashedAndSalt = encryption.hashString(String.Format("{0},{1}", password, salt))
+
+                manager.Id = Me.lbl_Id.Text
+                manager.Username = Me.tb_Username.Text '
+                manager.Password = hashedAndSalt
+                manager.Salt = salt
+
+                If cbo_Active.Text = "Yes" Then
+                    manager.Active = 1
+                ElseIf cbo_Active.Text = "No" Then
+                    manager.Active = 0
+                End If
                 If manager.save = True Then
                     MsgBox("Record has been successfully saved.", vbInformation)
                     clearControls()
@@ -79,14 +88,20 @@
         End If
         Try
             Dim result = MsgBox("Are you sure you want to update this record?", vbYesNo + vbQuestion)
-            manager.Id = CInt(Me.lbl_Id.Text)
-            manager.Password = Me.tb_Password.Text
-            If cbo_Active.Text = "Yes" Then
-                manager.Active = 1
-            ElseIf cbo_Active.Text = "No" Then
-                manager.Active = 0
-            End If
             If result = vbYes Then
+                password = encryption.hashString(tb_Password.Text & tb_Username.Text)
+                salt = encryption.generateSalt
+                hashedAndSalt = encryption.hashString(String.Format("{0},{1}", password, salt))
+
+                manager.Id = Me.lbl_Id.Text
+                manager.Password = hashedAndSalt
+                manager.Salt = salt
+
+                If cbo_Active.Text = "Yes" Then
+                    manager.Active = 1
+                ElseIf cbo_Active.Text = "No" Then
+                    manager.Active = 0
+                End If
                 If manager.edit = True Then
                     MsgBox("Record has been successfully updated.", vbInformation)
                     clearControls()

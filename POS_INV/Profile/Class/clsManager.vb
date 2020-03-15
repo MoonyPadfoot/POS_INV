@@ -2,18 +2,21 @@
 Public Class clsManager
     Public Property Username
     Public Property Password
+    Public Property Salt
     Public Property Active
     Public Property Id
     Public Property ManagerSearch
+
     Public Function save()
         Try
             ConnectDatabase()
-            Dim query = "INSERT INTO manager (user_id, username, password, is_active) " &
-                            "VALUES (@user_id, @username, @password, @is_active)"
+            Dim query = "INSERT INTO manager (user_id, username, password, salt, is_active) " &
+                            "VALUES (@user_id, @username, @password, @salt, @is_active)"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@user_id", Id)
             cm.Parameters.AddWithValue("@username", Username)
             cm.Parameters.AddWithValue("@password", Password)
+            cm.Parameters.AddWithValue("@salt", Salt)
             cm.Parameters.AddWithValue("@is_active", Active)
             cm.ExecuteScalar()
             cm.Dispose()
@@ -29,10 +32,11 @@ Public Class clsManager
     Public Function edit()
         Try
             ConnectDatabase()
-            Dim query = "UPDATE manager SET password=@password, is_active=@is_active WHERE user_id=@user_id"
+            Dim query = "UPDATE manager SET password=@password, salt=@salt is_active=@is_active WHERE user_id=@user_id"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@user_id", Id)
             cm.Parameters.AddWithValue("@password", Password)
+            cm.Parameters.AddWithValue("@salt", Salt)
             cm.Parameters.AddWithValue("@is_active", Active)
             cm.ExecuteNonQuery()
             DisconnectDatabase()
@@ -50,14 +54,14 @@ Public Class clsManager
         Dim i As Integer
         frmUser.DataGridView3.Rows.Clear()
         ConnectDatabase()
-        Dim query = "SELECT user.user_id,  user_surname, user_gname, user_mi, user_suffix, manager.username, manager.is_active FROM user " &
+        Dim query = "SELECT user.user_id,  user_surname, user_gname, user_mi, user_suffix, CAST(manager.username AS CHAR) AS _m_username, manager.is_active FROM user " &
                     "INNER JOIN user_details ON user.user_id = user_details.user_id " &
                     "INNER JOIN manager ON manager.user_id = user.user_id"
         cm = New MySqlCommand(query, con)
         dr = cm.ExecuteReader()
         While dr.Read
             i += 1
-            frmUser.DataGridView3.Rows.Add(dr.Item("user_id").ToString, i, dr.Item("user_gname").ToString, dr.Item("user_mi").ToString, dr.Item("user_surname").ToString, dr.Item("user_suffix").ToString, dr.Item("username").ToString, dr.Item("is_active"), "EDIT", "DELETE")
+            frmUser.DataGridView3.Rows.Add(dr.Item("user_id").ToString, i, dr.Item("user_gname").ToString, dr.Item("user_mi").ToString, dr.Item("user_surname").ToString, dr.Item("user_suffix").ToString, dr.Item("_m_username").ToString, dr.Item("is_active"), "EDIT", "DELETE")
         End While
         dr.Close()
         DisconnectDatabase()
@@ -93,17 +97,10 @@ Public Class clsManager
         dr = cm.ExecuteReader()
         While dr.Read
             i += 1
-            frmUser.DataGridView3.Rows.Add(dr.Item("user_id").ToString, i, dr.Item("user_gname").ToString, dr.Item("user_mi").ToString, dr.Item("user_surname").ToString, dr.Item("user_suffix").ToString, dr.Item("username").ToString, dr.Item("is_active"), "EDIT", "DELETE")
+            frmUser.DataGridView3.Rows.Add(dr.Item("user_id").ToString, i, dr.Item("user_gname").ToString, dr.Item("user_mi").ToString, dr.Item("user_surname").ToString, dr.Item("user_suffix").ToString, dr.Item("_m_username").ToString, dr.Item("is_active"), "EDIT", "DELETE")
         End While
         dr.Close()
         DisconnectDatabase()
         frmUser.lbl_row_count_Manager.Text = "(" & frmUser.DataGridView3.RowCount & ") Record(s) found."
     End Sub
-    Public Function loadPassword(_username As String)
-        ConnectDatabase()
-        Dim query = "SELECT password FROM manager WHERE username=@username"
-        cm = New MySqlCommand(query, con)
-        cm.Parameters.AddWithValue("@username", _username)
-        Return cm.ExecuteScalar
-    End Function
 End Class

@@ -26,6 +26,8 @@
                     .tb_Name.Text = _gname & " " & _mi & " " & " " & _fName & " " & _suffix
                     .lbl_Id.Text = _id
                 End With
+                Me.tb_Search.Clear()
+                Me.Close()
             End If
         ElseIf _EntryType = "Manager" Then
             If userList.checkUserTypeManager = True Then
@@ -41,27 +43,27 @@
                     .tb_Name.Text = _gname & " " & _mi & " " & " " & _fName & " " & _suffix
                     .lbl_Id.Text = _id
                 End With
+                Me.tb_Search.Clear()
+                Me.Close()
             End If
         End If
-        Me.tb_Search.Clear()
-        Me.Close()
     End Sub
     Private Sub tb_Search_TextChanged(sender As Object, e As EventArgs) Handles tb_Search.TextChanged
         If Trim(tb_Search.Text) <> "" Then
             Select Case cbo_Filter.Text
                 Case "Username"
                     userList.UserSearch = Trim(tb_Search.Text)
-                    userList.searchUser("SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, username, user_type, is_active FROM user " &
+                    userList.searchUser("SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR) AS username, user_type, is_active FROM user " &
                             "INNER JOIN user_details ON user.user_id = user_details.user_id " &
                             "INNER JOIN branch ON branch.branch_id = user.branch_id WHERE user.username LIKE @0")
                 Case "Name"
                     userList.UserSearch = Trim(tb_Search.Text)
-                    userList.searchUser("SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, username, user_type, is_active FROM user " &
+                    userList.searchUser("SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR) AS username, user_type, is_active FROM user " &
                             "INNER JOIN user_details ON user.user_id = user_details.user_id " &
                             "INNER JOIN branch ON branch.branch_id = user.branch_id WHERE user_details.user_gname LIKE @0 OR user_details.user_surname LIKE @0")
                 Case "Branch"
                     userList.UserSearch = Trim(tb_Search.Text)
-                    userList.searchUser("SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, username, user_type, is_active FROM user " &
+                    userList.searchUser("SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR) AS username, user_type, is_active FROM user " &
                             "INNER JOIN user_details ON user.user_id = user_details.user_id " &
                             "INNER JOIN branch ON branch.branch_id = user.branch_id WHERE branch_address LIKE @0")
             End Select

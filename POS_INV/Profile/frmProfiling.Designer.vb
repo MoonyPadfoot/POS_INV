@@ -23,6 +23,8 @@ Partial Class frmProfiling
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.pnlHeader = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btn_Close = New System.Windows.Forms.Button()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btn_Supplier = New System.Windows.Forms.Button()
@@ -31,11 +33,9 @@ Partial Class frmProfiling
         Me.btn_Item = New System.Windows.Forms.Button()
         Me.btn_User = New System.Windows.Forms.Button()
         Me.pnl_Mid = New System.Windows.Forms.Panel()
-        Me.btn_Close = New System.Windows.Forms.Button()
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.pnlHeader.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlHeader
@@ -47,6 +47,24 @@ Partial Class frmProfiling
         Me.pnlHeader.Name = "pnlHeader"
         Me.pnlHeader.Size = New System.Drawing.Size(1272, 85)
         Me.pnlHeader.TabIndex = 1
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.btn_Close)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel2.Location = New System.Drawing.Point(1169, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(103, 85)
+        Me.Panel2.TabIndex = 2
+        '
+        'btn_Close
+        '
+        Me.btn_Close.Location = New System.Drawing.Point(20, 12)
+        Me.btn_Close.Name = "btn_Close"
+        Me.btn_Close.Size = New System.Drawing.Size(63, 53)
+        Me.btn_Close.TabIndex = 1
+        Me.btn_Close.Text = " "
+        Me.btn_Close.UseVisualStyleBackColor = True
         '
         'Label21
         '
@@ -76,7 +94,6 @@ Partial Class frmProfiling
         '
         Me.btn_Supplier.BackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btn_Supplier.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btn_Supplier.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.btn_Supplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Supplier.ForeColor = System.Drawing.Color.White
         Me.btn_Supplier.Location = New System.Drawing.Point(521, 0)
@@ -91,7 +108,6 @@ Partial Class frmProfiling
         '
         Me.btn_Branch.BackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btn_Branch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btn_Branch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.btn_Branch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Branch.ForeColor = System.Drawing.Color.White
         Me.btn_Branch.Location = New System.Drawing.Point(391, 0)
@@ -106,7 +122,6 @@ Partial Class frmProfiling
         '
         Me.btn_Service.BackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btn_Service.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btn_Service.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.btn_Service.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Service.ForeColor = System.Drawing.Color.White
         Me.btn_Service.Location = New System.Drawing.Point(261, 0)
@@ -121,7 +136,6 @@ Partial Class frmProfiling
         '
         Me.btn_Item.BackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btn_Item.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btn_Item.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.btn_Item.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Item.ForeColor = System.Drawing.Color.White
         Me.btn_Item.Location = New System.Drawing.Point(1, 0)
@@ -136,7 +150,6 @@ Partial Class frmProfiling
         '
         Me.btn_User.BackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btn_User.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btn_User.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.btn_User.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_User.ForeColor = System.Drawing.Color.White
         Me.btn_User.Location = New System.Drawing.Point(131, 0)
@@ -155,24 +168,6 @@ Partial Class frmProfiling
         Me.pnl_Mid.Size = New System.Drawing.Size(1272, 560)
         Me.pnl_Mid.TabIndex = 3
         '
-        'btn_Close
-        '
-        Me.btn_Close.Location = New System.Drawing.Point(20, 12)
-        Me.btn_Close.Name = "btn_Close"
-        Me.btn_Close.Size = New System.Drawing.Size(63, 53)
-        Me.btn_Close.TabIndex = 1
-        Me.btn_Close.Text = " "
-        Me.btn_Close.UseVisualStyleBackColor = True
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.btn_Close)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(1169, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(103, 85)
-        Me.Panel2.TabIndex = 2
-        '
         'frmProfiling
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -187,8 +182,8 @@ Partial Class frmProfiling
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.pnlHeader.ResumeLayout(False)
         Me.pnlHeader.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

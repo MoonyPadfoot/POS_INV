@@ -84,6 +84,7 @@ Partial Class frmPos
         Me.Column3 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.lbl_Username = New System.Windows.Forms.Label()
         Me.pnlHeader.SuspendLayout()
         Me.pnlRight.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -395,6 +396,7 @@ Partial Class frmPos
         '
         'Panel9
         '
+        Me.Panel9.Controls.Add(Me.lbl_Username)
         Me.Panel9.Controls.Add(Me.lbl_dateTime)
         Me.Panel9.Controls.Add(Me.Label3)
         Me.Panel9.Controls.Add(Me.lbl_Name)
@@ -759,6 +761,17 @@ Partial Class frmPos
         Me.Panel2.Size = New System.Drawing.Size(13, 382)
         Me.Panel2.TabIndex = 1
         '
+        'lbl_Username
+        '
+        Me.lbl_Username.AutoSize = True
+        Me.lbl_Username.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Username.Location = New System.Drawing.Point(411, 10)
+        Me.lbl_Username.Name = "lbl_Username"
+        Me.lbl_Username.Size = New System.Drawing.Size(81, 20)
+        Me.lbl_Username.TabIndex = 6
+        Me.lbl_Username.Text = "John Doe"
+        Me.lbl_Username.Visible = False
+        '
         'frmPos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -865,4 +878,5 @@ Partial Class frmPos
     Friend WithEvents Column3 As DataGridViewButtonColumn
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents lbl_Username As Label
 End Class

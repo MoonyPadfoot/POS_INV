@@ -1,5 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
-Public Class clsLogin
+Public Class clsLoginPos
     Dim encryption As New clsEncryption
     Private _Username As String
     Private _Password As String
@@ -10,10 +10,10 @@ Public Class clsLogin
     Public Sub SetPassword(AutoPropertyValue As String)
         _Password = AutoPropertyValue
     End Sub
-    Public Function authLogin() As Integer
+    Public Function authLogin()
         Dim salt As String = ""
         ConnectDatabase()
-        Dim query = "SELECT COUNT(*) FROM user WHERE username = @username AND is_active = 1" 'check if active
+        Dim query = "SELECT COUNT(*) FROM cashier WHERE username = @username AND is_active = 1" 'check if active
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         If CInt(cm.ExecuteScalar) <> 1 Then
@@ -21,8 +21,7 @@ Public Class clsLogin
             Return 1
         End If
 
-
-        query = "SELECT COUNT(*) FROM user WHERE username = @username AND is_logged_in = 0" 'check if logged_in
+        query = "SELECT COUNT(*) FROM cashier WHERE username = @username AND is_logged_in = 0" 'check if logged_in
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         If CInt(cm.ExecuteScalar) <> 1 Then
@@ -30,7 +29,7 @@ Public Class clsLogin
             Return 2
         End If
 
-        query = "SELECT CAST(salt AS CHAR) AS salt FROM user WHERE username = @username"
+        query = "SELECT CAST(salt AS CHAR) AS salt FROM cashier WHERE username = @username"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         dr = cm.ExecuteReader()
@@ -48,7 +47,7 @@ Public Class clsLogin
         Dim pass = encryption.hashString(_Password & _Username)
         Dim hashedAndSalt = encryption.hashString(String.Format("{0},{1}", pass, salt))
 
-        query = "SELECT COUNT(*) FROM user WHERE username = @username AND password = @password "
+        query = "SELECT COUNT(*) FROM cashier WHERE username = @username AND password = @password "
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         cm.Parameters.AddWithValue("@password", hashedAndSalt)
@@ -66,7 +65,7 @@ Public Class clsLogin
     End Function
     Public Function setUserId()
         ConnectDatabase()
-        Dim query = "SELECT user_id FROM user WHERE username = @username"
+        Dim query = "SELECT cashier_id FROM cashier WHERE username = @username"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         Return cm.ExecuteScalar()
@@ -74,33 +73,10 @@ Public Class clsLogin
     End Function
     Public Sub setUserLogin(_key As Integer)
         ConnectDatabase()
-        Dim query = "UPDATE user SET is_logged_in = '" & _key & "' WHERE username = @username"
+        Dim query = "UPDATE cashier SET is_logged_in = '" & _key & "' WHERE username = @username"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         cm.ExecuteScalar()
         DisconnectDatabase()
     End Sub
-    Public Function setName(_key As Integer)
-        ConnectDatabase()
-        Dim query = "SELECT user_gname, user_surname FROM user_details WHERE user_id = '" & _key & "'"
-        cm = New MySqlCommand(query, con)
-        dr = cm.ExecuteReader
-        dr.Read()
-        Dim name = dr.Item("user_gname").ToString & " " & dr.Item("user_surname").ToString
-        dr.Close()
-        DisconnectDatabase()
-        Return name
-    End Function
-    Public Function setUserType() As String
-        ConnectDatabase()
-        Dim query = "SELECT user_type FROM user WHERE username = @username"
-        cm = New MySqlCommand(query, con)
-        cm.Parameters.AddWithValue("@username", _Username)
-        dr = cm.ExecuteReader
-        dr.Read()
-        Dim userType = dr.Item("user_type").ToString
-        dr.Close()
-        DisconnectDatabase()
-        Return userType
-    End Function
 End Class

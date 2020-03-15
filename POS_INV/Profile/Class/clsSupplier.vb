@@ -1,0 +1,127 @@
+﻿Imports MySql.Data.MySqlClient
+Public Class clsSupplier
+    Public Property SupplierName
+    Public Property SupplierAddress
+    Public Property SupplierId
+    Public Property SupplierSearch
+    Public Function save()
+        Try
+            ConnectDatabase()
+            Dim query = "INSERT INTO supplier (supplier_name, supplier_address) VALUES (@supplier_name, @supplier_address)"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@supplier_name", SupplierName)
+            cm.Parameters.AddWithValue("@supplier_address", SupplierAddress)
+            cm.ExecuteNonQuery()
+            DisconnectDatabase()
+            Return True
+
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
+    Public Function edit()
+        Try
+            ConnectDatabase()
+            Dim query = "UPDATE supplier SET supplier_name = @supplier_name, supplier_address = @supplier_address WHERE supplier_id = @supplier_id"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@supplier_id", SupplierId)
+            cm.Parameters.AddWithValue("@supplier_name", SupplierName)
+            cm.Parameters.AddWithValue("@supplier_address", SupplierAddress)
+            cm.ExecuteNonQuery()
+            DisconnectDatabase()
+            Return True
+
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
+    Public Function delete()
+        Try
+            ConnectDatabase()
+            Dim query = "DELETE FROM supplier WHERE supplier_id = @supplier_id"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@supplier_id", SupplierId)
+            cm.ExecuteNonQuery()
+            DisconnectDatabase()
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
+    Public Sub loadRecord()
+        Dim i As Integer
+        frmSupplier.DataGridView1.Rows.Clear()
+        ConnectDatabase()
+        Dim query = "SELECT * FROM supplier"
+        cm = New MySqlCommand(query, con)
+        dr = cm.ExecuteReader
+        While dr.Read
+            i += 1
+            frmSupplier.DataGridView1.Rows.Add(dr.Item("supplier_id").ToString, i, dr.Item("supplier_name").ToString, dr.Item("supplier_address").ToString, "EDIT", "DELETE")
+        End While
+        dr.Close()
+        DisconnectDatabase()
+        frmSupplier.lbl_row_Count.Text = "(" & frmSupplier.DataGridView1.RowCount & ") Record(s) found."
+    End Sub
+    Public Sub searchSupplier(query As String)
+        Dim i As Integer
+        frmSupplier.DataGridView1.Rows.Clear()
+        ConnectDatabase()
+        Dim cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@0", SupplierSearch & "%")
+        dr = cm.ExecuteReader
+        While dr.Read
+            i += 1
+            frmSupplier.DataGridView1.Rows.Add(dr.Item("supplier_id").ToString, i, dr.Item("supplier_name").ToString, dr.Item("supplier_address").ToString, "EDIT", "DELETE")
+        End While
+        dr.Close()
+        DisconnectDatabase()
+        frmSupplier.lbl_row_Count.Text = "(" & frmSupplier.DataGridView1.RowCount & ") Record(s) found."
+    End Sub
+    Public Function checkSupplierExists() 'checks if branch is already in use in other tables(user, stock)
+        Try
+            ConnectDatabase()
+            Dim query = "SELECT supplier_id FROM user WHERE supplier_id = @supplier_id"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@supplier_id", SupplierId)
+            Dim count = Convert.ToInt16(cm.ExecuteScalar())
+            If count > 0 Then
+                Return True
+                DisconnectDatabase()
+            End If
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
+    Public Function checkSupplierDuplicate()
+        Try
+            ConnectDatabase()
+            Dim query = "SELECT supplier_name FROM supplier WHERE supplier_name = @supplier_name"
+            Dim cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@supplier_name", SupplierName)
+            dr = cm.ExecuteReader
+            If dr.HasRows Then
+                dr.Close()
+                DisconnectDatabase()
+                Return True
+            End If
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        dr.Close()
+        DisconnectDatabase()
+        Return False
+    End Function
+End Class

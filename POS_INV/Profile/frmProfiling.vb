@@ -6,6 +6,11 @@
             .BringToFront()
             .Show()
         End With
+        btn_Item.BackColor = Color.FromArgb(44, 62, 80)
+        btn_User.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Service.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Supplier.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Branch.BackColor = Color.FromArgb(127, 140, 141)
     End Sub
 
     Private Sub btn_User_Click(sender As Object, e As EventArgs) Handles btn_User.Click
@@ -15,6 +20,11 @@
             .BringToFront()
             .Show()
         End With
+        btn_User.BackColor = Color.FromArgb(44, 62, 80)
+        btn_Item.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Service.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Supplier.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Branch.BackColor = Color.FromArgb(127, 140, 141)
     End Sub
 
     Private Sub btn_Service_Click(sender As Object, e As EventArgs) Handles btn_Service.Click
@@ -24,15 +34,26 @@
             .BringToFront()
             .Show()
         End With
+        btn_Service.BackColor = Color.FromArgb(44, 62, 80)
+        btn_User.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Item.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Supplier.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Branch.BackColor = Color.FromArgb(127, 140, 141)
     End Sub
 
     Private Sub btn_Branch_Click(sender As Object, e As EventArgs) Handles btn_Branch.Click
+
         With frmBranch
             .TopLevel = False
             pnl_Mid.Controls.Add(frmBranch)
             .BringToFront()
             .Show()
         End With
+        btn_Branch.BackColor = Color.FromArgb(44, 62, 80)
+        btn_User.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Item.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Service.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Supplier.BackColor = Color.FromArgb(127, 140, 141)
     End Sub
 
     Private Sub btn_Supplier_Click(sender As Object, e As EventArgs) Handles btn_Supplier.Click
@@ -42,6 +63,11 @@
             .BringToFront()
             .Show()
         End With
+        btn_Supplier.BackColor = Color.FromArgb(44, 62, 80)
+        btn_Branch.BackColor = Color.FromArgb(127, 140, 141)
+        btn_User.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Item.BackColor = Color.FromArgb(127, 140, 141)
+        btn_Service.BackColor = Color.FromArgb(127, 140, 141)
     End Sub
 
     Private Sub btn_Close_Click(sender As Object, e As EventArgs) Handles btn_Close.Click

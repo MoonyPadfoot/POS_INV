@@ -1,5 +1,7 @@
 ﻿Public Class frmCashierEntry
     Dim cashier As New clsCashier
+    Dim encryption As New clsEncryption
+    Dim password, hashedAndSalt, salt
     Private Sub btn_Save_Click(sender As Object, e As EventArgs) Handles btn_Save.Click
         If countEmpty() > 0 Then
             MsgBox("Please fill in the field(s) before saving.", vbExclamation)
@@ -39,20 +41,27 @@
             Exit Sub
         End If
         Try
-            cashier.Id = Me.lbl_Id.Text
-            cashier.Username = Me.tb_Username.Text '
-            cashier.Password = Me.tb_Password.Text
-            If cbo_Active.Text = "Yes" Then
-                cashier.Active = 1
-            ElseIf cbo_Active.Text = "No" Then
-                cashier.Active = 0
-            End If
             Dim result = MsgBox("Are you sure you want to save this record?", vbYesNo + vbQuestion)
             If cashier.checkCashierDuplicate = True Then
                 MsgBox("Username is already existing.", vbInformation)
                 Exit Sub
             End If
             If result = vbYes Then
+                password = encryption.hashString(tb_Password.Text & tb_Username.Text)
+                salt = encryption.generateSalt
+                hashedAndSalt = encryption.hashString(String.Format("{0},{1}", password, salt))
+
+                cashier.Id = Me.lbl_Id.Text
+                cashier.Username = Me.tb_Username.Text '
+                cashier.Password = hashedAndSalt
+                cashier.Salt = salt
+
+                If cbo_Active.Text = "Yes" Then
+                    cashier.Active = 1
+                ElseIf cbo_Active.Text = "No" Then
+                    cashier.Active = 0
+                End If
+
                 If cashier.save = True Then
                     MsgBox("Record has been successfully saved.", vbInformation)
                     clearControls()
@@ -78,15 +87,23 @@
             Exit Sub
         End If
         Try
+
             Dim result = MsgBox("Are you sure you want to update this record?", vbYesNo + vbQuestion)
-            cashier.Id = CInt(Me.lbl_Id.Text)
-            cashier.Password = Me.tb_Password.Text
-            If cbo_Active.Text = "Yes" Then
-                cashier.Active = 1
-            ElseIf cbo_Active.Text = "No" Then
-                cashier.Active = 0
-            End If
             If result = vbYes Then
+                password = encryption.hashString(tb_Password.Text & tb_Username.Text)
+                salt = encryption.generateSalt
+                hashedAndSalt = encryption.hashString(String.Format("{0},{1}", password, salt))
+
+                cashier.Id = CInt(Me.lbl_Id.Text)
+                cashier.Password = hashedAndSalt
+                cashier.Salt = salt
+
+                If cbo_Active.Text = "Yes" Then
+                    cashier.Active = 1
+                ElseIf cbo_Active.Text = "No" Then
+                    cashier.Active = 0
+                End If
+
                 If cashier.edit = True Then
                     MsgBox("Record has been successfully updated.", vbInformation)
                     clearControls()
