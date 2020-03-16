@@ -92,6 +92,7 @@ Partial Class frmServiceEntry
         Me.tb_fee_B.Location = New System.Drawing.Point(158, 191)
         Me.tb_fee_B.MaxLength = 10
         Me.tb_fee_B.Name = "tb_fee_B"
+        Me.tb_fee_B.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.tb_fee_B.ShortcutsEnabled = False
         Me.tb_fee_B.Size = New System.Drawing.Size(192, 22)
         Me.tb_fee_B.TabIndex = 31
@@ -101,6 +102,7 @@ Partial Class frmServiceEntry
         Me.tb_fee_A.Location = New System.Drawing.Point(158, 148)
         Me.tb_fee_A.MaxLength = 10
         Me.tb_fee_A.Name = "tb_fee_A"
+        Me.tb_fee_A.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.tb_fee_A.ShortcutsEnabled = False
         Me.tb_fee_A.Size = New System.Drawing.Size(192, 22)
         Me.tb_fee_A.TabIndex = 30

@@ -23,6 +23,7 @@
     Private Sub btn_Add_Click(sender As Object, e As EventArgs) Handles btn_Add.Click
         frmItemEntry.btn_Update.Enabled = False
         frmItemEntry.btn_Save.Enabled = True
+        frmItemEntry.tb_Code.ReadOnly = False
         frmItemEntry.ShowDialog()
     End Sub
 

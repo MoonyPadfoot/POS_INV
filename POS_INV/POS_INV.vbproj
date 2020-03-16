@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Customer\clsCustomer.vb" />
     <Compile Include="frmLoginPos.Designer.vb">
       <DependentUpon>frmLoginPos.vb</DependentUpon>
     </Compile>
@@ -115,10 +116,10 @@
     <Compile Include="Profile\frmBranch.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCustomerEntry.Designer.vb">
+    <Compile Include="Customer\frmCustomerEntry.Designer.vb">
       <DependentUpon>frmCustomerEntry.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmCustomerEntry.vb">
+    <Compile Include="Customer\frmCustomerEntry.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.Designer.vb">
@@ -205,10 +206,10 @@
     <Compile Include="POS\frmCreditPay.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCustomers.Designer.vb">
+    <Compile Include="Customer\frmCustomers.Designer.vb">
       <DependentUpon>frmCustomers.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmCustomers.vb">
+    <Compile Include="Customer\frmCustomers.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="POS\frmQty.Designer.vb">
@@ -347,7 +348,7 @@
     <EmbeddedResource Include="Profile\frmBranch.resx">
       <DependentUpon>frmBranch.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCustomerEntry.resx">
+    <EmbeddedResource Include="Customer\frmCustomerEntry.resx">
       <DependentUpon>frmCustomerEntry.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
@@ -392,7 +393,7 @@
     <EmbeddedResource Include="POS\frmCreditPay.resx">
       <DependentUpon>frmCreditPay.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCustomers.resx">
+    <EmbeddedResource Include="Customer\frmCustomers.resx">
       <DependentUpon>frmCustomers.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POS\frmQty.resx">

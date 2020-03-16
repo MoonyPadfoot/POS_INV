@@ -161,6 +161,14 @@
                 MsgBox("Please choose an existing Category, if not create one in the category module.", vbExclamation)
                 Exit Sub
             End If
+            If Convert.ToDecimal(tb_unit_Price.Text) > Convert.ToDecimal(tb_price_B.Text) Then
+                MsgBox("Unit Price should be Lesser than Price B.", vbExclamation)
+                Exit Sub
+            End If
+            If Convert.ToDecimal(tb_price_A.Text) <= Convert.ToDecimal(tb_price_B.Text) Then
+                MsgBox("Price A should be Greater than Price B.", vbExclamation)
+                Exit Sub
+            End If
             item.SetCategory(CInt(lbl_category_Id.Text))
             item.SetBrand(CInt(lbl_brand_Id.Text))
             Dim result = MsgBox("Are you sure you want to save this record?", vbYesNo + vbQuestion)
@@ -187,6 +195,7 @@
             Exit Sub
         End If
         Try
+            item.SetCode(tb_Code.Text)
             item.SetDesc(Trim(tb_Desc.Text))
             item.SetAddDesc(Trim(tb_add_Desc.Text))
             item.SetUnitPrice(Trim(tb_unit_Price.Text))
@@ -205,13 +214,17 @@
                 MsgBox("Please choose an existing Brand, if not create one in the brand module.", vbCritical)
                 Exit Sub
             End If
+            If Convert.ToDecimal(tb_unit_Price.Text) > Convert.ToDecimal(tb_price_B.Text) Then
+                MsgBox("Unit Price should be Lesser than Price B.", vbExclamation)
+                Exit Sub
+            End If
+            If Convert.ToDecimal(tb_price_A.Text) <= Convert.ToDecimal(tb_price_B.Text) Then
+                MsgBox("Price A should be Greater than price B.", vbExclamation)
+                Exit Sub
+            End If
             item.SetCategory(CInt(lbl_category_Id.Text))
             item.SetBrand(CInt(lbl_brand_Id.Text))
             Dim result = MsgBox("Are you sure you want to update this record?", vbYesNo + vbQuestion)
-            If item.checkUserDuplicate = True Then
-                MsgBox("Username is already existing.", vbInformation)
-                Exit Sub
-            End If
 
             If result = vbYes Then
                 If item.edit = True Then

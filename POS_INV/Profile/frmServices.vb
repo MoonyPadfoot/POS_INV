@@ -6,6 +6,7 @@
     Private Sub btn_Add_Click(sender As Object, e As EventArgs) Handles btn_Add.Click
         frmServiceEntry.btn_Update.Enabled = False
         frmServiceEntry.btn_Save.Enabled = True
+        frmServiceEntry.tb_service_Code.ReadOnly = False
         frmServiceEntry.ShowDialog()
     End Sub
     Private Sub frmItem_Load(sender As Object, e As EventArgs) Handles Me.Load

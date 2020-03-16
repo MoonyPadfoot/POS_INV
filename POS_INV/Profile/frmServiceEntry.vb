@@ -95,6 +95,10 @@
             MsgBox("Please fill in the field(s) before saving.", vbExclamation)
             Exit Sub
         End If
+        If Convert.ToDecimal(tb_fee_A.Text) <= Convert.ToDecimal(tb_fee_B.Text) Then
+            MsgBox("Fee A should be Greater than fee B.", vbExclamation)
+            Exit Sub
+        End If
         Try
             service.SetCode(Trim(tb_service_Code.Text))
             service.SetDesc(Trim(tb_Desc.Text))
@@ -124,16 +128,17 @@
             MsgBox("Please fill in the field(s) before saving.", vbExclamation)
             Exit Sub
         End If
+        If Convert.ToDecimal(tb_fee_A.Text) <= Convert.ToDecimal(tb_fee_B.Text) Then
+            MsgBox("Fee A should be Greater than fee B.", vbExclamation)
+            Exit Sub
+        End If
         Try
+            service.SetCode(tb_service_Code.Text)
             service.SetDesc(Trim(tb_Desc.Text))
             service.SetFeeA(Trim(tb_fee_A.Text))
             service.SetFeeB(Trim(tb_fee_B.Text))
 
             Dim result = MsgBox("Are you sure you want to update this record?", vbYesNo + vbQuestion)
-            If service.checkServiceDuplicate = True Then
-                MsgBox("Service is already existing.", vbInformation)
-                Exit Sub
-            End If
 
             If result = vbYes Then
                 If service.edit = True Then

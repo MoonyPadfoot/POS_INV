@@ -55,7 +55,7 @@ Partial Class frmItemEntry
         Me.tb_Code.MaxLength = 50
         Me.tb_Code.Name = "tb_Code"
         Me.tb_Code.ShortcutsEnabled = False
-        Me.tb_Code.Size = New System.Drawing.Size(496, 22)
+        Me.tb_Code.Size = New System.Drawing.Size(403, 22)
         Me.tb_Code.TabIndex = 0
         '
         'Label1
