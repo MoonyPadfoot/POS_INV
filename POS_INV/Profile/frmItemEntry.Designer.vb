@@ -81,7 +81,7 @@ Partial Class frmItemEntry
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(42, 113)
+        Me.Label3.Location = New System.Drawing.Point(42, 154)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(83, 17)
         Me.Label3.TabIndex = 3
@@ -89,26 +89,26 @@ Partial Class frmItemEntry
         '
         'tb_Desc
         '
-        Me.tb_Desc.Location = New System.Drawing.Point(189, 112)
+        Me.tb_Desc.Location = New System.Drawing.Point(189, 153)
         Me.tb_Desc.MaxLength = 50
         Me.tb_Desc.Name = "tb_Desc"
         Me.tb_Desc.ShortcutsEnabled = False
         Me.tb_Desc.Size = New System.Drawing.Size(496, 22)
-        Me.tb_Desc.TabIndex = 1
+        Me.tb_Desc.TabIndex = 2
         '
         'tb_Brand
         '
-        Me.tb_Brand.Location = New System.Drawing.Point(189, 194)
+        Me.tb_Brand.Location = New System.Drawing.Point(189, 111)
         Me.tb_Brand.MaxLength = 50
         Me.tb_Brand.Name = "tb_Brand"
         Me.tb_Brand.ShortcutsEnabled = False
         Me.tb_Brand.Size = New System.Drawing.Size(496, 22)
-        Me.tb_Brand.TabIndex = 3
+        Me.tb_Brand.TabIndex = 1
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(42, 197)
+        Me.Label4.Location = New System.Drawing.Point(42, 114)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(50, 17)
         Me.Label4.TabIndex = 6
@@ -228,17 +228,17 @@ Partial Class frmItemEntry
         '
         'tb_add_Desc
         '
-        Me.tb_add_Desc.Location = New System.Drawing.Point(189, 154)
+        Me.tb_add_Desc.Location = New System.Drawing.Point(189, 195)
         Me.tb_add_Desc.MaxLength = 50
         Me.tb_add_Desc.Name = "tb_add_Desc"
         Me.tb_add_Desc.ShortcutsEnabled = False
         Me.tb_add_Desc.Size = New System.Drawing.Size(496, 22)
-        Me.tb_add_Desc.TabIndex = 2
+        Me.tb_add_Desc.TabIndex = 3
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(42, 155)
+        Me.Label10.Location = New System.Drawing.Point(42, 196)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(115, 17)
         Me.Label10.TabIndex = 21

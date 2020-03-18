@@ -35,7 +35,7 @@ Public Class clsCustomer
         _CreditLimit = AutoPropertyValue
     End Sub
 
-    Public Sub SetUserSearch(AutoPropertyValue As Object)
+    Public Sub SetCustomerSearch(AutoPropertyValue As Object)
         _CustomerSearch = AutoPropertyValue
     End Sub
 
@@ -56,9 +56,9 @@ Public Class clsCustomer
                 "VALUES (" & _id & ", @customer_surname, @customer_gname, @customer_mi, @customer_suffix)"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@customer_surname", _Surname)
-            cm.Parameters.AddWithValue("@user_gname", _GName)
-            cm.Parameters.AddWithValue("@user_mi", _Mi)
-            cm.Parameters.AddWithValue("@user_suffix", _Suffix)
+            cm.Parameters.AddWithValue("@customer_gname", _GName)
+            cm.Parameters.AddWithValue("@customer_mi", _Mi)
+            cm.Parameters.AddWithValue("@customer_suffix", _Suffix)
             cm.ExecuteScalar()
             DisconnectDatabase()
             'loadAutosuggest()
@@ -73,7 +73,7 @@ Public Class clsCustomer
     Public Function edit()
         Try
             ConnectDatabase()
-            Dim query = "UPDATE customer SET credit_limit WHERE customer_id=@customer_id"
+            Dim query = "UPDATE customer SET credit_limit = @credit_limit WHERE customer_id = @customer_id"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@customer_id", _Id)
             cm.Parameters.AddWithValue("@credit_limit", _CreditLimit)
@@ -93,43 +93,29 @@ Public Class clsCustomer
         Dim i As Integer
         frmCustomers.DataGridView1.Rows.Clear()
         ConnectDatabase()
-        Dim query = "SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR) AS _username, user_type, is_active FROM user " &
-                    "INNER JOIN user_details ON user.user_id = user_details.user_id " &
-                    "INNER JOIN branch ON branch.branch_id = user.branch_id"
+        Dim query = "SELECT customer.customer_id, customer_code, credit_limit, customer_gname, customer_mi, customer_surname, customer_suffix, credit_limit, balance FROM customer " &
+                    "INNER JOIN customer_details ON customer.customer_id = customer_details.customer_id "
         cm = New MySqlCommand(query, con)
         dr = cm.ExecuteReader()
         While dr.Read
             i += 1
-            frmUser.DataGridView1.Rows.Add(dr.Item("user_id").ToString, i, dr.Item("branch_address").ToString, dr.Item("user_gname").ToString, dr.Item("user_mi").ToString, dr.Item("user_surname").ToString, dr.Item("user_suffix").ToString, dr.Item("_username").ToString, dr.Item("user_type").ToString, dr.Item("is_active"), "EDIT", "DELETE")
+            frmCustomers.DataGridView1.Rows.Add(dr.Item("customer_id").ToString, i, dr.Item("customer_code").ToString, dr.Item("customer_gname").ToString, dr.Item("customer_mi").ToString, dr.Item("customer_surname").ToString, dr.Item("customer_suffix").ToString, dr.Item("credit_limit").ToString, dr.Item("balance").ToString, "EDIT", "DELETE")
         End While
         dr.Close()
+        frmCustomers.lbl_row_Count.Text = "(" & frmCustomers.DataGridView1.RowCount & ") Record(s) found."
+
+        query = "SELECT SUM(balance) FROM customer"
+        cm = New MySqlCommand(query, con)
+        Dim total = cm.ExecuteScalar
         DisconnectDatabase()
-        frmUser.lbl_row_Count.Text = "(" & frmUser.DataGridView1.RowCount & ") Record(s) found."
+        frmCustomers.lbl_amount_Receivable.Text = total
     End Sub
-    Public Function checkBranchExists() 'checks if branch is already in use in other tables(user, stock)
+    Public Function checkCustomerDuplicate()
         Try
             ConnectDatabase()
-            Dim query = "SELECT user_id FROM user WHERE user_id = @user_id"
-            cm = New MySqlCommand(query, con)
-            cm.Parameters.AddWithValue("@user_id", GetId())
-            Dim count = Convert.ToInt16(cm.ExecuteScalar())
-            If count > 0 Then
-                Return True
-                DisconnectDatabase()
-            End If
-        Catch ex As Exception
-            DisconnectDatabase()
-            MsgBox(ex.Message, vbCritical)
-        End Try
-        DisconnectDatabase()
-        Return False
-    End Function
-    Public Function checkUserDuplicate()
-        Try
-            ConnectDatabase()
-            Dim query = "SELECT username FROM user WHERE username = @username"
+            Dim query = "SELECT customer_code FROM customer WHERE customer_code = @customer_code"
             Dim cm = New MySqlCommand(query, con)
-            cm.Parameters.AddWithValue("@username", Username)
+            cm.Parameters.AddWithValue("@customer_code", _Code)
             dr = cm.ExecuteReader
             If dr.HasRows Then
                 dr.Close()
@@ -144,53 +130,26 @@ Public Class clsCustomer
         DisconnectDatabase()
         Return False
     End Function
-    Public Sub loadBranch()
-        ConnectDatabase()
-        Dim query = "SELECT branch_address FROM branch ORDER BY branch_address"
-        cm = New MySqlCommand(query, con)
-        Dim ds As New DataSet
-        Dim da As New MySqlDataAdapter(cm)
-        da.Fill(ds, "branch_address")
-        For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
-            With frmUserEntry.cbo_Branch
-                .Items.Add(ds.Tables(0).Rows(i)("branch_address").ToString)
-            End With
-        Next
-        DisconnectDatabase()
-    End Sub
-    Public Sub loadBranchId()
-        ConnectDatabase()
-        Dim query = "SELECT branch_id FROM branch WHERE branch_address=@branch_address"
-        cm = New MySqlCommand(query, con)
-        cm.Parameters.AddWithValue("@branch_address", Branch)
-        Dim dr As MySqlDataReader = cm.ExecuteReader()
-        If dr.HasRows Then
-            While dr.Read
-                frmUserEntry.lbl_branch_Id.Text = dr(0).ToString
-            End While
-        End If
-        DisconnectDatabase()
-    End Sub
-    Public Function loadPassword(_username As String)
-        ConnectDatabase()
-        Dim query = "SELECT CAST(password AS CHAR) FROM user WHERE username=@username"
-        cm = New MySqlCommand(query, con)
-        cm.Parameters.AddWithValue("@username", _username)
-        Return cm.ExecuteScalar
-    End Function
-    Public Sub searchUser(query As String)
+    Public Sub searchCustomer(query As String)
         Dim i As Integer
-        frmUser.DataGridView1.Rows.Clear()
+        frmCustomers.DataGridView1.Rows.Clear()
         ConnectDatabase()
         cm = New MySqlCommand(query, con)
-        cm.Parameters.AddWithValue("@0", GetUserSearch() & "%")
+        cm.Parameters.AddWithValue("@0", _CustomerSearch & "%")
         dr = cm.ExecuteReader()
         While dr.Read
             i += 1
-            frmUser.DataGridView1.Rows.Add(dr.Item("user_id").ToString, i, dr.Item("branch_address").ToString, dr.Item("user_gname").ToString, dr.Item("user_mi").ToString, dr.Item("user_surname").ToString, dr.Item("user_suffix").ToString, dr.Item("username").ToString, dr.Item("user_type").ToString, dr.Item("is_active"), "EDIT", "DELETE")
+            frmCustomers.DataGridView1.Rows.Add(dr.Item("customer_id").ToString, i, dr.Item("customer_code").ToString, dr.Item("customer_gname").ToString, dr.Item("customer_mi").ToString, dr.Item("customer_surname").ToString, dr.Item("customer_suffix").ToString, dr.Item("credit_limit").ToString, dr.Item("balance").ToString, "EDIT", "DELETE")
         End While
         dr.Close()
+        frmCustomers.lbl_row_Count.Text = "(" & frmCustomers.DataGridView1.RowCount & ") Record(s) found."
+
+        query = "SELECT SUM(balance) FROM customer"
+        cm = New MySqlCommand(query, con)
+        Dim total = cm.ExecuteNonQuery
+        dr.Close()
         DisconnectDatabase()
-        frmUser.lbl_row_Count.Text = "(" & frmUser.DataGridView1.RowCount & ") Record(s) found."
+        frmCustomers.lbl_amount_Receivable.Text = total
     End Sub
+
 End Class

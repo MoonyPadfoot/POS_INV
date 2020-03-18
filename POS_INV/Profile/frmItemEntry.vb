@@ -161,8 +161,8 @@
                 MsgBox("Please choose an existing Category, if not create one in the category module.", vbExclamation)
                 Exit Sub
             End If
-            If Convert.ToDecimal(tb_unit_Price.Text) > Convert.ToDecimal(tb_price_B.Text) Then
-                MsgBox("Unit Price should be Lesser than Price B.", vbExclamation)
+            If Convert.ToDecimal(tb_unit_Price.Text) < Convert.ToDecimal(tb_price_B.Text) Or CDec(tb_unit_Price.Text) > CDec(tb_price_A.Text) Then
+                MsgBox("Unit Price should be less than price A and greater than price B.", vbExclamation)
                 Exit Sub
             End If
             If Convert.ToDecimal(tb_price_A.Text) <= Convert.ToDecimal(tb_price_B.Text) Then
@@ -214,8 +214,8 @@
                 MsgBox("Please choose an existing Brand, if not create one in the brand module.", vbCritical)
                 Exit Sub
             End If
-            If Convert.ToDecimal(tb_unit_Price.Text) > Convert.ToDecimal(tb_price_B.Text) Then
-                MsgBox("Unit Price should be Lesser than Price B.", vbExclamation)
+            If Convert.ToDecimal(tb_unit_Price.Text) < Convert.ToDecimal(tb_price_B.Text) Or CDec(tb_unit_Price.Text) > CDec(tb_price_A.Text) Then
+                MsgBox("Unit Price should be less than price A and greater than price B.", vbExclamation)
                 Exit Sub
             End If
             If Convert.ToDecimal(tb_price_A.Text) <= Convert.ToDecimal(tb_price_B.Text) Then

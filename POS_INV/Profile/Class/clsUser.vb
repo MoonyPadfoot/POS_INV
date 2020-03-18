@@ -104,24 +104,6 @@ Public Class clsUser
         DisconnectDatabase()
         frmUser.lbl_row_Count.Text = "(" & frmUser.DataGridView1.RowCount & ") Record(s) found."
     End Sub
-    Public Function checkBranchExists() 'checks if branch is already in use in other tables(user, stock)
-        Try
-            ConnectDatabase()
-            Dim query = "SELECT user_id FROM user WHERE user_id = @user_id"
-            cm = New MySqlCommand(query, con)
-            cm.Parameters.AddWithValue("@user_id", Id)
-            Dim count = Convert.ToInt16(cm.ExecuteScalar())
-            If count > 0 Then
-                Return True
-                DisconnectDatabase()
-            End If
-        Catch ex As Exception
-            DisconnectDatabase()
-            MsgBox(ex.Message, vbCritical)
-        End Try
-        DisconnectDatabase()
-        Return False
-    End Function
     Public Function checkUserDuplicate()
         Try
             ConnectDatabase()

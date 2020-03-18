@@ -117,7 +117,7 @@ Public Class clsItem
         dr = cm.ExecuteReader()
         While dr.Read
             i += 1
-            frmItem.dg_Items.Rows.Add(dr.Item("item_id").ToString, i, dr.Item("item_code").ToString, dr.Item("item_desc").ToString, dr.Item("item_add_desc").ToString, dr.Item("brand_name").ToString, dr.Item("category_name").ToString, dr.Item("item_unit_price").ToString, dr.Item("item_price_A").ToString, dr.Item("item_price_B"), dr.Item("item_qty"), "EDIT", "DELETE")
+            frmItem.dg_Items.Rows.Add(dr.Item("item_id").ToString, i, dr.Item("item_code").ToString, dr.Item("brand_name").ToString, dr.Item("item_desc").ToString, dr.Item("item_add_desc").ToString, dr.Item("category_name").ToString, dr.Item("item_unit_price").ToString, dr.Item("item_price_A").ToString, dr.Item("item_price_B"), dr.Item("item_qty"), "EDIT", "DELETE")
         End While
         dr.Close()
         DisconnectDatabase()
@@ -132,7 +132,7 @@ Public Class clsItem
         dr = cm.ExecuteReader()
         While dr.Read
             i += 1
-            frmItem.dg_Items.Rows.Add(dr.Item("item_id").ToString, i, dr.Item("item_code").ToString, dr.Item("item_desc").ToString, dr.Item("item_add_desc").ToString, dr.Item("brand_name").ToString, dr.Item("category_name").ToString, dr.Item("item_unit_price").ToString, dr.Item("item_price_A").ToString, dr.Item("item_price_B"), dr.Item("item_qty"), "EDIT", "DELETE")
+            frmItem.dg_Items.Rows.Add(dr.Item("item_id").ToString, i, dr.Item("item_code").ToString, dr.Item("brand_name").ToString, dr.Item("item_desc").ToString, dr.Item("item_add_desc").ToString, dr.Item("category_name").ToString, dr.Item("item_unit_price").ToString, dr.Item("item_price_A").ToString, dr.Item("item_price_B"), dr.Item("item_qty"), "EDIT", "DELETE")
         End While
         dr.Close()
         DisconnectDatabase()

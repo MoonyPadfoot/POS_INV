@@ -220,8 +220,7 @@ Partial Class frmMain
         Me.btn_Help.BackColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(166, Byte), Integer))
         Me.btn_Help.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btn_Help.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(166, Byte), Integer))
-        Me.btn_Help.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btn_Help.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btn_Help.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btn_Help.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Help.Location = New System.Drawing.Point(1170, 0)
         Me.btn_Help.Margin = New System.Windows.Forms.Padding(0)
@@ -267,7 +266,6 @@ Partial Class frmMain
         Me.btn_Profile.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btn_Profile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(166, Byte), Integer))
         Me.btn_Profile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btn_Profile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btn_Profile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Profile.Location = New System.Drawing.Point(234, 0)
         Me.btn_Profile.Margin = New System.Windows.Forms.Padding(0)
@@ -283,7 +281,6 @@ Partial Class frmMain
         Me.btn_sales_Report.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btn_sales_Report.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(166, Byte), Integer))
         Me.btn_sales_Report.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btn_sales_Report.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btn_sales_Report.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_sales_Report.Location = New System.Drawing.Point(936, 0)
         Me.btn_sales_Report.Margin = New System.Windows.Forms.Padding(0)
@@ -315,7 +312,6 @@ Partial Class frmMain
         Me.btn_Inventory.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btn_Inventory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(166, Byte), Integer))
         Me.btn_Inventory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btn_Inventory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btn_Inventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Inventory.Location = New System.Drawing.Point(468, 0)
         Me.btn_Inventory.Margin = New System.Windows.Forms.Padding(0)
@@ -331,7 +327,6 @@ Partial Class frmMain
         Me.btn_Customer.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btn_Customer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(166, Byte), Integer))
         Me.btn_Customer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btn_Customer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btn_Customer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Customer.Location = New System.Drawing.Point(702, 0)
         Me.btn_Customer.Margin = New System.Windows.Forms.Padding(0)

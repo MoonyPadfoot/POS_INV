@@ -185,7 +185,7 @@ Partial Class frmManagerEntry
         'lbl_search_User
         '
         Me.lbl_search_User.AutoSize = True
-        Me.lbl_search_User.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_search_User.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_search_User.Location = New System.Drawing.Point(137, 82)
         Me.lbl_search_User.Name = "lbl_search_User"
         Me.lbl_search_User.Size = New System.Drawing.Size(142, 17)

@@ -310,7 +310,7 @@ Partial Class frmUserEntry
         'lbl_change_Pass
         '
         Me.lbl_change_Pass.AutoSize = True
-        Me.lbl_change_Pass.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_change_Pass.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_change_Pass.Location = New System.Drawing.Point(175, 90)
         Me.lbl_change_Pass.Name = "lbl_change_Pass"
         Me.lbl_change_Pass.Size = New System.Drawing.Size(122, 17)

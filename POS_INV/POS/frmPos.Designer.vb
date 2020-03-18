@@ -49,6 +49,7 @@ Partial Class frmPos
         Me.btn_Add = New System.Windows.Forms.Button()
         Me.btn_Advance_Srch = New System.Windows.Forms.Button()
         Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.lbl_Username = New System.Windows.Forms.Label()
         Me.lbl_dateTime = New System.Windows.Forms.Label()
         Me.lbl_Name = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -84,7 +85,6 @@ Partial Class frmPos
         Me.Column3 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.lbl_Username = New System.Windows.Forms.Label()
         Me.pnlHeader.SuspendLayout()
         Me.pnlRight.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -190,7 +190,7 @@ Partial Class frmPos
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(198, 40)
+        Me.TextBox3.Location = New System.Drawing.Point(198, 42)
         Me.TextBox3.Multiline = True
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(294, 30)
@@ -406,6 +406,17 @@ Partial Class frmPos
         Me.Panel9.Name = "Panel9"
         Me.Panel9.Size = New System.Drawing.Size(514, 52)
         Me.Panel9.TabIndex = 4
+        '
+        'lbl_Username
+        '
+        Me.lbl_Username.AutoSize = True
+        Me.lbl_Username.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Username.Location = New System.Drawing.Point(411, 10)
+        Me.lbl_Username.Name = "lbl_Username"
+        Me.lbl_Username.Size = New System.Drawing.Size(81, 20)
+        Me.lbl_Username.TabIndex = 6
+        Me.lbl_Username.Text = "John Doe"
+        Me.lbl_Username.Visible = False
         '
         'lbl_dateTime
         '
@@ -760,17 +771,6 @@ Partial Class frmPos
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(13, 382)
         Me.Panel2.TabIndex = 1
-        '
-        'lbl_Username
-        '
-        Me.lbl_Username.AutoSize = True
-        Me.lbl_Username.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Username.Location = New System.Drawing.Point(411, 10)
-        Me.lbl_Username.Name = "lbl_Username"
-        Me.lbl_Username.Size = New System.Drawing.Size(81, 20)
-        Me.lbl_Username.TabIndex = 6
-        Me.lbl_Username.Text = "John Doe"
-        Me.lbl_Username.Visible = False
         '
         'frmPos
         '

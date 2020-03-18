@@ -22,6 +22,7 @@ Partial Class frmServices
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -33,8 +34,6 @@ Partial Class frmServices
         Me.Label3 = New System.Windows.Forms.Label()
         Me.tb_Search = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.lbl_row_Count = New System.Windows.Forms.Label()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -43,6 +42,8 @@ Partial Class frmServices
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_Edit = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.col_Delete = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.lbl_row_Count = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -116,27 +117,12 @@ Partial Class frmServices
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 51
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(1286, 369)
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(1286, 309)
         Me.DataGridView1.TabIndex = 3
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.lbl_row_Count)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 390)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1286, 60)
-        Me.Panel2.TabIndex = 7
-        '
-        'lbl_row_Count
-        '
-        Me.lbl_row_Count.AutoSize = True
-        Me.lbl_row_Count.Location = New System.Drawing.Point(27, 21)
-        Me.lbl_row_Count.Name = "lbl_row_Count"
-        Me.lbl_row_Count.Size = New System.Drawing.Size(76, 17)
-        Me.lbl_row_Count.TabIndex = 9
-        Me.lbl_row_Count.Text = "Row Count"
         '
         'DataGridViewTextBoxColumn4
         '
@@ -221,13 +207,31 @@ Partial Class frmServices
         Me.col_Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.col_Delete.Width = 23
         '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.lbl_row_Count)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel2.Location = New System.Drawing.Point(0, 390)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1286, 60)
+        Me.Panel2.TabIndex = 7
+        '
+        'lbl_row_Count
+        '
+        Me.lbl_row_Count.AutoSize = True
+        Me.lbl_row_Count.Location = New System.Drawing.Point(27, 21)
+        Me.lbl_row_Count.Name = "lbl_row_Count"
+        Me.lbl_row_Count.Size = New System.Drawing.Size(76, 17)
+        Me.lbl_row_Count.TabIndex = 9
+        Me.lbl_row_Count.Text = "Row Count"
+        '
         'frmServices
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1286, 450)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmServices"

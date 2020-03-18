@@ -91,6 +91,13 @@
     <Compile Include="frmLoginPos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Inventory\clsItemList.vb" />
+    <Compile Include="Inventory\frmItemList.Designer.vb">
+      <DependentUpon>frmItemList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\frmItemList.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="POS\frmAuthenticate.Designer.vb">
       <DependentUpon>frmAuthenticate.vb</DependentUpon>
     </Compile>
@@ -341,6 +348,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmLoginPos.resx">
       <DependentUpon>frmLoginPos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\frmItemList.resx">
+      <DependentUpon>frmItemList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POS\frmAuthenticate.resx">
       <DependentUpon>frmAuthenticate.vb</DependentUpon>

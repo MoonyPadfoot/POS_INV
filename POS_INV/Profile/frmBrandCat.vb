@@ -84,7 +84,7 @@
                 Dim result = MsgBox("Are you sure you want to update this record?", vbYesNo + vbQuestion)
                 brand.SetBrandName(Trim(tb_brand_Cat.Text))
                 If brand.checkBrandDuplicate = True Then
-                    MsgBox("Branch name is already existing.", vbInformation)
+                    MsgBox("Brand name is already existing.", vbInformation)
                     Exit Sub
                 End If
                 If result = vbYes Then

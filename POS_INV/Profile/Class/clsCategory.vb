@@ -33,7 +33,7 @@ Public Class clsCategory
     Public Function edit()
         Try
             ConnectDatabase()
-            Dim query = "UPDATE category SET category_name = @category_name WHERE category_id = @bcategory_id"
+            Dim query = "UPDATE category SET category_name = @category_name WHERE category_id = @category_id"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@category_id", _CategoryId)
             cm.Parameters.AddWithValue("@category_name", _CategoryName)

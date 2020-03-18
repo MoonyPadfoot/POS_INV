@@ -25,9 +25,9 @@ Partial Class frmCustomerEntry
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.btnCancel = New System.Windows.Forms.Button()
-        Me.btnUpdate = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btn_Cancel = New System.Windows.Forms.Button()
+        Me.btn_Update = New System.Windows.Forms.Button()
+        Me.btn_Save = New System.Windows.Forms.Button()
         Me.tb_Suffix = New System.Windows.Forms.TextBox()
         Me.tb_Surname = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -38,9 +38,10 @@ Partial Class frmCustomerEntry
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.tb_Code = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.tb_credit_Limit = New System.Windows.Forms.TextBox()
+        Me.tb_Balance = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.lbl_Id = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -74,32 +75,32 @@ Partial Class frmCustomerEntry
         Me.Label8.TabIndex = 59
         Me.Label8.Text = "Credit Limit:"
         '
-        'btnCancel
+        'btn_Cancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(594, 371)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(87, 43)
-        Me.btnCancel.TabIndex = 58
-        Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
+        Me.btn_Cancel.Location = New System.Drawing.Point(594, 371)
+        Me.btn_Cancel.Name = "btn_Cancel"
+        Me.btn_Cancel.Size = New System.Drawing.Size(87, 43)
+        Me.btn_Cancel.TabIndex = 58
+        Me.btn_Cancel.Text = "Close"
+        Me.btn_Cancel.UseVisualStyleBackColor = True
         '
-        'btnUpdate
+        'btn_Update
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(501, 371)
-        Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(87, 43)
-        Me.btnUpdate.TabIndex = 57
-        Me.btnUpdate.Text = "Update"
-        Me.btnUpdate.UseVisualStyleBackColor = True
+        Me.btn_Update.Location = New System.Drawing.Point(501, 371)
+        Me.btn_Update.Name = "btn_Update"
+        Me.btn_Update.Size = New System.Drawing.Size(87, 43)
+        Me.btn_Update.TabIndex = 57
+        Me.btn_Update.Text = "Update"
+        Me.btn_Update.UseVisualStyleBackColor = True
         '
-        'btnSave
+        'btn_Save
         '
-        Me.btnSave.Location = New System.Drawing.Point(410, 371)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(85, 43)
-        Me.btnSave.TabIndex = 56
-        Me.btnSave.Text = "Save"
-        Me.btnSave.UseVisualStyleBackColor = True
+        Me.btn_Save.Location = New System.Drawing.Point(410, 371)
+        Me.btn_Save.Name = "btn_Save"
+        Me.btn_Save.Size = New System.Drawing.Size(85, 43)
+        Me.btn_Save.TabIndex = 56
+        Me.btn_Save.Text = "Save"
+        Me.btn_Save.UseVisualStyleBackColor = True
         '
         'tb_Suffix
         '
@@ -191,24 +192,24 @@ Partial Class frmCustomerEntry
         Me.tb_Code.Size = New System.Drawing.Size(403, 22)
         Me.tb_Code.TabIndex = 44
         '
-        'TextBox1
+        'tb_credit_Limit
         '
-        Me.TextBox1.Location = New System.Drawing.Point(185, 286)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.TextBox1.ShortcutsEnabled = False
-        Me.TextBox1.Size = New System.Drawing.Size(165, 22)
-        Me.TextBox1.TabIndex = 60
-        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.tb_credit_Limit.Location = New System.Drawing.Point(185, 286)
+        Me.tb_credit_Limit.Name = "tb_credit_Limit"
+        Me.tb_credit_Limit.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.tb_credit_Limit.ShortcutsEnabled = False
+        Me.tb_credit_Limit.Size = New System.Drawing.Size(165, 22)
+        Me.tb_credit_Limit.TabIndex = 60
         '
-        'TextBox2
+        'tb_Balance
         '
-        Me.TextBox2.Location = New System.Drawing.Point(185, 330)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(165, 22)
-        Me.TextBox2.TabIndex = 62
-        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.tb_Balance.Location = New System.Drawing.Point(185, 330)
+        Me.tb_Balance.Name = "tb_Balance"
+        Me.tb_Balance.ReadOnly = True
+        Me.tb_Balance.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.tb_Balance.Size = New System.Drawing.Size(165, 22)
+        Me.tb_Balance.TabIndex = 62
+        Me.tb_Balance.Text = "0.00"
         '
         'Label9
         '
@@ -219,18 +220,28 @@ Partial Class frmCustomerEntry
         Me.Label9.TabIndex = 61
         Me.Label9.Text = "Balance:"
         '
+        'lbl_Id
+        '
+        Me.lbl_Id.AutoSize = True
+        Me.lbl_Id.Location = New System.Drawing.Point(41, 371)
+        Me.lbl_Id.Name = "lbl_Id"
+        Me.lbl_Id.Size = New System.Drawing.Size(41, 17)
+        Me.lbl_Id.TabIndex = 63
+        Me.lbl_Id.Text = "lbl_Id"
+        '
         'frmCustomerEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(736, 447)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.lbl_Id)
+        Me.Controls.Add(Me.tb_Balance)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.tb_credit_Limit)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.btnCancel)
-        Me.Controls.Add(Me.btnUpdate)
-        Me.Controls.Add(Me.btnSave)
+        Me.Controls.Add(Me.btn_Cancel)
+        Me.Controls.Add(Me.btn_Update)
+        Me.Controls.Add(Me.btn_Save)
         Me.Controls.Add(Me.tb_Suffix)
         Me.Controls.Add(Me.tb_Surname)
         Me.Controls.Add(Me.Label6)
@@ -256,9 +267,9 @@ Partial Class frmCustomerEntry
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents btnCancel As Button
-    Friend WithEvents btnUpdate As Button
-    Friend WithEvents btnSave As Button
+    Friend WithEvents btn_Cancel As Button
+    Friend WithEvents btn_Update As Button
+    Friend WithEvents btn_Save As Button
     Friend WithEvents tb_Suffix As TextBox
     Friend WithEvents tb_Surname As TextBox
     Friend WithEvents Label6 As Label
@@ -269,7 +280,8 @@ Partial Class frmCustomerEntry
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents tb_Code As TextBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents tb_credit_Limit As TextBox
+    Friend WithEvents tb_Balance As TextBox
     Friend WithEvents Label9 As Label
+    Friend WithEvents lbl_Id As Label
 End Class

@@ -91,6 +91,7 @@
     End Sub
 
     Private Sub Dg_Category_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_Category.CellContentClick
+        frmBrandCat.lbl_Header.Text = "Category"
         Dim colName As String = dg_Category.Columns(e.ColumnIndex).Name
         If colName = "col_edit_Category" Then
             With frmBrandCat
@@ -122,6 +123,7 @@
     End Sub
 
     Private Sub Dg_Brand_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_Brand.CellContentClick
+        frmBrandCat.lbl_Header.Text = "Brand"
         Dim colName As String = dg_Brand.Columns(e.ColumnIndex).Name
         If colName = "col_edit_Brand" Then
             With frmBrandCat
@@ -163,12 +165,12 @@
                     item.SetItemSearch(Trim(tb_Search.Text))
                     item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, item_qty, brand.brand_name, category.category_name FROM item " &
                                     "INNER JOIN brand ON brand.brand_id = item.brand_id " &
-                                    "INNER JOIN category ON category.category_id = item.category_id WHERE item_brand LIKE @0")
+                                    "INNER JOIN category ON category.category_id = item.category_id WHERE brand_name LIKE @0")
                 Case "Category"
                     item.SetItemSearch(Trim(tb_Search.Text))
                     item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, item_qty, brand.brand_name, category.category_name FROM item " &
                                     "INNER JOIN brand ON brand.brand_id = item.brand_id " &
-                                    "INNER JOIN category ON category.category_id = item.category_id WHERE item_category LIKE @0")
+                                    "INNER JOIN category ON category.category_id = item.category_id WHERE category_name LIKE @0")
             End Select
         Else
             item.loadRecord()
