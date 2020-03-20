@@ -85,6 +85,10 @@ Public Class clsBranch
         frmBranch.tb_Search.AutoCompleteSource = AutoCompleteSource.CustomSource
         frmBranch.tb_Search.AutoCompleteCustomSource = col
         frmBranch.tb_Search.AutoCompleteMode = AutoCompleteMode.Suggest
+
+        frmStock.tb_branch_stock_In.AutoCompleteSource = AutoCompleteSource.CustomSource
+        frmStock.tb_branch_stock_In.AutoCompleteCustomSource = col
+        frmStock.tb_branch_stock_In.AutoCompleteMode = AutoCompleteMode.Suggest
         DisconnectDatabase()
     End Sub
     Public Sub searchBranch(query As String)
@@ -123,8 +127,9 @@ Public Class clsBranch
     Public Function checkBranchDuplicate()
         Try
             ConnectDatabase()
-            Dim query = "SELECT branch_address FROM branch WHERE branch_address = @branch_address"
+            Dim query = "SELECT branch_address FROM branch WHERE branch_address = @branch_address AND branch_id <> @branch_id"
             Dim cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@branch_id", BranchId)
             cm.Parameters.AddWithValue("@branch_address", BranchName)
             dr = cm.ExecuteReader
             If dr.HasRows Then

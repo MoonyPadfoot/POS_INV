@@ -91,6 +91,14 @@
             acceptableKey = False
         End If
     End Sub
+    Private Sub tb_Quantity_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tb_Quantity.KeyPress
+        If (Microsoft.VisualBasic.Asc(e.KeyChar) <> 8) Then
+            If (Microsoft.VisualBasic.Asc(e.KeyChar) < 48) _
+            Or (Microsoft.VisualBasic.Asc(e.KeyChar) > 57) Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
     Private Sub tb_price_B_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tb_price_B.KeyPress
         ' Check for the flag being set in the KeyDown event.
         If acceptableKey = False Then
@@ -148,6 +156,7 @@
             item.SetUnitPrice(Trim(tb_unit_Price.Text))
             item.SetPriceA(Trim(tb_price_A.Text))
             item.SetPriceB(Trim(tb_price_B.Text))
+            item.SetItemQty(CInt(tb_Quantity.Text))
 
             brand.SetBrandName(Trim(tb_Brand.Text))
             category.SetCategoryName(Trim(tb_Category.Text))
@@ -172,8 +181,8 @@
             item.SetCategory(CInt(lbl_category_Id.Text))
             item.SetBrand(CInt(lbl_brand_Id.Text))
             Dim result = MsgBox("Are you sure you want to save this record?", vbYesNo + vbQuestion)
-            If item.checkUserDuplicate = True Then
-                MsgBox("Username is already existing.", vbInformation)
+            If item.checkItemDuplicate = True Then
+                MsgBox("Item is already existing.", vbInformation)
                 Exit Sub
             End If
 
@@ -245,6 +254,7 @@
                 cntrl.Text = vbNullString
             End If
         Next
+        tb_Quantity.Text = 0
         lbl_brand_Id.Text = ""
         lbl_category_Id.Text = ""
         lbl_Id.Text = ""
@@ -273,6 +283,9 @@
             Return True
         ElseIf tb_price_B.Text = vbNullString Then
             tb_price_B.Focus()
+            Return True
+        ElseIf tb_Quantity.Text = vbNullString Then
+            tb_Quantity.Focus()
             Return True
         End If
         Return False

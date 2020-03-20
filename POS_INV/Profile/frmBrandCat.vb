@@ -1,6 +1,7 @@
 ﻿Public Class frmBrandCat
     Dim category As New clsCategory
     Dim brand As New clsBrand
+    Dim item As New clsItem
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btn_Cancel.Click
         tb_brand_Cat.Clear()
         Me.Close()
@@ -62,6 +63,7 @@
             Try
                 Dim result = MsgBox("Are you sure you want to update this record?", vbYesNo + vbQuestion)
                 category.SetCategoryName(Trim(tb_brand_Cat.Text))
+                category.SetCategoryId(lbl_brand_Cat.Text)
                 If category.checkCategoryDuplicate = True Then
                     MsgBox("Branch name is already existing.", vbInformation)
                     Exit Sub
@@ -71,6 +73,8 @@
                     category.SetCategoryName(Trim(Me.tb_brand_Cat.Text))
                     If category.edit = True Then
                         MsgBox("Record has been successfully updated.", vbInformation)
+                        tb_brand_Cat.Clear()
+                        tb_brand_Cat.Focus()
                         frmItem.tb_search_Category.Clear()
                         category.loadRecord()
                     End If
@@ -83,6 +87,7 @@
             Try
                 Dim result = MsgBox("Are you sure you want to update this record?", vbYesNo + vbQuestion)
                 brand.SetBrandName(Trim(tb_brand_Cat.Text))
+                brand.SetBrandId(lbl_brand_Cat.Text)
                 If brand.checkBrandDuplicate = True Then
                     MsgBox("Brand name is already existing.", vbInformation)
                     Exit Sub
@@ -92,8 +97,11 @@
                     brand.SetBrandName(Trim(Me.tb_brand_Cat.Text))
                     If brand.edit = True Then
                         MsgBox("Record has been successfully updated.", vbInformation)
+                        tb_brand_Cat.Clear()
+                        tb_brand_Cat.Focus()
                         frmItem.tb_search_Brand.Clear()
                         brand.loadRecord()
+                        item.loadRecord()
                     End If
                     Me.Close()
                 End If

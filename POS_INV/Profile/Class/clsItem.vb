@@ -8,6 +8,7 @@ Public Class clsItem
     Private _ItemUnitPrice As Object
     Private _ItemPriceA As Object
     Private _ItemPriceB As Object
+    Private _ItemQty As Object
     Private _ItemSearch As Object
     Public Sub SetCode(AutoPropertyValue As Object)
         _ItemCode = AutoPropertyValue
@@ -33,14 +34,17 @@ Public Class clsItem
     Public Sub SetPriceB(AutoPropertyValue As Object)
         _ItemPriceB = AutoPropertyValue
     End Sub
+    Public Sub SetItemQty(AutoPropertyValue As Object)
+        _ItemQty = AutoPropertyValue
+    End Sub
     Public Sub SetItemSearch(AutoPropertyValue As Object)
         _ItemSearch = AutoPropertyValue
     End Sub
     Public Function save()
         Try
             ConnectDatabase()
-            Dim query = "INSERT INTO item (item_code, item_desc, item_add_desc, brand_id, category_id, item_unit_price, item_price_A, item_price_B) " &
-                        "VALUES (@item_code, @item_desc, @item_add_Desc, @brand_id, @category_id, @item_unit_Price, @item_price_A, @item_price_B)"
+            Dim query = "INSERT INTO item (item_code, item_desc, item_add_desc, brand_id, category_id, item_unit_price, item_price_A, item_price_B, item_qty) " &
+                        "VALUES (@item_code, @item_desc, @item_add_Desc, @brand_id, @category_id, @item_unit_Price, @item_price_A, @item_price_B, @item_qty)"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@item_code", _ItemCode)
             cm.Parameters.AddWithValue("@item_desc", _ItemDesc)
@@ -50,6 +54,7 @@ Public Class clsItem
             cm.Parameters.AddWithValue("@item_unit_Price", _ItemUnitPrice)
             cm.Parameters.AddWithValue("@item_price_A", _ItemPriceA)
             cm.Parameters.AddWithValue("@item_price_B", _ItemPriceB)
+            cm.Parameters.AddWithValue("@item_qty", _ItemQty)
             cm.Dispose()
             cm.ExecuteScalar()
             'loadAutosuggest()
@@ -86,7 +91,7 @@ Public Class clsItem
         DisconnectDatabase()
         Return False
     End Function
-    Public Function checkUserDuplicate()
+    Public Function checkItemDuplicate()
         Try
             ConnectDatabase()
             Dim query = "SELECT item_code FROM item WHERE item_code = @item_code"
@@ -132,7 +137,8 @@ Public Class clsItem
         dr = cm.ExecuteReader()
         While dr.Read
             i += 1
-            frmItem.dg_Items.Rows.Add(dr.Item("item_id").ToString, i, dr.Item("item_code").ToString, dr.Item("brand_name").ToString, dr.Item("item_desc").ToString, dr.Item("item_add_desc").ToString, dr.Item("category_name").ToString, dr.Item("item_unit_price").ToString, dr.Item("item_price_A").ToString, dr.Item("item_price_B"), dr.Item("item_qty"), "EDIT", "DELETE")
+            frmItem.dg_Items.Rows.Add(dr.Item("item_id").ToString, i, dr.Item("item_code").ToString, dr.Item("brand_name").ToString, dr.Item("item_desc").ToString, dr.Item("item_add_desc").ToString,
+                                      dr.Item("category_name").ToString, dr.Item("item_unit_price").ToString, dr.Item("item_price_A").ToString, dr.Item("item_price_B"), dr.Item("item_qty"), "EDIT", "DELETE")
         End While
         dr.Close()
         DisconnectDatabase()

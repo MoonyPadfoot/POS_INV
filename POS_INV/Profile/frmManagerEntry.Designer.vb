@@ -96,12 +96,12 @@ Partial Class frmManagerEntry
         'lbl_change_Pass
         '
         Me.lbl_change_Pass.AutoSize = True
-        Me.lbl_change_Pass.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_change_Pass.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_change_Pass.Location = New System.Drawing.Point(139, 92)
         Me.lbl_change_Pass.Name = "lbl_change_Pass"
-        Me.lbl_change_Pass.Size = New System.Drawing.Size(122, 17)
+        Me.lbl_change_Pass.Size = New System.Drawing.Size(227, 17)
         Me.lbl_change_Pass.TabIndex = 46
-        Me.lbl_change_Pass.Text = "Change Password"
+        Me.lbl_change_Pass.Text = "[ Click Here To Change Password ]"
         Me.lbl_change_Pass.Visible = False
         '
         'cb_show_Password
@@ -185,12 +185,12 @@ Partial Class frmManagerEntry
         'lbl_search_User
         '
         Me.lbl_search_User.AutoSize = True
-        Me.lbl_search_User.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_search_User.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_search_User.Location = New System.Drawing.Point(137, 82)
         Me.lbl_search_User.Name = "lbl_search_User"
-        Me.lbl_search_User.Size = New System.Drawing.Size(142, 17)
+        Me.lbl_search_User.Size = New System.Drawing.Size(247, 17)
         Me.lbl_search_User.TabIndex = 23
-        Me.lbl_search_User.Text = "Search User Account"
+        Me.lbl_search_User.Text = "[ Click Here To Search User Account ]"
         '
         'tb_Name
         '

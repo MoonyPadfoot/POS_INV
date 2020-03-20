@@ -1,5 +1,6 @@
 ﻿Public Class frmBranchEntry
     Dim branch As New clsBranch
+    Dim item As New clsItem
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btn_Cancel.Click
         Me.Close()
     End Sub
@@ -35,6 +36,7 @@
         Try
             Dim result = MsgBox("Are you sure you want to update this record?", vbYesNo + vbQuestion)
             branch.BranchName = Trim(Me.tb_Address.Text)
+            branch.BranchId = lbl_Id.Text
             If branch.checkBranchDuplicate = True Then
                 MsgBox("Branch name is already existing.", vbInformation)
                 Exit Sub
@@ -46,6 +48,7 @@
                     MsgBox("Record has been successfully updated.", vbInformation)
                     frmBranch.tb_Search.Clear()
                     branch.loadRecord()
+                    item.loadRecord()
                 End If
                 Me.Close()
             End If

@@ -5,7 +5,7 @@
     Dim _id As Integer
     Dim _code, _desc, _add_Desc, _brand, _category As String
     Dim _unit_Price, _price_A, _price_B As Double
-
+    Dim _qty As Integer
     Private Sub btn_new_Category_Click(sender As Object, e As EventArgs) Handles btn_new_Category.Click
         frmBrandCat.lbl_Header.Text = "Category"
         frmBrandCat.btn_Update.Hide()
@@ -24,6 +24,7 @@
         frmItemEntry.btn_Update.Enabled = False
         frmItemEntry.btn_Save.Enabled = True
         frmItemEntry.tb_Code.ReadOnly = False
+        frmItemEntry.tb_Quantity.ReadOnly = False
         frmItemEntry.ShowDialog()
     End Sub
 
@@ -41,13 +42,14 @@
         Dim i As Integer = dg_Items.CurrentRow.Index
         _id = dg_Items.Item(0, i).Value
         _code = dg_Items.Item(2, i).Value
-        _desc = dg_Items.Item(3, i).Value
-        _add_Desc = dg_Items.Item(4, i).Value
-        _brand = dg_Items.Item(5, i).Value
+        _brand = dg_Items.Item(3, i).Value
+        _desc = dg_Items.Item(4, i).Value
+        _add_Desc = dg_Items.Item(5, i).Value
         _category = dg_Items.Item(6, i).Value
         _unit_Price = dg_Items.Item(7, i).Value
         _price_A = dg_Items.Item(8, i).Value
         _price_B = dg_Items.Item(9, i).Value
+        _qty = dg_Items.Item(10, i).Value
     End Sub
 
     Private Sub dg_Items_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_Items.CellContentClick
@@ -63,6 +65,8 @@
                 .tb_unit_Price.Text = _unit_Price
                 .tb_price_A.Text = _price_A
                 .tb_price_B.Text = _price_B
+                .tb_Quantity.Text = _qty
+                .tb_Quantity.ReadOnly = True
                 .tb_Code.ReadOnly = True
                 .btn_Save.Enabled = False
                 .btn_Update.Enabled = True
@@ -187,7 +191,7 @@
     Private Sub tb_Search_Brand_TextChanged(sender As Object, e As EventArgs) Handles tb_search_Brand.TextChanged
         If Trim(tb_search_Brand.Text) <> "" Then
             brand.SetBrandSearch(Trim(tb_search_Brand.Text))
-            brand.searchBrand("SELECT * FROM category WHERE category_name LIKE @0 ")
+            brand.searchBrand("SELECT * FROM brand WHERE brand_name LIKE @0 ")
         Else
             brand.loadRecord()
         End If

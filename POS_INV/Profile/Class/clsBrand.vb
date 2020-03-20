@@ -136,8 +136,9 @@ Public Class clsBrand
     Public Function checkBrandDuplicate()
         Try
             ConnectDatabase()
-            Dim query = "SELECT brand_name FROM brand WHERE brand_name = @brand_name"
+            Dim query = "SELECT brand_name FROM brand WHERE brand_name = @brand_name AND brand_id <> @brand_id"
             Dim cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@brand_id", _BrandId)
             cm.Parameters.AddWithValue("@brand_name", _BrandName)
             dr = cm.ExecuteReader
             If dr.HasRows Then
@@ -153,14 +154,15 @@ Public Class clsBrand
         DisconnectDatabase()
         Return False
     End Function
-    Public Function BrandId() 'checks if branch is already in use in other tables(user, stock)
+    Public Function BrandId()
         Try
             ConnectDatabase()
             Dim query = "SELECT brand_id FROM brand WHERE brand_name = @brand_name"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@brand_name", _BrandName)
             dr = cm.ExecuteReader
-            dr.Read
+            dr.Read()
+
             If dr.HasRows Then
                 Dim _id = dr.Item("brand_id")
                 DisconnectDatabase()

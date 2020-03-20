@@ -112,7 +112,7 @@
                 cntrl.Text = vbNullString
             End If
         Next
-        tb_Balance.Text = 0.00
+        tb_Balance.Text = "0.00"
         lbl_Id.Text = ""
     End Sub
     Private Function countEmpty()

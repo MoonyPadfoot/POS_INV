@@ -40,6 +40,7 @@ Partial Class frmItemList
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_Select = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Panel4.SuspendLayout()
@@ -131,7 +132,7 @@ Partial Class frmItemList
         '
         Me.dg_Items.AllowUserToAddRows = False
         Me.dg_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg_Items.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_Id, Me.Column6, Me.DataGridViewTextBoxColumn2, Me.Column7, Me.Column8, Me.DataGridViewTextBoxColumn3, Me.col_Select})
+        Me.dg_Items.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_Id, Me.Column6, Me.DataGridViewTextBoxColumn2, Me.Column7, Me.Column8, Me.column1, Me.DataGridViewTextBoxColumn3, Me.col_Select})
         Me.dg_Items.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dg_Items.Location = New System.Drawing.Point(0, 82)
         Me.dg_Items.Name = "dg_Items"
@@ -221,6 +222,15 @@ Partial Class frmItemList
         Me.Column8.ReadOnly = True
         Me.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
+        'column1
+        '
+        Me.column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.column1.HeaderText = "Additional Description"
+        Me.column1.MinimumWidth = 6
+        Me.column1.Name = "column1"
+        Me.column1.ReadOnly = True
+        Me.column1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -282,6 +292,7 @@ Partial Class frmItemList
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents column1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents col_Select As DataGridViewButtonColumn
 End Class

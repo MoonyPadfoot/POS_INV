@@ -124,4 +124,20 @@ Public Class clsSupplier
         DisconnectDatabase()
         Return False
     End Function
+    Public Sub loadAutosuggest()
+        ConnectDatabase()
+        Dim query = "SELECT * FROM supplier ORDER BY supplier_name"
+        cm = New MySqlCommand(query, con)
+        Dim ds As New DataSet
+        Dim da As New MySqlDataAdapter(cm)
+        da.Fill(ds, "supplier_name")
+        Dim col As New AutoCompleteStringCollection
+        For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
+            col.Add(ds.Tables(0).Rows(i)("supplier_name").ToString)
+        Next
+        frmStock.tb_supplier_stock_In.AutoCompleteSource = AutoCompleteSource.CustomSource
+        frmStock.tb_supplier_stock_In.AutoCompleteCustomSource = col
+        frmStock.tb_supplier_stock_In.AutoCompleteMode = AutoCompleteMode.Suggest
+        DisconnectDatabase()
+    End Sub
 End Class

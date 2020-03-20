@@ -92,6 +92,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inventory\clsItemList.vb" />
+    <Compile Include="Inventory\clsStockIn.vb" />
     <Compile Include="Inventory\frmItemList.Designer.vb">
       <DependentUpon>frmItemList.vb</DependentUpon>
     </Compile>

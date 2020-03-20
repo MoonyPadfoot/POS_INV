@@ -46,6 +46,8 @@ Partial Class frmItemEntry
         Me.lbl_Id = New System.Windows.Forms.Label()
         Me.lbl_brand_Id = New System.Windows.Forms.Label()
         Me.lbl_category_Id = New System.Windows.Forms.Label()
+        Me.tb_Quantity = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -191,7 +193,7 @@ Partial Class frmItemEntry
         '
         'btn_Save
         '
-        Me.btn_Save.Location = New System.Drawing.Point(414, 413)
+        Me.btn_Save.Location = New System.Drawing.Point(414, 452)
         Me.btn_Save.Name = "btn_Save"
         Me.btn_Save.Size = New System.Drawing.Size(85, 43)
         Me.btn_Save.TabIndex = 15
@@ -200,7 +202,7 @@ Partial Class frmItemEntry
         '
         'btn_Update
         '
-        Me.btn_Update.Location = New System.Drawing.Point(505, 413)
+        Me.btn_Update.Location = New System.Drawing.Point(505, 452)
         Me.btn_Update.Name = "btn_Update"
         Me.btn_Update.Size = New System.Drawing.Size(87, 43)
         Me.btn_Update.TabIndex = 16
@@ -209,7 +211,7 @@ Partial Class frmItemEntry
         '
         'btn_Cancel
         '
-        Me.btn_Cancel.Location = New System.Drawing.Point(598, 413)
+        Me.btn_Cancel.Location = New System.Drawing.Point(598, 452)
         Me.btn_Cancel.Name = "btn_Cancel"
         Me.btn_Cancel.Size = New System.Drawing.Size(87, 43)
         Me.btn_Cancel.TabIndex = 17
@@ -247,7 +249,7 @@ Partial Class frmItemEntry
         'lbl_Id
         '
         Me.lbl_Id.AutoSize = True
-        Me.lbl_Id.Location = New System.Drawing.Point(42, 426)
+        Me.lbl_Id.Location = New System.Drawing.Point(42, 465)
         Me.lbl_Id.Name = "lbl_Id"
         Me.lbl_Id.Size = New System.Drawing.Size(19, 17)
         Me.lbl_Id.TabIndex = 43
@@ -256,7 +258,7 @@ Partial Class frmItemEntry
         'lbl_brand_Id
         '
         Me.lbl_brand_Id.AutoSize = True
-        Me.lbl_brand_Id.Location = New System.Drawing.Point(98, 426)
+        Me.lbl_brand_Id.Location = New System.Drawing.Point(98, 465)
         Me.lbl_brand_Id.Name = "lbl_brand_Id"
         Me.lbl_brand_Id.Size = New System.Drawing.Size(19, 17)
         Me.lbl_brand_Id.TabIndex = 44
@@ -265,17 +267,39 @@ Partial Class frmItemEntry
         'lbl_category_Id
         '
         Me.lbl_category_Id.AutoSize = True
-        Me.lbl_category_Id.Location = New System.Drawing.Point(157, 426)
+        Me.lbl_category_Id.Location = New System.Drawing.Point(157, 465)
         Me.lbl_category_Id.Name = "lbl_category_Id"
         Me.lbl_category_Id.Size = New System.Drawing.Size(19, 17)
         Me.lbl_category_Id.TabIndex = 45
         Me.lbl_category_Id.Text = "Id"
         '
+        'tb_Quantity
+        '
+        Me.tb_Quantity.Location = New System.Drawing.Point(189, 403)
+        Me.tb_Quantity.MaxLength = 10
+        Me.tb_Quantity.Name = "tb_Quantity"
+        Me.tb_Quantity.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.tb_Quantity.ShortcutsEnabled = False
+        Me.tb_Quantity.Size = New System.Drawing.Size(68, 22)
+        Me.tb_Quantity.TabIndex = 8
+        Me.tb_Quantity.Text = "0"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(42, 404)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(101, 17)
+        Me.Label9.TabIndex = 47
+        Me.Label9.Text = "Initial Quantity:"
+        '
         'frmItemEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(736, 485)
+        Me.ClientSize = New System.Drawing.Size(736, 533)
+        Me.Controls.Add(Me.tb_Quantity)
+        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.lbl_category_Id)
         Me.Controls.Add(Me.lbl_brand_Id)
         Me.Controls.Add(Me.lbl_Id)
@@ -334,4 +358,6 @@ Partial Class frmItemEntry
     Friend WithEvents lbl_Id As Label
     Friend WithEvents lbl_brand_Id As Label
     Friend WithEvents lbl_category_Id As Label
+    Friend WithEvents tb_Quantity As TextBox
+    Friend WithEvents Label9 As Label
 End Class

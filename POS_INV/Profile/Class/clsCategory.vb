@@ -141,8 +141,9 @@ Public Class clsCategory
     Public Function checkCategoryDuplicate()
         Try
             ConnectDatabase()
-            Dim query = "SELECT category_name FROM category WHERE category_name = @category_name"
+            Dim query = "SELECT category_name FROM category WHERE category_name = @category_name AND category_id <> @category_id"
             Dim cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@category_id", _CategoryId)
             cm.Parameters.AddWithValue("@category_name", _CategoryName)
             dr = cm.ExecuteReader
             If dr.HasRows Then

@@ -70,9 +70,9 @@ Partial Class frmChangePass
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(37, 129)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(132, 17)
+        Me.Label3.Size = New System.Drawing.Size(125, 17)
         Me.Label3.TabIndex = 22
-        Me.Label3.Text = "Re-Type Password:"
+        Me.Label3.Text = "Confirm Password:"
         '
         'tb_new_Password
         '
