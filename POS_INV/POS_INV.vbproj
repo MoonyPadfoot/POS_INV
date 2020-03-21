@@ -92,11 +92,18 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inventory\clsItemList.vb" />
+    <Compile Include="Inventory\clsStockHistory.vb" />
     <Compile Include="Inventory\clsStockIn.vb" />
     <Compile Include="Inventory\frmItemList.Designer.vb">
       <DependentUpon>frmItemList.vb</DependentUpon>
     </Compile>
     <Compile Include="Inventory\frmItemList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\frmStockIn_History.Designer.vb">
+      <DependentUpon>frmStockIn_History.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\frmStockIn_History.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="POS\frmAuthenticate.Designer.vb">
@@ -352,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmItemList.resx">
       <DependentUpon>frmItemList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\frmStockIn_History.resx">
+      <DependentUpon>frmStockIn_History.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POS\frmAuthenticate.resx">
       <DependentUpon>frmAuthenticate.vb</DependentUpon>

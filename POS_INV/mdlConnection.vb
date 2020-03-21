@@ -11,7 +11,7 @@ Module mdlConnection
                 con.ConnectionString = "DATABASE=" & My.Settings.myDb & ";" &
                    "SERVER=" & My.Settings.myServer & ";user id=" & My.Settings.myUsername &
                    ";password=" & My.Settings.myPassword & ";port=" &
-                   My.Settings.myPassword & ";charset=utf8"
+                   My.Settings.myPassword & ";charset=utf8;"
                 con.Open()
             End If
 

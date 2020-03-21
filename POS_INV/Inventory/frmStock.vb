@@ -3,6 +3,7 @@ Public Class frmStock
     Dim supplier As New clsSupplier
     Dim branch As New clsBranch
     Dim stockIn As New clsStockIn
+    Dim stockHistory As New clsStockHistory
     Private Sub frmStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MetroTabControl1.SelectedTab = tp_stock_List
         branch.loadAutosuggest()
@@ -23,13 +24,6 @@ Public Class frmStock
             End If
         End If
     End Sub
-    'Dim zero As String = "0"
-    'Dim refNo As Integer = stockIn.generateRefNo() 'count stock_in_id for reference no.
-    'For i = 0 To 5 - refNo.ToString.Length 'number of zeros
-    '    zero &= "0"
-    '    i += 1
-    'Next
-    'tb_ref_stock_In.Text = "SI" & dtp_stock_In.Value.ToString("yyyyMMdd") & zero & refNo
     Private Sub lbl_items_stock_In_MouseHover(sender As Object, e As EventArgs) Handles lbl_items_stock_In.MouseHover
         lbl_items_stock_In.ForeColor = Color.Blue
     End Sub
@@ -48,11 +42,10 @@ Public Class frmStock
         Return False
     End Function
     Private Sub clearControls()
-        For Each cntrl As Control In Me.Controls
-            If TypeOf cntrl Is TextBox Then
-                cntrl.Text = vbNullString
-            End If
-        Next
+        tb_branch_stock_In.Clear()
+        tb_supplier_stock_In.Clear()
+        tb_remarks_stock_In.Clear()
+        dg_stock_In.Rows.Clear()
     End Sub
     Private Sub btn_save_stock_In_Click(sender As Object, e As EventArgs) Handles btn_save_stock_In.Click
         If countEmpty() = True Then
@@ -79,10 +72,25 @@ Public Class frmStock
                 Exit Sub
             End If
         Next
-        stockIn.BranchId = tb_branch_stock_In.Text
-        stockIn.SupplierId = tb_supplier_stock_In.Text
-        stockIn.Remarks = tb_remarks_stock_In.Text
-        stockIn.TransacDate = dtp_stock_In.Value.ToString("yyyy-MM-dd")
+        Dim _refNo = stockIn.getRefNo
+        stockIn.RefNo = _refNo
+        Dim refNoLegnth As String = _refNo.ToString
+        Dim zero = ""
+        For i = 0 To 5 - refNoLegnth.Length
+            zero &= "0"
+            i += 1
+        Next
+        For i = 0 To dg_stock_In.RowCount - 1    'sets the column entries for stock_in table per dg_stock_in row
+            stockIn.ItemId = dg_stock_In.Rows(i).Cells(0).Value   'item_id
+            stockIn.BranchId = lbl_branch_id_stock_In.Text 'branch_id
+            stockIn.SupplierId = lbl_supplier_id_stock_In.Text 'supplier_id
+            stockIn.ItemQty = dg_stock_In.Rows(i).Cells(7).Value 'qty
+            stockIn.TransacDate = dtp_stock_In.Value.ToString("yyyy-MM-dd") 'transac_date
+            stockIn.Remarks = tb_remarks_stock_In.Text 'remarks
+            stockIn.save()
+        Next
+        MsgBox("Reference Code: " & "SI" & dtp_stock_In.Value.ToString("yyyyMMdd") & zero & _refNo, vbInformation) 'generate ref Code
+        clearControls()
     End Sub
 
     Private Sub tb_supplier_stock_In_Leave(sender As Object, e As EventArgs) Handles tb_supplier_stock_In.Leave
@@ -99,4 +107,20 @@ Public Class frmStock
         stockIn.BranchAddress = tb_branch_stock_In.Text.Trim
         lbl_branch_id_stock_In.Text = stockIn.loadBranchId()
     End Sub
+
+    Private Sub btn_new_stock_In_Click(sender As Object, e As EventArgs) Handles btn_new_stock_In.Click
+        If MsgBox("All inputs will be cleared, Do you wish to proceed?", vbQuestion + vbYesNo) = vbYes Then
+            clearControls()
+        End If
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        dg_stock_History.Rows.Clear()
+        stockHistory.loadStockHistory()
+    End Sub
+
+    Private Sub btn_history_stock_In_Click(sender As Object, e As EventArgs) Handles btn_history_stock_In.Click
+        frmStockIn_History.ShowDialog()
+    End Sub
+
 End Class
