@@ -5,14 +5,13 @@
     Dim _credit_limit, _balance As String
 
     Private Sub btn_Close_Click(sender As Object, e As EventArgs) Handles btn_Close.Click
-        With frmMain
-            .btn_Pos.Enabled = True
-            .btn_Profile.Enabled = True
-            .btn_Customer.Enabled = True
-            .btn_sales_Report.Enabled = True
-            .btn_Inventory.Enabled = True
-            .btn_Logout.Enabled = True
-        End With
+        If frmMain.lbl_Type.Text = "Manager" Then
+            frmMain.btn_Profile.Enabled = False
+            frmMain.btn_Logout.Enabled = True
+            frmMain.btn_sales_Report.Enabled = True
+            frmMain.btn_Inventory.Enabled = True
+            frmMain.btn_Pos.Enabled = True
+        End If
         frmMain.btn_Customer.BackColor = Color.FromArgb(149, 165, 166)
         Me.Close()
     End Sub

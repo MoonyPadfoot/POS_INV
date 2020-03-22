@@ -114,13 +114,18 @@ Public Class frmStock
         End If
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        dg_stock_History.Rows.Clear()
-        stockHistory.loadStockHistory()
-    End Sub
-
     Private Sub btn_history_stock_In_Click(sender As Object, e As EventArgs) Handles btn_history_stock_In.Click
         frmStockIn_History.ShowDialog()
     End Sub
 
+    Private Sub btn_Close_Click(sender As Object, e As EventArgs) Handles btn_Close.Click
+        If frmMain.lbl_Type.Text = "Manager" Then
+            frmMain.btn_Profile.Enabled = False
+            frmMain.btn_Logout.Enabled = True
+            frmMain.btn_sales_Report.Enabled = True
+            frmMain.btn_Customer.Enabled = True
+            frmMain.btn_Pos.Enabled = True
+        End If
+        Me.Close()
+    End Sub
 End Class

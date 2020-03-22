@@ -18,6 +18,7 @@
             login.setUserLogin(1)
             'lbl_user_Id.Text = login.setUserId()
             frmMain.lbl_Name.Text = login.setName(CInt(login.setUserId))
+            frmMain.lbl_branch_Id.Text = login.setBranchId()
             frmMain.lbl_Username.Text = tb_username.Text
             frmMain.lbl_Type.Text = login.setUserType()
             tb_username.Clear()

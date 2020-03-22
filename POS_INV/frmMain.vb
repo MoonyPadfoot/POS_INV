@@ -1,6 +1,7 @@
 ﻿Public Class frmMain
     Dim login As New clsLogin
     Dim loginPos As New clsLoginPos
+    Dim stockIn As New clsStockIn
 
     Private Sub btnPos_Click(sender As Object, e As EventArgs) Handles btn_Pos.Click
         btn_Pos.BackColor = Color.FromArgb(236, 240, 241)
@@ -50,6 +51,7 @@
             .btn_sales_Report.Enabled = False
             .btn_Logout.Enabled = False
         End With
+
     End Sub
 
     Private Sub btn_Inventory_Click(sender As Object, e As EventArgs) Handles btn_Inventory.Click
@@ -65,7 +67,12 @@
             .BringToFront()
             .Show()
         End With
-        MsgBox("Critical Items: 2", vbInformation)
+        frmStock.tb_branch_stock_In.Text = stockIn.loadBranchName()
+        btn_Logout.Enabled = False
+        btn_Customer.Enabled = False
+        btn_Pos.Enabled = False
+        btn_sales_Report.Enabled = False
+        'MsgBox("Critical Items: 2", vbInformation)
     End Sub
 
     Private Sub btn_Profile_Click(sender As Object, e As EventArgs) Handles btn_Profile.Click
@@ -96,9 +103,26 @@
             lbl_Type.Text = vbNullString
             login.SetUsername(lbl_Username.Text)
             lbl_Username.Text = vbNullString
+            lbl_branch_Id.Text = vbNullString
             login.setUserLogin(0)
+            Me.Close()
             frmLogin.ShowDialog()
         End If
     End Sub
 
+    Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If lbl_Type.Text = "Admin" Then
+            btn_Pos.Enabled = False
+            btn_Inventory.Enabled = False
+            btn_Customer.Enabled = False
+            btn_sales_Report.Enabled = False
+        ElseIf lbl_Type.Text = "Manager" Then
+            btn_Profile.Enabled = False
+        ElseIf lbl_Type.Text = "Cashier" Then
+            btn_Profile.Enabled = False
+            btn_Inventory.Enabled = False
+            btn_Customer.Enabled = False
+            btn_sales_Report.Enabled = False
+        End If
+    End Sub
 End Class

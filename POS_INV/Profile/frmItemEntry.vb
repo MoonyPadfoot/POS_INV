@@ -91,7 +91,7 @@
             acceptableKey = False
         End If
     End Sub
-    Private Sub tb_Quantity_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tb_Quantity.KeyPress
+    Private Sub tb_Quantity_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
         If (Microsoft.VisualBasic.Asc(e.KeyChar) <> 8) Then
             If (Microsoft.VisualBasic.Asc(e.KeyChar) < 48) _
             Or (Microsoft.VisualBasic.Asc(e.KeyChar) > 57) Then
@@ -156,7 +156,6 @@
             item.SetUnitPrice(Trim(tb_unit_Price.Text))
             item.SetPriceA(Trim(tb_price_A.Text))
             item.SetPriceB(Trim(tb_price_B.Text))
-            item.SetItemQty(CInt(tb_Quantity.Text))
 
             brand.SetBrandName(Trim(tb_Brand.Text))
             category.SetCategoryName(Trim(tb_Category.Text))
@@ -254,7 +253,6 @@
                 cntrl.Text = vbNullString
             End If
         Next
-        tb_Quantity.Text = 0
         lbl_brand_Id.Text = ""
         lbl_category_Id.Text = ""
         lbl_Id.Text = ""
@@ -283,9 +281,6 @@
             Return True
         ElseIf tb_price_B.Text = vbNullString Then
             tb_price_B.Focus()
-            Return True
-        ElseIf tb_Quantity.Text = vbNullString Then
-            tb_Quantity.Focus()
             Return True
         End If
         Return False

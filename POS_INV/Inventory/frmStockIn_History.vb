@@ -8,6 +8,7 @@
     End Sub
 
     Private Sub btn_Close_Click(sender As Object, e As EventArgs) Handles btn_Close.Click
+        dg_stock_History.Rows.Clear()
         Me.Close()
     End Sub
 

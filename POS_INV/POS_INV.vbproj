@@ -85,10 +85,10 @@
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Customer\clsCustomer.vb" />
-    <Compile Include="frmLoginPos.Designer.vb">
+    <Compile Include="POS\frmLoginPos.Designer.vb">
       <DependentUpon>frmLoginPos.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmLoginPos.vb">
+    <Compile Include="POS\frmLoginPos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inventory\clsItemList.vb" />
@@ -119,7 +119,7 @@
     <Compile Include="Profile\Class\clsEncryption.vb" />
     <Compile Include="Profile\Class\clsItem.vb" />
     <Compile Include="Profile\Class\clsLogin.vb" />
-    <Compile Include="Profile\Class\clsLoginPos.vb" />
+    <Compile Include="POS\clsLoginPos.vb" />
     <Compile Include="Profile\Class\clsManager.vb" />
     <Compile Include="Profile\Class\clsServices.vb" />
     <Compile Include="Profile\Class\clsSupplier.vb" />
@@ -354,7 +354,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmLoginPos.resx">
+    <EmbeddedResource Include="POS\frmLoginPos.resx">
       <DependentUpon>frmLoginPos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmItemList.resx">

@@ -71,13 +71,15 @@
     End Sub
 
     Private Sub btn_Close_Click(sender As Object, e As EventArgs) Handles btn_Close.Click
-        With frmMain
-            .btn_Pos.Enabled = True
-            .btn_Inventory.Enabled = True
-            .btn_Customer.Enabled = True
-            .btn_sales_Report.Enabled = True
-            .btn_Logout.Enabled = True
-        End With
+        If frmMain.lbl_Type.Text = "Admin" Then
+            With frmMain
+                .btn_Pos.Enabled = False
+                .btn_Inventory.Enabled = False
+                .btn_Customer.Enabled = False
+                .btn_sales_Report.Enabled = False
+                .btn_Logout.Enabled = True
+            End With
+        End If
         frmMain.btn_Profile.BackColor = Color.FromArgb(149, 165, 166)
         Me.Close()
     End Sub

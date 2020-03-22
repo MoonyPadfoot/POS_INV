@@ -37,7 +37,7 @@ Partial Class frmLogin
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(40, 82)
+        Me.Label1.Location = New System.Drawing.Point(40, 65)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(91, 20)
         Me.Label1.TabIndex = 1
@@ -47,7 +47,7 @@ Partial Class frmLogin
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(40, 137)
+        Me.Label2.Location = New System.Drawing.Point(40, 145)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(88, 20)
         Me.Label2.TabIndex = 2
@@ -60,7 +60,7 @@ Partial Class frmLogin
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(559, 44)
+        Me.Panel1.Size = New System.Drawing.Size(546, 44)
         Me.Panel1.TabIndex = 6
         '
         'Label3
@@ -76,18 +76,18 @@ Partial Class frmLogin
         '
         'btn_Cancel
         '
-        Me.btn_Cancel.Location = New System.Drawing.Point(408, 180)
+        Me.btn_Cancel.Location = New System.Drawing.Point(44, 277)
         Me.btn_Cancel.Name = "btn_Cancel"
-        Me.btn_Cancel.Size = New System.Drawing.Size(92, 44)
+        Me.btn_Cancel.Size = New System.Drawing.Size(456, 44)
         Me.btn_Cancel.TabIndex = 10
         Me.btn_Cancel.Text = "Close"
         Me.btn_Cancel.UseVisualStyleBackColor = True
         '
         'btn_Login
         '
-        Me.btn_Login.Location = New System.Drawing.Point(310, 180)
+        Me.btn_Login.Location = New System.Drawing.Point(44, 227)
         Me.btn_Login.Name = "btn_Login"
-        Me.btn_Login.Size = New System.Drawing.Size(92, 44)
+        Me.btn_Login.Size = New System.Drawing.Size(456, 44)
         Me.btn_Login.TabIndex = 9
         Me.btn_Login.Text = "Login"
         Me.btn_Login.UseVisualStyleBackColor = True
@@ -95,24 +95,24 @@ Partial Class frmLogin
         'tb_Password
         '
         Me.tb_Password.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_Password.Location = New System.Drawing.Point(152, 131)
+        Me.tb_Password.Location = New System.Drawing.Point(44, 177)
         Me.tb_Password.MaxLength = 30
         Me.tb_Password.Multiline = True
         Me.tb_Password.Name = "tb_Password"
         Me.tb_Password.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.tb_Password.ShortcutsEnabled = False
-        Me.tb_Password.Size = New System.Drawing.Size(348, 34)
+        Me.tb_Password.Size = New System.Drawing.Size(456, 34)
         Me.tb_Password.TabIndex = 8
         '
         'tb_username
         '
         Me.tb_username.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_username.Location = New System.Drawing.Point(152, 79)
+        Me.tb_username.Location = New System.Drawing.Point(44, 99)
         Me.tb_username.MaxLength = 30
         Me.tb_username.Multiline = True
         Me.tb_username.Name = "tb_username"
         Me.tb_username.ShortcutsEnabled = False
-        Me.tb_username.Size = New System.Drawing.Size(348, 34)
+        Me.tb_username.Size = New System.Drawing.Size(456, 34)
         Me.tb_username.TabIndex = 7
         '
         'frmLogin
@@ -120,7 +120,7 @@ Partial Class frmLogin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.ClientSize = New System.Drawing.Size(559, 258)
+        Me.ClientSize = New System.Drawing.Size(546, 346)
         Me.Controls.Add(Me.btn_Cancel)
         Me.Controls.Add(Me.btn_Login)
         Me.Controls.Add(Me.tb_Password)

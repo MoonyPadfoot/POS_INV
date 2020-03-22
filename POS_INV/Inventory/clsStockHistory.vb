@@ -14,7 +14,7 @@ Public Class clsStockHistory
         Dim refNo As String
         Dim transDate, dateRef As String
         ConnectDatabase()
-        Dim query = "SELECT * FROM vw_stock_history WHERE trans_date BETWEEN @date_from AND @date_to"
+        Dim query = "SELECT * FROM vw_stock_in_history WHERE trans_date BETWEEN @date_from AND @date_to"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@date_from", _DateFrom)
         cm.Parameters.AddWithValue("@date_to", _DateTo)

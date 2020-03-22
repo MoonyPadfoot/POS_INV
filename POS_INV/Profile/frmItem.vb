@@ -5,7 +5,6 @@
     Dim _id As Integer
     Dim _code, _desc, _add_Desc, _brand, _category As String
     Dim _unit_Price, _price_A, _price_B As Double
-    Dim _qty As Integer
     Private Sub btn_new_Category_Click(sender As Object, e As EventArgs) Handles btn_new_Category.Click
         frmBrandCat.lbl_Header.Text = "Category"
         frmBrandCat.btn_Update.Hide()
@@ -24,7 +23,6 @@
         frmItemEntry.btn_Update.Enabled = False
         frmItemEntry.btn_Save.Enabled = True
         frmItemEntry.tb_Code.ReadOnly = False
-        frmItemEntry.tb_Quantity.ReadOnly = False
         frmItemEntry.ShowDialog()
     End Sub
 
@@ -49,7 +47,6 @@
         _unit_Price = dg_Items.Item(7, i).Value
         _price_A = dg_Items.Item(8, i).Value
         _price_B = dg_Items.Item(9, i).Value
-        _qty = dg_Items.Item(10, i).Value
     End Sub
 
     Private Sub dg_Items_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_Items.CellContentClick
@@ -65,8 +62,6 @@
                 .tb_unit_Price.Text = _unit_Price
                 .tb_price_A.Text = _price_A
                 .tb_price_B.Text = _price_B
-                .tb_Quantity.Text = _qty
-                .tb_Quantity.ReadOnly = True
                 .tb_Code.ReadOnly = True
                 .btn_Save.Enabled = False
                 .btn_Update.Enabled = True

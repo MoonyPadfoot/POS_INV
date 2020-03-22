@@ -29,6 +29,7 @@ Partial Class frmMain
         Me.Label3 = New System.Windows.Forms.Label()
         Me.pnlFooter = New System.Windows.Forms.Panel()
         Me.pnlHeader = New System.Windows.Forms.Panel()
+        Me.lbl_branch_Id = New System.Windows.Forms.Label()
         Me.lbl_Username = New System.Windows.Forms.Label()
         Me.btn_Logout = New System.Windows.Forms.Button()
         Me.lbl_Header = New System.Windows.Forms.Label()
@@ -102,6 +103,7 @@ Partial Class frmMain
         'pnlHeader
         '
         Me.pnlHeader.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.pnlHeader.Controls.Add(Me.lbl_branch_Id)
         Me.pnlHeader.Controls.Add(Me.lbl_Username)
         Me.pnlHeader.Controls.Add(Me.btn_Logout)
         Me.pnlHeader.Controls.Add(Me.lbl_Header)
@@ -110,6 +112,16 @@ Partial Class frmMain
         Me.pnlHeader.Name = "pnlHeader"
         Me.pnlHeader.Size = New System.Drawing.Size(1878, 48)
         Me.pnlHeader.TabIndex = 0
+        '
+        'lbl_branch_Id
+        '
+        Me.lbl_branch_Id.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_branch_Id.Location = New System.Drawing.Point(685, 11)
+        Me.lbl_branch_Id.Name = "lbl_branch_Id"
+        Me.lbl_branch_Id.Size = New System.Drawing.Size(156, 26)
+        Me.lbl_branch_Id.TabIndex = 15
+        Me.lbl_branch_Id.Text = "Branch"
+        Me.lbl_branch_Id.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lbl_Username
         '
@@ -318,7 +330,7 @@ Partial Class frmMain
         Me.btn_Inventory.Name = "btn_Inventory"
         Me.btn_Inventory.Size = New System.Drawing.Size(234, 48)
         Me.btn_Inventory.TabIndex = 3
-        Me.btn_Inventory.Text = "&Inventory"
+        Me.btn_Inventory.Text = "I&nventory"
         Me.btn_Inventory.UseVisualStyleBackColor = False
         '
         'btn_Customer
@@ -420,4 +432,5 @@ Partial Class frmMain
     Friend WithEvents Label1 As Label
     Friend WithEvents btn_Help As Button
     Friend WithEvents lbl_Username As Label
+    Friend WithEvents lbl_branch_Id As Label
 End Class

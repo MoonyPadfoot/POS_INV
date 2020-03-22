@@ -22,13 +22,12 @@ Partial Class frmItem
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MetroTabControl1 = New MetroFramework.Controls.MetroTabControl()
         Me.tp_Items = New System.Windows.Forms.TabPage()
         Me.dg_Items = New System.Windows.Forms.DataGridView()
@@ -76,7 +75,6 @@ Partial Class frmItem
         Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_Qty = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_Edit = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.col_Delete = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.MetroTabControl1.SuspendLayout()
@@ -122,14 +120,14 @@ Partial Class frmItem
         '
         Me.dg_Items.AllowUserToAddRows = False
         Me.dg_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg_Items.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.Column6, Me.DataGridViewTextBoxColumn2, Me.Column7, Me.Column8, Me.col_add_Description, Me.DataGridViewTextBoxColumn3, Me.Column11, Me.Column9, Me.Column10, Me.col_Qty, Me.col_Edit, Me.col_Delete})
+        Me.dg_Items.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.Column6, Me.DataGridViewTextBoxColumn2, Me.Column7, Me.Column8, Me.col_add_Description, Me.DataGridViewTextBoxColumn3, Me.Column11, Me.Column9, Me.Column10, Me.col_Edit, Me.col_Delete})
         Me.dg_Items.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dg_Items.Location = New System.Drawing.Point(0, 67)
         Me.dg_Items.Name = "dg_Items"
         Me.dg_Items.RowHeadersVisible = False
         Me.dg_Items.RowHeadersWidth = 51
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dg_Items.RowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dg_Items.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dg_Items.RowTemplate.Height = 24
         Me.dg_Items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dg_Items.Size = New System.Drawing.Size(1240, 301)
@@ -234,8 +232,8 @@ Partial Class frmItem
         Me.dg_Category.Name = "dg_Category"
         Me.dg_Category.RowHeadersVisible = False
         Me.dg_Category.RowHeadersWidth = 51
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dg_Category.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dg_Category.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.dg_Category.RowTemplate.Height = 24
         Me.dg_Category.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dg_Category.Size = New System.Drawing.Size(1240, 301)
@@ -365,8 +363,8 @@ Partial Class frmItem
         Me.dg_Brand.Name = "dg_Brand"
         Me.dg_Brand.RowHeadersVisible = False
         Me.dg_Brand.RowHeadersWidth = 51
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dg_Brand.RowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dg_Brand.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dg_Brand.RowTemplate.Height = 24
         Me.dg_Brand.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dg_Brand.Size = New System.Drawing.Size(1240, 301)
@@ -579,19 +577,6 @@ Partial Class frmItem
         Me.Column10.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column10.Width = 82
         '
-        'col_Qty
-        '
-        Me.col_Qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.col_Qty.DefaultCellStyle = DataGridViewCellStyle4
-        Me.col_Qty.HeaderText = "Qty"
-        Me.col_Qty.MinimumWidth = 6
-        Me.col_Qty.Name = "col_Qty"
-        Me.col_Qty.ReadOnly = True
-        Me.col_Qty.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_Qty.Width = 59
-        '
         'col_Edit
         '
         Me.col_Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -694,7 +679,6 @@ Partial Class frmItem
     Friend WithEvents Column11 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents col_Qty As DataGridViewTextBoxColumn
     Friend WithEvents col_Edit As DataGridViewButtonColumn
     Friend WithEvents col_Delete As DataGridViewButtonColumn
 End Class

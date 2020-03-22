@@ -112,4 +112,16 @@ Public Class clsLogin
         DisconnectDatabase()
         Return userType
     End Function
+    Public Function setBranchId() As String
+        ConnectDatabase()
+        Dim query = "SELECT branch_id FROM user WHERE username = @username"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@username", _Username)
+        dr = cm.ExecuteReader
+        dr.Read()
+        Dim branchId = dr.Item("branch_id").ToString
+        dr.Close()
+        DisconnectDatabase()
+        Return branchId
+    End Function
 End Class
