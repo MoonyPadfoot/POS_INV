@@ -85,10 +85,6 @@ Public Class clsBranch
         frmBranch.tb_Search.AutoCompleteSource = AutoCompleteSource.CustomSource
         frmBranch.tb_Search.AutoCompleteCustomSource = col
         frmBranch.tb_Search.AutoCompleteMode = AutoCompleteMode.Suggest
-
-        frmStock.tb_branch_stock_In.AutoCompleteSource = AutoCompleteSource.CustomSource
-        frmStock.tb_branch_stock_In.AutoCompleteCustomSource = col
-        frmStock.tb_branch_stock_In.AutoCompleteMode = AutoCompleteMode.Suggest
         DisconnectDatabase()
     End Sub
     Public Sub searchBranch(query As String)
@@ -144,5 +140,33 @@ Public Class clsBranch
         dr.Close()
         DisconnectDatabase()
         Return False
+    End Function
+    Public Function loadBranchId()
+        ConnectDatabase()
+        Dim query = "SELECT branch_id FROM branch WHERE branch_address = @branch_address"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@branch_address", _BranchName)
+        Dim dr As MySqlDataReader = cm.ExecuteReader()
+        If dr.HasRows Then
+            dr.Read()
+            Dim id = dr(0).ToString
+            dr.Close()
+            DisconnectDatabase()
+            Return id
+        Else
+            dr.Close()
+            DisconnectDatabase()
+            Return -1
+        End If
+        DisconnectDatabase()
+    End Function
+    Public Function loadBranchName()
+        ConnectDatabase()
+        Dim query = "SELECT branch_address FROM branch WHERE branch_id = @branch_id"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@branch_id", frmMain.lbl_branch_Id.Text)
+        Dim _branchName = cm.ExecuteScalar()
+        DisconnectDatabase()
+        Return _branchName
     End Function
 End Class

@@ -138,6 +138,30 @@ Public Class clsSupplier
         frmStock.tb_supplier_stock_In.AutoCompleteSource = AutoCompleteSource.CustomSource
         frmStock.tb_supplier_stock_In.AutoCompleteCustomSource = col
         frmStock.tb_supplier_stock_In.AutoCompleteMode = AutoCompleteMode.Suggest
+
+        frmStock.tb_supplier_sR.AutoCompleteSource = AutoCompleteSource.CustomSource
+        frmStock.tb_supplier_sR.AutoCompleteCustomSource = col
+        frmStock.tb_supplier_sR.AutoCompleteMode = AutoCompleteMode.Suggest
         DisconnectDatabase()
     End Sub
+    Public Function loadSupplierId()
+        ConnectDatabase()
+        Dim query = "SELECT supplier_id FROM supplier WHERE supplier_name = @supplier_name"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@supplier_name", _SupplierName)
+        Dim dr As MySqlDataReader = cm.ExecuteReader()
+        If dr.HasRows Then
+            dr.Read()
+            Dim id = dr(0).ToString
+            dr.Close()
+            DisconnectDatabase()
+            Return id
+        Else
+            dr.Close()
+            DisconnectDatabase()
+            Return -1
+        End If
+        DisconnectDatabase()
+    End Function
+
 End Class

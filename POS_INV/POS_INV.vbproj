@@ -85,6 +85,20 @@
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Customer\clsCustomer.vb" />
+    <Compile Include="Inventory\clsStockReturn.vb" />
+    <Compile Include="Inventory\clsStockTransfer.vb" />
+    <Compile Include="Inventory\frmStockRet_History.Designer.vb">
+      <DependentUpon>frmStockRet_History.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\frmStockRet_History.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\frmStockTrans_History.Designer.vb">
+      <DependentUpon>frmStockTrans_History.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\frmStockTrans_History.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="POS\frmLoginPos.Designer.vb">
       <DependentUpon>frmLoginPos.vb</DependentUpon>
     </Compile>
@@ -189,24 +203,6 @@
       <DependentUpon>frmStockLog_Desc.vb</DependentUpon>
     </Compile>
     <Compile Include="Inventory\frmStockLog_Desc.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventory\frmStock_In.Designer.vb">
-      <DependentUpon>frmStock_In.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Inventory\frmStock_In.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventory\frmStock_Out.Designer.vb">
-      <DependentUpon>frmStock_Out.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Inventory\frmStock_Out.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventory\frmStock_Transfer.Designer.vb">
-      <DependentUpon>frmStock_Transfer.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Inventory\frmStock_Transfer.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Profile\frmSupplierEntry.Designer.vb">
@@ -354,6 +350,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Inventory\frmStockRet_History.resx">
+      <DependentUpon>frmStockRet_History.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\frmStockTrans_History.resx">
+      <DependentUpon>frmStockTrans_History.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="POS\frmLoginPos.resx">
       <DependentUpon>frmLoginPos.vb</DependentUpon>
     </EmbeddedResource>
@@ -398,15 +400,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmStockLog_Desc.resx">
       <DependentUpon>frmStockLog_Desc.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventory\frmStock_In.resx">
-      <DependentUpon>frmStock_In.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventory\frmStock_Out.resx">
-      <DependentUpon>frmStock_Out.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventory\frmStock_Transfer.resx">
-      <DependentUpon>frmStock_Transfer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile\frmSupplierEntry.resx">
       <DependentUpon>frmSupplierEntry.vb</DependentUpon>
