@@ -2,6 +2,7 @@
     Dim stockRetHistory As New clsStockHistory
     Private Sub btn_load_History_Click(sender As Object, e As EventArgs) Handles btn_load_History.Click
         dg_stock_History.Rows.Clear()
+        stockRetHistory.SetBranch(frmStock.tb_branch_sR.Text)
         stockRetHistory.SetDateFrom(dtp_From.Value.ToString("yyyy-MM-dd"))
         stockRetHistory.SetDateTo(dtp_To.Value.ToString("yyyy-MM-dd"))
         stockRetHistory.loadStockRetHistory()

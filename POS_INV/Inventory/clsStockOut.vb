@@ -1,8 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
-Public Class clsStockReturn
+Public Class clsStockOut
     Private _ItemId As Object
     Private _RefNo As Object
-    Private _SupplierId As Object
     Private _BranchId As Object
     Private _TransacDate As Object
     Private _ItemQty As Object
@@ -15,11 +14,6 @@ Public Class clsStockReturn
     Public WriteOnly Property RefNo
         Set
             _RefNo = Value
-        End Set
-    End Property
-    Public WriteOnly Property SupplierId
-        Set
-            _SupplierId = Value
         End Set
     End Property
     Public WriteOnly Property BranchId
@@ -64,8 +58,8 @@ Public Class clsStockReturn
         cm.ExecuteScalar()
         cm.Dispose()
 
-        query = "INSERT INTO stock_return (inventory_id, ref_no, branch_id, supplier_id, qty, trans_date, remarks) " &
-                "VALUES (@inventory_id, @ref_no, @branch_id, @supplier_id, @qty, @trans_date, @remarks) "
+        query = "INSERT INTO stock_out (inventory_id, ref_no, branch_id, qty, trans_date, remarks) " &
+                "VALUES (@inventory_id, @ref_no, @branch_id, @qty, @trans_date, @remarks) "
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@inventory_id", inventory_id)
         cm.Parameters.AddWithValue("@ref_no", _RefNo)
@@ -74,20 +68,19 @@ Public Class clsStockReturn
         cm.Parameters.AddWithValue("@remarks", _Remarks)
         cm.Parameters.AddWithValue("@item_id", _ItemId)
         cm.Parameters.AddWithValue("@branch_id", _BranchId)
-        cm.Parameters.AddWithValue("@supplier_id", _SupplierId)
         cm.ExecuteScalar()
         cm.Dispose()
         DisconnectDatabase()
     End Sub
     Public Function getRefNo() As Integer  'checks table is empty with return of count = 1 else if empty count = 0
         ConnectDatabase()
-        Dim query = "SELECT EXISTS(SELECT ref_no FROM stock_return)"
+        Dim query = "SELECT EXISTS(SELECT ref_no FROM stock_out)"
         cm = New MySqlCommand(query, con)
         Dim count = cm.ExecuteScalar()
         cm.Dispose()
 
         If count = 1 Then
-            query = "SELECT MAX(ref_No) AS refNo FROM stock_return"
+            query = "SELECT MAX(ref_No) AS refNo FROM stock_out"
             cm = New MySqlCommand(query, con)
             Dim ret = cm.ExecuteScalar() + 1
             cm.Dispose()

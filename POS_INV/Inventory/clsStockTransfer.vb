@@ -45,8 +45,24 @@ Public Class clsStockTransfer
     Public Sub save()
         'Try
         Dim inventory_id_from, inventory_id_to As Int64
+        ConnectDatabase()
+        Dim query = "SELECT EXISTS(SELECT inventory_id FROM inventory WHERE item_id = @item_id AND branch_id = @branch_id)"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@item_id", _ItemId)
+        cm.Parameters.AddWithValue("@branch_id", _BranchToId)
+        Dim exist = cm.ExecuteScalar()
+        cm.Dispose()
 
-        Dim query = "SELECT inventory_id, qty FROM inventory WHERE item_id = @item_id AND branch_id = @branch_id "
+        If exist <> 1 Then
+            query = "INSERT INTO inventory (item_id, branch_id) VALUES (@item_id, @branch_id)"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@item_id", _ItemId)
+            cm.Parameters.AddWithValue("@branch_id", _BranchToId)
+            cm.ExecuteScalar()
+            cm.Dispose()
+        End If
+
+        query = "SELECT inventory_id, qty FROM inventory WHERE item_id = @item_id AND branch_id = @branch_id "
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@item_id", _ItemId)
         cm.Parameters.AddWithValue("@branch_id", _BranchToId)

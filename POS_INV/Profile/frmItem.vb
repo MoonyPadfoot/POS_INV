@@ -152,22 +152,22 @@
             Select Case cbo_Filter.Text
                 Case "Code"
                     item.SetItemSearch(Trim(tb_Search.Text))
-                    item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, item_qty, brand.brand_name, category.category_name FROM item " &
+                    item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, brand.brand_name, category.category_name FROM item " &
                                     "INNER JOIN brand ON brand.brand_id = item.brand_id " &
                                     "INNER JOIN category ON category.category_id = item.category_id WHERE item_code LIKE @0")
                 Case "Description"
                     item.SetItemSearch(Trim(tb_Search.Text))
-                    item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, item_qty, brand.brand_name, category.category_name FROM item " &
+                    item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, brand.brand_name, category.category_name FROM item " &
                                     "INNER JOIN brand ON brand.brand_id = item.brand_id " &
                                     "INNER JOIN category ON category.category_id = item.category_id WHERE item_desc LIKE @0 OR item_add_desc LIKE @0")
                 Case "Brand"
                     item.SetItemSearch(Trim(tb_Search.Text))
-                    item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, item_qty, brand.brand_name, category.category_name FROM item " &
+                    item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, brand.brand_name, category.category_name FROM item " &
                                     "INNER JOIN brand ON brand.brand_id = item.brand_id " &
                                     "INNER JOIN category ON category.category_id = item.category_id WHERE brand_name LIKE @0")
                 Case "Category"
                     item.SetItemSearch(Trim(tb_Search.Text))
-                    item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, item_qty, brand.brand_name, category.category_name FROM item " &
+                    item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, brand.brand_name, category.category_name FROM item " &
                                     "INNER JOIN brand ON brand.brand_id = item.brand_id " &
                                     "INNER JOIN category ON category.category_id = item.category_id WHERE category_name LIKE @0")
             End Select

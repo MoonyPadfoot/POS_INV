@@ -85,8 +85,16 @@
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Customer\clsCustomer.vb" />
+    <Compile Include="Inventory\clsStockList.vb" />
+    <Compile Include="Inventory\clsStockOut.vb" />
     <Compile Include="Inventory\clsStockReturn.vb" />
     <Compile Include="Inventory\clsStockTransfer.vb" />
+    <Compile Include="Inventory\frmStockOut_History.Designer.vb">
+      <DependentUpon>frmStockOut_History.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\frmStockOut_History.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Inventory\frmStockRet_History.Designer.vb">
       <DependentUpon>frmStockRet_History.vb</DependentUpon>
     </Compile>
@@ -350,6 +358,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Inventory\frmStockOut_History.resx">
+      <DependentUpon>frmStockOut_History.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmStockRet_History.resx">
       <DependentUpon>frmStockRet_History.vb</DependentUpon>
     </EmbeddedResource>

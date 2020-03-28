@@ -1,8 +1,5 @@
 ﻿Public Class frmMain
     Dim login As New clsLogin
-    Dim loginPos As New clsLoginPos
-    Dim branch As New clsBranch
-
     Private Sub btnPos_Click(sender As Object, e As EventArgs) Handles btn_Pos.Click
         btn_Pos.BackColor = Color.FromArgb(236, 240, 241)
         btn_Profile.BackColor = Color.FromArgb(149, 165, 166)
@@ -67,9 +64,6 @@
             .BringToFront()
             .Show()
         End With
-        frmStock.tb_branch_stock_In.Text = branch.loadBranchName()
-        frmStock.tb_branch_from_sT.Text = branch.loadBranchName()
-        frmStock.tb_branch_sR.Text = branch.loadBranchName()
         btn_Logout.Enabled = False
         btn_Customer.Enabled = False
         btn_Pos.Enabled = False

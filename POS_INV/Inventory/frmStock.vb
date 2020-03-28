@@ -2,10 +2,13 @@
 Public Class frmStock
     Dim supplier As New clsSupplier
     Dim branch As New clsBranch
+    Dim brand As New clsBrand
+    Dim category As New clsCategory
     Dim stockIn As New clsStockIn
     Dim stockTrans As New clsStockTransfer
-    Dim stockHistory As New clsStockHistory
     Dim stockReturn As New clsStockReturn
+    Dim stockOut As New clsStockOut
+    Dim stockList As New clsStockList
     '-----stock in end-----
     Private Sub lbl_items_stock_In_Click(sender As Object, e As EventArgs) Handles lbl_items_stock_In.Click
         frmItemList.ShowDialog()
@@ -80,6 +83,7 @@ Public Class frmStock
         Next
         MsgBox("Reference Code: " & "SI" & dtp_stock_In.Value.ToString("yyyyMMdd") & zero & _refNo, vbInformation) 'generate ref Code
         clearControls()
+        stockList.loadStockList()
     End Sub
 
     Private Sub tb_supplier_stock_In_Leave(sender As Object, e As EventArgs) Handles tb_supplier_stock_In.Leave
@@ -200,6 +204,7 @@ Public Class frmStock
         Next
         MsgBox("Reference Code: " & "SI" & dtp_stock_Transfer.Value.ToString("yyyyMMdd") & zero & _refNo, vbInformation) 'generate ref Code
         clearControls()
+        stockList.loadStockList()
     End Sub
 
     Private Sub btn_new_stock_Trans_Click(sender As Object, e As EventArgs) Handles btn_new_stock_Trans.Click
@@ -225,6 +230,9 @@ Public Class frmStock
         End If
     End Sub
     '------stock return-----
+    Private Sub btn_history_stock_Return_Click(sender As Object, e As EventArgs) Handles btn_history_stock_Return.Click
+        frmStockRet_History.ShowDialog()
+    End Sub
     Private Sub lbl_items_sR_Click(sender As Object, e As EventArgs) Handles lbl_items_sR.Click
         frmItemList.ShowDialog()
     End Sub
@@ -284,7 +292,7 @@ Public Class frmStock
                 Exit Sub
             End If
             If dg_stock_Return.Rows(i).Cells(7).Value > stockReturn.getItemBranchQty Then
-                MsgBox("Item: " & _itemDesc & " currently on stock exceeds the amount to be transfered", vbExclamation)
+                MsgBox("Item: " & _itemDesc & " currently on stock exceeds the amount to be returned", vbExclamation)
                 Exit Sub
             End If
         Next
@@ -307,6 +315,7 @@ Public Class frmStock
         Next
         MsgBox("Reference Code: " & "SR" & dtp_stock_Return.Value.ToString("yyyyMMdd") & zero & _refNo, vbInformation) 'generate ref Code
         clearControls()
+        stockList.loadStockList()
     End Sub
 
     Private Sub tb_supplier_sR_Leave(sender As Object, e As EventArgs) Handles tb_supplier_sR.Leave
@@ -335,9 +344,147 @@ Public Class frmStock
             End If
         End If
     End Sub
-    ' all
+    '------stock out-----
+    Private Sub lbl_items_stock_Out_Click(sender As Object, e As EventArgs) Handles lbl_items_stock_Out.Click
+        frmItemList.ShowDialog()
+    End Sub
+    Private Sub dg_stock_Out_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_stock_Out.CellContentClick
+        Dim colName As String = dg_stock_Out.Columns(e.ColumnIndex).Name
+        If colName = "col_remove_stock_Out" Then
+            If MsgBox("Do you wish to remove item from the list?", vbQuestion + vbYesNo) = vbYes Then
+                dg_stock_Out.Rows.RemoveAt(dg_stock_Out.SelectedRows(0).Index)
+                For i = 0 To dg_stock_Out.RowCount - 1
+                    dg_stock_Out.Rows(i).Cells(1).Value = i + 1
+                Next
+                MsgBox("Item has been removed.", vbInformation)
+            End If
+        End If
+    End Sub
+    Private Sub lbl_items_stock_Out_MouseHover(sender As Object, e As EventArgs) Handles lbl_items_stock_Out.MouseHover
+        lbl_items_stock_Out.ForeColor = Color.Blue
+    End Sub
+
+    Private Sub lbl_items_stock_Out_MouseLeave(sender As Object, e As EventArgs) Handles lbl_items_stock_Out.MouseLeave
+        lbl_items_stock_Out.ForeColor = Color.Black
+    End Sub
+    Private Sub btn_save_stock_Out_Click(sender As Object, e As EventArgs) Handles btn_save_stock_Out.Click
+        branch.BranchName = tb_branch_stock_Out.Text.Trim
+        lbl_branch_id_stock_Out.Text = branch.loadBranchId()
+        If countEmpty() = True Then
+            MsgBox("Please fill in the field(s) before saving.", vbExclamation)
+            Exit Sub
+        End If
+        If dg_stock_Out.RowCount = 0 Then
+            MsgBox("Please add the items to be stocked.", vbExclamation)
+            Exit Sub
+        End If
+        stockOut.BranchId = lbl_branch_id_stock_Out.Text
+        For i = 0 To dg_stock_Out.RowCount - 1
+            stockOut.ItemId = dg_stock_Out.Rows(i).Cells(0).Value
+            If dg_stock_Out.Rows(i).Cells(7).Value = 0 Then
+                MsgBox("Please fill in a valid quantity.", vbExclamation)
+                Exit Sub
+            End If
+            Dim _itemDesc = dg_stock_Out.Rows(i).Cells(3).Value & "|" & dg_stock_Out.Rows(i).Cells(4).Value & "|" & dg_stock_Out.Rows(i).Cells(5).Value
+            If stockOut.checkItemBranchExists() <> True Then
+                MsgBox("Item: " & _itemDesc & " has no stock in record", vbExclamation)
+                Exit Sub
+            End If
+            If dg_stock_Out.Rows(i).Cells(7).Value > stockOut.getItemBranchQty Then
+                MsgBox("Item: " & _itemDesc & " currently on stock exceeds the amount to be stocked out", vbExclamation)
+                Exit Sub
+            End If
+        Next
+        Dim _refNo = stockOut.getRefNo
+        stockOut.RefNo = _refNo
+        Dim refNoLegnth As String = _refNo.ToString
+        Dim zero = ""
+        For i = 0 To 5 - refNoLegnth.Length
+            zero &= "0"
+            i += 1
+        Next
+        For i = 0 To dg_stock_Out.RowCount - 1    'sets the column entries for stock_in table per dg_stock_in row
+            stockOut.ItemId = dg_stock_Out.Rows(i).Cells(0).Value   'item_id
+            stockOut.BranchId = lbl_branch_id_stock_Out.Text 'branch_id
+            stockOut.ItemQty = dg_stock_Out.Rows(i).Cells(7).Value 'qty
+            stockOut.TransacDate = dtp_stock_Out.Value.ToString("yyyy-MM-dd") 'transac_date
+            stockOut.Remarks = tb_remarks_stock_Out.Text 'remarks
+            stockOut.save()
+        Next
+        MsgBox("Reference Code: " & "SO" & dtp_stock_Out.Value.ToString("yyyyMMdd") & zero & _refNo, vbInformation) 'generate ref Code
+        clearControls()
+        stockList.loadStockList()
+    End Sub
+    Private Sub tb_branch_stock_Out_Leave(sender As Object, e As EventArgs) Handles tb_branch_stock_Out.Leave
+        If tb_branch_stock_Out.Text = vbNullString Then
+            Exit Sub
+        End If
+        branch.BranchName = tb_branch_stock_Out.Text.Trim
+        lbl_branch_id_stock_Out.Text = branch.loadBranchId()
+    End Sub
+    Private Sub btn_new_stock_Out_Click(sender As Object, e As EventArgs) Handles btn_new_stock_Out.Click
+        If MsgBox("All inputs will be cleared, Do you wish to proceed?", vbQuestion + vbYesNo) = vbYes Then
+            clearControls()
+        End If
+    End Sub
+    Private Sub dg_stock_Out_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dg_stock_Out.EditingControlShowing
+        If dg_stock_Out.CurrentCell.ColumnIndex = 7 Then
+            AddHandler CType(e.Control, TextBox).KeyPress, AddressOf col_qty_stockOut_keyPress
+        End If
+    End Sub
+    Private Sub col_qty_stockOut_keyPress(ByVal sender As Object, ByVal e As KeyPressEventArgs)
+        If dg_stock_Out.CurrentCell.ColumnIndex = 7 Then
+            If IsNumeric(e.KeyChar.ToString()) Or e.KeyChar = ChrW(Keys.Back) Then
+                e.Handled = False
+            Else
+                e.Handled = True
+            End If
+        End If
+    End Sub
+    Private Sub btn_stock_Out_Click(sender As Object, e As EventArgs) Handles btn_stock_Out.Click
+        frmStockOut_History.ShowDialog()
+    End Sub
+    ' -----Stock List -----
+
+
+
+    Private Sub dg_stock_List_SelectionChanged(sender As Object, e As EventArgs) Handles dg_stock_List.SelectionChanged
+        Dim i As Integer = dg_stock_List.CurrentRow.Index
+        Dim _qty = dg_stock_List.Item(8, i).Value
+        lbl_Qty.Text = _qty
+        If _qty <= 10 Then
+            lbl_Qty.ForeColor = Color.Red
+        Else
+            lbl_Qty.ForeColor = Color.Black
+        End If
+    End Sub
+
+
+
+
+    '-----all-----
+    Private Sub tb_Search_KeyDown(sender As Object, e As KeyEventArgs) Handles tb_Search.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            e.SuppressKeyPress = True
+        End If
+    End Sub
+
     Private Sub frmStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MetroTabControl1.SelectedTab = tp_stock_List
+        stockList.SetBranchAddress(branch.loadBranchName())
+        stockList.loadStockList()
+        stockList.loadCategory()
+        stockList.loadBrand()
+        rb_all_Items.Select()
+
+        cbo_Brand.SelectedIndex = 0
+        cbo_Category.SelectedIndex = 0
+        cbo_Filter.SelectedIndex = 1
+
+        tb_branch_stock_In.Text = branch.loadBranchName()
+        tb_branch_from_sT.Text = branch.loadBranchName()
+        tb_branch_sR.Text = branch.loadBranchName()
+        tb_branch_stock_Out.Text = branch.loadBranchName()
         stockTrans.BranchToId = frmMain.lbl_branch_Id.Text
         stockTrans.loadAutoSuggestBranch()
         supplier.loadAutosuggest()
@@ -359,6 +506,14 @@ Public Class frmStock
                 tb_branch_to_sT.Focus()
                 Return True
             End If
+        ElseIf lbl_stock_Type.Text = 3 Then
+            If tb_branch_sR.Text = vbNullString Then
+                tb_branch_sR.Focus()
+                Return True
+            ElseIf tb_supplier_sR.Text = vbNullString Then
+                tb_supplier_sR.Focus()
+                Return True
+            End If
         End If
         Return False
     End Function
@@ -375,6 +530,9 @@ Public Class frmStock
             tb_supplier_sR.Clear()
             tb_remarks_sR.Clear()
             dg_stock_Return.Rows.Clear()
+        ElseIf lbl_stock_Type.Text = 4 Then
+            tb_remarks_stock_Out.Clear()
+            dg_stock_Out.Rows.Clear()
         End If
     End Sub
     Private Sub btn_Close_Click(sender As Object, e As EventArgs) Handles btn_Close.Click
@@ -388,7 +546,9 @@ Public Class frmStock
         Me.Close()
     End Sub
     Private Sub MetroTabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MetroTabControl1.SelectedIndexChanged
-        If MetroTabControl1.SelectedIndex = 1 Then
+        If MetroTabControl1.SelectedIndex = 0 Then
+            lbl_stock_Type.Text = 0
+        ElseIf MetroTabControl1.SelectedIndex = 1 Then
             lbl_stock_Type.Text = 1
         ElseIf MetroTabControl1.SelectedIndex = 2 Then
             lbl_stock_Type.Text = 2
@@ -399,7 +559,120 @@ Public Class frmStock
         End If
     End Sub
 
-    Private Sub btn_history_stock_Return_Click(sender As Object, e As EventArgs) Handles btn_history_stock_Return.Click
-        frmStockRet_History.ShowDialog()
+    Private Sub btn_Reset_Click(sender As Object, e As EventArgs) Handles btn_Reset.Click
+        cbo_Brand.SelectedIndex = 0
+        cbo_Category.SelectedIndex = 0
+        cbo_Filter.SelectedIndex = 1
+        rb_all_Items.Select()
+        stockList.SetBranchAddress(branch.loadBranchName())
+        stockList.loadStockList()
+    End Sub
+
+    Private Sub btn_Load_Click(sender As Object, e As EventArgs) Handles btn_Load.Click
+        stockList.SetBrandName(cbo_Brand.Text)
+        stockList.SetCategoryName(cbo_Category.Text)
+        stockList.SetItemSearch(Trim(tb_Search.Text))
+        stockList.SetBranchAddress(branch.loadBranchName())
+        If rb_all_Items.Checked = True Then
+            If tb_Search.Text = vbNullString Then
+                If cbo_Brand.SelectedIndex = 0 And cbo_Category.SelectedIndex <> 0 Then
+                    stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND branch_address = @branch_address")
+
+                ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex <> 0 Then
+                    stockList.loadStock("SELECT * FROM vw_stock_list WHERE brand_name = @brand_name AND branch_address = @branch_address")
+
+                ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex = 0 Then
+                    stockList.loadStock("SELECT * FROM vw_stock_list WHERE branch_address = @branch_address")
+
+                ElseIf cbo_Category.SelectedIndex <> 0 And cbo_Brand.SelectedIndex <> 0 Then
+                    stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND brand_name = @brand_name AND branch_address = @branch_address")
+
+                End If
+            Else
+                If cbo_Filter.Text = "Code" Then
+                    If cbo_Brand.SelectedIndex = 0 And cbo_Category.SelectedIndex <> 0 Then
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND item_code = @item_search AND branch_address = @branch_address")
+
+                    ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex <> 0 Then
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE brand_name = @brand_name AND item_code = @item_search AND branch_address = @branch_address")
+
+                    ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex = 0 Then
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE item_code = @item_search AND branch_address = @branch_address")
+
+                    ElseIf cbo_Category.SelectedIndex <> 0 And cbo_Brand.SelectedIndex <> 0 Then
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND brand_name = @brand_name AND item_code = @item_search AND branch_address = @branch_address")
+
+                    End If
+                ElseIf cbo_Filter.Text = "Description" Then
+                    If cbo_Brand.SelectedIndex = 0 And cbo_Category.SelectedIndex <> 0 Then
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND branch_address = @branch_address AND (item_desc = @item_search OR item_add_desc = @item_search)")
+
+                    ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex <> 0 Then
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE brand_name = @brand_name AND branch_address = @branch_address AND (item_desc = @item_search OR item_add_desc = @item_search) ")
+
+                    ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex = 0 Then
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE branch_address = @branch_address AND (item_desc = @item_search OR item_add_desc = @item_search)")
+
+                    ElseIf cbo_Category.SelectedIndex <> 0 And cbo_Brand.SelectedIndex <> 0 Then
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND brand_name = @brand_name AND branch_address = @branch_address AND (item_desc = @item_search OR item_add_desc = @item_search)")
+
+                    End If
+                End If
+            End If
+        ElseIf rb_critical_Items.Checked = True Then
+            If tb_Search.Text = vbNullString Then
+                If cbo_Brand.SelectedIndex = 0 And cbo_Category.SelectedIndex <> 0 Then
+                    stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND qty <= 10 AND branch_address = @branch_address")
+
+                ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex <> 0 Then
+                    stockList.loadStock("SELECT * FROM vw_stock_list WHERE brand_name = @brand_name AND qty <= 10 AND branch_address = @branch_address")
+
+                ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex = 0 Then
+                    stockList.loadStock("SELECT * FROM vw_stock_list WHERE qty <= 10 AND branch_address = @branch_address")
+
+                ElseIf cbo_Category.SelectedIndex <> 0 And cbo_Brand.SelectedIndex <> 0 Then
+                    stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND brand_name = @brand_name AND qty <= 10 AND branch_address = @branch_address")
+
+                End If
+            Else
+                If cbo_Filter.Text = "Code" Then
+                    If cbo_Brand.SelectedIndex = 0 And cbo_Category.SelectedIndex <> 0 Then
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND item_code = @item_search AND qty <= 10 AND branch_address = @branch_address")
+
+                    ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex <> 0 Then
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE brand_name = @brand_name AND item_code = @item_search AND qty <= 10 AND branch_address = @branch_address")
+
+                    ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex = 0 Then
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE item_code = @item_search AND qty <= 10 AND branch_address = @branch_address")
+
+                    ElseIf cbo_Category.SelectedIndex <> 0 And cbo_Brand.SelectedIndex <> 0 Then
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND brand_name = @brand_name AND item_code = @item_search AND qty <= 10 AND branch_address = @branch_address")
+
+                    End If
+                ElseIf cbo_Filter.Text = "Description" Then
+                    If cbo_Brand.SelectedIndex = 0 And cbo_Category.SelectedIndex <> 0 Then
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND branch_address = @branch_address AND (item_desc = @item_search OR item_add_desc = @item_search) AND qty <= 10")
+
+                    ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex <> 0 Then
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE brand_name = @brand_name AND branch_address = @branch_address AND (item_desc = @item_search OR item_add_desc = @item_search) AND qty <= 10")
+
+                    ElseIf cbo_Category.SelectedIndex = 0 And cbo_Brand.SelectedIndex = 0 Then
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE branch_address = @branch_address AND (item_desc = @item_search OR item_add_desc = @item_search) AND qty <= 10 ")
+
+                    ElseIf cbo_Category.SelectedIndex <> 0 And cbo_Brand.SelectedIndex <> 0 Then
+                        stockList.loadStock("SELECT * FROM vw_stock_list WHERE category_name = @category_name AND brand_name = @brand_name AND branch_address = @branch_address AND (item_desc = @item_search OR item_add_desc = @item_search) AND qty <= 10 ")
+
+                    End If
+                End If
+            End If
+        End If
+    End Sub
+    Private Sub cbo_Brand_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbo_Brand.SelectedIndexChanged
+        brand.SetBrandName(cbo_Brand.Text)
+        lbl_Brand.Text = brand.BrandId()
+    End Sub
+    Private Sub cbo_Category_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbo_Category.SelectedIndexChanged
+        category.SetCategoryName(cbo_Category.Text)
+        lbl_Category.Text = category.categoryId
     End Sub
 End Class

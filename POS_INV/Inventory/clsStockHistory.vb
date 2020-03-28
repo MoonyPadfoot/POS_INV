@@ -2,6 +2,10 @@
 Public Class clsStockHistory
     Private _DateFrom As Object
     Private _DateTo As Object
+    Private _Branch As Object
+    Public Sub SetBranch(AutoPropertyValue As Object)
+        _Branch = AutoPropertyValue
+    End Sub
     Public Sub SetDateFrom(AutoPropertyValue As Object)
         _DateFrom = AutoPropertyValue
     End Sub
@@ -13,9 +17,11 @@ Public Class clsStockHistory
     Public Sub loadStockHistory()
         Dim refNo As String
         Dim transDate, dateRef As String
+        frmStockIn_History.dg_stock_History.Rows.Clear()
         ConnectDatabase()
-        Dim query = "SELECT * FROM vw_stock_in_history WHERE trans_date BETWEEN @date_from AND @date_to"
+        Dim query = "SELECT * FROM vw_stock_in_history WHERE trans_date BETWEEN @date_from AND @date_to AND branch_address = @branch_address"
         cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@branch_address", _Branch)
         cm.Parameters.AddWithValue("@date_from", _DateFrom)
         cm.Parameters.AddWithValue("@date_to", _DateTo)
         dr = cm.ExecuteReader()
@@ -37,9 +43,11 @@ Public Class clsStockHistory
     Public Sub loadStockTransHistory()
         Dim refNo As String
         Dim transDate, dateRef As String
+        frmStockTrans_History.dg_stock_History.Rows.Clear()
         ConnectDatabase()
-        Dim query = "SELECT * FROM vw_stock_trans_history WHERE trans_date BETWEEN @date_from AND @date_to"
+        Dim query = "SELECT * FROM vw_stock_trans_history WHERE trans_date BETWEEN @date_from AND @date_to AND b_from = @branch_address"
         cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@branch_address", _Branch)
         cm.Parameters.AddWithValue("@date_from", _DateFrom)
         cm.Parameters.AddWithValue("@date_to", _DateTo)
         dr = cm.ExecuteReader()
@@ -61,9 +69,11 @@ Public Class clsStockHistory
     Public Sub loadStockRetHistory()
         Dim refNo As String
         Dim transDate, dateRef As String
+        frmStockRet_History.dg_stock_History.Rows.Clear()
         ConnectDatabase()
-        Dim query = "SELECT * FROM vw_stock_ret_history WHERE trans_date BETWEEN @date_from AND @date_to"
+        Dim query = "SELECT * FROM vw_stock_ret_history WHERE trans_date BETWEEN @date_from AND @date_to AND branch_address = @branch_address"
         cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@branch_address", _Branch)
         cm.Parameters.AddWithValue("@date_from", _DateFrom)
         cm.Parameters.AddWithValue("@date_to", _DateTo)
         dr = cm.ExecuteReader()
@@ -79,6 +89,32 @@ Public Class clsStockHistory
             frmStockRet_History.dg_stock_History.Rows.Add(dr.Item("stock_ret_id").ToString, "SR" & dateRef & zero & dr.Item("ref_no").ToString, transDate, dr.Item("branch_address").ToString,
                                                dr.Item("item_code").ToString, dr.Item("brand_name").ToString, dr.Item("item_desc").ToString, dr.Item("item_add_desc").ToString,
                                                dr.Item("category_name").ToString, dr.Item("qty").ToString, dr.Item("supplier_name"))
+        End While
+        DisconnectDatabase()
+    End Sub
+    Public Sub loadStockOutHistory()
+        Dim refNo As String
+        Dim transDate, dateRef As String
+        frmStockOut_History.dg_stock_History.Rows.Clear()
+        ConnectDatabase()
+        Dim query = "SELECT * FROM vw_stock_out_history WHERE trans_date BETWEEN @date_from AND @date_to AND branch_address = @branch_address"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@branch_address", _Branch)
+        cm.Parameters.AddWithValue("@date_from", _DateFrom)
+        cm.Parameters.AddWithValue("@date_to", _DateTo)
+        dr = cm.ExecuteReader()
+        While dr.Read()
+            Dim zero = ""
+            refNo = dr.Item("ref_no").ToString
+            For i = 0 To (5 - refNo.Length)
+                zero &= "0"
+                i += 1
+            Next
+            transDate = Format(dr.Item("trans_date"), "MM/dd/yyyy")
+            dateRef = Format(dr.Item("trans_date"), "yyyyMMdd")
+            frmStockOut_History.dg_stock_History.Rows.Add(dr.Item("stock_out_id").ToString, "SO" & dateRef & zero & dr.Item("ref_no").ToString, transDate, dr.Item("branch_address").ToString,
+                                               dr.Item("item_code").ToString, dr.Item("brand_name").ToString, dr.Item("item_desc").ToString, dr.Item("item_add_desc").ToString,
+                                               dr.Item("category_name").ToString, dr.Item("qty").ToString)
         End While
         DisconnectDatabase()
     End Sub
