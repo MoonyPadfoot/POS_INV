@@ -160,7 +160,7 @@ Public Class clsStockTransfer
     End Function
     Public Sub loadAutoSuggestBranch()
         ConnectDatabase()
-        Dim query = "SELECT * FROM branch WHERE branch_id <> @branch_id ORDER BY branch_address"
+        Dim query = "SELECT * FROM branch ORDER BY branch_address"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@branch_id", _BranchToId)
         Dim ds As New DataSet

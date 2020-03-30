@@ -9,6 +9,7 @@ Public Class frmStock
     Dim stockReturn As New clsStockReturn
     Dim stockOut As New clsStockOut
     Dim stockList As New clsStockList
+    Dim stockAdjust As New clsStockAdjustment
     '-----stock in end-----
     Private Sub lbl_items_stock_In_Click(sender As Object, e As EventArgs) Handles lbl_items_stock_In.Click
         frmItemList.ShowDialog()
@@ -30,7 +31,7 @@ Public Class frmStock
         lbl_items_stock_In.ForeColor = Color.Blue
     End Sub
 
-    Private Sub lbl_items_stock_In_In_MouseLeave(sender As Object, e As EventArgs) Handles lbl_items_stock_In.MouseLeave
+    Private Sub lbl_items_stock_In_MouseLeave(sender As Object, e As EventArgs) Handles lbl_items_stock_In.MouseLeave
         lbl_items_stock_In.ForeColor = Color.Black
     End Sub
 
@@ -161,7 +162,12 @@ Public Class frmStock
         End If
         If Val(lbl_branch_to_id_sT.Text) = -1 Then
             MsgBox("Please input an existing branch.", vbExclamation)
-            tb_branch_stock_In.Focus()
+            tb_branch_to_sT.Focus()
+            Exit Sub
+        End If
+        If Val(lbl_branch_from_id_sT.Text) = Val(lbl_branch_to_id_sT.Text) Then
+            MsgBox("Branch to be transfered must be towards another branch.", vbExclamation)
+            tb_branch_to_sT.Focus()
             Exit Sub
         End If
         If dg_stock_Transfer.RowCount = 0 Then
@@ -446,8 +452,6 @@ Public Class frmStock
     End Sub
     ' -----Stock List -----
 
-
-
     Private Sub dg_stock_List_SelectionChanged(sender As Object, e As EventArgs) Handles dg_stock_List.SelectionChanged
         Dim i As Integer = dg_stock_List.CurrentRow.Index
         Dim _qty = dg_stock_List.Item(8, i).Value
@@ -456,106 +460,6 @@ Public Class frmStock
             lbl_Qty.ForeColor = Color.Red
         Else
             lbl_Qty.ForeColor = Color.Black
-        End If
-    End Sub
-
-
-
-
-    '-----all-----
-    Private Sub tb_Search_KeyDown(sender As Object, e As KeyEventArgs) Handles tb_Search.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            e.SuppressKeyPress = True
-        End If
-    End Sub
-
-    Private Sub frmStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MetroTabControl1.SelectedTab = tp_stock_List
-        stockList.SetBranchAddress(branch.loadBranchName())
-        stockList.loadStockList()
-        stockList.loadCategory()
-        stockList.loadBrand()
-        rb_all_Items.Select()
-
-        cbo_Brand.SelectedIndex = 0
-        cbo_Category.SelectedIndex = 0
-        cbo_Filter.SelectedIndex = 1
-
-        tb_branch_stock_In.Text = branch.loadBranchName()
-        tb_branch_from_sT.Text = branch.loadBranchName()
-        tb_branch_sR.Text = branch.loadBranchName()
-        tb_branch_stock_Out.Text = branch.loadBranchName()
-        stockTrans.BranchToId = frmMain.lbl_branch_Id.Text
-        stockTrans.loadAutoSuggestBranch()
-        supplier.loadAutosuggest()
-    End Sub
-    Private Function countEmpty()
-        If lbl_stock_Type.Text = 1 Then
-            If tb_branch_stock_In.Text = vbNullString Then
-                tb_branch_stock_In.Focus()
-                Return True
-            ElseIf tb_supplier_stock_In.Text = vbNullString Then
-                tb_supplier_stock_In.Focus()
-                Return True
-            End If
-        ElseIf lbl_stock_Type.Text = 2 Then
-            If tb_branch_from_sT.Text = vbNullString Then
-                tb_branch_from_sT.Focus()
-                Return True
-            ElseIf tb_branch_to_sT.Text = vbNullString Then
-                tb_branch_to_sT.Focus()
-                Return True
-            End If
-        ElseIf lbl_stock_Type.Text = 3 Then
-            If tb_branch_sR.Text = vbNullString Then
-                tb_branch_sR.Focus()
-                Return True
-            ElseIf tb_supplier_sR.Text = vbNullString Then
-                tb_supplier_sR.Focus()
-                Return True
-            End If
-        End If
-        Return False
-    End Function
-    Private Sub clearControls()
-        If lbl_stock_Type.Text = 1 Then
-            tb_supplier_stock_In.Clear()
-            tb_remarks_stock_In.Clear()
-            dg_stock_In.Rows.Clear()
-        ElseIf lbl_stock_Type.Text = 2 Then
-            tb_branch_to_sT.Clear()
-            tb_remarks_sT.Clear()
-            dg_stock_Transfer.Rows.Clear()
-        ElseIf lbl_stock_Type.Text = 3 Then
-            tb_supplier_sR.Clear()
-            tb_remarks_sR.Clear()
-            dg_stock_Return.Rows.Clear()
-        ElseIf lbl_stock_Type.Text = 4 Then
-            tb_remarks_stock_Out.Clear()
-            dg_stock_Out.Rows.Clear()
-        End If
-    End Sub
-    Private Sub btn_Close_Click(sender As Object, e As EventArgs) Handles btn_Close.Click
-        If frmMain.lbl_Type.Text = "Manager" Then
-            frmMain.btn_Profile.Enabled = False
-            frmMain.btn_Logout.Enabled = True
-            frmMain.btn_sales_Report.Enabled = True
-            frmMain.btn_Customer.Enabled = True
-            frmMain.btn_Pos.Enabled = True
-        End If
-        Me.Close()
-    End Sub
-    Private Sub MetroTabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MetroTabControl1.SelectedIndexChanged
-        If MetroTabControl1.SelectedIndex = 0 Then
-            lbl_stock_Type.Text = 0
-        ElseIf MetroTabControl1.SelectedIndex = 1 Then
-            lbl_stock_Type.Text = 1
-        ElseIf MetroTabControl1.SelectedIndex = 2 Then
-            lbl_stock_Type.Text = 2
-        ElseIf MetroTabControl1.SelectedIndex = 3 Then
-            lbl_stock_Type.Text = 3
-        ElseIf MetroTabControl1.SelectedIndex = 4 Then
-            lbl_stock_Type.Text = 4
         End If
     End Sub
 
@@ -674,5 +578,183 @@ Public Class frmStock
     Private Sub cbo_Category_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbo_Category.SelectedIndexChanged
         category.SetCategoryName(cbo_Category.Text)
         lbl_Category.Text = category.categoryId
+    End Sub
+
+    '-----stock adjustment-----
+
+    Private Sub lbl_items_sA_Click(sender As Object, e As EventArgs) Handles lbl_items_sA.Click
+        frmItemList.ShowDialog()
+    End Sub
+    Private Sub dg_stock_Adjustment_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_stock_Adjustment.CellContentClick
+        Dim colName As String = dg_stock_Adjustment.Columns(e.ColumnIndex).Name
+        If colName = "col_remove_sA" Then
+            If MsgBox("Do you wish to remove item from the list?", vbQuestion + vbYesNo) = vbYes Then
+                dg_stock_Adjustment.Rows.RemoveAt(dg_stock_Adjustment.SelectedRows(0).Index)
+                For i = 0 To dg_stock_Adjustment.RowCount - 1
+                    dg_stock_Adjustment.Rows(i).Cells(1).Value = i + 1
+                Next
+                MsgBox("Item has been removed.", vbInformation)
+            End If
+        End If
+    End Sub
+
+    Private Sub lbl_items_sA_MouseHover(sender As Object, e As EventArgs) Handles lbl_items_sA.MouseHover
+        lbl_items_sA.ForeColor = Color.Blue
+    End Sub
+
+    Private Sub lbl_items_sA_MouseLeave(sender As Object, e As EventArgs) Handles lbl_items_sA.MouseLeave
+        lbl_items_sA.ForeColor = Color.Black
+    End Sub
+    Private Sub btn_save_sA_Click(sender As Object, e As EventArgs) Handles btn_save_sA.Click
+        If dg_stock_Adjustment.RowCount = 0 Then
+            MsgBox("Please add the items to adjusted.", vbExclamation)
+            Exit Sub
+        End If
+        For i = 0 To dg_stock_Adjustment.RowCount - 1
+            If dg_stock_Adjustment.Rows(i).Cells(7).Value = 0 Then
+                MsgBox("Please fill in a valid quantity.", vbExclamation)
+                Exit Sub
+            End If
+        Next
+
+        For i = 0 To dg_stock_Adjustment.RowCount - 1    'sets the column entries for stock_in table per dg_stock_in row
+            stockAdjust.ItemId = dg_stock_Adjustment.Rows(i).Cells(0).Value   'item_id
+            stockAdjust.BranchId = frmMain.lbl_branch_Id.Text 'branch_id
+            stockAdjust.ItemQty = dg_stock_Adjustment.Rows(i).Cells(7).Value 'qty
+            stockAdjust.CountDate = dtp_stock_Adjustment.Value.ToString("yyyy-MM-dd") 'transac_date
+            stockAdjust.DateFrom = dtp_from_sA.Value.ToString("yyyy-MM-dd")
+            stockAdjust.DateTo = dtp_to_sA.Value.ToString("yyyy-MM-dd")
+            stockAdjust.Remarks = tb_remarks_sA.Text 'remarks
+            stockAdjust.save()
+        Next
+    End Sub
+
+    Private Sub btn_new_sA_Click(sender As Object, e As EventArgs) Handles btn_new_sA.Click
+        If MsgBox("All inputs will be cleared, Do you wish to proceed?", vbQuestion + vbYesNo) = vbYes Then
+            clearControls()
+        End If
+    End Sub
+
+    Private Sub dg_stock_Adjustment_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dg_stock_Adjustment.EditingControlShowing
+        If dg_stock_Adjustment.CurrentCell.ColumnIndex = 7 Then
+            AddHandler CType(e.Control, TextBox).KeyPress, AddressOf col_qty_sA_keyPress
+        End If
+    End Sub
+    Private Sub col_qty_sA_keyPress(ByVal sender As Object, ByVal e As KeyPressEventArgs)
+        If dg_stock_Adjustment.CurrentCell.ColumnIndex = 7 Then
+            If IsNumeric(e.KeyChar.ToString()) Or e.KeyChar = ChrW(Keys.Back) Then
+                e.Handled = False
+            Else
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+
+    '-----all-----
+    Private Sub tb_Search_KeyDown(sender As Object, e As KeyEventArgs) Handles tb_Search.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            e.SuppressKeyPress = True
+        End If
+    End Sub
+
+    Private Sub frmStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MetroTabControl1.SelectedTab = tp_stock_List
+        stockList.SetBranchAddress(branch.loadBranchName())
+        stockList.loadStockList()
+        stockList.loadCategory()
+        stockList.loadBrand()
+        rb_all_Items.Select()
+
+        cbo_Brand.SelectedIndex = 0
+        cbo_Category.SelectedIndex = 0
+        cbo_Filter.SelectedIndex = 1
+
+        tb_branch_sA.Text = branch.loadBranchName()
+        tb_branch_stock_In.Text = branch.loadBranchName()
+        tb_branch_from_sT.Text = branch.loadBranchName()
+        tb_branch_sR.Text = branch.loadBranchName()
+        tb_branch_stock_Out.Text = branch.loadBranchName()
+        stockTrans.BranchToId = frmMain.lbl_branch_Id.Text
+        stockTrans.loadAutoSuggestBranch()
+        supplier.loadAutosuggest()
+    End Sub
+    Private Function countEmpty()
+        If lbl_stock_Type.Text = 1 Then
+            If tb_branch_stock_In.Text = vbNullString Then
+                tb_branch_stock_In.Focus()
+                Return True
+            ElseIf tb_supplier_stock_In.Text = vbNullString Then
+                tb_supplier_stock_In.Focus()
+                Return True
+            End If
+        ElseIf lbl_stock_Type.Text = 2 Then
+            If tb_branch_from_sT.Text = vbNullString Then
+                tb_branch_from_sT.Focus()
+                Return True
+            ElseIf tb_branch_to_sT.Text = vbNullString Then
+                tb_branch_to_sT.Focus()
+                Return True
+            End If
+        ElseIf lbl_stock_Type.Text = 3 Then
+            If tb_branch_sR.Text = vbNullString Then
+                tb_branch_sR.Focus()
+                Return True
+            ElseIf tb_supplier_sR.Text = vbNullString Then
+                tb_supplier_sR.Focus()
+                Return True
+            End If
+        End If
+        Return False
+    End Function
+    Public Sub clearControls()
+        If lbl_stock_Type.Text = 1 Then
+            tb_supplier_stock_In.Clear()
+            tb_remarks_stock_In.Clear()
+            dg_stock_In.Rows.Clear()
+        ElseIf lbl_stock_Type.Text = 2 Then
+            tb_branch_to_sT.Clear()
+            tb_remarks_sT.Clear()
+            dg_stock_Transfer.Rows.Clear()
+        ElseIf lbl_stock_Type.Text = 3 Then
+            tb_supplier_sR.Clear()
+            tb_remarks_sR.Clear()
+            dg_stock_Return.Rows.Clear()
+        ElseIf lbl_stock_Type.Text = 4 Then
+            tb_remarks_stock_Out.Clear()
+            dg_stock_Out.Rows.Clear()
+        ElseIf lbl_stock_Type.Text = 5 Then
+            tb_remarks_sA.Clear()
+            dg_stock_Adjustment.Rows.Clear()
+        End If
+    End Sub
+    Private Sub btn_Close_Click(sender As Object, e As EventArgs) Handles btn_Close.Click
+        If frmMain.lbl_Type.Text = "Manager" Then
+            frmMain.btn_Profile.Enabled = False
+            frmMain.btn_Logout.Enabled = True
+            frmMain.btn_sales_Report.Enabled = True
+            frmMain.btn_Customer.Enabled = True
+            frmMain.btn_Pos.Enabled = True
+        End If
+        Me.Close()
+    End Sub
+    Private Sub MetroTabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MetroTabControl1.SelectedIndexChanged
+        If MetroTabControl1.SelectedIndex = 0 Then
+            lbl_stock_Type.Text = 0
+        ElseIf MetroTabControl1.SelectedIndex = 1 Then
+            lbl_stock_Type.Text = 1
+        ElseIf MetroTabControl1.SelectedIndex = 2 Then
+            lbl_stock_Type.Text = 2
+        ElseIf MetroTabControl1.SelectedIndex = 3 Then
+            lbl_stock_Type.Text = 3
+        ElseIf MetroTabControl1.SelectedIndex = 4 Then
+            lbl_stock_Type.Text = 4
+        ElseIf MetroTabControl1.SelectedIndex = 5 Then
+            lbl_stock_Type.Text = 5
+        End If
+    End Sub
+
+    Private Sub btn_history_sA_Click(sender As Object, e As EventArgs) Handles btn_history_sA.Click
+        frmStockAdj_History.ShowDialog()
     End Sub
 End Class

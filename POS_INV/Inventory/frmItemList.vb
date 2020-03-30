@@ -85,6 +85,24 @@
                     MsgBox("Item is added to the list.", vbInformation)
                 End If
             End If
+        ElseIf frmStock.lbl_stock_Type.Text = 5 Then
+            If frmStock.dg_stock_Adjustment.RowCount <> 0 Then   'checks if item has already been added to queue stock in
+                For i = 0 To frmStock.dg_stock_Adjustment.RowCount - 1
+                    Dim stock_in_Id = frmStock.dg_stock_Adjustment.Rows(i).Cells(0).Value
+                    If itemId = stock_in_Id Then
+                        MsgBox("Item has already been added.", vbExclamation)
+                        Exit Sub
+                    End If
+                Next
+            End If
+            If colName = "col_Select" Then
+                If MsgBox("Add item to list?", vbYesNo + vbInformation) = vbYes Then
+                    frmStock.dg_stock_Adjustment.Rows.Add(dg_Items.Rows(e.RowIndex).Cells(0).Value.ToString, frmStock.dg_stock_Out.Rows.Count + 1.ToString, dg_Items.Rows(e.RowIndex).Cells(2).Value.ToString,
+                                                  dg_Items.Rows(e.RowIndex).Cells(3).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(4).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(5).Value.ToString,
+                                                  dg_Items.Rows(e.RowIndex).Cells(6).Value.ToString, 0.ToString, "REMOVE")
+                    MsgBox("Item is added to the list.", vbInformation)
+                End If
+            End If
         End If
     End Sub
     Private Sub tb_Search_TextChanged(sender As Object, e As EventArgs) Handles tb_Search.TextChanged

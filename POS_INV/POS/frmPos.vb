@@ -1,21 +1,7 @@
 ﻿Public Class frmPos
     Dim loginPos As New clsLoginPos
     Private Sub frmPos_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'Dim obj_Table As New frmPosTable
-        'With obj_Table
-        '    .TopLevel = False
-        '    pnlBody.Controls.Add(obj_Table)
-        '    .BringToFront()
-        '    .Show()
-        'End With
-
-        'Dim obj_Button As New frmPosButtons
-        'With obj_Button
-        '    .TopLevel = False
-        '    pnlRight.Controls.Add(obj_Button)
-        '    .BringToFront()
-        '    .Show()
-        'End With
+        frmNewTransaction.ShowDialog()
     End Sub
     Private Sub btn_Add_Click(sender As Object, e As EventArgs) Handles btn_Add.Click
         frmQty.ShowDialog()

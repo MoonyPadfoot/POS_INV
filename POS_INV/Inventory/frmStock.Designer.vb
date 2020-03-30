@@ -22,16 +22,18 @@ Partial Class frmStock
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle44 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle43 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle46 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle45 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle42 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle41 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle48 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle47 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle50 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle49 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGridViewButtonColumn3 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -199,6 +201,36 @@ Partial Class frmStock
         Me.dtp_stock_Out = New System.Windows.Forms.DateTimePicker()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.lbl_items_stock_Out = New System.Windows.Forms.Label()
+        Me.tp_periodic_Inv = New System.Windows.Forms.TabPage()
+        Me.Panel26 = New System.Windows.Forms.Panel()
+        Me.Panel27 = New System.Windows.Forms.Panel()
+        Me.dg_stock_Adjustment = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn35 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn36 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn37 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn38 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn39 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_qty_sA = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_remove_sA = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Panel28 = New System.Windows.Forms.Panel()
+        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btn_new_sA = New System.Windows.Forms.Button()
+        Me.btn_save_sA = New System.Windows.Forms.Button()
+        Me.btn_history_sA = New System.Windows.Forms.Button()
+        Me.Panel25 = New System.Windows.Forms.Panel()
+        Me.dtp_to_sA = New System.Windows.Forms.DateTimePicker()
+        Me.dtp_from_sA = New System.Windows.Forms.DateTimePicker()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.lbl_branch_sA = New System.Windows.Forms.Label()
+        Me.tb_remarks_sA = New System.Windows.Forms.TextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.tb_branch_sA = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.dtp_stock_Adjustment = New System.Windows.Forms.DateTimePicker()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.lbl_items_sA = New System.Windows.Forms.Label()
         Me.pnlHeader.SuspendLayout()
         Me.Panel21.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -239,6 +271,13 @@ Partial Class frmStock
         Me.Panel24.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
         Me.Panel18.SuspendLayout()
+        Me.tp_periodic_Inv.SuspendLayout()
+        Me.Panel26.SuspendLayout()
+        Me.Panel27.SuspendLayout()
+        CType(Me.dg_stock_Adjustment, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel28.SuspendLayout()
+        Me.TableLayoutPanel5.SuspendLayout()
+        Me.Panel25.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGridViewButtonColumn3
@@ -369,10 +408,11 @@ Partial Class frmStock
         Me.MetroTabControl1.Controls.Add(Me.tp_stock_Transfer)
         Me.MetroTabControl1.Controls.Add(Me.tp_stock_Return)
         Me.MetroTabControl1.Controls.Add(Me.tp_stock_Out)
+        Me.MetroTabControl1.Controls.Add(Me.tp_periodic_Inv)
         Me.MetroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MetroTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.MetroTabControl1.Name = "MetroTabControl1"
-        Me.MetroTabControl1.SelectedIndex = 2
+        Me.MetroTabControl1.SelectedIndex = 5
         Me.MetroTabControl1.Size = New System.Drawing.Size(1662, 524)
         Me.MetroTabControl1.TabIndex = 4
         Me.MetroTabControl1.UseSelectable = True
@@ -398,8 +438,8 @@ Partial Class frmStock
         Me.dg_stock_List.Name = "dg_stock_List"
         Me.dg_stock_List.RowHeadersVisible = False
         Me.dg_stock_List.RowHeadersWidth = 51
-        DataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dg_stock_List.RowsDefaultCellStyle = DataGridViewCellStyle44
+        DataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dg_stock_List.RowsDefaultCellStyle = DataGridViewCellStyle26
         Me.dg_stock_List.RowTemplate.Height = 24
         Me.dg_stock_List.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dg_stock_List.Size = New System.Drawing.Size(1654, 290)
@@ -484,8 +524,8 @@ Partial Class frmStock
         'col_qty_stockList
         '
         Me.col_qty_stockList.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.col_qty_stockList.DefaultCellStyle = DataGridViewCellStyle43
+        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.col_qty_stockList.DefaultCellStyle = DataGridViewCellStyle25
         Me.col_qty_stockList.HeaderText = "Qty"
         Me.col_qty_stockList.MinimumWidth = 6
         Me.col_qty_stockList.Name = "col_qty_stockList"
@@ -753,8 +793,8 @@ Partial Class frmStock
         Me.dg_stock_In.Name = "dg_stock_In"
         Me.dg_stock_In.RowHeadersVisible = False
         Me.dg_stock_In.RowHeadersWidth = 51
-        DataGridViewCellStyle46.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dg_stock_In.RowsDefaultCellStyle = DataGridViewCellStyle46
+        DataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dg_stock_In.RowsDefaultCellStyle = DataGridViewCellStyle28
         Me.dg_stock_In.RowTemplate.Height = 24
         Me.dg_stock_In.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dg_stock_In.Size = New System.Drawing.Size(1468, 310)
@@ -819,9 +859,9 @@ Partial Class frmStock
         'col_Qty
         '
         Me.col_Qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle45.NullValue = Nothing
-        Me.col_Qty.DefaultCellStyle = DataGridViewCellStyle45
+        DataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle27.NullValue = Nothing
+        Me.col_Qty.DefaultCellStyle = DataGridViewCellStyle27
         Me.col_Qty.HeaderText = "Qty"
         Me.col_Qty.MaxInputLength = 4
         Me.col_Qty.MinimumWidth = 6
@@ -1056,8 +1096,8 @@ Partial Class frmStock
         Me.dg_stock_Transfer.Name = "dg_stock_Transfer"
         Me.dg_stock_Transfer.RowHeadersVisible = False
         Me.dg_stock_Transfer.RowHeadersWidth = 51
-        DataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dg_stock_Transfer.RowsDefaultCellStyle = DataGridViewCellStyle42
+        DataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dg_stock_Transfer.RowsDefaultCellStyle = DataGridViewCellStyle30
         Me.dg_stock_Transfer.RowTemplate.Height = 24
         Me.dg_stock_Transfer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dg_stock_Transfer.Size = New System.Drawing.Size(1468, 304)
@@ -1132,8 +1172,8 @@ Partial Class frmStock
         'col_qty_sT
         '
         Me.col_qty_sT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.col_qty_sT.DefaultCellStyle = DataGridViewCellStyle41
+        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.col_qty_sT.DefaultCellStyle = DataGridViewCellStyle29
         Me.col_qty_sT.HeaderText = "Qty"
         Me.col_qty_sT.MaxInputLength = 4
         Me.col_qty_sT.MinimumWidth = 6
@@ -1360,8 +1400,8 @@ Partial Class frmStock
         Me.dg_stock_Return.Name = "dg_stock_Return"
         Me.dg_stock_Return.RowHeadersVisible = False
         Me.dg_stock_Return.RowHeadersWidth = 51
-        DataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dg_stock_Return.RowsDefaultCellStyle = DataGridViewCellStyle48
+        DataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dg_stock_Return.RowsDefaultCellStyle = DataGridViewCellStyle32
         Me.dg_stock_Return.RowTemplate.Height = 24
         Me.dg_stock_Return.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dg_stock_Return.Size = New System.Drawing.Size(1468, 316)
@@ -1436,8 +1476,8 @@ Partial Class frmStock
         'col_qty_sR
         '
         Me.col_qty_sR.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.col_qty_sR.DefaultCellStyle = DataGridViewCellStyle47
+        DataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.col_qty_sR.DefaultCellStyle = DataGridViewCellStyle31
         Me.col_qty_sR.HeaderText = "Qty"
         Me.col_qty_sR.MaxInputLength = 4
         Me.col_qty_sR.MinimumWidth = 6
@@ -1679,8 +1719,8 @@ Partial Class frmStock
         Me.dg_stock_Out.Name = "dg_stock_Out"
         Me.dg_stock_Out.RowHeadersVisible = False
         Me.dg_stock_Out.RowHeadersWidth = 51
-        DataGridViewCellStyle50.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dg_stock_Out.RowsDefaultCellStyle = DataGridViewCellStyle50
+        DataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dg_stock_Out.RowsDefaultCellStyle = DataGridViewCellStyle34
         Me.dg_stock_Out.RowTemplate.Height = 24
         Me.dg_stock_Out.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dg_stock_Out.Size = New System.Drawing.Size(1468, 318)
@@ -1755,8 +1795,8 @@ Partial Class frmStock
         'col_qty_stockOut
         '
         Me.col_qty_stockOut.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.col_qty_stockOut.DefaultCellStyle = DataGridViewCellStyle49
+        DataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.col_qty_stockOut.DefaultCellStyle = DataGridViewCellStyle33
         Me.col_qty_stockOut.HeaderText = "Qty"
         Me.col_qty_stockOut.MaxInputLength = 4
         Me.col_qty_stockOut.MinimumWidth = 6
@@ -1930,6 +1970,316 @@ Partial Class frmStock
         Me.lbl_items_stock_Out.TabIndex = 28
         Me.lbl_items_stock_Out.Text = "[ Click Here To Browse Product ]"
         '
+        'tp_periodic_Inv
+        '
+        Me.tp_periodic_Inv.Controls.Add(Me.Panel26)
+        Me.tp_periodic_Inv.Controls.Add(Me.Panel25)
+        Me.tp_periodic_Inv.Location = New System.Drawing.Point(4, 38)
+        Me.tp_periodic_Inv.Name = "tp_periodic_Inv"
+        Me.tp_periodic_Inv.Size = New System.Drawing.Size(1654, 482)
+        Me.tp_periodic_Inv.TabIndex = 5
+        Me.tp_periodic_Inv.Text = "Periodic Stock Adjustment"
+        '
+        'Panel26
+        '
+        Me.Panel26.Controls.Add(Me.Panel27)
+        Me.Panel26.Controls.Add(Me.Panel28)
+        Me.Panel26.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel26.Location = New System.Drawing.Point(0, 171)
+        Me.Panel26.Name = "Panel26"
+        Me.Panel26.Size = New System.Drawing.Size(1654, 311)
+        Me.Panel26.TabIndex = 10
+        '
+        'Panel27
+        '
+        Me.Panel27.Controls.Add(Me.dg_stock_Adjustment)
+        Me.Panel27.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel27.Location = New System.Drawing.Point(0, 0)
+        Me.Panel27.Name = "Panel27"
+        Me.Panel27.Size = New System.Drawing.Size(1468, 311)
+        Me.Panel27.TabIndex = 6
+        '
+        'dg_stock_Adjustment
+        '
+        Me.dg_stock_Adjustment.AllowUserToAddRows = False
+        Me.dg_stock_Adjustment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dg_stock_Adjustment.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn35, Me.DataGridViewTextBoxColumn36, Me.DataGridViewTextBoxColumn37, Me.DataGridViewTextBoxColumn38, Me.DataGridViewTextBoxColumn39, Me.col_qty_sA, Me.col_remove_sA})
+        Me.dg_stock_Adjustment.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dg_stock_Adjustment.Location = New System.Drawing.Point(0, 0)
+        Me.dg_stock_Adjustment.Name = "dg_stock_Adjustment"
+        Me.dg_stock_Adjustment.RowHeadersVisible = False
+        Me.dg_stock_Adjustment.RowHeadersWidth = 51
+        DataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dg_stock_Adjustment.RowsDefaultCellStyle = DataGridViewCellStyle36
+        Me.dg_stock_Adjustment.RowTemplate.Height = 24
+        Me.dg_stock_Adjustment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dg_stock_Adjustment.Size = New System.Drawing.Size(1468, 311)
+        Me.dg_stock_Adjustment.TabIndex = 7
+        '
+        'DataGridViewTextBoxColumn20
+        '
+        Me.DataGridViewTextBoxColumn20.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn20.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
+        Me.DataGridViewTextBoxColumn20.Visible = False
+        Me.DataGridViewTextBoxColumn20.Width = 125
+        '
+        'DataGridViewTextBoxColumn25
+        '
+        Me.DataGridViewTextBoxColumn25.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn25.HeaderText = "#"
+        Me.DataGridViewTextBoxColumn25.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
+        Me.DataGridViewTextBoxColumn25.ReadOnly = True
+        Me.DataGridViewTextBoxColumn25.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn25.Width = 45
+        '
+        'DataGridViewTextBoxColumn35
+        '
+        Me.DataGridViewTextBoxColumn35.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn35.HeaderText = "Code"
+        Me.DataGridViewTextBoxColumn35.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn35.Name = "DataGridViewTextBoxColumn35"
+        Me.DataGridViewTextBoxColumn35.ReadOnly = True
+        Me.DataGridViewTextBoxColumn35.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn35.Width = 70
+        '
+        'DataGridViewTextBoxColumn36
+        '
+        Me.DataGridViewTextBoxColumn36.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.DataGridViewTextBoxColumn36.HeaderText = "Brand"
+        Me.DataGridViewTextBoxColumn36.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn36.Name = "DataGridViewTextBoxColumn36"
+        Me.DataGridViewTextBoxColumn36.ReadOnly = True
+        Me.DataGridViewTextBoxColumn36.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn36.Width = 75
+        '
+        'DataGridViewTextBoxColumn37
+        '
+        Me.DataGridViewTextBoxColumn37.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn37.HeaderText = "Description"
+        Me.DataGridViewTextBoxColumn37.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn37.Name = "DataGridViewTextBoxColumn37"
+        Me.DataGridViewTextBoxColumn37.ReadOnly = True
+        Me.DataGridViewTextBoxColumn37.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'DataGridViewTextBoxColumn38
+        '
+        Me.DataGridViewTextBoxColumn38.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn38.HeaderText = "Additional Description"
+        Me.DataGridViewTextBoxColumn38.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn38.Name = "DataGridViewTextBoxColumn38"
+        Me.DataGridViewTextBoxColumn38.ReadOnly = True
+        Me.DataGridViewTextBoxColumn38.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'DataGridViewTextBoxColumn39
+        '
+        Me.DataGridViewTextBoxColumn39.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.DataGridViewTextBoxColumn39.HeaderText = "Category"
+        Me.DataGridViewTextBoxColumn39.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn39.Name = "DataGridViewTextBoxColumn39"
+        Me.DataGridViewTextBoxColumn39.ReadOnly = True
+        Me.DataGridViewTextBoxColumn39.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn39.Width = 94
+        '
+        'col_qty_sA
+        '
+        Me.col_qty_sA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.col_qty_sA.DefaultCellStyle = DataGridViewCellStyle35
+        Me.col_qty_sA.HeaderText = "Qty"
+        Me.col_qty_sA.MaxInputLength = 4
+        Me.col_qty_sA.MinimumWidth = 6
+        Me.col_qty_sA.Name = "col_qty_sA"
+        Me.col_qty_sA.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_qty_sA.Width = 59
+        '
+        'col_remove_sA
+        '
+        Me.col_remove_sA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.col_remove_sA.HeaderText = ""
+        Me.col_remove_sA.MinimumWidth = 6
+        Me.col_remove_sA.Name = "col_remove_sA"
+        Me.col_remove_sA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.col_remove_sA.Width = 23
+        '
+        'Panel28
+        '
+        Me.Panel28.Controls.Add(Me.TableLayoutPanel5)
+        Me.Panel28.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel28.Location = New System.Drawing.Point(1468, 0)
+        Me.Panel28.Name = "Panel28"
+        Me.Panel28.Size = New System.Drawing.Size(186, 311)
+        Me.Panel28.TabIndex = 5
+        '
+        'TableLayoutPanel5
+        '
+        Me.TableLayoutPanel5.ColumnCount = 1
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel5.Controls.Add(Me.btn_new_sA, 0, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.btn_save_sA, 0, 1)
+        Me.TableLayoutPanel5.Controls.Add(Me.btn_history_sA, 0, 2)
+        Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
+        Me.TableLayoutPanel5.RowCount = 4
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(186, 311)
+        Me.TableLayoutPanel5.TabIndex = 1
+        '
+        'btn_new_sA
+        '
+        Me.btn_new_sA.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_new_sA.Location = New System.Drawing.Point(3, 3)
+        Me.btn_new_sA.Name = "btn_new_sA"
+        Me.btn_new_sA.Size = New System.Drawing.Size(180, 71)
+        Me.btn_new_sA.TabIndex = 0
+        Me.btn_new_sA.Text = "New Transaction"
+        Me.btn_new_sA.UseVisualStyleBackColor = True
+        '
+        'btn_save_sA
+        '
+        Me.btn_save_sA.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_save_sA.Location = New System.Drawing.Point(3, 80)
+        Me.btn_save_sA.Name = "btn_save_sA"
+        Me.btn_save_sA.Size = New System.Drawing.Size(180, 71)
+        Me.btn_save_sA.TabIndex = 1
+        Me.btn_save_sA.Text = "Save Transaction"
+        Me.btn_save_sA.UseVisualStyleBackColor = True
+        '
+        'btn_history_sA
+        '
+        Me.btn_history_sA.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_history_sA.Location = New System.Drawing.Point(3, 157)
+        Me.btn_history_sA.Name = "btn_history_sA"
+        Me.btn_history_sA.Size = New System.Drawing.Size(180, 71)
+        Me.btn_history_sA.TabIndex = 3
+        Me.btn_history_sA.Text = "Stock Adjustment History"
+        Me.btn_history_sA.UseVisualStyleBackColor = True
+        '
+        'Panel25
+        '
+        Me.Panel25.Controls.Add(Me.dtp_to_sA)
+        Me.Panel25.Controls.Add(Me.dtp_from_sA)
+        Me.Panel25.Controls.Add(Me.Label27)
+        Me.Panel25.Controls.Add(Me.lbl_branch_sA)
+        Me.Panel25.Controls.Add(Me.tb_remarks_sA)
+        Me.Panel25.Controls.Add(Me.Label19)
+        Me.Panel25.Controls.Add(Me.tb_branch_sA)
+        Me.Panel25.Controls.Add(Me.Label20)
+        Me.Panel25.Controls.Add(Me.dtp_stock_Adjustment)
+        Me.Panel25.Controls.Add(Me.Label22)
+        Me.Panel25.Controls.Add(Me.lbl_items_sA)
+        Me.Panel25.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel25.Location = New System.Drawing.Point(0, 0)
+        Me.Panel25.Name = "Panel25"
+        Me.Panel25.Size = New System.Drawing.Size(1654, 171)
+        Me.Panel25.TabIndex = 9
+        '
+        'dtp_to_sA
+        '
+        Me.dtp_to_sA.CustomFormat = "MM/dd/yyyy"
+        Me.dtp_to_sA.Location = New System.Drawing.Point(490, 61)
+        Me.dtp_to_sA.Name = "dtp_to_sA"
+        Me.dtp_to_sA.Size = New System.Drawing.Size(259, 22)
+        Me.dtp_to_sA.TabIndex = 41
+        Me.dtp_to_sA.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
+        '
+        'dtp_from_sA
+        '
+        Me.dtp_from_sA.CustomFormat = "MM/dd/yyyy"
+        Me.dtp_from_sA.Location = New System.Drawing.Point(213, 61)
+        Me.dtp_from_sA.Name = "dtp_from_sA"
+        Me.dtp_from_sA.Size = New System.Drawing.Size(259, 22)
+        Me.dtp_from_sA.TabIndex = 40
+        Me.dtp_from_sA.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(28, 61)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(170, 17)
+        Me.Label27.TabIndex = 39
+        Me.Label27.Text = "Period Count (From - To):"
+        '
+        'lbl_branch_sA
+        '
+        Me.lbl_branch_sA.AutoSize = True
+        Me.lbl_branch_sA.Location = New System.Drawing.Point(210, 129)
+        Me.lbl_branch_sA.Name = "lbl_branch_sA"
+        Me.lbl_branch_sA.Size = New System.Drawing.Size(64, 17)
+        Me.lbl_branch_sA.TabIndex = 37
+        Me.lbl_branch_sA.Text = "Supplier:"
+        '
+        'tb_remarks_sA
+        '
+        Me.tb_remarks_sA.Location = New System.Drawing.Point(918, 61)
+        Me.tb_remarks_sA.MaxLength = 100
+        Me.tb_remarks_sA.Multiline = True
+        Me.tb_remarks_sA.Name = "tb_remarks_sA"
+        Me.tb_remarks_sA.Size = New System.Drawing.Size(484, 85)
+        Me.tb_remarks_sA.TabIndex = 36
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(771, 61)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(68, 17)
+        Me.Label19.TabIndex = 35
+        Me.Label19.Text = "Remarks:"
+        '
+        'tb_branch_sA
+        '
+        Me.tb_branch_sA.Location = New System.Drawing.Point(918, 26)
+        Me.tb_branch_sA.MaxLength = 100
+        Me.tb_branch_sA.Name = "tb_branch_sA"
+        Me.tb_branch_sA.ReadOnly = True
+        Me.tb_branch_sA.ShortcutsEnabled = False
+        Me.tb_branch_sA.Size = New System.Drawing.Size(484, 22)
+        Me.tb_branch_sA.TabIndex = 34
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(771, 26)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(57, 17)
+        Me.Label20.TabIndex = 33
+        Me.Label20.Text = "Branch:"
+        '
+        'dtp_stock_Adjustment
+        '
+        Me.dtp_stock_Adjustment.CustomFormat = "MM/dd/yyyy"
+        Me.dtp_stock_Adjustment.Location = New System.Drawing.Point(213, 26)
+        Me.dtp_stock_Adjustment.Name = "dtp_stock_Adjustment"
+        Me.dtp_stock_Adjustment.Size = New System.Drawing.Size(259, 22)
+        Me.dtp_stock_Adjustment.TabIndex = 30
+        Me.dtp_stock_Adjustment.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(28, 26)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(121, 17)
+        Me.Label22.TabIndex = 29
+        Me.Label22.Text = "Transaction Date:"
+        '
+        'lbl_items_sA
+        '
+        Me.lbl_items_sA.AutoSize = True
+        Me.lbl_items_sA.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_items_sA.Location = New System.Drawing.Point(210, 99)
+        Me.lbl_items_sA.Name = "lbl_items_sA"
+        Me.lbl_items_sA.Size = New System.Drawing.Size(212, 17)
+        Me.lbl_items_sA.TabIndex = 28
+        Me.lbl_items_sA.Text = "[ Click Here To Browse Product ]"
+        '
         'frmStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1989,6 +2339,14 @@ Partial Class frmStock
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.Panel18.ResumeLayout(False)
         Me.Panel18.PerformLayout()
+        Me.tp_periodic_Inv.ResumeLayout(False)
+        Me.Panel26.ResumeLayout(False)
+        Me.Panel27.ResumeLayout(False)
+        CType(Me.dg_stock_Adjustment, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel28.ResumeLayout(False)
+        Me.TableLayoutPanel5.ResumeLayout(False)
+        Me.Panel25.ResumeLayout(False)
+        Me.Panel25.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2160,4 +2518,34 @@ Partial Class frmStock
     Friend WithEvents lbl_Brand As Label
     Friend WithEvents lbl_Category As Label
     Friend WithEvents btn_Reset As Button
+    Friend WithEvents tp_periodic_Inv As TabPage
+    Friend WithEvents Panel26 As Panel
+    Friend WithEvents Panel27 As Panel
+    Friend WithEvents dg_stock_Adjustment As DataGridView
+    Friend WithEvents Panel28 As Panel
+    Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
+    Friend WithEvents btn_new_sA As Button
+    Friend WithEvents btn_save_sA As Button
+    Friend WithEvents btn_history_sA As Button
+    Friend WithEvents Panel25 As Panel
+    Friend WithEvents lbl_branch_sA As Label
+    Friend WithEvents tb_remarks_sA As TextBox
+    Friend WithEvents Label19 As Label
+    Friend WithEvents tb_branch_sA As TextBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents dtp_stock_Adjustment As DateTimePicker
+    Friend WithEvents Label22 As Label
+    Friend WithEvents lbl_items_sA As Label
+    Friend WithEvents dtp_to_sA As DateTimePicker
+    Friend WithEvents dtp_from_sA As DateTimePicker
+    Friend WithEvents Label27 As Label
+    Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn25 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn35 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn36 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn37 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn38 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn39 As DataGridViewTextBoxColumn
+    Friend WithEvents col_qty_sA As DataGridViewTextBoxColumn
+    Friend WithEvents col_remove_sA As DataGridViewButtonColumn
 End Class

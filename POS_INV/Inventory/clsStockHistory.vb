@@ -118,4 +118,31 @@ Public Class clsStockHistory
         End While
         DisconnectDatabase()
     End Sub
+
+    Public Sub loadStockAdjustHistory()
+        Dim refNo As String
+        Dim transDate, dateRef As String
+        frmStockAdj_History.dg_stock_History.Rows.Clear()
+        ConnectDatabase()
+        Dim query = "SELECT * FROM vw_stock_adjust_history WHERE count_date BETWEEN @date_from AND @date_to AND branch_address = @branch_address"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@branch_address", _Branch)
+        cm.Parameters.AddWithValue("@date_from", _DateFrom)
+        cm.Parameters.AddWithValue("@date_to", _DateTo)
+        dr = cm.ExecuteReader()
+        While dr.Read()
+            Dim zero = ""
+            refNo = dr.Item("ref_no").ToString
+            For i = 0 To (5 - refNo.Length)
+                zero &= "0"
+                i += 1
+            Next
+            transDate = Format(dr.Item("count_date"), "MM/dd/yyyy")
+            dateRef = Format(dr.Item("count_date"), "yyyyMMdd")
+            frmStockAdj_History.dg_stock_History.Rows.Add(dr.Item("phys_count_id").ToString, "SA" & dateRef & zero & dr.Item("ref_no").ToString, transDate, dr.Item("branch_address").ToString,
+                                               dr.Item("item_code").ToString, dr.Item("brand_name").ToString, dr.Item("item_desc").ToString, dr.Item("item_add_desc").ToString,
+                                               dr.Item("category_name").ToString, dr.Item("qty").ToString, Format(dr.Item("period_from"), "MM/dd/yyyy"), Format(dr.Item("period_to"), "MM/dd/yyyy"))
+        End While
+        DisconnectDatabase()
+    End Sub
 End Class

@@ -1,10 +1,10 @@
 ﻿Imports MySql.Data.MySqlClient
-Public Class clsStockIn
+Public Class clsStockAdjustment
     Private _ItemId As Object
-    Private _RefNo As Object
-    Private _SupplierId As Object
     Private _BranchId As Object
-    Private _TransacDate As Object
+    Private _CountDate As Object
+    Private _DateFrom As Object
+    Private _DateTo As Object
     Private _ItemQty As Object
     Private _Remarks As Object
     Public WriteOnly Property ItemId
@@ -12,24 +12,24 @@ Public Class clsStockIn
             _ItemId = Value
         End Set
     End Property
-    Public WriteOnly Property RefNo
-        Set
-            _RefNo = Value
-        End Set
-    End Property
-    Public WriteOnly Property SupplierId
-        Set
-            _SupplierId = Value
-        End Set
-    End Property
     Public WriteOnly Property BranchId
         Set
             _BranchId = Value
         End Set
     End Property
-    Public WriteOnly Property TransacDate
+    Public WriteOnly Property CountDate
         Set
-            _TransacDate = Value
+            _CountDate = Value
+        End Set
+    End Property
+    Public WriteOnly Property DateFrom
+        Set
+            _DateFrom = Value
+        End Set
+    End Property
+    Public WriteOnly Property DateTo
+        Set
+            _DateTo = Value
         End Set
     End Property
     Public WriteOnly Property ItemQty
@@ -42,8 +42,9 @@ Public Class clsStockIn
             _Remarks = Value
         End Set
     End Property
+
+    Dim stocklist As New clsStockList
     Public Sub save()
-        'Try
         ConnectDatabase()
         Dim query = "SELECT EXISTS(SELECT inventory_id FROM inventory WHERE item_id = @item_id AND branch_id = @branch_id) "
         cm = New MySqlCommand(query, con)
@@ -54,61 +55,67 @@ Public Class clsStockIn
 
         Dim inventory_id As Int64
         If count = 1 Then
-            query = "SELECT inventory_id, qty FROM inventory WHERE item_id = @item_id AND branch_id = @branch_id "
+            query = "SELECT inventory_id FROM inventory WHERE item_id = @item_id AND branch_id = @branch_id"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@item_id", _ItemId)
             cm.Parameters.AddWithValue("@branch_id", _BranchId)
-            dr = cm.ExecuteReader
-            dr.Read()
-            inventory_id = dr.Item("inventory_id")
-            Dim initialQty = dr.Item("qty")
+            inventory_id = cm.ExecuteScalar()
             cm.Dispose()
 
-            Dim newStockQty = _ItemQty + initialQty  'computes the sum of initial item qty with stock entry qty
-            query = "UPDATE inventory SET qty = " & newStockQty & " WHERE item_id = @item_id AND branch_id = @branch_id"
+            query = "UPDATE inventory SET qty = @qty WHERE item_id = @item_id AND branch_id = @branch_id"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@item_id", _ItemId)
+            cm.Parameters.AddWithValue("@qty", _ItemQty)
             cm.Parameters.AddWithValue("@branch_id", _BranchId)
             cm.ExecuteScalar()
             cm.Dispose()
+
         Else
-            query = "INSERT INTO inventory (item_id, branch_id, qty) VALUES (@item_id, @branch_id, @qty); SELECT LAST_INSERT_ID() "
-            cm = New MySqlCommand(query, con)
-            cm.Parameters.AddWithValue("@item_id", _ItemId)
-            cm.Parameters.AddWithValue("@branch_id", _BranchId)
-            cm.Parameters.AddWithValue("@qty", _ItemQty)
-            inventory_id = cm.ExecuteScalar()
-            cm.Dispose()
+            MsgBox("Item from branch is non existent", vbExclamation)
+            Exit Sub
         End If
 
-        query = "INSERT INTO stock_in (inventory_id, ref_no, branch_id, supplier_id, qty, trans_date, remarks) " &
-            "VALUES (@inventory_id, @ref_no, @branch_id, @supplier_id, @qty, @trans_date, @remarks); "
+        Dim _refNo = getRefNo()
+        Dim refNoLegnth As String = _refNo.ToString
+        Dim zero = ""
+        For i = 0 To 5 - refNoLegnth.Length
+            zero &= "0"
+            i += 1
+        Next
+
+        query = "INSERT INTO inventory_period (period_from, period_to) VALUES (@date_From, @date_To); SELECT LAST_INSERT_ID()"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@date_From", _DateFrom)
+        cm.Parameters.AddWithValue("@date_To", _DateTo)
+        Dim _inv_period_Id = cm.ExecuteScalar()
+
+        query = "INSERT INTO physical_count (inv_period_id, inventory_id, ref_no, qty, count_date, remarks) " &
+            "VALUES (@inv_period_id, @inventory_id, @ref_no, @qty, @count_date, @remarks); "
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@inventory_id", inventory_id)
+        cm.Parameters.AddWithValue("@inv_period_id", _inv_period_Id)
         cm.Parameters.AddWithValue("@ref_no", _RefNo)
-        cm.Parameters.AddWithValue("@branch_id", _BranchId)
-        cm.Parameters.AddWithValue("@supplier_id", _SupplierId)
         cm.Parameters.AddWithValue("@qty", _ItemQty)
-        cm.Parameters.AddWithValue("@trans_date", _TransacDate)
+        cm.Parameters.AddWithValue("@count_date", _CountDate)
         cm.Parameters.AddWithValue("@remarks", _Remarks)
         cm.Parameters.AddWithValue("@item_id", _ItemId)
         cm.ExecuteScalar()
         cm.Dispose()
         DisconnectDatabase()
-        'Catch ex As Exception
-        '    DisconnectDatabase()
-        '    MsgBox(ex.Message, vbCritical)
-        'End Try
+
+        MsgBox("Reference Code: " & "SA" & frmStock.dtp_stock_Adjustment.Value.ToString("yyyyMMdd") & zero & _refNo, vbInformation) 'generate ref Code
+        stocklist.loadStockList()
+        frmStock.clearControls()
     End Sub
     Public Function getRefNo() As Integer  'checks table is empty with return of count = 1 else if empty count = 0
         ConnectDatabase()
-        Dim query = "SELECT EXISTS(SELECT ref_no FROM stock_in)"
+        Dim query = "SELECT EXISTS(SELECT ref_no FROM physical_count)"
         cm = New MySqlCommand(query, con)
         Dim count = cm.ExecuteScalar()
         cm.Dispose()
 
         If count = 1 Then
-            query = "SELECT MAX(ref_No) AS refNo FROM stock_in"
+            query = "SELECT MAX(ref_No) AS refNo FROM physical_count"
             cm = New MySqlCommand(query, con)
             Dim ret = cm.ExecuteScalar() + 1
             cm.Dispose()
@@ -119,5 +126,4 @@ Public Class clsStockIn
         End If
         DisconnectDatabase()
     End Function
-
 End Class
