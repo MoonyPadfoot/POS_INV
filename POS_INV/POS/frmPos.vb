@@ -1,7 +1,9 @@
 ﻿Public Class frmPos
     Dim loginPos As New clsLoginPos
     Private Sub frmPos_Load(sender As Object, e As EventArgs) Handles Me.Load
-        frmNewTransaction.ShowDialog()
+        lbl_transac_Date.Text = Date.Now.ToString("MM/dd/yyy")
+        frmNewTransaction.btn_Close.Visible = False
+        tb_Description.Focus()
     End Sub
     Private Sub btn_Add_Click(sender As Object, e As EventArgs) Handles btn_Add.Click
         frmQty.ShowDialog()
@@ -12,7 +14,8 @@
     End Sub
 
     Private Sub btn_New_Click(sender As Object, e As EventArgs) Handles btn_New.Click
-        Dim ans = MsgBox("The Current Transaction will be Canceled, Do You Wish to Continue?", vbExclamation + vbYesNo + vbDefaultButton2, "Warning!")
+        frmNewTransaction.btn_Close.Visible = True
+        Dim ans = MsgBox("The Current Transaction will be Canceled, Do You Wish to Continue?", vbQuestion + vbYesNo, "Warning!")
         If ans = vbYes Then
             frmNewTransaction.ShowDialog()
         End If
@@ -24,10 +27,12 @@
     End Sub
 
     Private Sub btn_Logout_Click(sender As Object, e As EventArgs) Handles btn_Logout.Click
-        loginPos.SetUsername(lbl_Username.Text)
-        loginPos.setUserLogin(0)
-        frmMain.Show()
-        Me.Close()
+        If MsgBox("Do you wish to logout?", vbQuestion + vbYesNo) = vbYes Then
+            loginPos.SetUsername(lbl_Username.Text)
+            loginPos.setUserLogin(0)
+            frmMain.Show()
+            Me.Close()
+        End If
     End Sub
 
     Private Sub btn_CashIn_Click(sender As Object, e As EventArgs) Handles btn_CashIn.Click
@@ -53,6 +58,4 @@
     Private Sub btn_Balance_Click(sender As Object, e As EventArgs) Handles btn_Balance.Click
         frmCreditPay.ShowDialog()
     End Sub
-
-
 End Class

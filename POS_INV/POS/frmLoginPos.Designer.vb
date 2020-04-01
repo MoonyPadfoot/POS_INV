@@ -129,7 +129,7 @@ Partial Class frmLoginPos
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmLoginPos"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmLoginPos"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

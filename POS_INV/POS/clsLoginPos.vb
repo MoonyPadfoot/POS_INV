@@ -80,6 +80,27 @@ Public Class clsLoginPos
         Return cm.ExecuteScalar()
         DisconnectDatabase()
     End Function
+    Public Function setUserCashierId()
+        ConnectDatabase()
+        Dim query = "SELECT user_id FROM cashier WHERE username = @username"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@username", _Username)
+        Return cm.ExecuteScalar()
+        DisconnectDatabase()
+    End Function
+    Public Function setName(_key As Integer)
+        ConnectDatabase()
+        Dim query = "SELECT user_gname, user_surname FROM aje_pos.`user`
+                        INNER JOIN user_details ON user_details.`user_id` = user.`user_id`
+                        INNER JOIN cashier ON cashier.`user_id` = user.`user_id` WHERE cashier.user_id = '" & _key & "'"
+        cm = New MySqlCommand(query, con)
+        dr = cm.ExecuteReader
+        dr.Read()
+        Dim name = dr.Item("user_gname").ToString & " " & dr.Item("user_surname").ToString
+        dr.Close()
+        DisconnectDatabase()
+        Return name
+    End Function
     Public Sub setUserLogin(_key As Integer)
         ConnectDatabase()
         Dim query = "UPDATE cashier SET is_logged_in = '" & _key & "' WHERE username = @username"

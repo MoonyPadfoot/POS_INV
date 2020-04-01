@@ -15,6 +15,12 @@
     End Sub
 
     Private Sub tb_credit_Limit_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tb_credit_Limit.KeyPress
+        If tb_credit_Limit.Text.Length > 7 Then
+            If e.KeyChar <> ControlChars.Back Then
+                e.Handled = Char.IsNumber(e.KeyChar) Or Not Char.IsNumber(e.KeyChar)
+                Exit Sub
+            End If
+        End If
         ' Check for the flag being set in the KeyDown event.
         If acceptableKey = False Then
             ' Stop the character from being entered into the control since it is non-numerical.

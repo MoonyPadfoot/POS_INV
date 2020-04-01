@@ -32,6 +32,7 @@ Partial Class frmQty
         '
         Me.tb_Qty.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tb_Qty.Location = New System.Drawing.Point(89, 77)
+        Me.tb_Qty.MaxLength = 2
         Me.tb_Qty.Multiline = True
         Me.tb_Qty.Name = "tb_Qty"
         Me.tb_Qty.Size = New System.Drawing.Size(152, 78)
@@ -66,7 +67,7 @@ Partial Class frmQty
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Quantity:"
         '
-        'frmAddCart
+        'frmQty
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -76,7 +77,7 @@ Partial Class frmQty
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.tb_Qty)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "frmAddCart"
+        Me.Name = "frmQty"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmAddCart"
         Me.ResumeLayout(False)

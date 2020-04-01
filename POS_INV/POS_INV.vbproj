@@ -114,6 +114,15 @@
     <Compile Include="Inventory\frmStockTrans_History.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="POS\clsAuth.vb" />
+    <Compile Include="POS\clsCashierLog.vb" />
+    <Compile Include="POS\clsOrder.vb" />
+    <Compile Include="POS\frmBalance.Designer.vb">
+      <DependentUpon>frmBalance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POS\frmBalance.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="POS\frmLoginPos.Designer.vb">
       <DependentUpon>frmLoginPos.vb</DependentUpon>
     </Compile>
@@ -376,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmStockTrans_History.resx">
       <DependentUpon>frmStockTrans_History.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POS\frmBalance.resx">
+      <DependentUpon>frmBalance.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POS\frmLoginPos.resx">
       <DependentUpon>frmLoginPos.vb</DependentUpon>

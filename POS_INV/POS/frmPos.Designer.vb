@@ -22,18 +22,22 @@ Partial Class frmPos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnlHeader = New System.Windows.Forms.Panel()
         Me.lbl_Header = New System.Windows.Forms.Label()
         Me.pnlFooter = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.pnlRight = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lbl_transaction_Code = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.tb_customer_Code = New System.Windows.Forms.TextBox()
+        Me.tb_customer_Name = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tb_Sales = New System.Windows.Forms.Button()
         Me.btn_Logout = New System.Windows.Forms.Button()
         Me.btn_CashOut = New System.Windows.Forms.Button()
         Me.btn_CashIn = New System.Windows.Forms.Button()
@@ -44,17 +48,32 @@ Partial Class frmPos
         Me.btn_Add = New System.Windows.Forms.Button()
         Me.btn_Advance_Srch = New System.Windows.Forms.Button()
         Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.lbl_user_Id = New System.Windows.Forms.Label()
+        Me.lbl_transac_Date = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.lbl_Username = New System.Windows.Forms.Label()
-        Me.lbl_dateTime = New System.Windows.Forms.Label()
         Me.lbl_Name = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pnlBottom = New System.Windows.Forms.Panel()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lbl_pay_Type = New System.Windows.Forms.Label()
+        Me.lbl_due_Total = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.pnlSearchHolder = New System.Windows.Forms.Panel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.tb_Description = New System.Windows.Forms.TextBox()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.tb_Code = New System.Windows.Forms.TextBox()
+        Me.tb_Price = New System.Windows.Forms.TextBox()
+        Me.cbo_Price = New MetroFramework.Controls.MetroComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.pnlBody = New System.Windows.Forms.Panel()
         Me.pnlMid = New System.Windows.Forms.Panel()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dg_Order = New System.Windows.Forms.DataGridView()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -63,36 +82,20 @@ Partial Class frmPos
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewButtonColumn3 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.MetroComboBox1 = New MetroFramework.Controls.MetroComboBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.lbl_pay_Type = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.pnlHeader.SuspendLayout()
         Me.pnlRight.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.Panel8.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
         Me.Panel9.SuspendLayout()
         Me.pnlBottom.SuspendLayout()
         Me.pnlSearchHolder.SuspendLayout()
+        Me.Panel5.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.pnlBody.SuspendLayout()
         Me.pnlMid.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel4.SuspendLayout()
-        Me.Panel5.SuspendLayout()
-        Me.Panel1.SuspendLayout()
+        CType(Me.dg_Order, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlHeader
@@ -125,16 +128,6 @@ Partial Class frmPos
         Me.pnlFooter.Size = New System.Drawing.Size(1726, 40)
         Me.pnlFooter.TabIndex = 1
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(16, 38)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(124, 20)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Date and Time:"
-        '
         'pnlRight
         '
         Me.pnlRight.BackColor = System.Drawing.SystemColors.ButtonShadow
@@ -163,13 +156,46 @@ Partial Class frmPos
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.67024!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.520032!))
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(520, 910)
-        Me.TableLayoutPanel3.TabIndex = 1
+        Me.TableLayoutPanel3.TabIndex = 0
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Panel1.Controls.Add(Me.lbl_transaction_Code)
+        Me.Panel1.Controls.Add(Me.Label10)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(3, 3)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(514, 80)
+        Me.Panel1.TabIndex = 1
+        '
+        'lbl_transaction_Code
+        '
+        Me.lbl_transaction_Code.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.lbl_transaction_Code.AutoSize = True
+        Me.lbl_transaction_Code.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_transaction_Code.Location = New System.Drawing.Point(270, 28)
+        Me.lbl_transaction_Code.Name = "lbl_transaction_Code"
+        Me.lbl_transaction_Code.Size = New System.Drawing.Size(219, 32)
+        Me.lbl_transaction_Code.TabIndex = 25
+        Me.lbl_transaction_Code.Text = "202003010001"
+        '
+        'Label10
+        '
+        Me.Label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(17, 28)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(247, 32)
+        Me.Label10.TabIndex = 24
+        Me.Label10.Text = "Transaction Code:"
         '
         'Panel8
         '
         Me.Panel8.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.Panel8.Controls.Add(Me.TextBox2)
-        Me.Panel8.Controls.Add(Me.TextBox1)
+        Me.Panel8.Controls.Add(Me.tb_customer_Code)
+        Me.Panel8.Controls.Add(Me.tb_customer_Name)
         Me.Panel8.Controls.Add(Me.Label13)
         Me.Panel8.Controls.Add(Me.Label14)
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Fill
@@ -178,28 +204,32 @@ Partial Class frmPos
         Me.Panel8.Size = New System.Drawing.Size(514, 124)
         Me.Panel8.TabIndex = 2
         '
-        'TextBox2
+        'tb_customer_Code
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Symbol", 8.25!)
-        Me.TextBox2.Location = New System.Drawing.Point(188, 19)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(304, 31)
-        Me.TextBox2.TabIndex = 6
+        Me.tb_customer_Code.Enabled = False
+        Me.tb_customer_Code.Font = New System.Drawing.Font("Symbol", 8.25!)
+        Me.tb_customer_Code.Location = New System.Drawing.Point(188, 24)
+        Me.tb_customer_Code.Multiline = True
+        Me.tb_customer_Code.Name = "tb_customer_Code"
+        Me.tb_customer_Code.Size = New System.Drawing.Size(304, 31)
+        Me.tb_customer_Code.TabIndex = 6
+        Me.tb_customer_Code.TabStop = False
         '
-        'TextBox1
+        'tb_customer_Name
         '
-        Me.TextBox1.Location = New System.Drawing.Point(188, 64)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(304, 31)
-        Me.TextBox1.TabIndex = 5
+        Me.tb_customer_Name.Enabled = False
+        Me.tb_customer_Name.Location = New System.Drawing.Point(188, 69)
+        Me.tb_customer_Name.Multiline = True
+        Me.tb_customer_Name.Name = "tb_customer_Name"
+        Me.tb_customer_Name.Size = New System.Drawing.Size(304, 31)
+        Me.tb_customer_Name.TabIndex = 5
+        Me.tb_customer_Name.TabStop = False
         '
         'Label13
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(12, 64)
+        Me.Label13.Location = New System.Drawing.Point(12, 69)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(160, 25)
         Me.Label13.TabIndex = 4
@@ -209,7 +239,7 @@ Partial Class frmPos
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(12, 18)
+        Me.Label14.Location = New System.Drawing.Point(12, 23)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(156, 25)
         Me.Label14.TabIndex = 3
@@ -221,6 +251,7 @@ Partial Class frmPos
         Me.TableLayoutPanel4.ColumnCount = 2
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel4.Controls.Add(Me.tb_Sales, 0, 4)
         Me.TableLayoutPanel4.Controls.Add(Me.btn_Logout, 1, 4)
         Me.TableLayoutPanel4.Controls.Add(Me.btn_CashOut, 1, 3)
         Me.TableLayoutPanel4.Controls.Add(Me.btn_CashIn, 0, 3)
@@ -242,6 +273,16 @@ Partial Class frmPos
         Me.TableLayoutPanel4.Size = New System.Drawing.Size(514, 609)
         Me.TableLayoutPanel4.TabIndex = 3
         '
+        'tb_Sales
+        '
+        Me.tb_Sales.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tb_Sales.Location = New System.Drawing.Point(3, 487)
+        Me.tb_Sales.Name = "tb_Sales"
+        Me.tb_Sales.Size = New System.Drawing.Size(251, 119)
+        Me.tb_Sales.TabIndex = 13
+        Me.tb_Sales.Text = "Daily Sale"
+        Me.tb_Sales.UseVisualStyleBackColor = True
+        '
         'btn_Logout
         '
         Me.btn_Logout.BackColor = System.Drawing.Color.Red
@@ -249,7 +290,7 @@ Partial Class frmPos
         Me.btn_Logout.Location = New System.Drawing.Point(260, 487)
         Me.btn_Logout.Name = "btn_Logout"
         Me.btn_Logout.Size = New System.Drawing.Size(251, 119)
-        Me.btn_Logout.TabIndex = 4
+        Me.btn_Logout.TabIndex = 12
         Me.btn_Logout.Text = "Logout"
         Me.btn_Logout.UseVisualStyleBackColor = False
         '
@@ -259,7 +300,7 @@ Partial Class frmPos
         Me.btn_CashOut.Location = New System.Drawing.Point(260, 366)
         Me.btn_CashOut.Name = "btn_CashOut"
         Me.btn_CashOut.Size = New System.Drawing.Size(251, 115)
-        Me.btn_CashOut.TabIndex = 7
+        Me.btn_CashOut.TabIndex = 11
         Me.btn_CashOut.Text = "Cash Out"
         Me.btn_CashOut.UseVisualStyleBackColor = True
         '
@@ -269,7 +310,7 @@ Partial Class frmPos
         Me.btn_CashIn.Location = New System.Drawing.Point(3, 366)
         Me.btn_CashIn.Name = "btn_CashIn"
         Me.btn_CashIn.Size = New System.Drawing.Size(251, 115)
-        Me.btn_CashIn.TabIndex = 6
+        Me.btn_CashIn.TabIndex = 10
         Me.btn_CashIn.Text = "Cash In"
         Me.btn_CashIn.UseVisualStyleBackColor = True
         '
@@ -279,8 +320,8 @@ Partial Class frmPos
         Me.btn_Balance.Location = New System.Drawing.Point(260, 245)
         Me.btn_Balance.Name = "btn_Balance"
         Me.btn_Balance.Size = New System.Drawing.Size(251, 115)
-        Me.btn_Balance.TabIndex = 5
-        Me.btn_Balance.Text = "Settle Customer Balance"
+        Me.btn_Balance.TabIndex = 9
+        Me.btn_Balance.Text = "Customer Balance"
         Me.btn_Balance.UseVisualStyleBackColor = True
         '
         'btn_Refund
@@ -289,7 +330,7 @@ Partial Class frmPos
         Me.btn_Refund.Location = New System.Drawing.Point(3, 245)
         Me.btn_Refund.Name = "btn_Refund"
         Me.btn_Refund.Size = New System.Drawing.Size(251, 115)
-        Me.btn_Refund.TabIndex = 4
+        Me.btn_Refund.TabIndex = 8
         Me.btn_Refund.Text = "Refund"
         Me.btn_Refund.UseVisualStyleBackColor = True
         '
@@ -299,7 +340,7 @@ Partial Class frmPos
         Me.btn_New.Location = New System.Drawing.Point(3, 124)
         Me.btn_New.Name = "btn_New"
         Me.btn_New.Size = New System.Drawing.Size(251, 115)
-        Me.btn_New.TabIndex = 2
+        Me.btn_New.TabIndex = 6
         Me.btn_New.Text = "New Transaction"
         Me.btn_New.UseVisualStyleBackColor = True
         '
@@ -309,7 +350,7 @@ Partial Class frmPos
         Me.btn_Checkout.Location = New System.Drawing.Point(260, 3)
         Me.btn_Checkout.Name = "btn_Checkout"
         Me.btn_Checkout.Size = New System.Drawing.Size(251, 115)
-        Me.btn_Checkout.TabIndex = 1
+        Me.btn_Checkout.TabIndex = 5
         Me.btn_Checkout.Text = "Checkout"
         Me.btn_Checkout.UseVisualStyleBackColor = True
         '
@@ -329,16 +370,17 @@ Partial Class frmPos
         Me.btn_Advance_Srch.Location = New System.Drawing.Point(260, 124)
         Me.btn_Advance_Srch.Name = "btn_Advance_Srch"
         Me.btn_Advance_Srch.Size = New System.Drawing.Size(251, 115)
-        Me.btn_Advance_Srch.TabIndex = 9
+        Me.btn_Advance_Srch.TabIndex = 7
         Me.btn_Advance_Srch.Text = "Advance Search"
         Me.btn_Advance_Srch.UseVisualStyleBackColor = True
         '
         'Panel9
         '
         Me.Panel9.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Panel9.Controls.Add(Me.lbl_user_Id)
+        Me.Panel9.Controls.Add(Me.lbl_transac_Date)
+        Me.Panel9.Controls.Add(Me.Label4)
         Me.Panel9.Controls.Add(Me.lbl_Username)
-        Me.Panel9.Controls.Add(Me.lbl_dateTime)
-        Me.Panel9.Controls.Add(Me.Label3)
         Me.Panel9.Controls.Add(Me.lbl_Name)
         Me.Panel9.Controls.Add(Me.Label1)
         Me.Panel9.Dock = System.Windows.Forms.DockStyle.Fill
@@ -347,34 +389,55 @@ Partial Class frmPos
         Me.Panel9.Size = New System.Drawing.Size(514, 73)
         Me.Panel9.TabIndex = 4
         '
+        'lbl_user_Id
+        '
+        Me.lbl_user_Id.AutoSize = True
+        Me.lbl_user_Id.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_user_Id.Location = New System.Drawing.Point(359, 40)
+        Me.lbl_user_Id.Name = "lbl_user_Id"
+        Me.lbl_user_Id.Size = New System.Drawing.Size(63, 20)
+        Me.lbl_user_Id.TabIndex = 9
+        Me.lbl_user_Id.Text = "User Id"
+        Me.lbl_user_Id.Visible = False
+        '
+        'lbl_transac_Date
+        '
+        Me.lbl_transac_Date.AutoSize = True
+        Me.lbl_transac_Date.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_transac_Date.Location = New System.Drawing.Point(197, 40)
+        Me.lbl_transac_Date.Name = "lbl_transac_Date"
+        Me.lbl_transac_Date.Size = New System.Drawing.Size(138, 20)
+        Me.lbl_transac_Date.TabIndex = 8
+        Me.lbl_transac_Date.Text = "Date and Time:"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(16, 40)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(143, 20)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Transaction Date:"
+        '
         'lbl_Username
         '
         Me.lbl_Username.AutoSize = True
         Me.lbl_Username.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Username.Location = New System.Drawing.Point(411, 10)
+        Me.lbl_Username.Location = New System.Drawing.Point(359, 10)
         Me.lbl_Username.Name = "lbl_Username"
-        Me.lbl_Username.Size = New System.Drawing.Size(81, 20)
+        Me.lbl_Username.Size = New System.Drawing.Size(86, 20)
         Me.lbl_Username.TabIndex = 6
-        Me.lbl_Username.Text = "John Doe"
+        Me.lbl_Username.Text = "Username"
         Me.lbl_Username.Visible = False
-        '
-        'lbl_dateTime
-        '
-        Me.lbl_dateTime.AutoSize = True
-        Me.lbl_dateTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_dateTime.Location = New System.Drawing.Point(179, 37)
-        Me.lbl_dateTime.Name = "lbl_dateTime"
-        Me.lbl_dateTime.Size = New System.Drawing.Size(124, 20)
-        Me.lbl_dateTime.TabIndex = 5
-        Me.lbl_dateTime.Text = "Date and Time:"
         '
         'lbl_Name
         '
         Me.lbl_Name.AutoSize = True
-        Me.lbl_Name.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Name.Location = New System.Drawing.Point(180, 10)
+        Me.lbl_Name.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Name.Location = New System.Drawing.Point(197, 10)
         Me.lbl_Name.Name = "lbl_Name"
-        Me.lbl_Name.Size = New System.Drawing.Size(81, 20)
+        Me.lbl_Name.Size = New System.Drawing.Size(89, 20)
         Me.lbl_Name.TabIndex = 4
         Me.lbl_Name.Text = "John Doe"
         '
@@ -392,7 +455,7 @@ Partial Class frmPos
         '
         Me.pnlBottom.Controls.Add(Me.Label5)
         Me.pnlBottom.Controls.Add(Me.lbl_pay_Type)
-        Me.pnlBottom.Controls.Add(Me.Label4)
+        Me.pnlBottom.Controls.Add(Me.lbl_due_Total)
         Me.pnlBottom.Controls.Add(Me.Label7)
         Me.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.pnlBottom.Location = New System.Drawing.Point(0, 818)
@@ -400,16 +463,38 @@ Partial Class frmPos
         Me.pnlBottom.Size = New System.Drawing.Size(1206, 92)
         Me.pnlBottom.TabIndex = 3
         '
-        'Label4
+        'Label5
         '
-        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(880, 19)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(314, 50)
-        Me.Label4.TabIndex = 25
-        Me.Label4.Text = "200,000.00"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(22, 31)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(212, 36)
+        Me.Label5.TabIndex = 32
+        Me.Label5.Text = "Payment Type:"
+        '
+        'lbl_pay_Type
+        '
+        Me.lbl_pay_Type.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbl_pay_Type.AutoSize = True
+        Me.lbl_pay_Type.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_pay_Type.Location = New System.Drawing.Point(249, 23)
+        Me.lbl_pay_Type.Name = "lbl_pay_Type"
+        Me.lbl_pay_Type.Size = New System.Drawing.Size(117, 46)
+        Me.lbl_pay_Type.TabIndex = 31
+        Me.lbl_pay_Type.Text = "Cash"
+        '
+        'lbl_due_Total
+        '
+        Me.lbl_due_Total.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.lbl_due_Total.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_due_Total.Location = New System.Drawing.Point(880, 19)
+        Me.lbl_due_Total.Name = "lbl_due_Total"
+        Me.lbl_due_Total.Size = New System.Drawing.Size(314, 50)
+        Me.lbl_due_Total.TabIndex = 25
+        Me.lbl_due_Total.Text = "200,000.00"
+        Me.lbl_due_Total.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label7
         '
@@ -432,6 +517,112 @@ Partial Class frmPos
         Me.pnlSearchHolder.Size = New System.Drawing.Size(1206, 232)
         Me.pnlSearchHolder.TabIndex = 23
         '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.Label6)
+        Me.Panel5.Controls.Add(Me.tb_Description)
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel5.Location = New System.Drawing.Point(0, 113)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(1206, 119)
+        Me.Panel5.TabIndex = 1
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(8, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(141, 29)
+        Me.Label6.TabIndex = 49
+        Me.Label6.Text = "Description:"
+        '
+        'tb_Description
+        '
+        Me.tb_Description.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tb_Description.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Description.Location = New System.Drawing.Point(13, 32)
+        Me.tb_Description.MaxLength = 50
+        Me.tb_Description.Multiline = True
+        Me.tb_Description.Name = "tb_Description"
+        Me.tb_Description.Size = New System.Drawing.Size(1179, 63)
+        Me.tb_Description.TabIndex = 0
+        '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.Label2)
+        Me.Panel4.Controls.Add(Me.tb_Code)
+        Me.Panel4.Controls.Add(Me.tb_Price)
+        Me.Panel4.Controls.Add(Me.cbo_Price)
+        Me.Panel4.Controls.Add(Me.Label8)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel4.Location = New System.Drawing.Point(0, 0)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(1206, 113)
+        Me.Panel4.TabIndex = 0
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(8, 7)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(78, 29)
+        Me.Label2.TabIndex = 51
+        Me.Label2.Text = "Code:"
+        '
+        'tb_Code
+        '
+        Me.tb_Code.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tb_Code.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Code.Location = New System.Drawing.Point(13, 39)
+        Me.tb_Code.MaxLength = 10
+        Me.tb_Code.Multiline = True
+        Me.tb_Code.Name = "tb_Code"
+        Me.tb_Code.Size = New System.Drawing.Size(768, 63)
+        Me.tb_Code.TabIndex = 0
+        '
+        'tb_Price
+        '
+        Me.tb_Price.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.tb_Price.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Price.Location = New System.Drawing.Point(924, 39)
+        Me.tb_Price.MaxLength = 9
+        Me.tb_Price.Multiline = True
+        Me.tb_Price.Name = "tb_Price"
+        Me.tb_Price.ReadOnly = True
+        Me.tb_Price.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.tb_Price.Size = New System.Drawing.Size(268, 63)
+        Me.tb_Price.TabIndex = 4
+        Me.tb_Price.TabStop = False
+        Me.tb_Price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'cbo_Price
+        '
+        Me.cbo_Price.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbo_Price.FormattingEnabled = True
+        Me.cbo_Price.ItemHeight = 24
+        Me.cbo_Price.Items.AddRange(New Object() {"A", "B"})
+        Me.cbo_Price.Location = New System.Drawing.Point(813, 51)
+        Me.cbo_Price.Name = "cbo_Price"
+        Me.cbo_Price.Size = New System.Drawing.Size(81, 30)
+        Me.cbo_Price.TabIndex = 3
+        Me.cbo_Price.TabStop = False
+        Me.cbo_Price.UseSelectable = True
+        '
+        'Label8
+        '
+        Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(808, 13)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(75, 29)
+        Me.Label8.TabIndex = 48
+        Me.Label8.Text = "Price:"
+        '
         'pnlBody
         '
         Me.pnlBody.Controls.Add(Me.pnlMid)
@@ -445,7 +636,7 @@ Partial Class frmPos
         '
         'pnlMid
         '
-        Me.pnlMid.Controls.Add(Me.DataGridView1)
+        Me.pnlMid.Controls.Add(Me.dg_Order)
         Me.pnlMid.Controls.Add(Me.Panel3)
         Me.pnlMid.Controls.Add(Me.Panel2)
         Me.pnlMid.Dock = System.Windows.Forms.DockStyle.Fill
@@ -454,19 +645,38 @@ Partial Class frmPos
         Me.pnlMid.Size = New System.Drawing.Size(1206, 586)
         Me.pnlMid.TabIndex = 24
         '
-        'DataGridView1
+        'dg_Order
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.Column8, Me.Column9, Me.Column1, Me.Column2, Me.DataGridViewButtonColumn3, Me.Column3})
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(13, 0)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(1181, 586)
-        Me.DataGridView1.TabIndex = 4
+        Me.dg_Order.AllowUserToAddRows = False
+        Me.dg_Order.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dg_Order.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.Column8, Me.Column9, Me.Column1, Me.Column2, Me.DataGridViewButtonColumn3, Me.Column3})
+        Me.dg_Order.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dg_Order.Location = New System.Drawing.Point(13, 0)
+        Me.dg_Order.Name = "dg_Order"
+        Me.dg_Order.RowHeadersVisible = False
+        Me.dg_Order.RowHeadersWidth = 51
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dg_Order.RowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.dg_Order.RowTemplate.Height = 24
+        Me.dg_Order.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dg_Order.Size = New System.Drawing.Size(1181, 586)
+        Me.dg_Order.TabIndex = 4
+        '
+        'Panel3
+        '
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel3.Location = New System.Drawing.Point(1194, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(12, 586)
+        Me.Panel3.TabIndex = 2
+        '
+        'Panel2
+        '
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(13, 586)
+        Me.Panel2.TabIndex = 1
         '
         'DataGridViewTextBoxColumn4
         '
@@ -482,8 +692,10 @@ Partial Class frmPos
         Me.DataGridViewTextBoxColumn5.HeaderText = "Code"
         Me.DataGridViewTextBoxColumn5.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewTextBoxColumn5.Visible = False
-        Me.DataGridViewTextBoxColumn5.Width = 125
+        Me.DataGridViewTextBoxColumn5.Width = 47
         '
         'Column8
         '
@@ -491,6 +703,8 @@ Partial Class frmPos
         Me.Column8.HeaderText = "Description"
         Me.Column8.MinimumWidth = 6
         Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
         'Column9
         '
@@ -498,6 +712,8 @@ Partial Class frmPos
         Me.Column9.HeaderText = "Price"
         Me.Column9.MinimumWidth = 6
         Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column9.Width = 69
         '
         'Column1
@@ -506,6 +722,8 @@ Partial Class frmPos
         Me.Column1.HeaderText = "Qty"
         Me.Column1.MinimumWidth = 6
         Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column1.Width = 59
         '
         'Column2
@@ -514,6 +732,8 @@ Partial Class frmPos
         Me.Column2.HeaderText = "Total"
         Me.Column2.MinimumWidth = 6
         Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column2.Width = 69
         '
         'DataGridViewButtonColumn3
@@ -535,183 +755,11 @@ Partial Class frmPos
         Me.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.Column3.Width = 23
         '
-        'Panel3
-        '
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(1194, 0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(12, 586)
-        Me.Panel3.TabIndex = 2
-        '
-        'Panel2
-        '
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(13, 586)
-        Me.Panel2.TabIndex = 1
-        '
-        'Panel4
-        '
-        Me.Panel4.Controls.Add(Me.Label2)
-        Me.Panel4.Controls.Add(Me.TextBox4)
-        Me.Panel4.Controls.Add(Me.TextBox6)
-        Me.Panel4.Controls.Add(Me.MetroComboBox1)
-        Me.Panel4.Controls.Add(Me.Label8)
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel4.Location = New System.Drawing.Point(0, 0)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(1206, 113)
-        Me.Panel4.TabIndex = 0
-        '
-        'TextBox6
-        '
-        Me.TextBox6.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(924, 39)
-        Me.TextBox6.MaxLength = 9
-        Me.TextBox6.Multiline = True
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.TextBox6.Size = New System.Drawing.Size(268, 63)
-        Me.TextBox6.TabIndex = 46
-        Me.TextBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'MetroComboBox1
-        '
-        Me.MetroComboBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MetroComboBox1.FormattingEnabled = True
-        Me.MetroComboBox1.ItemHeight = 24
-        Me.MetroComboBox1.Items.AddRange(New Object() {"A", "B"})
-        Me.MetroComboBox1.Location = New System.Drawing.Point(813, 51)
-        Me.MetroComboBox1.Name = "MetroComboBox1"
-        Me.MetroComboBox1.Size = New System.Drawing.Size(81, 30)
-        Me.MetroComboBox1.TabIndex = 49
-        Me.MetroComboBox1.UseSelectable = True
-        '
-        'Label8
-        '
-        Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(808, 13)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(75, 29)
-        Me.Label8.TabIndex = 48
-        Me.Label8.Text = "Price:"
-        '
-        'Panel5
-        '
-        Me.Panel5.Controls.Add(Me.Label6)
-        Me.Panel5.Controls.Add(Me.TextBox5)
-        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel5.Location = New System.Drawing.Point(0, 113)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(1206, 119)
-        Me.Panel5.TabIndex = 1
-        '
-        'Label6
-        '
-        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(8, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(141, 29)
-        Me.Label6.TabIndex = 49
-        Me.Label6.Text = "Description:"
-        '
-        'TextBox5
-        '
-        Me.TextBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(13, 32)
-        Me.TextBox5.Multiline = True
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(1179, 63)
-        Me.TextBox5.TabIndex = 48
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(8, 7)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(78, 29)
-        Me.Label2.TabIndex = 51
-        Me.Label2.Text = "Code:"
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(13, 39)
-        Me.TextBox4.Multiline = True
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(768, 63)
-        Me.TextBox4.TabIndex = 50
-        '
-        'Label5
-        '
-        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(22, 31)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(212, 36)
-        Me.Label5.TabIndex = 32
-        Me.Label5.Text = "Payment Type:"
-        '
-        'lbl_pay_Type
-        '
-        Me.lbl_pay_Type.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lbl_pay_Type.AutoSize = True
-        Me.lbl_pay_Type.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_pay_Type.Location = New System.Drawing.Point(249, 23)
-        Me.lbl_pay_Type.Name = "lbl_pay_Type"
-        Me.lbl_pay_Type.Size = New System.Drawing.Size(42, 46)
-        Me.lbl_pay_Type.TabIndex = 31
-        Me.lbl_pay_Type.Text = "b"
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Panel1.Controls.Add(Me.Label9)
-        Me.Panel1.Controls.Add(Me.Label10)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(3, 3)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(514, 80)
-        Me.Panel1.TabIndex = 1
-        '
-        'Label10
-        '
-        Me.Label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(17, 28)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(247, 32)
-        Me.Label10.TabIndex = 24
-        Me.Label10.Text = "Transaction Code:"
-        '
-        'Label9
-        '
-        Me.Label9.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(270, 28)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(191, 32)
-        Me.Label9.TabIndex = 25
-        Me.Label9.Text = "00000000000"
-        '
         'frmPos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1726, 981)
+        Me.ClientSize = New System.Drawing.Size(1726, 1000)
         Me.Controls.Add(Me.pnlBody)
         Me.Controls.Add(Me.pnlRight)
         Me.Controls.Add(Me.pnlFooter)
@@ -725,6 +773,8 @@ Partial Class frmPos
         Me.pnlHeader.PerformLayout()
         Me.pnlRight.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
         Me.TableLayoutPanel4.ResumeLayout(False)
@@ -733,15 +783,13 @@ Partial Class frmPos
         Me.pnlBottom.ResumeLayout(False)
         Me.pnlBottom.PerformLayout()
         Me.pnlSearchHolder.ResumeLayout(False)
-        Me.pnlBody.ResumeLayout(False)
-        Me.pnlMid.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel4.ResumeLayout(False)
-        Me.Panel4.PerformLayout()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
+        Me.pnlBody.ResumeLayout(False)
+        Me.pnlMid.ResumeLayout(False)
+        CType(Me.dg_Order, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -750,11 +798,10 @@ Partial Class frmPos
     Friend WithEvents pnlFooter As Panel
     Friend WithEvents pnlRight As Panel
     Friend WithEvents lbl_Header As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents Panel8 As Panel
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents tb_customer_Code As TextBox
+    Friend WithEvents tb_customer_Name As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
@@ -770,14 +817,34 @@ Partial Class frmPos
     Friend WithEvents btn_Logout As Button
     Friend WithEvents lbl_Name As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents lbl_dateTime As Label
     Friend WithEvents pnlBottom As Panel
-    Friend WithEvents Label4 As Label
+    Friend WithEvents lbl_due_Total As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents pnlSearchHolder As Panel
     Friend WithEvents pnlBody As Panel
     Friend WithEvents pnlMid As Panel
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dg_Order As DataGridView
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents tb_Price As TextBox
+    Friend WithEvents cbo_Price As MetroFramework.Controls.MetroComboBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Label6 As Label
+    Friend WithEvents tb_Description As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents tb_Code As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents lbl_pay_Type As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents lbl_transaction_Code As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents lbl_Username As Label
+    Friend WithEvents lbl_transac_Date As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents tb_Sales As Button
+    Friend WithEvents lbl_user_Id As Label
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
@@ -786,21 +853,4 @@ Partial Class frmPos
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewButtonColumn3 As DataGridViewButtonColumn
     Friend WithEvents Column3 As DataGridViewButtonColumn
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents lbl_Username As Label
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents MetroComboBox1 As MetroFramework.Controls.MetroComboBox
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Panel5 As Panel
-    Friend WithEvents Label6 As Label
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents lbl_pay_Type As Label
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label10 As Label
 End Class

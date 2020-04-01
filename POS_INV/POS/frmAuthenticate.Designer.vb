@@ -24,12 +24,14 @@ Partial Class frmAuthenticate
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.tb_username = New System.Windows.Forms.TextBox()
+        Me.tb_Username = New System.Windows.Forms.TextBox()
         Me.tb_Password = New System.Windows.Forms.TextBox()
         Me.btn_Ok = New System.Windows.Forms.Button()
         Me.btn_Cancel = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.lbl_Type = New System.Windows.Forms.Label()
+        Me.lbl_Id = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -37,7 +39,7 @@ Partial Class frmAuthenticate
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(35, 67)
+        Me.Label1.Location = New System.Drawing.Point(40, 80)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(91, 20)
         Me.Label1.TabIndex = 0
@@ -47,40 +49,45 @@ Partial Class frmAuthenticate
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(35, 117)
+        Me.Label2.Location = New System.Drawing.Point(40, 135)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(88, 20)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Password:"
         '
-        'tb_username
+        'tb_Username
         '
-        Me.tb_username.Location = New System.Drawing.Point(146, 65)
-        Me.tb_username.Multiline = True
-        Me.tb_username.Name = "tb_username"
-        Me.tb_username.Size = New System.Drawing.Size(348, 34)
-        Me.tb_username.TabIndex = 2
+        Me.tb_Username.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Username.Location = New System.Drawing.Point(152, 77)
+        Me.tb_Username.MaxLength = 30
+        Me.tb_Username.Multiline = True
+        Me.tb_Username.Name = "tb_Username"
+        Me.tb_Username.Size = New System.Drawing.Size(348, 34)
+        Me.tb_Username.TabIndex = 2
         '
         'tb_Password
         '
-        Me.tb_Password.Location = New System.Drawing.Point(146, 117)
+        Me.tb_Password.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Password.Location = New System.Drawing.Point(152, 129)
+        Me.tb_Password.MaxLength = 30
         Me.tb_Password.Multiline = True
         Me.tb_Password.Name = "tb_Password"
+        Me.tb_Password.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.tb_Password.Size = New System.Drawing.Size(348, 34)
         Me.tb_Password.TabIndex = 3
         '
         'btn_Ok
         '
-        Me.btn_Ok.Location = New System.Drawing.Point(304, 166)
+        Me.btn_Ok.Location = New System.Drawing.Point(315, 183)
         Me.btn_Ok.Name = "btn_Ok"
         Me.btn_Ok.Size = New System.Drawing.Size(92, 44)
         Me.btn_Ok.TabIndex = 4
-        Me.btn_Ok.Text = "Ok"
+        Me.btn_Ok.Text = "Allow"
         Me.btn_Ok.UseVisualStyleBackColor = True
         '
         'btn_Cancel
         '
-        Me.btn_Cancel.Location = New System.Drawing.Point(402, 166)
+        Me.btn_Cancel.Location = New System.Drawing.Point(413, 183)
         Me.btn_Cancel.Name = "btn_Cancel"
         Me.btn_Cancel.Size = New System.Drawing.Size(92, 44)
         Me.btn_Cancel.TabIndex = 5
@@ -89,34 +96,57 @@ Partial Class frmAuthenticate
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(549, 44)
+        Me.Panel1.Size = New System.Drawing.Size(559, 44)
         Me.Panel1.TabIndex = 7
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
         Me.Label3.Location = New System.Drawing.Point(12, 9)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(100, 24)
+        Me.Label3.Size = New System.Drawing.Size(182, 24)
         Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Supervisor"
+        Me.Label3.Text = "Manager Verification"
+        '
+        'lbl_Type
+        '
+        Me.lbl_Type.AutoSize = True
+        Me.lbl_Type.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Type.Location = New System.Drawing.Point(91, 194)
+        Me.lbl_Type.Name = "lbl_Type"
+        Me.lbl_Type.Size = New System.Drawing.Size(40, 20)
+        Me.lbl_Type.TabIndex = 8
+        Me.lbl_Type.Text = "type"
+        '
+        'lbl_Id
+        '
+        Me.lbl_Id.AutoSize = True
+        Me.lbl_Id.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Id.Location = New System.Drawing.Point(178, 194)
+        Me.lbl_Id.Name = "lbl_Id"
+        Me.lbl_Id.Size = New System.Drawing.Size(92, 20)
+        Me.lbl_Id.TabIndex = 9
+        Me.lbl_Id.Text = "manager id"
         '
         'frmAuthenticate
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(549, 224)
+        Me.ClientSize = New System.Drawing.Size(559, 254)
+        Me.Controls.Add(Me.lbl_Id)
+        Me.Controls.Add(Me.lbl_Type)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btn_Cancel)
         Me.Controls.Add(Me.btn_Ok)
         Me.Controls.Add(Me.tb_Password)
-        Me.Controls.Add(Me.tb_username)
+        Me.Controls.Add(Me.tb_Username)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -132,10 +162,12 @@ Partial Class frmAuthenticate
 
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents tb_username As TextBox
+    Friend WithEvents tb_Username As TextBox
     Friend WithEvents tb_Password As TextBox
     Friend WithEvents btn_Ok As Button
     Friend WithEvents btn_Cancel As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label3 As Label
+    Friend WithEvents lbl_Type As Label
+    Friend WithEvents lbl_Id As Label
 End Class

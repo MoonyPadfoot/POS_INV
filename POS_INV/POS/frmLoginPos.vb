@@ -16,14 +16,17 @@
             Exit Sub
         ElseIf authKey = 3 Then
             loginPos.setUserLogin(1)
-            'lbl_user_Id.Text = loginPos.setUserId()
+            frmPos.lbl_user_Id.Text = loginPos.setUserId()
+            frmPos.lbl_Name.Text = loginPos.setName(CInt(loginPos.setUserCashierId))
             frmPos.lbl_Username.Text = tb_username.Text
             tb_username.Clear()
             tb_Password.Clear()
             MsgBox("User logged in successfully.", vbInformation)
             frmPos.Show()
-            frmMain.Hide()
             Me.Hide()
+            frmMain.Hide()
+            frmBalance.ShowDialog()
+
         End If
     End Sub
     Private Sub btn_Cancel_Click(sender As Object, e As EventArgs) Handles btn_Cancel.Click

@@ -25,8 +25,8 @@ Partial Class frmNewTransaction
         Me.btn_Cash = New System.Windows.Forms.Button()
         Me.btn_Credit = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btn_Close = New System.Windows.Forms.Button()
         Me.lbl_Head = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -52,32 +52,33 @@ Partial Class frmNewTransaction
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.btn_Close)
         Me.Panel1.Controls.Add(Me.lbl_Head)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(429, 39)
+        Me.Panel1.Size = New System.Drawing.Size(429, 44)
         Me.Panel1.TabIndex = 8
+        '
+        'btn_Close
+        '
+        Me.btn_Close.Location = New System.Drawing.Point(384, 0)
+        Me.btn_Close.Name = "btn_Close"
+        Me.btn_Close.Size = New System.Drawing.Size(45, 44)
+        Me.btn_Close.TabIndex = 4
+        Me.btn_Close.UseVisualStyleBackColor = True
         '
         'lbl_Head
         '
         Me.lbl_Head.AutoSize = True
         Me.lbl_Head.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Head.ForeColor = System.Drawing.Color.White
         Me.lbl_Head.Location = New System.Drawing.Point(12, 9)
         Me.lbl_Head.Name = "lbl_Head"
         Me.lbl_Head.Size = New System.Drawing.Size(131, 24)
         Me.lbl_Head.TabIndex = 3
         Me.lbl_Head.Text = "Payment Type"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(384, 0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(45, 40)
-        Me.Button1.TabIndex = 4
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'frmNewTransaction
         '
@@ -101,5 +102,5 @@ Partial Class frmNewTransaction
     Friend WithEvents btn_Credit As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents lbl_Head As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btn_Close As Button
 End Class
