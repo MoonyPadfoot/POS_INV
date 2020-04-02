@@ -19,6 +19,7 @@
             frmPos.lbl_user_Id.Text = loginPos.setUserId()
             frmPos.lbl_Name.Text = loginPos.setName(CInt(loginPos.setUserCashierId))
             frmPos.lbl_Username.Text = tb_username.Text
+            frmPos.lbl_branch_Id.Text = loginPos.setBranchId()
             tb_username.Clear()
             tb_Password.Clear()
             MsgBox("User logged in successfully.", vbInformation)

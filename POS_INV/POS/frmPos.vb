@@ -1,9 +1,12 @@
 ﻿Public Class frmPos
     Dim loginPos As New clsLoginPos
+    Dim order As New clsOrder
     Private Sub frmPos_Load(sender As Object, e As EventArgs) Handles Me.Load
         lbl_transac_Date.Text = Date.Now.ToString("MM/dd/yyy")
         frmNewTransaction.btn_Close.Visible = False
-        tb_Description.Focus()
+        order.loadAutosuggestItems(lbl_branch_Id.Text)
+        cbo_Desc.Focus()
+
     End Sub
     Private Sub btn_Add_Click(sender As Object, e As EventArgs) Handles btn_Add.Click
         frmQty.ShowDialog()

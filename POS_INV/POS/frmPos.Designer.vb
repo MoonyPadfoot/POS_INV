@@ -22,10 +22,11 @@ Partial Class frmPos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnlHeader = New System.Windows.Forms.Panel()
         Me.lbl_Header = New System.Windows.Forms.Label()
         Me.pnlFooter = New System.Windows.Forms.Panel()
+        Me.lbl_branch_Id = New System.Windows.Forms.Label()
         Me.pnlRight = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -62,18 +63,14 @@ Partial Class frmPos
         Me.pnlSearchHolder = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.tb_Description = New System.Windows.Forms.TextBox()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.tb_Code = New System.Windows.Forms.TextBox()
         Me.tb_Price = New System.Windows.Forms.TextBox()
         Me.cbo_Price = New MetroFramework.Controls.MetroComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.pnlBody = New System.Windows.Forms.Panel()
         Me.pnlMid = New System.Windows.Forms.Panel()
         Me.dg_Order = New System.Windows.Forms.DataGridView()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -82,7 +79,12 @@ Partial Class frmPos
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewButtonColumn3 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.cbo_Desc = New System.Windows.Forms.ComboBox()
+        Me.cbo_Code = New System.Windows.Forms.ComboBox()
         Me.pnlHeader.SuspendLayout()
+        Me.pnlFooter.SuspendLayout()
         Me.pnlRight.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -122,11 +124,23 @@ Partial Class frmPos
         'pnlFooter
         '
         Me.pnlFooter.BackColor = System.Drawing.SystemColors.GrayText
+        Me.pnlFooter.Controls.Add(Me.lbl_branch_Id)
         Me.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.pnlFooter.Location = New System.Drawing.Point(0, 960)
         Me.pnlFooter.Name = "pnlFooter"
         Me.pnlFooter.Size = New System.Drawing.Size(1726, 40)
         Me.pnlFooter.TabIndex = 1
+        '
+        'lbl_branch_Id
+        '
+        Me.lbl_branch_Id.AutoSize = True
+        Me.lbl_branch_Id.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_branch_Id.Location = New System.Drawing.Point(1568, 11)
+        Me.lbl_branch_Id.Name = "lbl_branch_Id"
+        Me.lbl_branch_Id.Size = New System.Drawing.Size(18, 20)
+        Me.lbl_branch_Id.TabIndex = 10
+        Me.lbl_branch_Id.Text = "3"
+        Me.lbl_branch_Id.Visible = False
         '
         'pnlRight
         '
@@ -514,17 +528,17 @@ Partial Class frmPos
         Me.pnlSearchHolder.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlSearchHolder.Location = New System.Drawing.Point(0, 0)
         Me.pnlSearchHolder.Name = "pnlSearchHolder"
-        Me.pnlSearchHolder.Size = New System.Drawing.Size(1206, 232)
+        Me.pnlSearchHolder.Size = New System.Drawing.Size(1206, 237)
         Me.pnlSearchHolder.TabIndex = 23
         '
         'Panel5
         '
+        Me.Panel5.Controls.Add(Me.cbo_Desc)
         Me.Panel5.Controls.Add(Me.Label6)
-        Me.Panel5.Controls.Add(Me.tb_Description)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel5.Location = New System.Drawing.Point(0, 113)
+        Me.Panel5.Location = New System.Drawing.Point(0, 118)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(1206, 119)
+        Me.Panel5.Size = New System.Drawing.Size(1206, 117)
         Me.Panel5.TabIndex = 1
         '
         'Label6
@@ -532,34 +546,23 @@ Partial Class frmPos
         Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(8, 0)
+        Me.Label6.Location = New System.Drawing.Point(8, 9)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(141, 29)
         Me.Label6.TabIndex = 49
         Me.Label6.Text = "Description:"
         '
-        'tb_Description
-        '
-        Me.tb_Description.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tb_Description.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_Description.Location = New System.Drawing.Point(13, 32)
-        Me.tb_Description.MaxLength = 50
-        Me.tb_Description.Multiline = True
-        Me.tb_Description.Name = "tb_Description"
-        Me.tb_Description.Size = New System.Drawing.Size(1179, 63)
-        Me.tb_Description.TabIndex = 0
-        '
         'Panel4
         '
+        Me.Panel4.Controls.Add(Me.cbo_Code)
         Me.Panel4.Controls.Add(Me.Label2)
-        Me.Panel4.Controls.Add(Me.tb_Code)
         Me.Panel4.Controls.Add(Me.tb_Price)
         Me.Panel4.Controls.Add(Me.cbo_Price)
         Me.Panel4.Controls.Add(Me.Label8)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(1206, 113)
+        Me.Panel4.Size = New System.Drawing.Size(1206, 118)
         Me.Panel4.TabIndex = 0
         '
         'Label2
@@ -567,34 +570,23 @@ Partial Class frmPos
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(8, 7)
+        Me.Label2.Location = New System.Drawing.Point(8, 12)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(78, 29)
         Me.Label2.TabIndex = 51
         Me.Label2.Text = "Code:"
         '
-        'tb_Code
-        '
-        Me.tb_Code.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tb_Code.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_Code.Location = New System.Drawing.Point(13, 39)
-        Me.tb_Code.MaxLength = 10
-        Me.tb_Code.Multiline = True
-        Me.tb_Code.Name = "tb_Code"
-        Me.tb_Code.Size = New System.Drawing.Size(768, 63)
-        Me.tb_Code.TabIndex = 0
-        '
         'tb_Price
         '
         Me.tb_Price.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.tb_Price.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_Price.Location = New System.Drawing.Point(924, 39)
+        Me.tb_Price.Location = New System.Drawing.Point(926, 44)
         Me.tb_Price.MaxLength = 9
         Me.tb_Price.Multiline = True
         Me.tb_Price.Name = "tb_Price"
         Me.tb_Price.ReadOnly = True
         Me.tb_Price.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.tb_Price.Size = New System.Drawing.Size(268, 63)
+        Me.tb_Price.Size = New System.Drawing.Size(268, 64)
         Me.tb_Price.TabIndex = 4
         Me.tb_Price.TabStop = False
         Me.tb_Price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -602,12 +594,13 @@ Partial Class frmPos
         'cbo_Price
         '
         Me.cbo_Price.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbo_Price.FontSize = MetroFramework.MetroComboBoxSize.Tall
         Me.cbo_Price.FormattingEnabled = True
-        Me.cbo_Price.ItemHeight = 24
+        Me.cbo_Price.ItemHeight = 29
         Me.cbo_Price.Items.AddRange(New Object() {"A", "B"})
-        Me.cbo_Price.Location = New System.Drawing.Point(813, 51)
+        Me.cbo_Price.Location = New System.Drawing.Point(813, 53)
         Me.cbo_Price.Name = "cbo_Price"
-        Me.cbo_Price.Size = New System.Drawing.Size(81, 30)
+        Me.cbo_Price.Size = New System.Drawing.Size(81, 35)
         Me.cbo_Price.TabIndex = 3
         Me.cbo_Price.TabStop = False
         Me.cbo_Price.UseSelectable = True
@@ -617,7 +610,7 @@ Partial Class frmPos
         Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(808, 13)
+        Me.Label8.Location = New System.Drawing.Point(808, 12)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(75, 29)
         Me.Label8.TabIndex = 48
@@ -640,9 +633,9 @@ Partial Class frmPos
         Me.pnlMid.Controls.Add(Me.Panel3)
         Me.pnlMid.Controls.Add(Me.Panel2)
         Me.pnlMid.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlMid.Location = New System.Drawing.Point(0, 232)
+        Me.pnlMid.Location = New System.Drawing.Point(0, 237)
         Me.pnlMid.Name = "pnlMid"
-        Me.pnlMid.Size = New System.Drawing.Size(1206, 586)
+        Me.pnlMid.Size = New System.Drawing.Size(1206, 581)
         Me.pnlMid.TabIndex = 24
         '
         'dg_Order
@@ -655,28 +648,12 @@ Partial Class frmPos
         Me.dg_Order.Name = "dg_Order"
         Me.dg_Order.RowHeadersVisible = False
         Me.dg_Order.RowHeadersWidth = 51
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dg_Order.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dg_Order.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dg_Order.RowTemplate.Height = 24
         Me.dg_Order.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_Order.Size = New System.Drawing.Size(1181, 586)
+        Me.dg_Order.Size = New System.Drawing.Size(1181, 581)
         Me.dg_Order.TabIndex = 4
-        '
-        'Panel3
-        '
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(1194, 0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(12, 586)
-        Me.Panel3.TabIndex = 2
-        '
-        'Panel2
-        '
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(13, 586)
-        Me.Panel2.TabIndex = 1
         '
         'DataGridViewTextBoxColumn4
         '
@@ -695,7 +672,7 @@ Partial Class frmPos
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
         Me.DataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewTextBoxColumn5.Visible = False
-        Me.DataGridViewTextBoxColumn5.Width = 47
+        Me.DataGridViewTextBoxColumn5.Width = 125
         '
         'Column8
         '
@@ -755,6 +732,46 @@ Partial Class frmPos
         Me.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.Column3.Width = 23
         '
+        'Panel3
+        '
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel3.Location = New System.Drawing.Point(1194, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(12, 581)
+        Me.Panel3.TabIndex = 2
+        '
+        'Panel2
+        '
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(13, 581)
+        Me.Panel2.TabIndex = 1
+        '
+        'cbo_Desc
+        '
+        Me.cbo_Desc.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbo_Desc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple
+        Me.cbo_Desc.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbo_Desc.FormattingEnabled = True
+        Me.cbo_Desc.Location = New System.Drawing.Point(12, 41)
+        Me.cbo_Desc.MaxLength = 50
+        Me.cbo_Desc.Name = "cbo_Desc"
+        Me.cbo_Desc.Size = New System.Drawing.Size(1182, 64)
+        Me.cbo_Desc.TabIndex = 51
+        '
+        'cbo_Code
+        '
+        Me.cbo_Code.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbo_Code.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple
+        Me.cbo_Code.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbo_Code.FormattingEnabled = True
+        Me.cbo_Code.Location = New System.Drawing.Point(12, 44)
+        Me.cbo_Code.MaxLength = 50
+        Me.cbo_Code.Name = "cbo_Code"
+        Me.cbo_Code.Size = New System.Drawing.Size(772, 64)
+        Me.cbo_Code.TabIndex = 53
+        '
         'frmPos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -771,6 +788,8 @@ Partial Class frmPos
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.pnlHeader.ResumeLayout(False)
         Me.pnlHeader.PerformLayout()
+        Me.pnlFooter.ResumeLayout(False)
+        Me.pnlFooter.PerformLayout()
         Me.pnlRight.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
@@ -832,9 +851,7 @@ Partial Class frmPos
     Friend WithEvents Label8 As Label
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Label6 As Label
-    Friend WithEvents tb_Description As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents tb_Code As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents lbl_pay_Type As Label
     Friend WithEvents Panel1 As Panel
@@ -853,4 +870,7 @@ Partial Class frmPos
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewButtonColumn3 As DataGridViewButtonColumn
     Friend WithEvents Column3 As DataGridViewButtonColumn
+    Friend WithEvents lbl_branch_Id As Label
+    Friend WithEvents cbo_Desc As ComboBox
+    Friend WithEvents cbo_Code As ComboBox
 End Class

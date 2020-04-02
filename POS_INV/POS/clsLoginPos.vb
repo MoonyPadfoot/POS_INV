@@ -72,6 +72,15 @@ Public Class clsLoginPos
         DisconnectDatabase()
         Return 0
     End Function
+    Public Function setBranchId()
+        ConnectDatabase()
+        Dim query = "SELECT user.branch_id FROM user INNER JOIN cashier ON cashier.user_id = user.user_id 
+                    INNER JOIN branch ON branch.branch_id = user.branch_id WHERE cashier.username = @username "
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@username", _Username)
+        Return cm.ExecuteScalar()
+        DisconnectDatabase()
+    End Function
     Public Function setUserId()
         ConnectDatabase()
         Dim query = "SELECT cashier_id FROM cashier WHERE username = @username"
