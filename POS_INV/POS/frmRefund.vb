@@ -4,7 +4,7 @@
     End Sub
 
     Private Sub btn_Add_Click(sender As Object, e As EventArgs) Handles btn_Add.Click
-        frmQty.ShowDialog()
+
     End Sub
 
     Private Sub btn_Confirm_Click(sender As Object, e As EventArgs) Handles btn_Confirm.Click

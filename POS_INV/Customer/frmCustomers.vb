@@ -98,4 +98,5 @@
             customer.loadRecord()
         End If
     End Sub
+
 End Class

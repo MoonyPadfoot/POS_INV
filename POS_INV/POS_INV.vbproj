@@ -116,11 +116,19 @@
     </Compile>
     <Compile Include="POS\clsAuth.vb" />
     <Compile Include="POS\clsCashierLog.vb" />
+    <Compile Include="POS\clsCustomerList.vb" />
+    <Compile Include="POS\clsPosItems.vb" />
     <Compile Include="POS\clsOrder.vb" />
     <Compile Include="POS\frmBalance.Designer.vb">
       <DependentUpon>frmBalance.vb</DependentUpon>
     </Compile>
     <Compile Include="POS\frmBalance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POS\frmCustomerSearch.Designer.vb">
+      <DependentUpon>frmCustomerSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POS\frmCustomerSearch.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="POS\frmLoginPos.Designer.vb">
@@ -148,6 +156,12 @@
       <DependentUpon>frmAuthenticate.vb</DependentUpon>
     </Compile>
     <Compile Include="POS\frmAuthenticate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POS\frmPrice.Designer.vb">
+      <DependentUpon>frmPrice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POS\frmPrice.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Profile\Class\clsBranch.vb" />
@@ -247,18 +261,6 @@
     <Compile Include="Customer\frmCustomers.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POS\frmQty.Designer.vb">
-      <DependentUpon>frmQty.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POS\frmQty.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POS\frmAdvanceSearch.Designer.vb">
-      <DependentUpon>frmAdvanceSearch.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POS\frmAdvanceSearch.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="POS\frmCash_in.Designer.vb">
       <DependentUpon>frmCash_in.vb</DependentUpon>
     </Compile>
@@ -300,18 +302,6 @@
       <DependentUpon>frmPos.vb</DependentUpon>
     </Compile>
     <Compile Include="POS\frmPos.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POS\frmPosButtons.Designer.vb">
-      <DependentUpon>frmPosButtons.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POS\frmPosButtons.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POS\frmPosTable.Designer.vb">
-      <DependentUpon>frmPosTable.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POS\frmPosTable.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="POS\frmRefund.Designer.vb">
@@ -372,6 +362,12 @@
     <Compile Include="Profile\frmUserList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UserControl1.Designer.vb">
+      <DependentUpon>UserControl1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl1.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Inventory\frmStockAdj_History.resx">
@@ -389,6 +385,9 @@
     <EmbeddedResource Include="POS\frmBalance.resx">
       <DependentUpon>frmBalance.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="POS\frmCustomerSearch.resx">
+      <DependentUpon>frmCustomerSearch.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="POS\frmLoginPos.resx">
       <DependentUpon>frmLoginPos.vb</DependentUpon>
     </EmbeddedResource>
@@ -400,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="POS\frmAuthenticate.resx">
       <DependentUpon>frmAuthenticate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POS\frmPrice.resx">
+      <DependentUpon>frmPrice.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile\frmBranch.resx">
       <DependentUpon>frmBranch.vb</DependentUpon>
@@ -443,12 +445,6 @@
     <EmbeddedResource Include="Customer\frmCustomers.resx">
       <DependentUpon>frmCustomers.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POS\frmQty.resx">
-      <DependentUpon>frmQty.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POS\frmAdvanceSearch.resx">
-      <DependentUpon>frmAdvanceSearch.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Profile\frmBrandCat.resx">
       <DependentUpon>frmBrandCat.vb</DependentUpon>
     </EmbeddedResource>
@@ -469,12 +465,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="POS\frmPos.resx">
       <DependentUpon>frmPos.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POS\frmPosButtons.resx">
-      <DependentUpon>frmPosButtons.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POS\frmPosTable.resx">
-      <DependentUpon>frmPosTable.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POS\frmRefund.resx">
       <DependentUpon>frmRefund.vb</DependentUpon>
@@ -502,6 +492,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Profile\frmUserList.resx">
       <DependentUpon>frmUserList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -2,17 +2,39 @@
     Dim loginPos As New clsLoginPos
     Dim order As New clsOrder
     Private Sub frmPos_Load(sender As Object, e As EventArgs) Handles Me.Load
+        tb_Search.Select()
         lbl_transac_Date.Text = Date.Now.ToString("MM/dd/yyy")
         frmNewTransaction.btn_Close.Visible = False
-        order.loadAutosuggestItems(lbl_branch_Id.Text)
-        cbo_Desc.Focus()
-
+        'load items inside cbo_Desc
+        cbo_Type.SelectedIndex = 0
+        'enable shortcut keys
+        KeyPreview = True
     End Sub
     Private Sub btn_Add_Click(sender As Object, e As EventArgs) Handles btn_Add.Click
-        frmQty.ShowDialog()
+        If dg_Search.RowCount = 0 Then
+            MsgBox("No Item or Service has been selected", vbExclamation)
+            Exit Sub
+        End If
+
+        If dg_Order.RowCount <> 0 Then
+            Dim iSearch As Integer = dg_Search.CurrentRow.Index 'sets the current selected row of dg_Search
+            For i = 0 To dg_Order.RowCount - 1
+                Dim orderId = dg_Order.Rows(i).Cells(0).Value 'sets service Id or item Id of dg_Order and dg_Search
+                Dim searchId = dg_Search.Item(0, iSearch).Value
+
+                If orderId = searchId Then                     'checks if item or service has already been added to list to prevent entry duplication
+                    MsgBox("Item has already been added.", vbExclamation)
+                    Exit Sub
+                End If
+
+            Next
+        End If
+        frmPrice.btn_Add.Text = "Add"
+        frmPrice.lbl_Type.Text = 1
+        frmPrice.ShowDialog()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btn_Checkout.Click
+    Private Sub btn_Checkout_Click(sender As Object, e As EventArgs) Handles btn_Checkout.Click
         frm_Checkout.ShowDialog()
     End Sub
 
@@ -23,10 +45,6 @@
             frmNewTransaction.ShowDialog()
         End If
 
-    End Sub
-
-    Private Sub btn_Advance_Srch_Click(sender As Object, e As EventArgs) Handles btn_Advance_Srch.Click
-        frmAdvanceSearch.ShowDialog()
     End Sub
 
     Private Sub btn_Logout_Click(sender As Object, e As EventArgs) Handles btn_Logout.Click
@@ -60,5 +78,132 @@
 
     Private Sub btn_Balance_Click(sender As Object, e As EventArgs) Handles btn_Balance.Click
         frmCreditPay.ShowDialog()
+    End Sub
+
+    Private Sub cbo_Type_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbo_Type.SelectedIndexChanged
+        tb_Search.Text = vbNullString
+        If cbo_Type.SelectedIndex = 0 Then
+
+        ElseIf cbo_Type.SelectedIndex = 1 Then
+
+        End If
+    End Sub
+
+    Private Sub tb_Search_TextChanged(sender As Object, e As EventArgs) Handles tb_Search.TextChanged
+        'set branch to retreive items/services
+        order.SetBranchId(lbl_branch_Id.Text)
+        If Trim(tb_Search.Text) <> "" Then
+            'assigns search text
+            order.SetItemSearch(Trim(tb_Search.Text))
+            'search for item
+            If cbo_Type.SelectedIndex = 0 Then
+                order.searchItem("SELECT inventory.item_id, item_code, item_desc, item_add_desc, item_price_A, item_price_B, brand.brand_name, category.category_name FROM inventory " &
+                            "INNER JOIN item ON item.item_id = inventory.item_id " &
+                            "INNER JOIN brand ON brand.brand_id = item.brand_id " &
+                            "INNER JOIN category ON category.category_id = item.category_id " &
+                            "INNER JOIN branch ON branch.branch_id = inventory.branch_id " &
+                            "WHERE inventory.branch_id = @branch_id AND (item_code LIKE @0 OR item_desc LIKE @0 OR item_add_desc LIKE @0 OR brand_name LIKE @0 OR category_name LIKE @0) OR " &
+                            "CONCAT(brand_name, ' ', item_desc, ' ', item_add_desc, ' ', category_name) LIKE @0")
+                'search for services
+            ElseIf cbo_Type.SelectedIndex = 1 Then
+                order.searchService("SELECT * FROM service WHERE service_code LIKE @0 OR service_desc LIKE @0")
+            End If
+        Else
+            'if text search is empty string 
+            dg_Search.Rows.Clear()
+        End If
+    End Sub
+
+    Private Sub frmPos_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        Select Case e.KeyCode
+            Case Keys.F1
+                btn_Add_Click(sender, e)
+            Case Keys.F2
+                btn_New_Click(sender, e)
+            Case Keys.F3
+                btn_Balance_Click(sender, e)
+            Case Keys.F4
+                btn_Balance_Click(sender, e)
+            Case Keys.F6
+                btn_Sales_Click(sender, e)
+            Case Keys.F5
+                btn_Checkout_click(sender, e)
+            Case Keys.Escape
+                btn_Logout_Click(sender, e)
+            Case Keys.F8
+                btn_CashIn_Click(sender, e)
+            Case Keys.F9
+                btn_CashOut_Click(sender, e)
+
+        End Select
+    End Sub
+
+    Private Sub btn_Sales_Click(sender As Object, e As EventArgs) Handles btn_Sales.Click
+
+    End Sub
+
+    Private Sub dg_Search_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_Search.CellContentClick
+        Dim colName As String = dg_Search.Columns(e.ColumnIndex).Name
+        If colName = "col_Add" Then
+            If dg_Search.RowCount = 0 Then
+                MsgBox("No Item or Service has been selected", vbExclamation)
+                Exit Sub
+            End If
+
+            If dg_Order.RowCount <> 0 Then
+                Dim iSearch As Integer = dg_Search.CurrentRow.Index 'sets the current selected row of dg_Search
+                For i = 0 To dg_Order.RowCount - 1
+                    Dim orderId = dg_Order.Rows(i).Cells(0).Value 'sets service Id or item Id of dg_Order and dg_Search
+                    Dim searchId = dg_Search.Item(0, iSearch).Value
+
+                    If orderId = searchId Then                     'checks if item or service has already been added to list to prevent entry duplication
+                        MsgBox("Item has already been added.", vbExclamation)
+                        Exit Sub
+                    End If
+
+                Next
+            End If
+            frmPrice.btn_Add.Text = "Add"
+            frmPrice.lbl_Type.Text = 1
+            frmPrice.ShowDialog()
+        End If
+
+    End Sub
+
+    Private Sub dg_Order_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_Order.CellContentClick
+        Dim colName As String = dg_Order.Columns(e.ColumnIndex).Name
+        Dim i As Integer = dg_Order.CurrentRow.Index
+        If colName = "col_Edit" Then
+            frmPrice.tb_Price.Text = dg_Order.Item(3, i).Value
+            frmPrice.tb_Qty.Text = dg_Order.Item(4, i).Value
+            frmPrice.lbl_Type.Text = 2
+            frmPrice.btn_Add.Text = "Save"
+            frmPrice.ShowDialog()
+        ElseIf colName = "col_Remove" Then
+            If MsgBox("Do you wish to remove item from the list?", vbQuestion + vbYesNo) = vbYes Then
+                dg_Order.Rows.RemoveAt(dg_Order.SelectedRows(0).Index)
+                For i = 0 To dg_Order.RowCount - 1
+                    dg_Order.Rows(i).Cells(1).Value = i + 1
+                Next
+                MsgBox("Item has been removed.", vbInformation)
+
+                Dim due_total As Decimal = 0.00
+                For i = 0 To dg_Order.RowCount - 1
+                    due_total = due_total + dg_Order.Item(5, i).Value
+                Next
+                lbl_due_Total.Text = Format(due_total, "0.00") 'set due total
+            End If
+        End If
+    End Sub
+    Private Sub lbl_Customer_MouseHover(sender As Object, e As EventArgs) Handles lbl_Customer.MouseHover
+        lbl_Customer.ForeColor = Color.Blue
+    End Sub
+
+    Private Sub lbl_Customer_MouseLeave(sender As Object, e As EventArgs) Handles lbl_Customer.MouseLeave
+        lbl_Customer.ForeColor = Color.Black
+    End Sub
+
+    Private Sub lbl_Customer_Click(sender As Object, e As EventArgs) Handles lbl_Customer.Click
+        frmCustomerSearch.ShowDialog()
     End Sub
 End Class

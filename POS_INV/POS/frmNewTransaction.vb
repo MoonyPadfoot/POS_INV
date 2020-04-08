@@ -1,15 +1,21 @@
 ﻿Public Class frmNewTransaction
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btn_Cash.Click
+    Private Sub btn_Cash_Click(sender As Object, e As EventArgs) Handles btn_Cash.Click
         frmPos.lbl_pay_Type.Text = "Cash"
-        frmPos.tb_customer_Code.Enabled = False
-        frmPos.tb_customer_Name.Enabled = False
+        frmPos.dg_Order.Rows.Clear()
+        frmPos.lbl_due_Total.Text = "0.00"
+        frmPos.lbl_customer_Code.Text = vbNullString
+        frmPos.tb_customer_Name.Text = vbNullString
+        frmPos.lbl_Customer.Enabled = False
         Me.Close()
     End Sub
 
     Private Sub btn_Credit_Click(sender As Object, e As EventArgs) Handles btn_Credit.Click
         frmPos.lbl_pay_Type.Text = "Credit"
-        frmPos.tb_customer_Code.Enabled = False
-        frmPos.tb_customer_Name.Enabled = False
+        frmPos.dg_Order.Rows.Clear()
+        frmPos.lbl_due_Total.Text = "0.00"
+        frmPos.lbl_customer_Code.Text = vbNullString
+        frmPos.tb_customer_Name.Text = vbNullString
+        frmPos.lbl_Customer.Enabled = True
         Me.Close()
     End Sub
 

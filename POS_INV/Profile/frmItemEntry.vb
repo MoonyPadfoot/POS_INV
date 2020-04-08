@@ -46,7 +46,7 @@
             ElseIf strCurrency.Length > 2 Then
                 tb_unit_Price.Text = strCurrency.Substring(0, strCurrency.Length - 2) & "." & strCurrency.Substring(strCurrency.Length - 2)
             End If
-            tb_unit_Price.Select(tb_Category.Text.Length, 0)
+            tb_unit_Price.Select(tb_unit_Price.Text.Length, 0)
 
         End If
         e.Handled = True
