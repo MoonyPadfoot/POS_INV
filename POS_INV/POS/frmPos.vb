@@ -2,7 +2,7 @@
     Dim loginPos As New clsLoginPos
     Dim order As New clsOrder
     Private Sub frmPos_Load(sender As Object, e As EventArgs) Handles Me.Load
-        tb_Search.Select()
+        tb_Search.Focus()
         lbl_transac_Date.Text = Date.Now.ToString("MM/dd/yyy")
         frmNewTransaction.btn_Close.Visible = False
         'load items inside cbo_Desc
@@ -35,7 +35,18 @@
     End Sub
 
     Private Sub btn_Checkout_Click(sender As Object, e As EventArgs) Handles btn_Checkout.Click
-        frm_Checkout.ShowDialog()
+        If dg_Order.Rows.Count = 0 Then
+            MsgBox("Please add items/services in cart before checking out.", vbExclamation)
+            Exit Sub
+        End If
+        If lbl_pay_Type.Text = "Credit" Then
+            If tb_customer_Name.Text = vbNullString Then
+                MsgBox("Please add a customer before checking out.", vbExclamation)
+                Exit Sub
+            End If
+        End If
+
+        frmCheckout.ShowDialog()
     End Sub
 
     Private Sub btn_New_Click(sender As Object, e As EventArgs) Handles btn_New.Click
@@ -121,7 +132,7 @@
             Case Keys.F2
                 btn_New_Click(sender, e)
             Case Keys.F3
-                btn_Balance_Click(sender, e)
+                btn_Refund_Click(sender, e)
             Case Keys.F4
                 btn_Balance_Click(sender, e)
             Case Keys.F6

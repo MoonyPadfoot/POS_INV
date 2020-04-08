@@ -4,6 +4,7 @@
     End Sub
 
     Private Sub btn_Checkout_Click_1(sender As Object, e As EventArgs) Handles btn_Checkout.Click
-        frm_Checkout.ShowDialog()
+        frmCheckout.ShowDialog()
     End Sub
+
 End Class

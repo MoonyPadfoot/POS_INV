@@ -12,7 +12,5 @@
         frmAuthenticate.ShowDialog()
     End Sub
 
-    Private Sub btn_New_Click(sender As Object, e As EventArgs) Handles btn_New.Click
 
-    End Sub
 End Class

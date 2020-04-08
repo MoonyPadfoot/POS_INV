@@ -334,10 +334,10 @@
     <Compile Include="Profile\frmUserEntry.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POS\frm_Checkout.Designer.vb">
-      <DependentUpon>frm_Checkout.vb</DependentUpon>
+    <Compile Include="POS\frmCheckout.Designer.vb">
+      <DependentUpon>frmCheckout.vb</DependentUpon>
     </Compile>
-    <Compile Include="POS\frm_Checkout.vb">
+    <Compile Include="POS\frmCheckout.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="mdlConnection.vb" />
@@ -481,8 +481,8 @@
     <EmbeddedResource Include="Profile\frmUserEntry.resx">
       <DependentUpon>frmUserEntry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POS\frm_Checkout.resx">
-      <DependentUpon>frm_Checkout.vb</DependentUpon>
+    <EmbeddedResource Include="POS\frmCheckout.resx">
+      <DependentUpon>frmCheckout.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
