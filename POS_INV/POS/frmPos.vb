@@ -4,6 +4,16 @@
     Private Sub frmPos_Load(sender As Object, e As EventArgs) Handles Me.Load
         tb_Search.Focus()
         lbl_transac_Date.Text = Date.Now.ToString("MM/dd/yyy")
+
+        Dim transCode = order.getTransCode()
+        Dim transCodeLegnth As String = transCode.ToString()
+        Dim zero = ""
+        For i = 0 To 5 - transCodeLegnth.Length
+            zero &= "0"
+            i += 1
+        Next
+
+        lbl_transaction_Code.Text = Date.Now.ToString("yyyyMMdd") & zero & transCode
         frmNewTransaction.btn_Close.Visible = False
         'load items inside cbo_Desc
         cbo_Type.SelectedIndex = 0
@@ -19,10 +29,10 @@
         If dg_Order.RowCount <> 0 Then
             Dim iSearch As Integer = dg_Search.CurrentRow.Index 'sets the current selected row of dg_Search
             For i = 0 To dg_Order.RowCount - 1
-                Dim orderId = dg_Order.Rows(i).Cells(0).Value 'sets service Id or item Id of dg_Order and dg_Search
-                Dim searchId = dg_Search.Item(0, iSearch).Value
+                Dim orderCode = dg_Order.Rows(i).Cells(1).Value 'sets service Id or item Id of dg_Order and dg_Search
+                Dim searchCode = dg_Search.Item(1, iSearch).Value
 
-                If orderId = searchId Then                     'checks if item or service has already been added to list to prevent entry duplication
+                If orderCode = searchCode Then                     'checks if item or service has already been added to list to prevent entry duplication
                     MsgBox("Item has already been added.", vbExclamation)
                     Exit Sub
                 End If

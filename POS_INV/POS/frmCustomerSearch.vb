@@ -28,7 +28,7 @@
         Dim i As Integer = DataGridView1.CurrentRow.Index
         If colName = "col_Add" Then
             frmPos.tb_customer_Name.Text = DataGridView1.Item(2, i).Value & " " & DataGridView1.Item(3, i).Value & " " & DataGridView1.Item(4, i).Value & " " & DataGridView1.Item(5, i).Value
-            frmPos.lbl_customer_Code.Text = DataGridView1.Item(1, i).Value
+            frmPos.lbl_customer_Id.Text = DataGridView1.Item(0, i).Value
             Me.Close()
         End If
     End Sub

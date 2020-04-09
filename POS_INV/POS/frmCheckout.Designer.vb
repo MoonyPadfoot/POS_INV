@@ -28,7 +28,7 @@ Partial Class frmCheckout
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.btn_Print = New System.Windows.Forms.Button()
+        Me.btn_Pay = New System.Windows.Forms.Button()
         Me.btn_Cancel = New System.Windows.Forms.Button()
         Me.dtp_Date = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -107,15 +107,15 @@ Partial Class frmCheckout
         Me.Label3.TabIndex = 12
         Me.Label3.Text = "Change:"
         '
-        'btn_Print
+        'btn_Pay
         '
-        Me.btn_Print.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_Print.Location = New System.Drawing.Point(446, 330)
-        Me.btn_Print.Name = "btn_Print"
-        Me.btn_Print.Size = New System.Drawing.Size(108, 56)
-        Me.btn_Print.TabIndex = 2
-        Me.btn_Print.Text = "Print"
-        Me.btn_Print.UseVisualStyleBackColor = True
+        Me.btn_Pay.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Pay.Location = New System.Drawing.Point(446, 330)
+        Me.btn_Pay.Name = "btn_Pay"
+        Me.btn_Pay.Size = New System.Drawing.Size(108, 56)
+        Me.btn_Pay.TabIndex = 2
+        Me.btn_Pay.Text = "Pay"
+        Me.btn_Pay.UseVisualStyleBackColor = True
         '
         'btn_Cancel
         '
@@ -155,7 +155,7 @@ Partial Class frmCheckout
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.dtp_Date)
         Me.Controls.Add(Me.btn_Cancel)
-        Me.Controls.Add(Me.btn_Print)
+        Me.Controls.Add(Me.btn_Pay)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -176,7 +176,7 @@ Partial Class frmCheckout
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents btn_Print As Button
+    Friend WithEvents btn_Pay As Button
     Friend WithEvents btn_Cancel As Button
     Friend WithEvents dtp_Date As DateTimePicker
     Friend WithEvents Label4 As Label

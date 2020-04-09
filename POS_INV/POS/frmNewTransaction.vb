@@ -3,7 +3,7 @@
         frmPos.lbl_pay_Type.Text = "Cash"
         frmPos.dg_Order.Rows.Clear()
         frmPos.lbl_due_Total.Text = "0.00"
-        frmPos.lbl_customer_Code.Text = vbNullString
+        frmPos.lbl_customer_Id.Text = vbNullString
         frmPos.tb_customer_Name.Text = vbNullString
         frmPos.lbl_Customer.Enabled = False
         Me.Close()
@@ -13,7 +13,7 @@
         frmPos.lbl_pay_Type.Text = "Credit"
         frmPos.dg_Order.Rows.Clear()
         frmPos.lbl_due_Total.Text = "0.00"
-        frmPos.lbl_customer_Code.Text = vbNullString
+        frmPos.lbl_customer_Id.Text = vbNullString
         frmPos.tb_customer_Name.Text = vbNullString
         frmPos.lbl_Customer.Enabled = True
         Me.Close()

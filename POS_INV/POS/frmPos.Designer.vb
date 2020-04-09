@@ -42,6 +42,7 @@ Partial Class frmPos
         Me.lbl_transaction_Code = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.lbl_customer_Id = New System.Windows.Forms.Label()
         Me.lbl_Customer = New System.Windows.Forms.Label()
         Me.tb_customer_Name = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -97,7 +98,6 @@ Partial Class frmPos
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.lbl_customer_Code = New System.Windows.Forms.Label()
         Me.pnlHeader.SuspendLayout()
         Me.pnlFooter.SuspendLayout()
         Me.pnlRight.SuspendLayout()
@@ -224,7 +224,7 @@ Partial Class frmPos
         'Panel8
         '
         Me.Panel8.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.Panel8.Controls.Add(Me.lbl_customer_Code)
+        Me.Panel8.Controls.Add(Me.lbl_customer_Id)
         Me.Panel8.Controls.Add(Me.lbl_Customer)
         Me.Panel8.Controls.Add(Me.tb_customer_Name)
         Me.Panel8.Controls.Add(Me.Label13)
@@ -233,6 +233,16 @@ Partial Class frmPos
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(514, 124)
         Me.Panel8.TabIndex = 2
+        '
+        'lbl_customer_Id
+        '
+        Me.lbl_customer_Id.AutoSize = True
+        Me.lbl_customer_Id.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_customer_Id.Location = New System.Drawing.Point(18, 99)
+        Me.lbl_customer_Id.Name = "lbl_customer_Id"
+        Me.lbl_customer_Id.Size = New System.Drawing.Size(0, 25)
+        Me.lbl_customer_Id.TabIndex = 8
+        Me.lbl_customer_Id.Visible = False
         '
         'lbl_Customer
         '
@@ -857,16 +867,6 @@ Partial Class frmPos
         Me.Panel2.Size = New System.Drawing.Size(13, 519)
         Me.Panel2.TabIndex = 1
         '
-        'lbl_customer_Code
-        '
-        Me.lbl_customer_Code.AutoSize = True
-        Me.lbl_customer_Code.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_customer_Code.Location = New System.Drawing.Point(18, 99)
-        Me.lbl_customer_Code.Name = "lbl_customer_Code"
-        Me.lbl_customer_Code.Size = New System.Drawing.Size(0, 25)
-        Me.lbl_customer_Code.TabIndex = 8
-        Me.lbl_customer_Code.Visible = False
-        '
         'frmPos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -973,5 +973,5 @@ Partial Class frmPos
     Friend WithEvents btn_CashOut As Button
     Friend WithEvents lbl_Customer As Label
     Friend WithEvents tb_customer_Name As TextBox
-    Friend WithEvents lbl_customer_Code As Label
+    Friend WithEvents lbl_customer_Id As Label
 End Class

@@ -1,4 +1,5 @@
 ﻿Public Class frmCheckout
+    Dim order As New clsOrder
     Dim strCurrency As String = ""
     Dim acceptableKey As Boolean = False
     Private Sub tb_cash_Tendered_KeyDown(sender As Object, e As KeyEventArgs) Handles tb_cash_Tendered.KeyDown
@@ -65,7 +66,44 @@
         End If
     End Sub
 
-    Private Sub btn_Print_Click(sender As Object, e As EventArgs) Handles btn_Print.Click
+    Private Sub btn_Pay_Click(sender As Object, e As EventArgs) Handles btn_Pay.Click
+        If Val(tb_cash_Tendered.Text) < Val(tb_due_Total.Text) Or tb_cash_Tendered.Text = vbNullString Then
+            MsgBox("Please input a valid amount.", vbExclamation)
+            Exit Sub
+        End If
 
+        'declaration of objects
+        order.SetOrderTransDate(Date.Now.ToString("yyyy-MM-dd"))
+        order.SetGrossAmount(tb_due_Total.Text)
+        order.SetTransDate(dtp_Date.Value.ToString("yyyy-MM-dd"))
+        order.SetTransCode(order.getTransCode)
+        order.SetPayAmount(tb_cash_Tendered.Text)
+        If frmPos.lbl_pay_Type.Text = "Cash" Then
+            order.SetReceipt(order.getReceipt)
+        ElseIf frmPos.lbl_pay_Type.Text = "Credit" Then
+            order.SetInvoice(order.getInvoice)
+        End If
+        order.saveOrder()
+
+        'refresh transaction code for the day
+        Dim transCode = order.getTransCode()
+        Dim transCodeLegnth As String = transCode.ToString()
+        Dim zero = ""
+        For i = 0 To 5 - transCodeLegnth.Length
+            zero &= "0"
+            i += 1
+        Next
+        frmPos.lbl_transaction_Code.Text = Date.Now.ToString("yyyyMMdd") & zero & transCode
+
+        frmPos.dg_Order.Rows.Clear()
+        frmPos.lbl_due_Total.Text = vbNullString
+        If frmPos.lbl_pay_Type.Text = "Credit" Then
+            frmPos.tb_customer_Name.Clear()
+            frmPos.lbl_customer_Id.Text = vbNullString
+        End If
+        Me.Close()
+        'If MsgBox("Do you wish to print receipt/invoice?", vbQuestion) = vbYes Then
+
+        'End If
     End Sub
 End Class
