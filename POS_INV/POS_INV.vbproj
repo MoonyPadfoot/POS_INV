@@ -116,13 +116,26 @@
     </Compile>
     <Compile Include="POS\clsAuth.vb" />
     <Compile Include="POS\clsCashierLog.vb" />
+    <Compile Include="POS\clsCashInOut.vb" />
+    <Compile Include="POS\clsCreditPay.vb" />
     <Compile Include="POS\clsCustomerList.vb" />
-    <Compile Include="POS\clsPosItems.vb" />
     <Compile Include="POS\clsOrder.vb" />
     <Compile Include="POS\frmBalance.Designer.vb">
       <DependentUpon>frmBalance.vb</DependentUpon>
     </Compile>
     <Compile Include="POS\frmBalance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POS\frmCheckoutCred.Designer.vb">
+      <DependentUpon>frmCheckoutCred.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POS\frmCheckoutCred.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POS\frmCreditTransacs.Designer.vb">
+      <DependentUpon>frmCreditTransacs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POS\frmCreditTransacs.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="POS\frmCustomerSearch.Designer.vb">
@@ -385,6 +398,12 @@
     <EmbeddedResource Include="POS\frmBalance.resx">
       <DependentUpon>frmBalance.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="POS\frmCheckoutCred.resx">
+      <DependentUpon>frmCheckoutCred.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POS\frmCreditTransacs.resx">
+      <DependentUpon>frmCreditTransacs.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="POS\frmCustomerSearch.resx">
       <DependentUpon>frmCustomerSearch.vb</DependentUpon>
     </EmbeddedResource>
@@ -408,6 +427,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\frmCustomerEntry.resx">
       <DependentUpon>frmCustomerEntry.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>

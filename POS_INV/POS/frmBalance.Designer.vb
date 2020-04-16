@@ -44,7 +44,7 @@ Partial Class frmBalance
         Me.btn_Verify.Location = New System.Drawing.Point(151, 172)
         Me.btn_Verify.Name = "btn_Verify"
         Me.btn_Verify.Size = New System.Drawing.Size(98, 46)
-        Me.btn_Verify.TabIndex = 11
+        Me.btn_Verify.TabIndex = 1
         Me.btn_Verify.Text = "Set"
         Me.btn_Verify.UseVisualStyleBackColor = True
         '
@@ -66,7 +66,7 @@ Partial Class frmBalance
         Me.tb_initial_Bal.Name = "tb_initial_Bal"
         Me.tb_initial_Bal.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.tb_initial_Bal.Size = New System.Drawing.Size(307, 69)
-        Me.tb_initial_Bal.TabIndex = 13
+        Me.tb_initial_Bal.TabIndex = 0
         '
         'frmBalance
         '

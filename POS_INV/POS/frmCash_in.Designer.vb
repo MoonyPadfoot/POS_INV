@@ -25,35 +25,34 @@ Partial Class frmCash_in
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lbl_cash_Out = New System.Windows.Forms.Label()
         Me.lbl_cash_In = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.tb_Remarks = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dtp_transDate = New System.Windows.Forms.DateTimePicker()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.btn_Proceed = New System.Windows.Forms.Button()
+        Me.btn_Go = New System.Windows.Forms.Button()
         Me.btn_Cancel = New System.Windows.Forms.Button()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.tb_Amount = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.Panel1.Controls.Add(Me.lbl_cash_Out)
         Me.Panel1.Controls.Add(Me.lbl_cash_In)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(519, 39)
+        Me.Panel1.Size = New System.Drawing.Size(519, 50)
         Me.Panel1.TabIndex = 8
         '
         'lbl_cash_Out
         '
         Me.lbl_cash_Out.AutoSize = True
         Me.lbl_cash_Out.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_cash_Out.Location = New System.Drawing.Point(12, 9)
+        Me.lbl_cash_Out.ForeColor = System.Drawing.Color.White
+        Me.lbl_cash_Out.Location = New System.Drawing.Point(12, 12)
         Me.lbl_cash_Out.Name = "lbl_cash_Out"
         Me.lbl_cash_Out.Size = New System.Drawing.Size(88, 24)
         Me.lbl_cash_Out.TabIndex = 6
@@ -63,116 +62,103 @@ Partial Class frmCash_in
         '
         Me.lbl_cash_In.AutoSize = True
         Me.lbl_cash_In.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_cash_In.Location = New System.Drawing.Point(12, 9)
+        Me.lbl_cash_In.ForeColor = System.Drawing.Color.White
+        Me.lbl_cash_In.Location = New System.Drawing.Point(12, 12)
         Me.lbl_cash_In.Name = "lbl_cash_In"
         Me.lbl_cash_In.Size = New System.Drawing.Size(73, 24)
         Me.lbl_cash_In.TabIndex = 5
         Me.lbl_cash_In.Text = "Cash In"
         '
-        'TextBox1
+        'tb_Remarks
         '
-        Me.TextBox1.Location = New System.Drawing.Point(140, 266)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(333, 106)
-        Me.TextBox1.TabIndex = 9
+        Me.tb_Remarks.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Remarks.Location = New System.Drawing.Point(153, 213)
+        Me.tb_Remarks.Multiline = True
+        Me.tb_Remarks.Name = "tb_Remarks"
+        Me.tb_Remarks.Size = New System.Drawing.Size(320, 106)
+        Me.tb_Remarks.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(34, 266)
+        Me.Label1.Location = New System.Drawing.Point(35, 213)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(89, 24)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Remarks:"
         '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(140, 107)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(333, 72)
-        Me.TextBox2.TabIndex = 11
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(34, 128)
+        Me.Label2.Location = New System.Drawing.Point(35, 126)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(81, 24)
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Amount:"
         '
-        'DateTimePicker1
+        'dtp_transDate
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(140, 69)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(257, 22)
-        Me.DateTimePicker1.TabIndex = 13
+        Me.dtp_transDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_transDate.Location = New System.Drawing.Point(153, 69)
+        Me.dtp_transDate.Name = "dtp_transDate"
+        Me.dtp_transDate.Size = New System.Drawing.Size(320, 27)
+        Me.dtp_transDate.TabIndex = 13
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(34, 67)
+        Me.Label3.Location = New System.Drawing.Point(35, 72)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 24)
         Me.Label3.TabIndex = 14
         Me.Label3.Text = "Date:"
         '
-        'btn_Proceed
+        'btn_Go
         '
-        Me.btn_Proceed.Location = New System.Drawing.Point(273, 394)
-        Me.btn_Proceed.Name = "btn_Proceed"
-        Me.btn_Proceed.Size = New System.Drawing.Size(97, 40)
-        Me.btn_Proceed.TabIndex = 15
-        Me.btn_Proceed.Text = "Proceed"
-        Me.btn_Proceed.UseVisualStyleBackColor = True
+        Me.btn_Go.Location = New System.Drawing.Point(272, 341)
+        Me.btn_Go.Name = "btn_Go"
+        Me.btn_Go.Size = New System.Drawing.Size(98, 48)
+        Me.btn_Go.TabIndex = 2
+        Me.btn_Go.Text = "Go"
+        Me.btn_Go.UseVisualStyleBackColor = True
         '
         'btn_Cancel
         '
-        Me.btn_Cancel.Location = New System.Drawing.Point(376, 394)
+        Me.btn_Cancel.Location = New System.Drawing.Point(375, 341)
         Me.btn_Cancel.Name = "btn_Cancel"
-        Me.btn_Cancel.Size = New System.Drawing.Size(97, 40)
-        Me.btn_Cancel.TabIndex = 16
+        Me.btn_Cancel.Size = New System.Drawing.Size(98, 48)
+        Me.btn_Cancel.TabIndex = 3
         Me.btn_Cancel.Text = "Cancel"
         Me.btn_Cancel.UseVisualStyleBackColor = True
         '
-        'Label4
+        'tb_Amount
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(34, 204)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(90, 24)
-        Me.Label4.TabIndex = 17
-        Me.Label4.Text = "Category:"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(140, 206)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(200, 24)
-        Me.ComboBox1.TabIndex = 18
+        Me.tb_Amount.BackColor = System.Drawing.SystemColors.Window
+        Me.tb_Amount.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Amount.ForeColor = System.Drawing.Color.Black
+        Me.tb_Amount.Location = New System.Drawing.Point(153, 112)
+        Me.tb_Amount.Multiline = True
+        Me.tb_Amount.Name = "tb_Amount"
+        Me.tb_Amount.Size = New System.Drawing.Size(320, 78)
+        Me.tb_Amount.TabIndex = 0
+        Me.tb_Amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'frmCash_in
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(519, 450)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.Label4)
+        Me.ClientSize = New System.Drawing.Size(519, 419)
+        Me.Controls.Add(Me.tb_Amount)
         Me.Controls.Add(Me.btn_Cancel)
-        Me.Controls.Add(Me.btn_Proceed)
+        Me.Controls.Add(Me.btn_Go)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.dtp_transDate)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.tb_Remarks)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmCash_in"
@@ -188,14 +174,12 @@ Partial Class frmCash_in
     Friend WithEvents Panel1 As Panel
     Friend WithEvents lbl_cash_Out As Label
     Friend WithEvents lbl_cash_In As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents tb_Remarks As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents dtp_transDate As DateTimePicker
     Friend WithEvents Label3 As Label
-    Friend WithEvents btn_Proceed As Button
+    Friend WithEvents btn_Go As Button
     Friend WithEvents btn_Cancel As Button
-    Friend WithEvents Label4 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents tb_Amount As TextBox
 End Class

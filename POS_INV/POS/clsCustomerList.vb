@@ -48,7 +48,7 @@ Public Class clsCustomerList
         dr = cm.ExecuteReader()
         While dr.Read
             i += 1
-            frmCustomerSearch.DataGridView1.Rows.Add(dr.Item("customer_id").ToString, dr.Item("customer_code").ToString, dr.Item("customer_gname").ToString, dr.Item("customer_mi").ToString, dr.Item("customer_surname").ToString, dr.Item("customer_suffix").ToString, dr.Item("credit_limit").ToString, dr.Item("balance").ToString, "ADD")
+            frmCustomerSearch.DataGridView1.Rows.Add(dr.Item("customer_id").ToString, dr.Item("customer_code").ToString, dr.Item("customer_gname").ToString, dr.Item("customer_mi").ToString, dr.Item("customer_surname").ToString, dr.Item("customer_suffix").ToString, dr.Item("credit_limit").ToString, dr.Item("balance").ToString, "SELECT")
         End While
         dr.Close()
         frmCustomerSearch.lbl_row_Count.Text = "(" & frmCustomerSearch.DataGridView1.RowCount & ") Record(s) found."
@@ -62,7 +62,7 @@ Public Class clsCustomerList
         dr = cm.ExecuteReader()
         While dr.Read
             i += 1
-            frmCustomerSearch.DataGridView1.Rows.Add(dr.Item("customer_id").ToString, dr.Item("customer_code").ToString, dr.Item("customer_gname").ToString, dr.Item("customer_mi").ToString, dr.Item("customer_surname").ToString, dr.Item("customer_suffix").ToString, dr.Item("credit_limit").ToString, dr.Item("balance").ToString, "ADD")
+            frmCustomerSearch.DataGridView1.Rows.Add(dr.Item("customer_id").ToString, dr.Item("customer_code").ToString, dr.Item("customer_gname").ToString, dr.Item("customer_mi").ToString, dr.Item("customer_surname").ToString, dr.Item("customer_suffix").ToString, dr.Item("credit_limit").ToString, dr.Item("balance").ToString, "SELECT")
         End While
         dr.Close()
         frmCustomerSearch.lbl_row_Count.Text = "(" & frmCustomerSearch.DataGridView1.RowCount & ") Record(s) found."

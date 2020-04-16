@@ -30,6 +30,7 @@ Partial Class frmCustomerSearch
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lbl_Type = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btn_Close = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -37,6 +38,9 @@ Partial Class frmCustomerSearch
         Me.Label3 = New System.Windows.Forms.Label()
         Me.tb_Search = New System.Windows.Forms.TextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.lbl_Expendable = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.lbl_Balance = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -55,6 +59,7 @@ Partial Class frmCustomerSearch
         Me.Panel2.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -62,19 +67,31 @@ Partial Class frmCustomerSearch
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.lbl_Type)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1233, 44)
+        Me.Panel1.Size = New System.Drawing.Size(1503, 44)
         Me.Panel1.TabIndex = 24
+        '
+        'lbl_Type
+        '
+        Me.lbl_Type.AutoSize = True
+        Me.lbl_Type.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Type.ForeColor = System.Drawing.Color.White
+        Me.lbl_Type.Location = New System.Drawing.Point(555, 10)
+        Me.lbl_Type.Name = "lbl_Type"
+        Me.lbl_Type.Size = New System.Drawing.Size(45, 24)
+        Me.lbl_Type.TabIndex = 3
+        Me.lbl_Type.Text = "type"
         '
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.btn_Close)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(1183, 0)
+        Me.Panel2.Location = New System.Drawing.Point(1453, 0)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(50, 44)
         Me.Panel2.TabIndex = 2
@@ -106,7 +123,7 @@ Partial Class frmCustomerSearch
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel4.Location = New System.Drawing.Point(0, 44)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(1233, 66)
+        Me.Panel4.Size = New System.Drawing.Size(1503, 66)
         Me.Panel4.TabIndex = 25
         '
         'Label3
@@ -132,20 +149,54 @@ Partial Class frmCustomerSearch
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.Panel6)
         Me.Panel3.Controls.Add(Me.Panel5)
         Me.Panel3.Controls.Add(Me.lbl_row_Count)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(0, 513)
+        Me.Panel3.Location = New System.Drawing.Point(0, 538)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1233, 75)
+        Me.Panel3.Size = New System.Drawing.Size(1503, 75)
         Me.Panel3.TabIndex = 26
+        '
+        'Panel6
+        '
+        Me.Panel6.Controls.Add(Me.lbl_Expendable)
+        Me.Panel6.Controls.Add(Me.Label4)
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel6.Location = New System.Drawing.Point(206, 0)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(634, 75)
+        Me.Panel6.TabIndex = 30
+        '
+        'lbl_Expendable
+        '
+        Me.lbl_Expendable.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbl_Expendable.BackColor = System.Drawing.Color.Black
+        Me.lbl_Expendable.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Expendable.ForeColor = System.Drawing.Color.Green
+        Me.lbl_Expendable.Location = New System.Drawing.Point(293, 13)
+        Me.lbl_Expendable.Name = "lbl_Expendable"
+        Me.lbl_Expendable.Size = New System.Drawing.Size(329, 50)
+        Me.lbl_Expendable.TabIndex = 27
+        Me.lbl_Expendable.Text = "0.00"
+        Me.lbl_Expendable.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(23, 17)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(253, 46)
+        Me.Label4.TabIndex = 26
+        Me.Label4.Text = "Expendable:"
         '
         'Panel5
         '
         Me.Panel5.Controls.Add(Me.lbl_Balance)
         Me.Panel5.Controls.Add(Me.Label7)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel5.Location = New System.Drawing.Point(570, 0)
+        Me.Panel5.Location = New System.Drawing.Point(840, 0)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(663, 75)
         Me.Panel5.TabIndex = 29
@@ -177,7 +228,7 @@ Partial Class frmCustomerSearch
         '
         Me.lbl_row_Count.AutoSize = True
         Me.lbl_row_Count.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_row_Count.Location = New System.Drawing.Point(27, 21)
+        Me.lbl_row_Count.Location = New System.Drawing.Point(27, 32)
         Me.lbl_row_Count.Name = "lbl_row_Count"
         Me.lbl_row_Count.Size = New System.Drawing.Size(91, 20)
         Me.lbl_row_Count.TabIndex = 9
@@ -197,7 +248,7 @@ Partial Class frmCustomerSearch
         Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1233, 403)
+        Me.DataGridView1.Size = New System.Drawing.Size(1503, 428)
         Me.DataGridView1.TabIndex = 27
         '
         'DataGridViewTextBoxColumn4
@@ -207,7 +258,7 @@ Partial Class frmCustomerSearch
         Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.Visible = False
-        Me.DataGridViewTextBoxColumn4.Width = 27
+        Me.DataGridViewTextBoxColumn4.Width = 125
         '
         'col_Code
         '
@@ -287,7 +338,7 @@ Partial Class frmCustomerSearch
         Me.col_Balance.MinimumWidth = 6
         Me.col_Balance.Name = "col_Balance"
         Me.col_Balance.Visible = False
-        Me.col_Balance.Width = 88
+        Me.col_Balance.Width = 125
         '
         'col_Add
         '
@@ -303,7 +354,7 @@ Partial Class frmCustomerSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1233, 588)
+        Me.ClientSize = New System.Drawing.Size(1503, 613)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel4)
@@ -319,6 +370,8 @@ Partial Class frmCustomerSearch
         Me.Panel4.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -348,4 +401,8 @@ Partial Class frmCustomerSearch
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents col_Balance As DataGridViewTextBoxColumn
     Friend WithEvents col_Add As DataGridViewButtonColumn
+    Friend WithEvents lbl_Type As Label
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents lbl_Expendable As Label
+    Friend WithEvents Label4 As Label
 End Class

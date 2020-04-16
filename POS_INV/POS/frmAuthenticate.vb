@@ -1,5 +1,7 @@
 ﻿Public Class frmAuthenticate
+    Dim cashInOut As New clsCashInOut
     Dim cashLog As New clsCashierLog
+    Dim credPay As New clsCreditPay
     Dim auth As New clsAuth
     Dim authKey As Integer
     Private Sub btn_Ok_Click_(sender As Object, e As EventArgs) Handles btn_Ok.Click
@@ -26,6 +28,28 @@
             cashLog.SetInBal(frmBalance.tb_initial_Bal.Text)
             cashLog.setCashierIn()
 
+        ElseIf lbl_Type.Text = 2 Then
+            cashInOut.SetManagerId(auth.setUserId)
+            cashInOut.SetTrans_Date(frmCash_in.dtp_transDate.Value.ToString("yyyy-MM-dd"))
+            cashInOut.SetAmount(frmCash_in.tb_Amount.Text)
+            cashInOut.SetRemarks(frmCash_in.tb_Remarks.Text)
+            If frmCash_in.lbl_cash_In.Visible = True Then
+                cashInOut.saveCashIn()
+
+            ElseIf frmCash_in.lbl_cash_Out.Visible = True Then
+                cashInOut.saveCashOut()
+
+            End If
+        ElseIf lbl_Type.Text = 3 Then
+            credPay.SetCashierId(frmPos.lbl_user_Id.Text)
+            credPay.SetManagerId(auth.setUserId)
+            credPay.SetPayAmount(frmCheckoutCred.tb_cash_Tendered.Text)
+            credPay.SetPayTransDate(frmCheckoutCred.dtp_Date.Value.ToString("yyyy-MM-dd"))
+            credPay.SetReceipt(frmCheckoutCred.tb_Receipt.Text)
+            Dim updatedBal = Math.Max(0, Val(credPay.setCustomerBalance) - Val(frmCheckoutCred.tb_cash_Tendered.Text))
+            credPay.SetBalance(updatedBal)
+            credPay.savePayment()
+            MsgBox("Payment saved. User: " & frmCreditPay.tb_Name.Text & " balance is Php: " & updatedBal, vbInformation)
         End If
         frmBalance.tb_initial_Bal.Clear()
         frmBalance.Close()

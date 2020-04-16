@@ -66,4 +66,8 @@
         strCurrency = ""
         acceptableKey = False
     End Sub
+
+    Private Sub frmBalance_Load(sender As Object, e As EventArgs) Handles Me.Load
+        tb_initial_Bal.Focus()
+    End Sub
 End Class

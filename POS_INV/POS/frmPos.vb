@@ -5,6 +5,7 @@
         tb_Search.Focus()
         lbl_transac_Date.Text = Date.Now.ToString("MM/dd/yyy")
 
+        order.SetBranchId(lbl_branch_Id.Text)
         Dim transCode = order.getTransCode()
         Dim transCodeLegnth As String = transCode.ToString()
         Dim zero = ""
@@ -54,8 +55,15 @@
                 MsgBox("Please add a customer before checking out.", vbExclamation)
                 Exit Sub
             End If
+            If order.getCreditLimit < (Val(order.getBalance) + Val(lbl_due_Total.Text)) Then
+                MsgBox("The amount exceeds the alloted credit limit." & vbNewLine & vbNewLine & "Amount expendable for user: " & tb_customer_Name.Text & " is PHP " & Val(order.getCreditLimit) - Val(order.getBalance) & " ", vbExclamation)
+                Exit Sub
+            End If
+            frmCheckout.lbl_Receipt.Text = "Invoice Number:"
+        ElseIf lbl_pay_Type.Text = "Cash" Then
+            frmCheckout.lbl_Receipt.Text = "Receipt Number:"
         End If
-
+        frmCheckout.lbl_Due.Text = "Due Total:"
         frmCheckout.ShowDialog()
     End Sub
 
@@ -79,16 +87,16 @@
 
     Private Sub btn_CashIn_Click(sender As Object, e As EventArgs) Handles btn_CashIn.Click
         With frmCash_in
-            .lbl_cash_In.Show()
-            .lbl_cash_Out.Hide()
+            .lbl_cash_In.Visible = True
+            .lbl_cash_Out.Visible = False
             .ShowDialog()
         End With
     End Sub
 
     Private Sub btn_CashOut_Click(sender As Object, e As EventArgs) Handles btn_CashOut.Click
         With frmCash_in
-            .lbl_cash_Out.Show()
-            .lbl_cash_In.Hide()
+            .lbl_cash_Out.Visible = True
+            .lbl_cash_In.Visible = False
             .ShowDialog()
         End With
     End Sub
@@ -225,6 +233,13 @@
     End Sub
 
     Private Sub lbl_Customer_Click(sender As Object, e As EventArgs) Handles lbl_Customer.Click
+        frmCustomerSearch.lbl_Type.Text = 1
         frmCustomerSearch.ShowDialog()
+    End Sub
+
+    Private Sub tb_Search_KeyDown(sender As Object, e As KeyEventArgs) Handles tb_Search.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            e.SuppressKeyPress = True
+        End If
     End Sub
 End Class

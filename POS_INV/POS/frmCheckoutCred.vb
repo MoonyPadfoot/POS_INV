@@ -1,4 +1,4 @@
-﻿Public Class frmCheckout
+﻿Public Class frmCheckoutCred
     Dim order As New clsOrder
     Dim strCurrency As String = ""
     Dim acceptableKey As Boolean = False
@@ -54,74 +54,35 @@
         tb_Change.Text = Format(0.00, "0.00")
         Me.Close()
     End Sub
-
     Private Sub frm_Checkout_Load(sender As Object, e As EventArgs) Handles Me.Load
-        If frmPos.lbl_pay_Type.Text = "Cash" Then
-            lbl_Receipt.Text = "Receipt Number:"
-        ElseIf frmPos.lbl_pay_Type.Text = "Credit" Then
-            lbl_Receipt.Text = "Invoice Number:"
-        End If
         tb_cash_Tendered.Focus()
-        tb_due_Total.Text = frmPos.lbl_due_Total.Text
+        tb_due_Total.Text = frmCreditPay.lbl_Balance.Text
         dtp_Date.Value = Date.Now
     End Sub
-
     Private Sub tb_cash_Tendered_TextChanged(sender As Object, e As EventArgs) Handles tb_cash_Tendered.TextChanged
-        If Val(tb_cash_Tendered.Text) < Val(tb_due_Total.Text) Then
-            tb_Change.Text = Format(0.00, "0.00")
-            Exit Sub
-        Else
-            tb_Change.Text = Format(Val(tb_cash_Tendered.Text) - Val(tb_due_Total.Text), "0.00")
-        End If
+        tb_Change.Text = Format(Math.Abs(Val(tb_cash_Tendered.Text) - Val(tb_due_Total.Text)), "0.00")
+
     End Sub
 
     Private Sub btn_Pay_Click(sender As Object, e As EventArgs) Handles btn_Pay.Click
-        If Val(tb_cash_Tendered.Text) < Val(tb_due_Total.Text) Or tb_cash_Tendered.Text = vbNullString Then
+        If Val(tb_cash_Tendered.Text) = 0.00 Or tb_cash_Tendered.Text = vbNullString Then
             MsgBox("Please input a valid amount.", vbExclamation)
             Exit Sub
         End If
         If tb_Receipt.Text.Trim = vbNullString Then
-            MsgBox("Please fill in receipt/invoice field.", vbExclamation)
+            MsgBox("Please fill in receipt field.", vbExclamation)
             Exit Sub
         End If
+        frmAuthenticate.lbl_Type.Text = 3
+        frmAuthenticate.ShowDialog()
 
-        'declaration of objects
-        order.SetOrderTransDate(Date.Now.ToString("yyyy-MM-dd"))
-        order.SetGrossAmount(tb_due_Total.Text)
-        order.SetTransDate(dtp_Date.Value.ToString("yyyy-MM-dd"))
-        order.SetTransCode(order.getTransCode)
-        order.SetPayAmount(tb_cash_Tendered.Text)
-        order.SetBranchId(frmPos.lbl_branch_Id.Text)
-        If frmPos.lbl_pay_Type.Text = "Cash" Then
-            order.SetReceipt(tb_Receipt.Text.Trim)
-        ElseIf frmPos.lbl_pay_Type.Text = "Credit" Then
-            order.SetInvoice(tb_Receipt.Text.Trim)
-        End If
-        order.saveOrder()
-
-        'refresh transaction code for the day
-        Dim transCode = order.getTransCode()
-        Dim transCodeLegnth As String = transCode.ToString()
-        Dim zero = ""
-        For i = 0 To 5 - transCodeLegnth.Length
-            zero &= "0"
-            i += 1
-        Next
-        frmPos.lbl_transaction_Code.Text = Date.Now.ToString("yyyyMMdd") & zero & transCode
-
-        frmPos.dg_Order.Rows.Clear()
-        frmPos.lbl_due_Total.Text = vbNullString
-        If frmPos.lbl_pay_Type.Text = "Credit" Then
-            frmPos.tb_customer_Name.Clear()
-            frmPos.lbl_customer_Id.Text = vbNullString
-        End If
         tb_Receipt.Clear()
         tb_cash_Tendered.Clear()
         tb_Change.Text = Format(0.00, "0.00")
-        frmPos.lbl_due_Total.Text = 0.00
+        frmCreditPay.dg_Transactions.Rows.Clear()
+        frmCreditPay.tb_Name.Clear()
+        frmCreditPay.lbl_customer_Id.Text = ""
+        frmCreditPay.lbl_Balance.Text = Format(0.00, "0.00")
         Me.Close()
-        'If MsgBox("Do you wish to print receipt/invoice?", vbQuestion) = vbYes Then
-
-        'End If
     End Sub
 End Class

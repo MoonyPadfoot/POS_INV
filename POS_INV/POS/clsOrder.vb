@@ -42,11 +42,12 @@ Public Class clsOrder
 
     Public Sub saveOrder()
         ConnectDatabase()
-        Dim query = "INSERT INTO orders (trans_date, gross_amount, trans_code) VALUES (@trans_date, @gross_amount, @trans_code); SELECT LAST_INSERT_ID();"
+        Dim query = "INSERT INTO orders (trans_date, gross_amount, trans_code, branch_id) VALUES (@trans_date, @gross_amount, @trans_code, @branch_id); SELECT LAST_INSERT_ID();"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@trans_date", _OrderTransDate)
         cm.Parameters.AddWithValue("@gross_amount", _GrossAmount)
         cm.Parameters.AddWithValue("@trans_code", _TransCode)
+        cm.Parameters.AddWithValue("@branch_id", _BranchId)
         Dim _order_id = cm.ExecuteScalar()
         cm.Dispose()
 
@@ -74,16 +75,35 @@ Public Class clsOrder
                 cm.Dispose()
 
             Else
+                query = "SELECT inventory_id FROM inventory WHERE item_id = @item_id AND branch_id = @branch_id"
+                cm = New MySqlCommand(query, con)
+                cm.Parameters.AddWithValue("@item_id", _id)
+                cm.Parameters.AddWithValue("@branch_id", _BranchId)
+                Dim _inventoryId = cm.ExecuteScalar()
+                cm.Dispose()
+
                 query = "INSERT INTO order_item_dtls (order_id, inventory_id, qty, price, line_total) VALUES (@order_id, @inventory_id, @qty, @price, @line_total)"
                 cm = New MySqlCommand(query, con)
                 cm.Parameters.AddWithValue("@order_id", _order_id)
-                cm.Parameters.AddWithValue("@inventory_id", _id)
+                cm.Parameters.AddWithValue("@inventory_id", _inventoryId)
                 cm.Parameters.AddWithValue("@qty", _qty)
                 cm.Parameters.AddWithValue("@price", _price)
                 cm.Parameters.AddWithValue("@line_total", _line_total)
                 cm.ExecuteScalar()
                 cm.Dispose()
 
+                query = "SELECT qty FROM inventory WHERE inventory_id = @inventory_id"
+                cm = New MySqlCommand(query, con)
+                cm.Parameters.AddWithValue("@inventory_id", _inventoryId)
+                Dim prevQty = cm.ExecuteScalar()
+
+                Dim newQty = prevQty - _qty
+
+                query = "UPDATE inventory SET qty = @qty WHERE inventory_id = @inventory_id"
+                cm = New MySqlCommand(query, con)
+                cm.Parameters.AddWithValue("@inventory_id", _inventoryId)
+                cm.Parameters.AddWithValue("@qty", newQty)
+                cm.ExecuteScalar()
             End If
         Next
 
@@ -106,67 +126,82 @@ Public Class clsOrder
             cm.Parameters.AddWithValue("@invoice", _Invoice)
             cm.ExecuteScalar()
 
+            query = "SELECT balance FROM customer WHERE customer_id = @customer_id"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@customer_id", frmPos.lbl_customer_Id.Text)
+            Dim prevBal = cm.ExecuteScalar()
+
+            Dim newBal = prevBal + _GrossAmount
+
+            query = "UPDATE customer SET balance = @balance WHERE customer_id = @customer_id"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@customer_id", frmPos.lbl_customer_Id.Text)
+            cm.Parameters.AddWithValue("@balance", newBal)
+            cm.ExecuteScalar()
+
         End If
         DisconnectDatabase()
     End Sub
-    Public Function getReceipt()
-        ConnectDatabase()
-        Dim query = "SELECT EXISTS(SELECT receipt FROM cash_payment WHERE trans_date = @trans_date)"
-        cm = New MySqlCommand(query, con)
-        cm.Parameters.AddWithValue("@trans_date", _TransDate)
-        Dim count = cm.ExecuteScalar()
-        cm.Dispose()
+    'Public Function getReceipt()
+    '    ConnectDatabase()
+    '    Dim query = "SELECT EXISTS(SELECT receipt FROM cash_payment WHERE trans_date = @trans_date)"
+    '    cm = New MySqlCommand(query, con)
+    '    cm.Parameters.AddWithValue("@trans_date", _TransDate)
+    '    Dim count = cm.ExecuteScalar()
+    '    cm.Dispose()
 
-        If count = 1 Then
-            query = "SELECT MAX(receipt) FROM cash_payment WHERE trans_date = @trans_date"
-            cm = New MySqlCommand(query, con)
-            cm.Parameters.AddWithValue("@trans_date", _TransDate)
-            Dim receipt = Val(cm.ExecuteScalar()) + 1
-            cm.Dispose()
-            DisconnectDatabase()
-            Return receipt
+    '    If count = 1 Then
+    '        query = "SELECT MAX(receipt) FROM cash_payment WHERE trans_date = @trans_date"
+    '        cm = New MySqlCommand(query, con)
+    '        cm.Parameters.AddWithValue("@trans_date", _TransDate)
+    '        Dim receipt = Val(cm.ExecuteScalar()) + 1
+    '        cm.Dispose()
+    '        DisconnectDatabase()
+    '        Return receipt
 
-        Else
-            DisconnectDatabase()
-            Return 1
-        End If
-    End Function
+    '    Else
+    '        DisconnectDatabase()
+    '        Return 1
+    '    End If
+    'End Function
 
-    Public Function getInvoice()
-        ConnectDatabase()
-        Dim query = "SELECT EXISTS(SELECT invoice FROM credit_payment WHERE trans_date = @trans_date)"
-        cm = New MySqlCommand(query, con)
-        cm.Parameters.AddWithValue("@trans_date", _TransDate)
-        Dim count = cm.ExecuteScalar()
-        cm.Dispose()
+    'Public Function getInvoice()
+    '    ConnectDatabase()
+    '    Dim query = "SELECT EXISTS(SELECT invoice FROM credit_payment WHERE trans_date = @trans_date)"
+    '    cm = New MySqlCommand(query, con)
+    '    cm.Parameters.AddWithValue("@trans_date", _TransDate)
+    '    Dim count = cm.ExecuteScalar()
+    '    cm.Dispose()
 
-        If count = 1 Then
-            query = "SELECT MAX(invoice) FROM credit_payment WHERE trans_date = @trans_date"
-            cm = New MySqlCommand(query, con)
-            cm.Parameters.AddWithValue("@trans_date", _TransDate)
-            Dim invoice = Val(cm.ExecuteScalar()) + 1
-            cm.Dispose()
-            DisconnectDatabase()
-            Return invoice
+    '    If count = 1 Then
+    '        query = "SELECT MAX(invoice) FROM credit_payment WHERE trans_date = @trans_date"
+    '        cm = New MySqlCommand(query, con)
+    '        cm.Parameters.AddWithValue("@trans_date", _TransDate)
+    '        Dim invoice = Val(cm.ExecuteScalar()) + 1
+    '        cm.Dispose()
+    '        DisconnectDatabase()
+    '        Return invoice
 
-        Else
-            DisconnectDatabase()
-            Return 1
-        End If
-    End Function
+    '    Else
+    '        DisconnectDatabase()
+    '        Return 1
+    '    End If
+    'End Function
     Public Function getTransCode()
         ConnectDatabase()
         Dim dateToday = Date.Now.ToString("yyyy-MM-dd")
-        Dim query = "SELECT EXISTS(SELECT trans_code FROM orders WHERE trans_date = @trans_date)"
+        Dim query = "SELECT EXISTS(SELECT trans_code FROM orders WHERE trans_date = @trans_date AND branch_id = @branch_id)"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@trans_date", dateToday)
+        cm.Parameters.AddWithValue("@branch_id", _BranchId)
         Dim count = cm.ExecuteScalar()
         cm.Dispose()
 
         If count = 1 Then
-            query = "SELECT MAX(trans_code) FROM orders WHERE trans_date = @trans_date"
+            query = "SELECT MAX(trans_code) FROM orders WHERE trans_date = @trans_date AND branch_id = @branch_id"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@trans_date", dateToday)
+            cm.Parameters.AddWithValue("@branch_id", _BranchId)
             Dim code = Val(cm.ExecuteScalar()) + 1
             cm.Dispose()
             DisconnectDatabase()
@@ -203,4 +238,22 @@ Public Class clsOrder
         dr.Close()
         DisconnectDatabase()
     End Sub
+    Public Function getCreditLimit()
+        ConnectDatabase()
+        Dim query = "SELECT credit_limit FROM customer WHERE customer_id = @customer_id"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@customer_id", frmPos.lbl_customer_Id.Text)
+        getCreditLimit = cm.ExecuteScalar()
+        DisconnectDatabase()
+        Return getCreditLimit
+    End Function
+    Public Function getBalance()
+        ConnectDatabase()
+        Dim query = "SELECT balance FROM customer WHERE customer_id = @customer_id"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@customer_id", frmPos.lbl_customer_Id.Text)
+        getBalance = cm.ExecuteScalar()
+        DisconnectDatabase()
+        Return getBalance
+    End Function
 End Class

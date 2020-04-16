@@ -25,13 +25,15 @@ Partial Class frmCheckout
         Me.tb_due_Total = New System.Windows.Forms.TextBox()
         Me.tb_cash_Tendered = New System.Windows.Forms.TextBox()
         Me.tb_Change = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lbl_Due = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btn_Pay = New System.Windows.Forms.Button()
         Me.btn_Cancel = New System.Windows.Forms.Button()
         Me.dtp_Date = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.lbl_Receipt = New System.Windows.Forms.Label()
+        Me.tb_Receipt = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'tb_due_Total
@@ -39,7 +41,7 @@ Partial Class frmCheckout
         Me.tb_due_Total.BackColor = System.Drawing.Color.Black
         Me.tb_due_Total.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tb_due_Total.ForeColor = System.Drawing.Color.Green
-        Me.tb_due_Total.Location = New System.Drawing.Point(417, 84)
+        Me.tb_due_Total.Location = New System.Drawing.Point(457, 151)
         Me.tb_due_Total.Multiline = True
         Me.tb_due_Total.Name = "tb_due_Total"
         Me.tb_due_Total.ReadOnly = True
@@ -52,7 +54,7 @@ Partial Class frmCheckout
         'tb_cash_Tendered
         '
         Me.tb_cash_Tendered.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_cash_Tendered.Location = New System.Drawing.Point(417, 156)
+        Me.tb_cash_Tendered.Location = New System.Drawing.Point(457, 223)
         Me.tb_cash_Tendered.Multiline = True
         Me.tb_cash_Tendered.Name = "tb_cash_Tendered"
         Me.tb_cash_Tendered.Size = New System.Drawing.Size(251, 57)
@@ -64,7 +66,7 @@ Partial Class frmCheckout
         Me.tb_Change.BackColor = System.Drawing.Color.Black
         Me.tb_Change.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tb_Change.ForeColor = System.Drawing.Color.Green
-        Me.tb_Change.Location = New System.Drawing.Point(368, 233)
+        Me.tb_Change.Location = New System.Drawing.Point(408, 296)
         Me.tb_Change.Multiline = True
         Me.tb_Change.Name = "tb_Change"
         Me.tb_Change.ReadOnly = True
@@ -74,23 +76,23 @@ Partial Class frmCheckout
         Me.tb_Change.Text = "0.00"
         Me.tb_Change.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Label1
+        'lbl_Due
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(49, 99)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(146, 32)
-        Me.Label1.TabIndex = 6
-        Me.Label1.Text = "Due Total:"
+        Me.lbl_Due.AutoSize = True
+        Me.lbl_Due.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Due.ForeColor = System.Drawing.Color.White
+        Me.lbl_Due.Location = New System.Drawing.Point(49, 166)
+        Me.lbl_Due.Name = "lbl_Due"
+        Me.lbl_Due.Size = New System.Drawing.Size(146, 32)
+        Me.lbl_Due.TabIndex = 6
+        Me.lbl_Due.Text = "Due Total:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(49, 165)
+        Me.Label2.Location = New System.Drawing.Point(49, 232)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(218, 32)
         Me.Label2.TabIndex = 11
@@ -101,7 +103,7 @@ Partial Class frmCheckout
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(43, 236)
+        Me.Label3.Location = New System.Drawing.Point(43, 299)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(255, 69)
         Me.Label3.TabIndex = 12
@@ -110,7 +112,7 @@ Partial Class frmCheckout
         'btn_Pay
         '
         Me.btn_Pay.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_Pay.Location = New System.Drawing.Point(446, 330)
+        Me.btn_Pay.Location = New System.Drawing.Point(486, 397)
         Me.btn_Pay.Name = "btn_Pay"
         Me.btn_Pay.Size = New System.Drawing.Size(108, 56)
         Me.btn_Pay.TabIndex = 2
@@ -120,7 +122,7 @@ Partial Class frmCheckout
         'btn_Cancel
         '
         Me.btn_Cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_Cancel.Location = New System.Drawing.Point(560, 330)
+        Me.btn_Cancel.Location = New System.Drawing.Point(600, 397)
         Me.btn_Cancel.Name = "btn_Cancel"
         Me.btn_Cancel.Size = New System.Drawing.Size(108, 56)
         Me.btn_Cancel.TabIndex = 3
@@ -130,7 +132,7 @@ Partial Class frmCheckout
         'dtp_Date
         '
         Me.dtp_Date.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp_Date.Location = New System.Drawing.Point(347, 44)
+        Me.dtp_Date.Location = New System.Drawing.Point(387, 44)
         Me.dtp_Date.Name = "dtp_Date"
         Me.dtp_Date.Size = New System.Drawing.Size(321, 27)
         Me.dtp_Date.TabIndex = 1
@@ -146,19 +148,41 @@ Partial Class frmCheckout
         Me.Label4.TabIndex = 16
         Me.Label4.Text = "Transaction Date:"
         '
+        'lbl_Receipt
+        '
+        Me.lbl_Receipt.AutoSize = True
+        Me.lbl_Receipt.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Receipt.ForeColor = System.Drawing.Color.White
+        Me.lbl_Receipt.Location = New System.Drawing.Point(49, 95)
+        Me.lbl_Receipt.Name = "lbl_Receipt"
+        Me.lbl_Receipt.Size = New System.Drawing.Size(227, 32)
+        Me.lbl_Receipt.TabIndex = 17
+        Me.lbl_Receipt.Text = "Receipt Number:"
+        '
+        'tb_Receipt
+        '
+        Me.tb_Receipt.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Receipt.Location = New System.Drawing.Point(387, 89)
+        Me.tb_Receipt.Multiline = True
+        Me.tb_Receipt.Name = "tb_Receipt"
+        Me.tb_Receipt.Size = New System.Drawing.Size(321, 44)
+        Me.tb_Receipt.TabIndex = 18
+        '
         'frmCheckout
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(46, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(729, 422)
+        Me.ClientSize = New System.Drawing.Size(773, 488)
+        Me.Controls.Add(Me.tb_Receipt)
+        Me.Controls.Add(Me.lbl_Receipt)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.dtp_Date)
         Me.Controls.Add(Me.btn_Cancel)
         Me.Controls.Add(Me.btn_Pay)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lbl_Due)
         Me.Controls.Add(Me.tb_Change)
         Me.Controls.Add(Me.tb_cash_Tendered)
         Me.Controls.Add(Me.tb_due_Total)
@@ -173,11 +197,13 @@ Partial Class frmCheckout
     Friend WithEvents tb_due_Total As TextBox
     Friend WithEvents tb_cash_Tendered As TextBox
     Friend WithEvents tb_Change As TextBox
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lbl_Due As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents btn_Pay As Button
     Friend WithEvents btn_Cancel As Button
     Friend WithEvents dtp_Date As DateTimePicker
     Friend WithEvents Label4 As Label
+    Friend WithEvents lbl_Receipt As Label
+    Friend WithEvents tb_Receipt As TextBox
 End Class
