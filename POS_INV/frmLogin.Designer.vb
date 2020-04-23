@@ -76,6 +76,7 @@ Partial Class frmLogin
         '
         'btn_Cancel
         '
+        Me.btn_Cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Cancel.Location = New System.Drawing.Point(44, 277)
         Me.btn_Cancel.Name = "btn_Cancel"
         Me.btn_Cancel.Size = New System.Drawing.Size(456, 44)
@@ -85,6 +86,7 @@ Partial Class frmLogin
         '
         'btn_Login
         '
+        Me.btn_Login.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Login.Location = New System.Drawing.Point(44, 227)
         Me.btn_Login.Name = "btn_Login"
         Me.btn_Login.Size = New System.Drawing.Size(456, 44)
@@ -94,7 +96,7 @@ Partial Class frmLogin
         '
         'tb_Password
         '
-        Me.tb_Password.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Password.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tb_Password.Location = New System.Drawing.Point(44, 177)
         Me.tb_Password.MaxLength = 30
         Me.tb_Password.Multiline = True
@@ -106,7 +108,7 @@ Partial Class frmLogin
         '
         'tb_username
         '
-        Me.tb_username.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_username.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tb_username.Location = New System.Drawing.Point(44, 99)
         Me.tb_username.MaxLength = 30
         Me.tb_username.Multiline = True

@@ -120,6 +120,7 @@
     <Compile Include="POS\clsCreditPay.vb" />
     <Compile Include="POS\clsCustomerList.vb" />
     <Compile Include="POS\clsOrder.vb" />
+    <Compile Include="POS\clsRefund.vb" />
     <Compile Include="POS\frmBalance.Designer.vb">
       <DependentUpon>frmBalance.vb</DependentUpon>
     </Compile>

@@ -42,7 +42,7 @@ Partial Class frmChangePass
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(599, 44)
+        Me.Panel1.Size = New System.Drawing.Size(622, 44)
         Me.Panel1.TabIndex = 20
         '
         'Label1
@@ -59,57 +59,61 @@ Partial Class frmChangePass
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(37, 80)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(104, 17)
+        Me.Label2.Size = New System.Drawing.Size(126, 20)
         Me.Label2.TabIndex = 21
         Me.Label2.Text = "New Password:"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(37, 129)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(125, 17)
+        Me.Label3.Size = New System.Drawing.Size(152, 20)
         Me.Label3.TabIndex = 22
         Me.Label3.Text = "Confirm Password:"
         '
         'tb_new_Password
         '
-        Me.tb_new_Password.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_new_Password.Location = New System.Drawing.Point(187, 76)
+        Me.tb_new_Password.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_new_Password.Location = New System.Drawing.Point(211, 76)
         Me.tb_new_Password.MaxLength = 30
         Me.tb_new_Password.Name = "tb_new_Password"
         Me.tb_new_Password.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.tb_new_Password.ShortcutsEnabled = False
-        Me.tb_new_Password.Size = New System.Drawing.Size(371, 28)
+        Me.tb_new_Password.Size = New System.Drawing.Size(371, 30)
         Me.tb_new_Password.TabIndex = 23
         '
         'tb_re_Password
         '
-        Me.tb_re_Password.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_re_Password.Location = New System.Drawing.Point(187, 127)
+        Me.tb_re_Password.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_re_Password.Location = New System.Drawing.Point(211, 127)
         Me.tb_re_Password.MaxLength = 30
         Me.tb_re_Password.Name = "tb_re_Password"
         Me.tb_re_Password.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.tb_re_Password.ShortcutsEnabled = False
-        Me.tb_re_Password.Size = New System.Drawing.Size(371, 28)
+        Me.tb_re_Password.Size = New System.Drawing.Size(371, 30)
         Me.tb_re_Password.TabIndex = 24
         '
         'btn_Save
         '
-        Me.btn_Save.Location = New System.Drawing.Point(328, 197)
+        Me.btn_Save.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Save.Location = New System.Drawing.Point(352, 210)
         Me.btn_Save.Name = "btn_Save"
-        Me.btn_Save.Size = New System.Drawing.Size(107, 39)
+        Me.btn_Save.Size = New System.Drawing.Size(107, 47)
         Me.btn_Save.TabIndex = 25
         Me.btn_Save.Text = "Save"
         Me.btn_Save.UseVisualStyleBackColor = True
         '
         'btn_Cancel
         '
-        Me.btn_Cancel.Location = New System.Drawing.Point(441, 197)
+        Me.btn_Cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Cancel.Location = New System.Drawing.Point(465, 210)
         Me.btn_Cancel.Name = "btn_Cancel"
-        Me.btn_Cancel.Size = New System.Drawing.Size(107, 39)
+        Me.btn_Cancel.Size = New System.Drawing.Size(107, 47)
         Me.btn_Cancel.TabIndex = 26
         Me.btn_Cancel.Text = "Close"
         Me.btn_Cancel.UseVisualStyleBackColor = True
@@ -117,9 +121,10 @@ Partial Class frmChangePass
         'cb_show_Pass
         '
         Me.cb_show_Pass.AutoSize = True
-        Me.cb_show_Pass.Location = New System.Drawing.Point(187, 169)
+        Me.cb_show_Pass.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb_show_Pass.Location = New System.Drawing.Point(211, 169)
         Me.cb_show_Pass.Name = "cb_show_Pass"
-        Me.cb_show_Pass.Size = New System.Drawing.Size(126, 21)
+        Me.cb_show_Pass.Size = New System.Drawing.Size(147, 24)
         Me.cb_show_Pass.TabIndex = 27
         Me.cb_show_Pass.Text = "show password"
         Me.cb_show_Pass.UseVisualStyleBackColor = True
@@ -137,7 +142,7 @@ Partial Class frmChangePass
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(599, 259)
+        Me.ClientSize = New System.Drawing.Size(622, 282)
         Me.Controls.Add(Me.lbl_type)
         Me.Controls.Add(Me.cb_show_Pass)
         Me.Controls.Add(Me.btn_Cancel)

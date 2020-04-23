@@ -32,21 +32,19 @@ Partial Class frmCreditTransacs
         Me.btn_Close = New System.Windows.Forms.Button()
         Me.lbl_Head = New System.Windows.Forms.Label()
         Me.Panel10 = New System.Windows.Forms.Panel()
-        Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.cbo_Type = New System.Windows.Forms.ComboBox()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.dg_Cred_Transac = New System.Windows.Forms.DataGridView()
         Me.lbl_due_Total = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.dg_Cred_Transac = New System.Windows.Forms.DataGridView()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel10.SuspendLayout()
-        Me.Panel4.SuspendLayout()
         CType(Me.dg_Cred_Transac, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -100,61 +98,6 @@ Partial Class frmCreditTransacs
         Me.Panel10.Size = New System.Drawing.Size(1131, 82)
         Me.Panel10.TabIndex = 15
         '
-        'Panel6
-        '
-        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel6.Location = New System.Drawing.Point(1144, 50)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(12, 559)
-        Me.Panel6.TabIndex = 13
-        '
-        'Panel7
-        '
-        Me.Panel7.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel7.Location = New System.Drawing.Point(0, 50)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(13, 559)
-        Me.Panel7.TabIndex = 12
-        '
-        'cbo_Type
-        '
-        Me.cbo_Type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbo_Type.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbo_Type.FormattingEnabled = True
-        Me.cbo_Type.Items.AddRange(New Object() {"Items", "Services"})
-        Me.cbo_Type.Location = New System.Drawing.Point(0, 15)
-        Me.cbo_Type.MaxLength = 50
-        Me.cbo_Type.Name = "cbo_Type"
-        Me.cbo_Type.Size = New System.Drawing.Size(166, 44)
-        Me.cbo_Type.TabIndex = 54
-        '
-        'Panel4
-        '
-        Me.Panel4.Controls.Add(Me.cbo_Type)
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel4.Location = New System.Drawing.Point(13, 50)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(1131, 76)
-        Me.Panel4.TabIndex = 11
-        '
-        'dg_Cred_Transac
-        '
-        Me.dg_Cred_Transac.AllowUserToAddRows = False
-        Me.dg_Cred_Transac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg_Cred_Transac.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column8, Me.Column9, Me.Column1, Me.Column2})
-        Me.dg_Cred_Transac.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dg_Cred_Transac.Location = New System.Drawing.Point(13, 126)
-        Me.dg_Cred_Transac.Name = "dg_Cred_Transac"
-        Me.dg_Cred_Transac.RowHeadersVisible = False
-        Me.dg_Cred_Transac.RowHeadersWidth = 51
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(46, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
-        Me.dg_Cred_Transac.RowsDefaultCellStyle = DataGridViewCellStyle5
-        Me.dg_Cred_Transac.RowTemplate.Height = 24
-        Me.dg_Cred_Transac.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_Cred_Transac.Size = New System.Drawing.Size(1131, 401)
-        Me.dg_Cred_Transac.TabIndex = 16
-        '
         'lbl_due_Total
         '
         Me.lbl_due_Total.Anchor = System.Windows.Forms.AnchorStyles.Right
@@ -178,6 +121,40 @@ Partial Class frmCreditTransacs
         Me.Label7.Size = New System.Drawing.Size(214, 46)
         Me.Label7.TabIndex = 26
         Me.Label7.Text = "Due Total:"
+        '
+        'Panel6
+        '
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel6.Location = New System.Drawing.Point(1144, 50)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(12, 559)
+        Me.Panel6.TabIndex = 13
+        '
+        'Panel7
+        '
+        Me.Panel7.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel7.Location = New System.Drawing.Point(0, 50)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(13, 559)
+        Me.Panel7.TabIndex = 12
+        '
+        'dg_Cred_Transac
+        '
+        Me.dg_Cred_Transac.AllowUserToAddRows = False
+        Me.dg_Cred_Transac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dg_Cred_Transac.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column8, Me.Column9, Me.Column1, Me.Column2})
+        Me.dg_Cred_Transac.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dg_Cred_Transac.Location = New System.Drawing.Point(13, 66)
+        Me.dg_Cred_Transac.Name = "dg_Cred_Transac"
+        Me.dg_Cred_Transac.RowHeadersVisible = False
+        Me.dg_Cred_Transac.RowHeadersWidth = 51
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(46, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
+        Me.dg_Cred_Transac.RowsDefaultCellStyle = DataGridViewCellStyle5
+        Me.dg_Cred_Transac.RowTemplate.Height = 24
+        Me.dg_Cred_Transac.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dg_Cred_Transac.Size = New System.Drawing.Size(1131, 461)
+        Me.dg_Cred_Transac.TabIndex = 16
         '
         'Column8
         '
@@ -229,6 +206,14 @@ Partial Class frmCreditTransacs
         Me.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column2.Width = 69
         '
+        'Panel4
+        '
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel4.Location = New System.Drawing.Point(13, 50)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(1131, 16)
+        Me.Panel4.TabIndex = 11
+        '
         'frmCreditTransacs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -249,7 +234,6 @@ Partial Class frmCreditTransacs
         Me.Panel2.ResumeLayout(False)
         Me.Panel10.ResumeLayout(False)
         Me.Panel10.PerformLayout()
-        Me.Panel4.ResumeLayout(False)
         CType(Me.dg_Cred_Transac, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -262,8 +246,6 @@ Partial Class frmCreditTransacs
     Friend WithEvents Panel7 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btn_Close As Button
-    Friend WithEvents cbo_Type As ComboBox
-    Friend WithEvents Panel4 As Panel
     Friend WithEvents dg_Cred_Transac As DataGridView
     Friend WithEvents lbl_due_Total As Label
     Friend WithEvents Label7 As Label
@@ -271,4 +253,5 @@ Partial Class frmCreditTransacs
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Panel4 As Panel
 End Class

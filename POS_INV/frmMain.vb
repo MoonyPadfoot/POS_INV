@@ -1,6 +1,7 @@
 ﻿Public Class frmMain
     Dim login As New clsLogin
-    Private Sub btnPos_Click(sender As Object, e As EventArgs) Handles btn_Pos.Click
+    Private Sub btn_Pos_Click(sender As Object, e As EventArgs) Handles btn_Pos.Click
+        KeyPreview = False
         btn_Pos.BackColor = Color.FromArgb(236, 240, 241)
         btn_Profile.BackColor = Color.FromArgb(149, 165, 166)
         btn_Inventory.BackColor = Color.FromArgb(149, 165, 166)
@@ -8,15 +9,6 @@
         btn_sales_Report.BackColor = Color.FromArgb(149, 165, 166)
         btn_Help.BackColor = Color.FromArgb(149, 165, 166)
         frmLoginPos.ShowDialog()
-    End Sub
-
-    Private Sub btn_User_Click(sender As Object, e As EventArgs)
-        With frmUser
-            .TopLevel = False
-            pnlMid.Controls.Add(frmUser)
-            .BringToFront()
-            .Show()
-        End With
     End Sub
 
     Private Sub btn_sales_Report_Click(sender As Object, e As EventArgs) Handles btn_sales_Report.Click
@@ -29,6 +21,7 @@
     End Sub
 
     Private Sub btn_Customer_Click(sender As Object, e As EventArgs) Handles btn_Customer.Click
+        KeyPreview = False
         btn_Pos.BackColor = Color.FromArgb(149, 165, 166)
         btn_Profile.BackColor = Color.FromArgb(149, 165, 166)
         btn_Inventory.BackColor = Color.FromArgb(149, 165, 166)
@@ -52,6 +45,7 @@
     End Sub
 
     Private Sub btn_Inventory_Click(sender As Object, e As EventArgs) Handles btn_Inventory.Click
+        KeyPreview = False
         btn_Pos.BackColor = Color.FromArgb(149, 165, 166)
         btn_Profile.BackColor = Color.FromArgb(149, 165, 166)
         btn_Inventory.BackColor = Color.FromArgb(236, 240, 241)
@@ -72,6 +66,7 @@
     End Sub
 
     Private Sub btn_Profile_Click(sender As Object, e As EventArgs) Handles btn_Profile.Click
+        KeyPreview = False
         btn_Pos.BackColor = Color.FromArgb(149, 165, 166)
         btn_Profile.BackColor = Color.FromArgb(236, 240, 241)
         btn_Inventory.BackColor = Color.FromArgb(149, 165, 166)
@@ -94,6 +89,7 @@
     End Sub
 
     Private Sub btn_Logout_Click(sender As Object, e As EventArgs) Handles btn_Logout.Click
+        KeyPreview = False
         If MsgBox("Are you sure you want to logout?", vbYesNo + vbQuestion) = vbYes Then
             lbl_Name.Text = vbNullString
             lbl_Type.Text = vbNullString
@@ -120,5 +116,51 @@
             btn_Customer.Enabled = False
             btn_sales_Report.Enabled = False
         End If
+        KeyPreview = True
     End Sub
+    Private Sub btn_Help_Click(sender As Object, e As EventArgs) Handles btn_Help.Click
+
+    End Sub
+    Private Sub frmMain_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If lbl_Type.Text = "Admin" Then
+            Select Case e.KeyCode
+                Case Keys.F2
+                    btn_Profile_Click(sender, e)
+                Case Keys.F6
+                    btn_Help_Click(sender, e)
+                Case Keys.Escape
+                    btn_Logout_Click(sender, e)
+
+            End Select
+        ElseIf lbl_Type.Text = "Manager" Then
+            Select Case e.KeyCode
+                Case Keys.F1
+                    btn_Pos_Click(sender, e)
+                Case Keys.F3
+                    btn_Inventory_Click(sender, e)
+                Case Keys.F4
+                    btn_Customer_Click(sender, e)
+                Case Keys.F5
+                    btn_sales_Report_Click(sender, e)
+                Case Keys.F6
+                    btn_Help_Click(sender, e)
+                Case Keys.Escape
+                    btn_Logout_Click(sender, e)
+
+            End Select
+        ElseIf lbl_Type.Text = "Cashier" Then
+            Select Case e.KeyCode
+                Case Keys.F1
+                    btn_Pos_Click(sender, e)
+                Case Keys.F6
+                    btn_Help_Click(sender, e)
+                Case Keys.Escape
+                    btn_Logout_Click(sender, e)
+
+            End Select
+        End If
+
+    End Sub
+
+
 End Class

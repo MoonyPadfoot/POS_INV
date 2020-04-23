@@ -87,7 +87,7 @@ Partial Class frmProfiling
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 85)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1272, 46)
+        Me.Panel1.Size = New System.Drawing.Size(1272, 54)
         Me.Panel1.TabIndex = 2
         '
         'btn_Supplier
@@ -95,11 +95,12 @@ Partial Class frmProfiling
         Me.btn_Supplier.BackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btn_Supplier.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btn_Supplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_Supplier.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Supplier.ForeColor = System.Drawing.Color.White
         Me.btn_Supplier.Location = New System.Drawing.Point(521, 0)
         Me.btn_Supplier.Margin = New System.Windows.Forms.Padding(0)
         Me.btn_Supplier.Name = "btn_Supplier"
-        Me.btn_Supplier.Size = New System.Drawing.Size(130, 46)
+        Me.btn_Supplier.Size = New System.Drawing.Size(130, 54)
         Me.btn_Supplier.TabIndex = 9
         Me.btn_Supplier.Text = "Supplier"
         Me.btn_Supplier.UseVisualStyleBackColor = False
@@ -109,11 +110,12 @@ Partial Class frmProfiling
         Me.btn_Branch.BackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btn_Branch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btn_Branch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_Branch.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Branch.ForeColor = System.Drawing.Color.White
         Me.btn_Branch.Location = New System.Drawing.Point(391, 0)
         Me.btn_Branch.Margin = New System.Windows.Forms.Padding(0)
         Me.btn_Branch.Name = "btn_Branch"
-        Me.btn_Branch.Size = New System.Drawing.Size(130, 46)
+        Me.btn_Branch.Size = New System.Drawing.Size(130, 54)
         Me.btn_Branch.TabIndex = 8
         Me.btn_Branch.Text = "Branch"
         Me.btn_Branch.UseVisualStyleBackColor = False
@@ -123,11 +125,12 @@ Partial Class frmProfiling
         Me.btn_Service.BackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btn_Service.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btn_Service.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_Service.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Service.ForeColor = System.Drawing.Color.White
         Me.btn_Service.Location = New System.Drawing.Point(261, 0)
         Me.btn_Service.Margin = New System.Windows.Forms.Padding(0)
         Me.btn_Service.Name = "btn_Service"
-        Me.btn_Service.Size = New System.Drawing.Size(130, 46)
+        Me.btn_Service.Size = New System.Drawing.Size(130, 54)
         Me.btn_Service.TabIndex = 6
         Me.btn_Service.Text = "Services"
         Me.btn_Service.UseVisualStyleBackColor = False
@@ -137,11 +140,12 @@ Partial Class frmProfiling
         Me.btn_Item.BackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btn_Item.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btn_Item.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_Item.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Item.ForeColor = System.Drawing.Color.White
         Me.btn_Item.Location = New System.Drawing.Point(1, 0)
         Me.btn_Item.Margin = New System.Windows.Forms.Padding(0)
         Me.btn_Item.Name = "btn_Item"
-        Me.btn_Item.Size = New System.Drawing.Size(130, 46)
+        Me.btn_Item.Size = New System.Drawing.Size(130, 54)
         Me.btn_Item.TabIndex = 5
         Me.btn_Item.Text = "Items"
         Me.btn_Item.UseVisualStyleBackColor = False
@@ -151,11 +155,12 @@ Partial Class frmProfiling
         Me.btn_User.BackColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btn_User.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btn_User.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_User.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_User.ForeColor = System.Drawing.Color.White
         Me.btn_User.Location = New System.Drawing.Point(131, 0)
         Me.btn_User.Margin = New System.Windows.Forms.Padding(0)
         Me.btn_User.Name = "btn_User"
-        Me.btn_User.Size = New System.Drawing.Size(130, 46)
+        Me.btn_User.Size = New System.Drawing.Size(130, 54)
         Me.btn_User.TabIndex = 7
         Me.btn_User.Text = "Users"
         Me.btn_User.UseVisualStyleBackColor = False
@@ -163,9 +168,9 @@ Partial Class frmProfiling
         'pnl_Mid
         '
         Me.pnl_Mid.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnl_Mid.Location = New System.Drawing.Point(0, 131)
+        Me.pnl_Mid.Location = New System.Drawing.Point(0, 139)
         Me.pnl_Mid.Name = "pnl_Mid"
-        Me.pnl_Mid.Size = New System.Drawing.Size(1272, 560)
+        Me.pnl_Mid.Size = New System.Drawing.Size(1272, 552)
         Me.pnl_Mid.TabIndex = 3
         '
         'frmProfiling

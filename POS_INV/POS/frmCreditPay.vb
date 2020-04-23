@@ -1,6 +1,16 @@
 ﻿Public Class frmCreditPay
     Dim creditPay As New clsCreditPay
     Private Sub btn_Back_Click(sender As Object, e As EventArgs) Handles btn_Back.Click
+        dg_Transactions.Rows.Clear()
+        tb_Name.Clear()
+        lbl_customer_Id.Text = vbNullString
+        lbl_Balance.Text = Format(0.00, "0.00")
+        'history clear
+        dg_History.Rows.Clear()
+        tb_CustName.Clear()
+        lbl_custId.Text = vbNullString
+        dtp_From.Value = Date.Now
+        dtp_To.Value = Date.Now
         Me.Close()
     End Sub
 
@@ -82,6 +92,10 @@
     End Sub
 
     Private Sub btn_Load_Click(sender As Object, e As EventArgs) Handles btn_Load.Click
+        If dg_Transactions.Rows.Count = 0 Then
+            MsgBox("No Transactions to be loaded.", vbExclamation)
+            Exit Sub
+        End If
         frmCreditTransacs.ShowDialog()
     End Sub
 

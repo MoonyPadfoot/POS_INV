@@ -42,7 +42,7 @@ Partial Class frmSupplierEntry
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(696, 44)
+        Me.Panel1.Size = New System.Drawing.Size(714, 44)
         Me.Panel1.TabIndex = 35
         '
         'Label1
@@ -58,71 +58,78 @@ Partial Class frmSupplierEntry
         '
         'btn_Cancel
         '
-        Me.btn_Cancel.Location = New System.Drawing.Point(570, 153)
+        Me.btn_Cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Cancel.Location = New System.Drawing.Point(566, 159)
         Me.btn_Cancel.Name = "btn_Cancel"
-        Me.btn_Cancel.Size = New System.Drawing.Size(87, 43)
+        Me.btn_Cancel.Size = New System.Drawing.Size(103, 54)
         Me.btn_Cancel.TabIndex = 4
         Me.btn_Cancel.Text = "Close"
         Me.btn_Cancel.UseVisualStyleBackColor = True
         '
         'btn_Update
         '
-        Me.btn_Update.Location = New System.Drawing.Point(477, 153)
+        Me.btn_Update.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Update.Location = New System.Drawing.Point(457, 159)
         Me.btn_Update.Name = "btn_Update"
-        Me.btn_Update.Size = New System.Drawing.Size(87, 43)
+        Me.btn_Update.Size = New System.Drawing.Size(103, 54)
         Me.btn_Update.TabIndex = 3
         Me.btn_Update.Text = "Update"
         Me.btn_Update.UseVisualStyleBackColor = True
         '
         'btn_Save
         '
-        Me.btn_Save.Location = New System.Drawing.Point(384, 153)
+        Me.btn_Save.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Save.Location = New System.Drawing.Point(348, 159)
         Me.btn_Save.Name = "btn_Save"
-        Me.btn_Save.Size = New System.Drawing.Size(87, 43)
+        Me.btn_Save.Size = New System.Drawing.Size(103, 54)
         Me.btn_Save.TabIndex = 2
         Me.btn_Save.Text = "Save"
         Me.btn_Save.UseVisualStyleBackColor = True
         '
         'tb_Address
         '
-        Me.tb_Address.Location = New System.Drawing.Point(120, 114)
+        Me.tb_Address.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Address.Location = New System.Drawing.Point(132, 108)
         Me.tb_Address.MaxLength = 100
         Me.tb_Address.Name = "tb_Address"
         Me.tb_Address.ShortcutsEnabled = False
-        Me.tb_Address.Size = New System.Drawing.Size(537, 22)
+        Me.tb_Address.Size = New System.Drawing.Size(537, 30)
         Me.tb_Address.TabIndex = 1
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(34, 117)
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(34, 111)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(64, 17)
+        Me.Label7.Size = New System.Drawing.Size(76, 20)
         Me.Label7.TabIndex = 40
         Me.Label7.Text = "Address:"
         '
         'tb_Name
         '
-        Me.tb_Name.Location = New System.Drawing.Point(120, 74)
+        Me.tb_Name.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Name.Location = New System.Drawing.Point(132, 68)
         Me.tb_Name.MaxLength = 50
         Me.tb_Name.Name = "tb_Name"
         Me.tb_Name.ShortcutsEnabled = False
-        Me.tb_Name.Size = New System.Drawing.Size(537, 22)
+        Me.tb_Name.Size = New System.Drawing.Size(537, 30)
         Me.tb_Name.TabIndex = 0
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(34, 77)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(34, 71)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(49, 17)
+        Me.Label3.Size = New System.Drawing.Size(58, 20)
         Me.Label3.TabIndex = 38
         Me.Label3.Text = "Name:"
         '
         'lbl_Id
         '
         Me.lbl_Id.AutoSize = True
-        Me.lbl_Id.Location = New System.Drawing.Point(34, 166)
+        Me.lbl_Id.Location = New System.Drawing.Point(34, 160)
         Me.lbl_Id.Name = "lbl_Id"
         Me.lbl_Id.Size = New System.Drawing.Size(41, 17)
         Me.lbl_Id.TabIndex = 41
@@ -132,7 +139,7 @@ Partial Class frmSupplierEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(696, 216)
+        Me.ClientSize = New System.Drawing.Size(714, 240)
         Me.Controls.Add(Me.lbl_Id)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btn_Cancel)

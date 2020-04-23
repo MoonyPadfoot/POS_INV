@@ -34,34 +34,37 @@ Partial Class frmBrandCat
         '
         'tb_brand_Cat
         '
+        Me.tb_brand_Cat.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tb_brand_Cat.Location = New System.Drawing.Point(37, 65)
         Me.tb_brand_Cat.Name = "tb_brand_Cat"
-        Me.tb_brand_Cat.Size = New System.Drawing.Size(472, 22)
+        Me.tb_brand_Cat.Size = New System.Drawing.Size(472, 30)
         Me.tb_brand_Cat.TabIndex = 0
         '
         'btn_Save
         '
-        Me.btn_Save.Location = New System.Drawing.Point(337, 109)
+        Me.btn_Save.Location = New System.Drawing.Point(283, 109)
         Me.btn_Save.Name = "btn_Save"
-        Me.btn_Save.Size = New System.Drawing.Size(84, 39)
+        Me.btn_Save.Size = New System.Drawing.Size(111, 44)
         Me.btn_Save.TabIndex = 1
         Me.btn_Save.Text = "Save"
         Me.btn_Save.UseVisualStyleBackColor = True
         '
         'btn_Cancel
         '
-        Me.btn_Cancel.Location = New System.Drawing.Point(425, 109)
+        Me.btn_Cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Cancel.Location = New System.Drawing.Point(398, 109)
         Me.btn_Cancel.Name = "btn_Cancel"
-        Me.btn_Cancel.Size = New System.Drawing.Size(84, 39)
+        Me.btn_Cancel.Size = New System.Drawing.Size(111, 44)
         Me.btn_Cancel.TabIndex = 2
         Me.btn_Cancel.Text = "Close"
         Me.btn_Cancel.UseVisualStyleBackColor = True
         '
         'btn_Update
         '
-        Me.btn_Update.Location = New System.Drawing.Point(337, 109)
+        Me.btn_Update.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Update.Location = New System.Drawing.Point(283, 109)
         Me.btn_Update.Name = "btn_Update"
-        Me.btn_Update.Size = New System.Drawing.Size(84, 39)
+        Me.btn_Update.Size = New System.Drawing.Size(111, 44)
         Me.btn_Update.TabIndex = 4
         Me.btn_Update.Text = "Update"
         Me.btn_Update.UseVisualStyleBackColor = True
@@ -100,7 +103,7 @@ Partial Class frmBrandCat
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(549, 177)
+        Me.ClientSize = New System.Drawing.Size(549, 179)
         Me.Controls.Add(Me.lbl_brand_Cat)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btn_Update)

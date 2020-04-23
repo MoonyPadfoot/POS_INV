@@ -119,6 +119,7 @@
         tb_cash_Tendered.Clear()
         tb_Change.Text = Format(0.00, "0.00")
         frmPos.lbl_due_Total.Text = 0.00
+        MsgBox("Transaction saved.", vbInformation)
         Me.Close()
         'If MsgBox("Do you wish to print receipt/invoice?", vbQuestion) = vbYes Then
 

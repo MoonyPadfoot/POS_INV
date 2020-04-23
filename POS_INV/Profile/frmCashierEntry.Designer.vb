@@ -77,6 +77,7 @@ Partial Class frmCashierEntry
         Me.GroupBox2.Controls.Add(Me.Label10)
         Me.GroupBox2.Controls.Add(Me.tb_Username)
         Me.GroupBox2.Controls.Add(Me.tb_Password)
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(31, 232)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(708, 189)
@@ -87,10 +88,10 @@ Partial Class frmCashierEntry
         'lbl_change_Pass
         '
         Me.lbl_change_Pass.AutoSize = True
-        Me.lbl_change_Pass.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_change_Pass.Location = New System.Drawing.Point(139, 91)
+        Me.lbl_change_Pass.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_change_Pass.Location = New System.Drawing.Point(163, 91)
         Me.lbl_change_Pass.Name = "lbl_change_Pass"
-        Me.lbl_change_Pass.Size = New System.Drawing.Size(227, 17)
+        Me.lbl_change_Pass.Size = New System.Drawing.Size(273, 20)
         Me.lbl_change_Pass.TabIndex = 45
         Me.lbl_change_Pass.Text = "[ Click Here To Change Password ]"
         Me.lbl_change_Pass.Visible = False
@@ -98,9 +99,10 @@ Partial Class frmCashierEntry
         'cb_show_Password
         '
         Me.cb_show_Password.AutoSize = True
-        Me.cb_show_Password.Location = New System.Drawing.Point(470, 87)
+        Me.cb_show_Password.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb_show_Password.Location = New System.Drawing.Point(494, 87)
         Me.cb_show_Password.Name = "cb_show_Password"
-        Me.cb_show_Password.Size = New System.Drawing.Size(126, 21)
+        Me.cb_show_Password.Size = New System.Drawing.Size(147, 24)
         Me.cb_show_Password.TabIndex = 43
         Me.cb_show_Password.Text = "show password"
         Me.cb_show_Password.UseVisualStyleBackColor = True
@@ -108,56 +110,62 @@ Partial Class frmCashierEntry
         'cbo_Active
         '
         Me.cbo_Active.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbo_Active.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_Active.Items.AddRange(New Object() {"Yes", "No"})
-        Me.cbo_Active.Location = New System.Drawing.Point(140, 137)
+        Me.cbo_Active.Location = New System.Drawing.Point(164, 137)
         Me.cbo_Active.Name = "cbo_Active"
-        Me.cbo_Active.Size = New System.Drawing.Size(121, 24)
+        Me.cbo_Active.Size = New System.Drawing.Size(121, 33)
         Me.cbo_Active.TabIndex = 5
         '
         'Label8
         '
         Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(34, 140)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(50, 17)
+        Me.Label8.Size = New System.Drawing.Size(60, 20)
         Me.Label8.TabIndex = 37
         Me.Label8.Text = "Active:"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(34, 43)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(77, 17)
+        Me.Label9.Size = New System.Drawing.Size(91, 20)
         Me.Label9.TabIndex = 38
         Me.Label9.Text = "Username:"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(34, 92)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(73, 17)
+        Me.Label10.Size = New System.Drawing.Size(88, 20)
         Me.Label10.TabIndex = 39
         Me.Label10.Text = "Password:"
         '
         'tb_Username
         '
-        Me.tb_Username.Location = New System.Drawing.Point(140, 40)
+        Me.tb_Username.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Username.Location = New System.Drawing.Point(164, 40)
         Me.tb_Username.MaxLength = 30
         Me.tb_Username.Name = "tb_Username"
         Me.tb_Username.ShortcutsEnabled = False
-        Me.tb_Username.Size = New System.Drawing.Size(310, 22)
+        Me.tb_Username.Size = New System.Drawing.Size(310, 30)
         Me.tb_Username.TabIndex = 6
         '
         'tb_Password
         '
-        Me.tb_Password.Location = New System.Drawing.Point(140, 87)
+        Me.tb_Password.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Password.Location = New System.Drawing.Point(164, 87)
         Me.tb_Password.MaxLength = 30
         Me.tb_Password.Name = "tb_Password"
         Me.tb_Password.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.tb_Password.ShortcutsEnabled = False
-        Me.tb_Password.Size = New System.Drawing.Size(310, 22)
+        Me.tb_Password.Size = New System.Drawing.Size(310, 30)
         Me.tb_Password.TabIndex = 7
         '
         'GroupBox1
@@ -165,7 +173,7 @@ Partial Class frmCashierEntry
         Me.GroupBox1.Controls.Add(Me.lbl_search_User)
         Me.GroupBox1.Controls.Add(Me.tb_Name)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(31, 69)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(708, 129)
@@ -176,29 +184,31 @@ Partial Class frmCashierEntry
         'lbl_search_User
         '
         Me.lbl_search_User.AutoSize = True
-        Me.lbl_search_User.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_search_User.Location = New System.Drawing.Point(137, 82)
+        Me.lbl_search_User.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_search_User.Location = New System.Drawing.Point(134, 82)
         Me.lbl_search_User.Name = "lbl_search_User"
-        Me.lbl_search_User.Size = New System.Drawing.Size(247, 17)
+        Me.lbl_search_User.Size = New System.Drawing.Size(297, 20)
         Me.lbl_search_User.TabIndex = 23
         Me.lbl_search_User.Text = "[ Click Here To Search User Account ]"
         '
         'tb_Name
         '
-        Me.tb_Name.Location = New System.Drawing.Point(140, 43)
+        Me.tb_Name.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Name.Location = New System.Drawing.Point(137, 43)
         Me.tb_Name.MaxLength = 50
         Me.tb_Name.Name = "tb_Name"
         Me.tb_Name.ReadOnly = True
         Me.tb_Name.ShortcutsEnabled = False
-        Me.tb_Name.Size = New System.Drawing.Size(538, 22)
+        Me.tb_Name.Size = New System.Drawing.Size(538, 30)
         Me.tb_Name.TabIndex = 0
         '
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(34, 46)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(49, 17)
+        Me.Label3.Size = New System.Drawing.Size(58, 20)
         Me.Label3.TabIndex = 22
         Me.Label3.Text = "Name:"
         '
@@ -213,6 +223,7 @@ Partial Class frmCashierEntry
         '
         'btnCancel
         '
+        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.Location = New System.Drawing.Point(623, 445)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(116, 52)
@@ -232,6 +243,7 @@ Partial Class frmCashierEntry
         '
         'btn_Save
         '
+        Me.btn_Save.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Save.Location = New System.Drawing.Point(501, 445)
         Me.btn_Save.Name = "btn_Save"
         Me.btn_Save.Size = New System.Drawing.Size(116, 52)

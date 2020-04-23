@@ -40,7 +40,7 @@ Partial Class frmBranchEntry
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(696, 44)
+        Me.Panel1.Size = New System.Drawing.Size(727, 44)
         Me.Panel1.TabIndex = 47
         '
         'Label1
@@ -56,7 +56,8 @@ Partial Class frmBranchEntry
         '
         'btn_Cancel
         '
-        Me.btn_Cancel.Location = New System.Drawing.Point(531, 110)
+        Me.btn_Cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Cancel.Location = New System.Drawing.Point(564, 114)
         Me.btn_Cancel.Name = "btn_Cancel"
         Me.btn_Cancel.Size = New System.Drawing.Size(126, 43)
         Me.btn_Cancel.TabIndex = 3
@@ -65,7 +66,7 @@ Partial Class frmBranchEntry
         '
         'btn_Save
         '
-        Me.btn_Save.Location = New System.Drawing.Point(402, 110)
+        Me.btn_Save.Location = New System.Drawing.Point(435, 114)
         Me.btn_Save.Name = "btn_Save"
         Me.btn_Save.Size = New System.Drawing.Size(123, 43)
         Me.btn_Save.TabIndex = 2
@@ -74,25 +75,28 @@ Partial Class frmBranchEntry
         '
         'tb_Address
         '
-        Me.tb_Address.Location = New System.Drawing.Point(104, 71)
+        Me.tb_Address.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Address.Location = New System.Drawing.Point(139, 71)
         Me.tb_Address.MaxLength = 100
         Me.tb_Address.Name = "tb_Address"
         Me.tb_Address.ShortcutsEnabled = False
-        Me.tb_Address.Size = New System.Drawing.Size(553, 22)
+        Me.tb_Address.Size = New System.Drawing.Size(553, 30)
         Me.tb_Address.TabIndex = 0
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(34, 74)
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(31, 74)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(64, 17)
+        Me.Label7.Size = New System.Drawing.Size(91, 25)
         Me.Label7.TabIndex = 52
         Me.Label7.Text = "Address:"
         '
         'btn_Update
         '
-        Me.btn_Update.Location = New System.Drawing.Point(402, 110)
+        Me.btn_Update.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Update.Location = New System.Drawing.Point(435, 114)
         Me.btn_Update.Name = "btn_Update"
         Me.btn_Update.Size = New System.Drawing.Size(123, 43)
         Me.btn_Update.TabIndex = 1
@@ -102,7 +106,7 @@ Partial Class frmBranchEntry
         'lbl_Id
         '
         Me.lbl_Id.AutoSize = True
-        Me.lbl_Id.Location = New System.Drawing.Point(34, 123)
+        Me.lbl_Id.Location = New System.Drawing.Point(31, 123)
         Me.lbl_Id.Name = "lbl_Id"
         Me.lbl_Id.Size = New System.Drawing.Size(64, 17)
         Me.lbl_Id.TabIndex = 58
@@ -113,7 +117,7 @@ Partial Class frmBranchEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(696, 187)
+        Me.ClientSize = New System.Drawing.Size(727, 183)
         Me.Controls.Add(Me.lbl_Id)
         Me.Controls.Add(Me.btn_Update)
         Me.Controls.Add(Me.Panel1)

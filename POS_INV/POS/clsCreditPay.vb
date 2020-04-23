@@ -107,33 +107,55 @@ Public Class clsCreditPay
         End While
         DisconnectDatabase()
     End Sub
-    Public Sub loadItems(orderId)
+    'Public Sub loadItems(orderId)
+    '    frmCreditTransacs.dg_Cred_Transac.Rows.Clear()
+    '    ConnectDatabase()
+    '    Dim query = "SELECT brand_name, item_desc, item_add_desc, category_name, order_item_dtls.qty, order_item_dtls.price, order_item_dtls.line_total FROM order_item_dtls " &
+    '                "INNER JOIN inventory ON inventory.inventory_id = order_item_dtls.inventory_id " &
+    '                "INNER JOIN item ON item.item_id = inventory.item_id " &
+    '                "INNER JOIN brand ON brand.brand_id = item.brand_id " &
+    '                "INNER JOIN category ON category.category_id = item.category_id WHERE order_id = @order_id"
+    '    cm = New MySqlCommand(query, con)
+    '    cm.Parameters.AddWithValue("@order_id", orderId)
+    '    dr = cm.ExecuteReader()
+    '    While dr.Read
+    '        frmCreditTransacs.dg_Cred_Transac.Rows.Add(dr.Item("brand_name").ToString & " | " & dr.Item("item_desc").ToString & " | " & dr.Item("item_add_desc").ToString & " | " & dr.Item("category_name").ToString, dr.Item("qty").ToString, dr.Item("price").ToString, dr.Item("line_total").ToString)
+    '    End While
+    '    dr.Close()
+    '    DisconnectDatabase()
+    'End Sub
+    'Public Sub loadServices(orderId)
+    '    frmCreditTransacs.dg_Cred_Transac.Rows.Clear()
+    '    ConnectDatabase()
+    '    Dim query = "SELECT service_desc, qty, price, line_total FROM order_svc_dtls " &
+    '                "INNER JOIN service ON service.service_id = order_svc_dtls.service_id WHERE order_id = @order_id"
+    '    cm = New MySqlCommand(query, con)
+    '    cm.Parameters.AddWithValue("@order_id", orderId)
+    '    dr = cm.ExecuteReader()
+    '    While dr.Read
+    '        frmCreditTransacs.dg_Cred_Transac.Rows.Add(dr.Item("service_desc").ToString, dr.Item("qty").ToString, dr.Item("price").ToString, dr.Item("line_total").ToString)
+    '    End While
+    '    dr.Close()
+    '    DisconnectDatabase()
+    'End Sub
+    Public Sub loadTransactions(orderId)
         frmCreditTransacs.dg_Cred_Transac.Rows.Clear()
         ConnectDatabase()
-        Dim query = "SELECT brand_name, item_desc, item_add_desc, category_name, order_item_dtls.qty, order_item_dtls.price, order_item_dtls.line_total FROM order_item_dtls " &
-                    "INNER JOIN inventory ON inventory.inventory_id = order_item_dtls.inventory_id " &
-                    "INNER JOIN item ON item.item_id = inventory.item_id " &
-                    "INNER JOIN brand ON brand.brand_id = item.brand_id " &
-                    "INNER JOIN category ON category.category_id = item.category_id WHERE order_id = @order_id"
+        Dim query = "SELECT u.id, u.description, u.quantity, u.p, u.total FROM (select order_item_dtls.order_id AS id, CONCAT(brand_name, ' | ', item_desc, ' | ', item_add_desc, ' | ', category_name) As description, order_item_dtls.qty as quantity, price as p, line_total as total from order_item_dtls " &
+                    "INNER JOIN orders on orders.`order_id` = order_item_dtls.`order_id` " &
+                    "INNER JOIN inventory on inventory.`inventory_id` = order_item_dtls.`inventory_id` " &
+                    "INNER JOIN item on item.`item_id` = inventory.`item_id` " &
+                    "INNER JOIN brand on brand.`brand_id` = item.`brand_id` " &
+                    "INNER JOIN category on category.`category_id` = item.`category_id` " &
+                    "UNION all " &
+                    "SELECT order_svc_dtls.order_id as id, service_desc AS description, order_svc_dtls.`qty` as quantity, price as p, line_total as total FROM order_svc_dtls " &
+                    "INNER JOIN orders ON orders.`order_id` = order_svc_dtls.`order_id` " &
+                    "INNER JOIN service ON service.`service_id` = order_svc_dtls.`service_id` ) as u WHERE u.id = @order_id "
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@order_id", orderId)
-        dr = cm.ExecuteReader()
+        dr = cm.ExecuteReader
         While dr.Read
-            frmCreditTransacs.dg_Cred_Transac.Rows.Add(dr.Item("brand_name").ToString & " | " & dr.Item("item_desc").ToString & " | " & dr.Item("item_add_desc").ToString & " | " & dr.Item("category_name").ToString, dr.Item("qty").ToString, dr.Item("price").ToString, dr.Item("line_total").ToString)
-        End While
-        dr.Close()
-        DisconnectDatabase()
-    End Sub
-    Public Sub loadServices(orderId)
-        frmCreditTransacs.dg_Cred_Transac.Rows.Clear()
-        ConnectDatabase()
-        Dim query = "SELECT service_desc, qty, price, line_total FROM order_svc_dtls " &
-                    "INNER JOIN service ON service.service_id = order_svc_dtls.service_id WHERE order_id = @order_id"
-        cm = New MySqlCommand(query, con)
-        cm.Parameters.AddWithValue("@order_id", orderId)
-        dr = cm.ExecuteReader()
-        While dr.Read
-            frmCreditTransacs.dg_Cred_Transac.Rows.Add(dr.Item("service_desc").ToString, dr.Item("qty").ToString, dr.Item("price").ToString, dr.Item("line_total").ToString)
+            frmCreditTransacs.dg_Cred_Transac.Rows.Add(dr.Item("description").ToString, dr.Item("quantity").ToString, dr.Item("p").ToString, dr.Item("total").ToString)
         End While
         dr.Close()
         DisconnectDatabase()

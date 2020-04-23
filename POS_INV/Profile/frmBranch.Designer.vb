@@ -22,19 +22,23 @@ Partial Class frmBranch
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_Row = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_address = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_Edit = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.col_Delete = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btn_Add = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.tb_Search = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lbl_row_Count = New System.Windows.Forms.Label()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Row = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_address = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Edit = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.col_Delete = New System.Windows.Forms.DataGridViewButtonColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -50,60 +54,13 @@ Partial Class frmBranch
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 51
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle10
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(1252, 482)
         Me.DataGridView1.TabIndex = 5
         Me.DataGridView1.TabStop = False
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.Visible = False
-        Me.DataGridViewTextBoxColumn4.Width = 125
-        '
-        'col_Row
-        '
-        Me.col_Row.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.col_Row.HeaderText = "#"
-        Me.col_Row.MinimumWidth = 6
-        Me.col_Row.Name = "col_Row"
-        Me.col_Row.ReadOnly = True
-        Me.col_Row.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_Row.Width = 45
-        '
-        'col_address
-        '
-        Me.col_address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.col_address.HeaderText = "Branch Address"
-        Me.col_address.MinimumWidth = 6
-        Me.col_address.Name = "col_address"
-        Me.col_address.ReadOnly = True
-        Me.col_address.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'col_Edit
-        '
-        Me.col_Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.col_Edit.HeaderText = ""
-        Me.col_Edit.MinimumWidth = 6
-        Me.col_Edit.Name = "col_Edit"
-        Me.col_Edit.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_Edit.Width = 23
-        '
-        'col_Delete
-        '
-        Me.col_Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.col_Delete.HeaderText = ""
-        Me.col_Delete.MinimumWidth = 6
-        Me.col_Delete.Name = "col_Delete"
-        Me.col_Delete.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_Delete.Width = 23
         '
         'Panel1
         '
@@ -118,9 +75,10 @@ Partial Class frmBranch
         '
         'btn_Add
         '
-        Me.btn_Add.Location = New System.Drawing.Point(857, 26)
+        Me.btn_Add.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Add.Location = New System.Drawing.Point(874, 24)
         Me.btn_Add.Name = "btn_Add"
-        Me.btn_Add.Size = New System.Drawing.Size(128, 34)
+        Me.btn_Add.Size = New System.Drawing.Size(146, 51)
         Me.btn_Add.TabIndex = 0
         Me.btn_Add.Text = "Add Branch"
         Me.btn_Add.UseVisualStyleBackColor = True
@@ -128,19 +86,21 @@ Partial Class frmBranch
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(27, 34)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(57, 17)
+        Me.Label3.Size = New System.Drawing.Size(81, 25)
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "Search:"
         '
         'tb_Search
         '
-        Me.tb_Search.Location = New System.Drawing.Point(105, 33)
+        Me.tb_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Search.Location = New System.Drawing.Point(130, 33)
         Me.tb_Search.MaxLength = 100
         Me.tb_Search.Name = "tb_Search"
         Me.tb_Search.ShortcutsEnabled = False
-        Me.tb_Search.Size = New System.Drawing.Size(722, 22)
+        Me.tb_Search.Size = New System.Drawing.Size(722, 30)
         Me.tb_Search.TabIndex = 1
         '
         'Panel2
@@ -155,11 +115,69 @@ Partial Class frmBranch
         'lbl_row_Count
         '
         Me.lbl_row_Count.AutoSize = True
+        Me.lbl_row_Count.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_row_Count.Location = New System.Drawing.Point(27, 21)
         Me.lbl_row_Count.Name = "lbl_row_Count"
-        Me.lbl_row_Count.Size = New System.Drawing.Size(76, 17)
+        Me.lbl_row_Count.Size = New System.Drawing.Size(91, 20)
         Me.lbl_row_Count.TabIndex = 9
         Me.lbl_row_Count.Text = "Row Count"
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.Visible = False
+        Me.DataGridViewTextBoxColumn4.Width = 125
+        '
+        'col_Row
+        '
+        Me.col_Row.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Row.DefaultCellStyle = DataGridViewCellStyle6
+        Me.col_Row.HeaderText = "#"
+        Me.col_Row.MinimumWidth = 6
+        Me.col_Row.Name = "col_Row"
+        Me.col_Row.ReadOnly = True
+        Me.col_Row.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_Row.Width = 45
+        '
+        'col_address
+        '
+        Me.col_address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_address.DefaultCellStyle = DataGridViewCellStyle7
+        Me.col_address.HeaderText = "Branch Address"
+        Me.col_address.MinimumWidth = 6
+        Me.col_address.Name = "col_address"
+        Me.col_address.ReadOnly = True
+        Me.col_address.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'col_Edit
+        '
+        Me.col_Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Edit.DefaultCellStyle = DataGridViewCellStyle8
+        Me.col_Edit.HeaderText = ""
+        Me.col_Edit.MinimumWidth = 6
+        Me.col_Edit.Name = "col_Edit"
+        Me.col_Edit.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.col_Edit.Width = 23
+        '
+        'col_Delete
+        '
+        Me.col_Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Delete.DefaultCellStyle = DataGridViewCellStyle9
+        Me.col_Delete.HeaderText = ""
+        Me.col_Delete.MinimumWidth = 6
+        Me.col_Delete.Name = "col_Delete"
+        Me.col_Delete.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.col_Delete.Width = 23
         '
         'frmBranch
         '

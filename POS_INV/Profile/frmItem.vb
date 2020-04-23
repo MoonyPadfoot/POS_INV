@@ -89,6 +89,7 @@
         _category = dg_Category.Item(2, i).Value
     End Sub
 
+
     Private Sub Dg_Category_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_Category.CellContentClick
         frmBrandCat.lbl_Header.Text = "Category"
         Dim colName As String = dg_Category.Columns(e.ColumnIndex).Name

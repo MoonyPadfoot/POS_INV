@@ -729,6 +729,7 @@ Public Class frmStock
         End If
     End Sub
     Private Sub btn_Close_Click(sender As Object, e As EventArgs) Handles btn_Close.Click
+        frmMain.KeyPreview = True
         If frmMain.lbl_Type.Text = "Manager" Then
             frmMain.btn_Profile.Enabled = False
             frmMain.btn_Logout.Enabled = True
@@ -757,4 +758,6 @@ Public Class frmStock
     Private Sub btn_history_sA_Click(sender As Object, e As EventArgs) Handles btn_history_sA.Click
         frmStockAdj_History.ShowDialog()
     End Sub
+
+
 End Class

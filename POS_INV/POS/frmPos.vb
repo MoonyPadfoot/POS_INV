@@ -131,8 +131,8 @@
                             "INNER JOIN brand ON brand.brand_id = item.brand_id " &
                             "INNER JOIN category ON category.category_id = item.category_id " &
                             "INNER JOIN branch ON branch.branch_id = inventory.branch_id " &
-                            "WHERE inventory.branch_id = @branch_id AND (item_code LIKE @0 OR item_desc LIKE @0 OR item_add_desc LIKE @0 OR brand_name LIKE @0 OR category_name LIKE @0) OR " &
-                            "CONCAT(brand_name, ' ', item_desc, ' ', item_add_desc, ' ', category_name) LIKE @0")
+                            "WHERE (inventory.branch_id = @branch_id) AND (item_code LIKE @0 OR item_desc LIKE @0 OR item_add_desc LIKE @0 OR brand_name LIKE @0 OR category_name LIKE @0 OR " &
+                            "CONCAT(brand_name, ' ', item_desc, ' ', item_add_desc, ' ', category_name) LIKE @0) ")
                 'search for services
             ElseIf cbo_Type.SelectedIndex = 1 Then
                 order.searchService("SELECT * FROM service WHERE service_code LIKE @0 OR service_desc LIKE @0")

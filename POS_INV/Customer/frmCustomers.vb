@@ -5,6 +5,7 @@
     Dim _credit_limit, _balance As String
 
     Private Sub btn_Close_Click(sender As Object, e As EventArgs) Handles btn_Close.Click
+        frmMain.KeyPreview = True
         If frmMain.lbl_Type.Text = "Manager" Then
             frmMain.btn_Profile.Enabled = False
             frmMain.btn_Logout.Enabled = True

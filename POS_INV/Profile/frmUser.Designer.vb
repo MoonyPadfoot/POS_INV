@@ -22,9 +22,38 @@ Partial Class frmUser
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle108 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle97 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle98 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle99 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle100 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle101 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle102 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle103 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle104 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle105 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle106 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle107 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle118 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle109 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle110 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle111 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle112 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle113 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle114 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle115 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle116 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle117 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle128 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle119 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle120 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle121 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle122 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle123 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle124 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle125 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle126 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle127 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MetroTabControl1 = New MetroFramework.Controls.MetroTabControl()
         Me.tp_user_Profile = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -43,7 +72,6 @@ Partial Class frmUser
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lbl_row_Count = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.cbo_Filter = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -63,7 +91,6 @@ Partial Class frmUser
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lbl_row_count_Cashier = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.btn_add_Cashier = New System.Windows.Forms.Button()
         Me.cbo_filter_Cashier = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -83,7 +110,6 @@ Partial Class frmUser
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.lbl_row_count_Manager = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.btn_add_Manager = New System.Windows.Forms.Button()
         Me.cbo_filter_manager = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -109,9 +135,10 @@ Partial Class frmUser
         Me.MetroTabControl1.Controls.Add(Me.tp_Cashier)
         Me.MetroTabControl1.Controls.Add(Me.tp_Manager)
         Me.MetroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.MetroTabControl1.FontSize = MetroFramework.MetroTabControlSize.Tall
         Me.MetroTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.MetroTabControl1.Name = "MetroTabControl1"
-        Me.MetroTabControl1.SelectedIndex = 2
+        Me.MetroTabControl1.SelectedIndex = 0
         Me.MetroTabControl1.Size = New System.Drawing.Size(1271, 579)
         Me.MetroTabControl1.TabIndex = 0
         Me.MetroTabControl1.UseSelectable = True
@@ -121,9 +148,9 @@ Partial Class frmUser
         Me.tp_user_Profile.Controls.Add(Me.DataGridView1)
         Me.tp_user_Profile.Controls.Add(Me.Panel2)
         Me.tp_user_Profile.Controls.Add(Me.Panel3)
-        Me.tp_user_Profile.Location = New System.Drawing.Point(4, 38)
+        Me.tp_user_Profile.Location = New System.Drawing.Point(4, 44)
         Me.tp_user_Profile.Name = "tp_user_Profile"
-        Me.tp_user_Profile.Size = New System.Drawing.Size(1263, 537)
+        Me.tp_user_Profile.Size = New System.Drawing.Size(1263, 531)
         Me.tp_user_Profile.TabIndex = 0
         Me.tp_user_Profile.Text = "System Accounts"
         '
@@ -138,13 +165,11 @@ Partial Class frmUser
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 51
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Empty
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Empty
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle108.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle108
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1263, 395)
+        Me.DataGridView1.Size = New System.Drawing.Size(1263, 389)
         Me.DataGridView1.TabIndex = 20
         '
         'DataGridViewTextBoxColumn4
@@ -158,6 +183,8 @@ Partial Class frmUser
         'col_Row
         '
         Me.col_Row.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle97.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Row.DefaultCellStyle = DataGridViewCellStyle97
         Me.col_Row.HeaderText = "#"
         Me.col_Row.MinimumWidth = 6
         Me.col_Row.Name = "col_Row"
@@ -168,6 +195,8 @@ Partial Class frmUser
         'col_Branch
         '
         Me.col_Branch.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle98.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Branch.DefaultCellStyle = DataGridViewCellStyle98
         Me.col_Branch.HeaderText = "Branch"
         Me.col_Branch.MinimumWidth = 6
         Me.col_Branch.Name = "col_Branch"
@@ -177,6 +206,8 @@ Partial Class frmUser
         'col_Name
         '
         Me.col_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle99.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Name.DefaultCellStyle = DataGridViewCellStyle99
         Me.col_Name.HeaderText = "Given Name"
         Me.col_Name.MinimumWidth = 6
         Me.col_Name.Name = "col_Name"
@@ -186,6 +217,8 @@ Partial Class frmUser
         'col_mi
         '
         Me.col_mi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle100.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_mi.DefaultCellStyle = DataGridViewCellStyle100
         Me.col_mi.HeaderText = "M.I."
         Me.col_mi.MinimumWidth = 6
         Me.col_mi.Name = "col_mi"
@@ -196,6 +229,8 @@ Partial Class frmUser
         'col_Surname
         '
         Me.col_Surname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle101.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Surname.DefaultCellStyle = DataGridViewCellStyle101
         Me.col_Surname.HeaderText = "Family Name"
         Me.col_Surname.MinimumWidth = 6
         Me.col_Surname.Name = "col_Surname"
@@ -205,6 +240,8 @@ Partial Class frmUser
         'col_Suffix
         '
         Me.col_Suffix.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle102.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Suffix.DefaultCellStyle = DataGridViewCellStyle102
         Me.col_Suffix.HeaderText = "Suffix"
         Me.col_Suffix.MinimumWidth = 6
         Me.col_Suffix.Name = "col_Suffix"
@@ -215,6 +252,8 @@ Partial Class frmUser
         'col_Username
         '
         Me.col_Username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle103.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Username.DefaultCellStyle = DataGridViewCellStyle103
         Me.col_Username.HeaderText = "Username"
         Me.col_Username.MinimumWidth = 6
         Me.col_Username.Name = "col_Username"
@@ -225,6 +264,8 @@ Partial Class frmUser
         'col_Type
         '
         Me.col_Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle104.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Type.DefaultCellStyle = DataGridViewCellStyle104
         Me.col_Type.HeaderText = "User Type"
         Me.col_Type.MinimumWidth = 6
         Me.col_Type.Name = "col_Type"
@@ -235,6 +276,10 @@ Partial Class frmUser
         'col_Active
         '
         Me.col_Active.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle105.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle105.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle105.NullValue = False
+        Me.col_Active.DefaultCellStyle = DataGridViewCellStyle105
         Me.col_Active.HeaderText = "Active"
         Me.col_Active.MinimumWidth = 6
         Me.col_Active.Name = "col_Active"
@@ -245,6 +290,9 @@ Partial Class frmUser
         'col_Edit
         '
         Me.col_Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle106.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle106.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Edit.DefaultCellStyle = DataGridViewCellStyle106
         Me.col_Edit.HeaderText = ""
         Me.col_Edit.MinimumWidth = 6
         Me.col_Edit.Name = "col_Edit"
@@ -255,6 +303,9 @@ Partial Class frmUser
         'col_Delete
         '
         Me.col_Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle107.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle107.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Delete.DefaultCellStyle = DataGridViewCellStyle107
         Me.col_Delete.HeaderText = ""
         Me.col_Delete.MinimumWidth = 6
         Me.col_Delete.Name = "col_Delete"
@@ -266,7 +317,7 @@ Partial Class frmUser
         '
         Me.Panel2.Controls.Add(Me.lbl_row_Count)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 477)
+        Me.Panel2.Location = New System.Drawing.Point(0, 471)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1263, 60)
         Me.Panel2.TabIndex = 19
@@ -274,15 +325,15 @@ Partial Class frmUser
         'lbl_row_Count
         '
         Me.lbl_row_Count.AutoSize = True
+        Me.lbl_row_Count.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_row_Count.Location = New System.Drawing.Point(27, 21)
         Me.lbl_row_Count.Name = "lbl_row_Count"
-        Me.lbl_row_Count.Size = New System.Drawing.Size(76, 17)
+        Me.lbl_row_Count.Size = New System.Drawing.Size(91, 20)
         Me.lbl_row_Count.TabIndex = 9
         Me.lbl_row_Count.Text = "Row Count"
         '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.Label4)
         Me.Panel3.Controls.Add(Me.btnAdd)
         Me.Panel3.Controls.Add(Me.cbo_Filter)
         Me.Panel3.Controls.Add(Me.Label3)
@@ -293,20 +344,12 @@ Partial Class frmUser
         Me.Panel3.Size = New System.Drawing.Size(1263, 82)
         Me.Panel3.TabIndex = 17
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(802, 35)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(63, 17)
-        Me.Label4.TabIndex = 8
-        Me.Label4.Text = "Filter By:"
-        '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(1103, 26)
+        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.Location = New System.Drawing.Point(1008, 20)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(128, 34)
+        Me.btnAdd.Size = New System.Drawing.Size(152, 50)
         Me.btnAdd.TabIndex = 5
         Me.btnAdd.Text = "Add User"
         Me.btnAdd.UseVisualStyleBackColor = True
@@ -314,29 +357,32 @@ Partial Class frmUser
         'cbo_Filter
         '
         Me.cbo_Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbo_Filter.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_Filter.FormattingEnabled = True
         Me.cbo_Filter.Items.AddRange(New Object() {"Branch", "Name", "Username"})
-        Me.cbo_Filter.Location = New System.Drawing.Point(887, 32)
+        Me.cbo_Filter.Location = New System.Drawing.Point(123, 32)
         Me.cbo_Filter.Name = "cbo_Filter"
-        Me.cbo_Filter.Size = New System.Drawing.Size(183, 24)
+        Me.cbo_Filter.Size = New System.Drawing.Size(183, 33)
         Me.cbo_Filter.TabIndex = 6
         '
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(37, 35)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(57, 17)
+        Me.Label3.Size = New System.Drawing.Size(67, 20)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Search:"
         '
         'tb_Search
         '
-        Me.tb_Search.Location = New System.Drawing.Point(110, 32)
+        Me.tb_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Search.Location = New System.Drawing.Point(325, 32)
         Me.tb_Search.MaxLength = 50
         Me.tb_Search.Name = "tb_Search"
         Me.tb_Search.ShortcutsEnabled = False
-        Me.tb_Search.Size = New System.Drawing.Size(663, 22)
+        Me.tb_Search.Size = New System.Drawing.Size(663, 30)
         Me.tb_Search.TabIndex = 3
         '
         'tp_Cashier
@@ -344,9 +390,9 @@ Partial Class frmUser
         Me.tp_Cashier.Controls.Add(Me.DataGridView2)
         Me.tp_Cashier.Controls.Add(Me.Panel1)
         Me.tp_Cashier.Controls.Add(Me.Panel4)
-        Me.tp_Cashier.Location = New System.Drawing.Point(4, 38)
+        Me.tp_Cashier.Location = New System.Drawing.Point(4, 44)
         Me.tp_Cashier.Name = "tp_Cashier"
-        Me.tp_Cashier.Size = New System.Drawing.Size(1263, 537)
+        Me.tp_Cashier.Size = New System.Drawing.Size(1263, 531)
         Me.tp_Cashier.TabIndex = 1
         Me.tp_Cashier.Text = "Cashier"
         '
@@ -361,11 +407,11 @@ Partial Class frmUser
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowHeadersVisible = False
         Me.DataGridView2.RowHeadersWidth = 51
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.DataGridView2.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle118.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.DataGridView2.RowsDefaultCellStyle = DataGridViewCellStyle118
         Me.DataGridView2.RowTemplate.Height = 24
         Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(1263, 395)
+        Me.DataGridView2.Size = New System.Drawing.Size(1263, 389)
         Me.DataGridView2.TabIndex = 23
         '
         'DataGridViewTextBoxColumn1
@@ -379,6 +425,8 @@ Partial Class frmUser
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle109.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle109
         Me.DataGridViewTextBoxColumn2.HeaderText = "#"
         Me.DataGridViewTextBoxColumn2.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
@@ -389,6 +437,8 @@ Partial Class frmUser
         'DataGridViewTextBoxColumn5
         '
         Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle110.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle110
         Me.DataGridViewTextBoxColumn5.HeaderText = "Given Name"
         Me.DataGridViewTextBoxColumn5.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
@@ -398,6 +448,8 @@ Partial Class frmUser
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle111.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle111
         Me.DataGridViewTextBoxColumn6.HeaderText = "M.I."
         Me.DataGridViewTextBoxColumn6.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
@@ -408,6 +460,8 @@ Partial Class frmUser
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle112.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle112
         Me.DataGridViewTextBoxColumn7.HeaderText = "Family Name"
         Me.DataGridViewTextBoxColumn7.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
@@ -417,6 +471,8 @@ Partial Class frmUser
         'DataGridViewTextBoxColumn8
         '
         Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle113.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle113
         Me.DataGridViewTextBoxColumn8.HeaderText = "Suffix"
         Me.DataGridViewTextBoxColumn8.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
@@ -427,6 +483,8 @@ Partial Class frmUser
         'DataGridViewTextBoxColumn9
         '
         Me.DataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle114.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle114
         Me.DataGridViewTextBoxColumn9.HeaderText = "Username"
         Me.DataGridViewTextBoxColumn9.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
@@ -437,6 +495,10 @@ Partial Class frmUser
         'DataGridViewCheckBoxColumn1
         '
         Me.DataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle115.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle115.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle115.NullValue = False
+        Me.DataGridViewCheckBoxColumn1.DefaultCellStyle = DataGridViewCellStyle115
         Me.DataGridViewCheckBoxColumn1.HeaderText = "Active"
         Me.DataGridViewCheckBoxColumn1.MinimumWidth = 6
         Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
@@ -447,6 +509,9 @@ Partial Class frmUser
         'col_edit_Cashier
         '
         Me.col_edit_Cashier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle116.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle116.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_edit_Cashier.DefaultCellStyle = DataGridViewCellStyle116
         Me.col_edit_Cashier.HeaderText = ""
         Me.col_edit_Cashier.MinimumWidth = 6
         Me.col_edit_Cashier.Name = "col_edit_Cashier"
@@ -457,6 +522,9 @@ Partial Class frmUser
         'col_delete_Cashier
         '
         Me.col_delete_Cashier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle117.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle117.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_delete_Cashier.DefaultCellStyle = DataGridViewCellStyle117
         Me.col_delete_Cashier.HeaderText = ""
         Me.col_delete_Cashier.MinimumWidth = 6
         Me.col_delete_Cashier.Name = "col_delete_Cashier"
@@ -468,7 +536,7 @@ Partial Class frmUser
         '
         Me.Panel1.Controls.Add(Me.lbl_row_count_Cashier)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 477)
+        Me.Panel1.Location = New System.Drawing.Point(0, 471)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1263, 60)
         Me.Panel1.TabIndex = 22
@@ -476,15 +544,15 @@ Partial Class frmUser
         'lbl_row_count_Cashier
         '
         Me.lbl_row_count_Cashier.AutoSize = True
+        Me.lbl_row_count_Cashier.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_row_count_Cashier.Location = New System.Drawing.Point(27, 21)
         Me.lbl_row_count_Cashier.Name = "lbl_row_count_Cashier"
-        Me.lbl_row_count_Cashier.Size = New System.Drawing.Size(76, 17)
+        Me.lbl_row_count_Cashier.Size = New System.Drawing.Size(91, 20)
         Me.lbl_row_count_Cashier.TabIndex = 9
         Me.lbl_row_count_Cashier.Text = "Row Count"
         '
         'Panel4
         '
-        Me.Panel4.Controls.Add(Me.Label2)
         Me.Panel4.Controls.Add(Me.btn_add_Cashier)
         Me.Panel4.Controls.Add(Me.cbo_filter_Cashier)
         Me.Panel4.Controls.Add(Me.Label5)
@@ -495,20 +563,12 @@ Partial Class frmUser
         Me.Panel4.Size = New System.Drawing.Size(1263, 82)
         Me.Panel4.TabIndex = 21
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(802, 35)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(63, 17)
-        Me.Label2.TabIndex = 8
-        Me.Label2.Text = "Filter By:"
-        '
         'btn_add_Cashier
         '
-        Me.btn_add_Cashier.Location = New System.Drawing.Point(1103, 26)
+        Me.btn_add_Cashier.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_add_Cashier.Location = New System.Drawing.Point(1009, 20)
         Me.btn_add_Cashier.Name = "btn_add_Cashier"
-        Me.btn_add_Cashier.Size = New System.Drawing.Size(128, 34)
+        Me.btn_add_Cashier.Size = New System.Drawing.Size(152, 50)
         Me.btn_add_Cashier.TabIndex = 5
         Me.btn_add_Cashier.Text = "Add Cashier"
         Me.btn_add_Cashier.UseVisualStyleBackColor = True
@@ -516,29 +576,32 @@ Partial Class frmUser
         'cbo_filter_Cashier
         '
         Me.cbo_filter_Cashier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbo_filter_Cashier.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_filter_Cashier.FormattingEnabled = True
         Me.cbo_filter_Cashier.Items.AddRange(New Object() {"Name", "Username"})
-        Me.cbo_filter_Cashier.Location = New System.Drawing.Point(887, 32)
+        Me.cbo_filter_Cashier.Location = New System.Drawing.Point(121, 32)
         Me.cbo_filter_Cashier.Name = "cbo_filter_Cashier"
-        Me.cbo_filter_Cashier.Size = New System.Drawing.Size(183, 24)
+        Me.cbo_filter_Cashier.Size = New System.Drawing.Size(183, 33)
         Me.cbo_filter_Cashier.TabIndex = 6
         '
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(37, 35)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(57, 17)
+        Me.Label5.Size = New System.Drawing.Size(67, 20)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Search:"
         '
         'tb_search_Cashier
         '
-        Me.tb_search_Cashier.Location = New System.Drawing.Point(110, 32)
+        Me.tb_search_Cashier.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_search_Cashier.Location = New System.Drawing.Point(323, 32)
         Me.tb_search_Cashier.MaxLength = 50
         Me.tb_search_Cashier.Name = "tb_search_Cashier"
         Me.tb_search_Cashier.ShortcutsEnabled = False
-        Me.tb_search_Cashier.Size = New System.Drawing.Size(663, 22)
+        Me.tb_search_Cashier.Size = New System.Drawing.Size(663, 30)
         Me.tb_search_Cashier.TabIndex = 3
         '
         'tp_Manager
@@ -546,9 +609,9 @@ Partial Class frmUser
         Me.tp_Manager.Controls.Add(Me.DataGridView3)
         Me.tp_Manager.Controls.Add(Me.Panel5)
         Me.tp_Manager.Controls.Add(Me.Panel6)
-        Me.tp_Manager.Location = New System.Drawing.Point(4, 38)
+        Me.tp_Manager.Location = New System.Drawing.Point(4, 44)
         Me.tp_Manager.Name = "tp_Manager"
-        Me.tp_Manager.Size = New System.Drawing.Size(1263, 537)
+        Me.tp_Manager.Size = New System.Drawing.Size(1263, 531)
         Me.tp_Manager.TabIndex = 2
         Me.tp_Manager.Text = "Manager"
         '
@@ -563,11 +626,11 @@ Partial Class frmUser
         Me.DataGridView3.Name = "DataGridView3"
         Me.DataGridView3.RowHeadersVisible = False
         Me.DataGridView3.RowHeadersWidth = 51
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.DataGridView3.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle128.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.DataGridView3.RowsDefaultCellStyle = DataGridViewCellStyle128
         Me.DataGridView3.RowTemplate.Height = 24
         Me.DataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView3.Size = New System.Drawing.Size(1263, 395)
+        Me.DataGridView3.Size = New System.Drawing.Size(1263, 389)
         Me.DataGridView3.TabIndex = 26
         '
         'DataGridViewTextBoxColumn3
@@ -581,6 +644,8 @@ Partial Class frmUser
         'DataGridViewTextBoxColumn10
         '
         Me.DataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle119.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle119
         Me.DataGridViewTextBoxColumn10.HeaderText = "#"
         Me.DataGridViewTextBoxColumn10.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
@@ -591,6 +656,8 @@ Partial Class frmUser
         'DataGridViewTextBoxColumn11
         '
         Me.DataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle120.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle120
         Me.DataGridViewTextBoxColumn11.HeaderText = "Given Name"
         Me.DataGridViewTextBoxColumn11.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
@@ -600,6 +667,8 @@ Partial Class frmUser
         'DataGridViewTextBoxColumn12
         '
         Me.DataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle121.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle121
         Me.DataGridViewTextBoxColumn12.HeaderText = "M.I."
         Me.DataGridViewTextBoxColumn12.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
@@ -610,6 +679,8 @@ Partial Class frmUser
         'DataGridViewTextBoxColumn13
         '
         Me.DataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle122.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn13.DefaultCellStyle = DataGridViewCellStyle122
         Me.DataGridViewTextBoxColumn13.HeaderText = "Family Name"
         Me.DataGridViewTextBoxColumn13.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
@@ -619,6 +690,8 @@ Partial Class frmUser
         'DataGridViewTextBoxColumn14
         '
         Me.DataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle123.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle123
         Me.DataGridViewTextBoxColumn14.HeaderText = "Suffix"
         Me.DataGridViewTextBoxColumn14.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
@@ -629,6 +702,8 @@ Partial Class frmUser
         'DataGridViewTextBoxColumn15
         '
         Me.DataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle124.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn15.DefaultCellStyle = DataGridViewCellStyle124
         Me.DataGridViewTextBoxColumn15.HeaderText = "Username"
         Me.DataGridViewTextBoxColumn15.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
@@ -639,6 +714,10 @@ Partial Class frmUser
         'DataGridViewCheckBoxColumn2
         '
         Me.DataGridViewCheckBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle125.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle125.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle125.NullValue = False
+        Me.DataGridViewCheckBoxColumn2.DefaultCellStyle = DataGridViewCellStyle125
         Me.DataGridViewCheckBoxColumn2.HeaderText = "Active"
         Me.DataGridViewCheckBoxColumn2.MinimumWidth = 6
         Me.DataGridViewCheckBoxColumn2.Name = "DataGridViewCheckBoxColumn2"
@@ -649,6 +728,9 @@ Partial Class frmUser
         'col_edit_Manager
         '
         Me.col_edit_Manager.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle126.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle126.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_edit_Manager.DefaultCellStyle = DataGridViewCellStyle126
         Me.col_edit_Manager.HeaderText = ""
         Me.col_edit_Manager.MinimumWidth = 6
         Me.col_edit_Manager.Name = "col_edit_Manager"
@@ -659,6 +741,9 @@ Partial Class frmUser
         'DataGridViewButtonColumn2
         '
         Me.DataGridViewButtonColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle127.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle127.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewButtonColumn2.DefaultCellStyle = DataGridViewCellStyle127
         Me.DataGridViewButtonColumn2.HeaderText = ""
         Me.DataGridViewButtonColumn2.MinimumWidth = 6
         Me.DataGridViewButtonColumn2.Name = "DataGridViewButtonColumn2"
@@ -670,7 +755,7 @@ Partial Class frmUser
         '
         Me.Panel5.Controls.Add(Me.lbl_row_count_Manager)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel5.Location = New System.Drawing.Point(0, 477)
+        Me.Panel5.Location = New System.Drawing.Point(0, 471)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(1263, 60)
         Me.Panel5.TabIndex = 25
@@ -678,15 +763,15 @@ Partial Class frmUser
         'lbl_row_count_Manager
         '
         Me.lbl_row_count_Manager.AutoSize = True
+        Me.lbl_row_count_Manager.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_row_count_Manager.Location = New System.Drawing.Point(27, 21)
         Me.lbl_row_count_Manager.Name = "lbl_row_count_Manager"
-        Me.lbl_row_count_Manager.Size = New System.Drawing.Size(76, 17)
+        Me.lbl_row_count_Manager.Size = New System.Drawing.Size(91, 20)
         Me.lbl_row_count_Manager.TabIndex = 9
         Me.lbl_row_count_Manager.Text = "Row Count"
         '
         'Panel6
         '
-        Me.Panel6.Controls.Add(Me.Label6)
         Me.Panel6.Controls.Add(Me.btn_add_Manager)
         Me.Panel6.Controls.Add(Me.cbo_filter_manager)
         Me.Panel6.Controls.Add(Me.Label7)
@@ -697,20 +782,12 @@ Partial Class frmUser
         Me.Panel6.Size = New System.Drawing.Size(1263, 82)
         Me.Panel6.TabIndex = 24
         '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(802, 35)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(63, 17)
-        Me.Label6.TabIndex = 8
-        Me.Label6.Text = "Filter By:"
-        '
         'btn_add_Manager
         '
-        Me.btn_add_Manager.Location = New System.Drawing.Point(1103, 26)
+        Me.btn_add_Manager.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_add_Manager.Location = New System.Drawing.Point(1014, 20)
         Me.btn_add_Manager.Name = "btn_add_Manager"
-        Me.btn_add_Manager.Size = New System.Drawing.Size(128, 34)
+        Me.btn_add_Manager.Size = New System.Drawing.Size(152, 50)
         Me.btn_add_Manager.TabIndex = 5
         Me.btn_add_Manager.Text = "Add Manager"
         Me.btn_add_Manager.UseVisualStyleBackColor = True
@@ -718,29 +795,32 @@ Partial Class frmUser
         'cbo_filter_manager
         '
         Me.cbo_filter_manager.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbo_filter_manager.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_filter_manager.FormattingEnabled = True
         Me.cbo_filter_manager.Items.AddRange(New Object() {"Name", "Username"})
-        Me.cbo_filter_manager.Location = New System.Drawing.Point(887, 32)
+        Me.cbo_filter_manager.Location = New System.Drawing.Point(123, 32)
         Me.cbo_filter_manager.Name = "cbo_filter_manager"
-        Me.cbo_filter_manager.Size = New System.Drawing.Size(183, 24)
+        Me.cbo_filter_manager.Size = New System.Drawing.Size(183, 33)
         Me.cbo_filter_manager.TabIndex = 6
         '
         'Label7
         '
         Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(37, 35)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(57, 17)
+        Me.Label7.Size = New System.Drawing.Size(67, 20)
         Me.Label7.TabIndex = 4
         Me.Label7.Text = "Search:"
         '
         'tb_search_Manager
         '
-        Me.tb_search_Manager.Location = New System.Drawing.Point(110, 32)
+        Me.tb_search_Manager.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_search_Manager.Location = New System.Drawing.Point(324, 32)
         Me.tb_search_Manager.MaxLength = 50
         Me.tb_search_Manager.Name = "tb_search_Manager"
         Me.tb_search_Manager.ShortcutsEnabled = False
-        Me.tb_search_Manager.Size = New System.Drawing.Size(663, 22)
+        Me.tb_search_Manager.Size = New System.Drawing.Size(663, 30)
         Me.tb_search_Manager.TabIndex = 3
         '
         'frmUser
@@ -779,22 +859,9 @@ Partial Class frmUser
     Friend WithEvents MetroTabControl1 As MetroFramework.Controls.MetroTabControl
     Friend WithEvents tp_user_Profile As TabPage
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents col_Row As DataGridViewTextBoxColumn
-    Friend WithEvents col_Branch As DataGridViewTextBoxColumn
-    Friend WithEvents col_Name As DataGridViewTextBoxColumn
-    Friend WithEvents col_mi As DataGridViewTextBoxColumn
-    Friend WithEvents col_Surname As DataGridViewTextBoxColumn
-    Friend WithEvents col_Suffix As DataGridViewTextBoxColumn
-    Friend WithEvents col_Username As DataGridViewTextBoxColumn
-    Friend WithEvents col_Type As DataGridViewTextBoxColumn
-    Friend WithEvents col_Active As DataGridViewCheckBoxColumn
-    Friend WithEvents col_Edit As DataGridViewButtonColumn
-    Friend WithEvents col_Delete As DataGridViewButtonColumn
     Friend WithEvents Panel2 As Panel
     Friend WithEvents lbl_row_Count As Label
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents Label4 As Label
     Friend WithEvents btnAdd As Button
     Friend WithEvents cbo_Filter As ComboBox
     Friend WithEvents Label3 As Label
@@ -805,26 +872,14 @@ Partial Class frmUser
     Friend WithEvents Panel1 As Panel
     Friend WithEvents lbl_row_count_Cashier As Label
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents Label2 As Label
     Friend WithEvents btn_add_Cashier As Button
     Friend WithEvents cbo_filter_Cashier As ComboBox
     Friend WithEvents Label5 As Label
     Friend WithEvents tb_search_Cashier As TextBox
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewCheckBoxColumn1 As DataGridViewCheckBoxColumn
-    Friend WithEvents col_edit_Cashier As DataGridViewButtonColumn
-    Friend WithEvents col_delete_Cashier As DataGridViewButtonColumn
     Friend WithEvents DataGridView3 As DataGridView
     Friend WithEvents Panel5 As Panel
     Friend WithEvents lbl_row_count_Manager As Label
     Friend WithEvents Panel6 As Panel
-    Friend WithEvents Label6 As Label
     Friend WithEvents btn_add_Manager As Button
     Friend WithEvents cbo_filter_manager As ComboBox
     Friend WithEvents Label7 As Label
@@ -839,4 +894,26 @@ Partial Class frmUser
     Friend WithEvents DataGridViewCheckBoxColumn2 As DataGridViewCheckBoxColumn
     Friend WithEvents col_edit_Manager As DataGridViewButtonColumn
     Friend WithEvents DataGridViewButtonColumn2 As DataGridViewButtonColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents col_Row As DataGridViewTextBoxColumn
+    Friend WithEvents col_Branch As DataGridViewTextBoxColumn
+    Friend WithEvents col_Name As DataGridViewTextBoxColumn
+    Friend WithEvents col_mi As DataGridViewTextBoxColumn
+    Friend WithEvents col_Surname As DataGridViewTextBoxColumn
+    Friend WithEvents col_Suffix As DataGridViewTextBoxColumn
+    Friend WithEvents col_Username As DataGridViewTextBoxColumn
+    Friend WithEvents col_Type As DataGridViewTextBoxColumn
+    Friend WithEvents col_Active As DataGridViewCheckBoxColumn
+    Friend WithEvents col_Edit As DataGridViewButtonColumn
+    Friend WithEvents col_Delete As DataGridViewButtonColumn
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewCheckBoxColumn1 As DataGridViewCheckBoxColumn
+    Friend WithEvents col_edit_Cashier As DataGridViewButtonColumn
+    Friend WithEvents col_delete_Cashier As DataGridViewButtonColumn
 End Class

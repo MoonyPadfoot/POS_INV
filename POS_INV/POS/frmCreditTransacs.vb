@@ -7,19 +7,12 @@
 
     Private Sub frmCreditTransacs_Load(sender As Object, e As EventArgs) Handles Me.Load
         Dim orderId = frmCreditPay.dg_Transactions.Item(0, frmCreditPay.dg_Transactions.CurrentRow.Index).Value
-        cbo_Type.SelectedIndex = 0
-        credPay.loadItems(orderId)
+        credPay.loadTransactions(orderId)
         lbl_due_Total.Text = Format(credPay.loadOrderTotal(orderId), "0.00")
     End Sub
 
-    Private Sub cbo_Type_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbo_Type.SelectedIndexChanged
+    Private Sub cbo_Type_SelectedIndexChanged(sender As Object, e As EventArgs)
         Dim orderId = frmCreditPay.dg_Transactions.Item(0, frmCreditPay.dg_Transactions.CurrentRow.Index).Value
-        If cbo_Type.SelectedIndex = 0 Then
-            credPay.loadItems(orderId)
-
-        ElseIf cbo_Type.SelectedIndex = 1 Then
-            credPay.loadServices(orderId)
-
-        End If
+        credPay.loadTransactions(orderId)
     End Sub
 End Class
