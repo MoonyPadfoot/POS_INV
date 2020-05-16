@@ -2,6 +2,7 @@
     Dim cashInOut As New clsCashInOut
     Dim cashLog As New clsCashierLog
     Dim credPay As New clsCreditPay
+    Dim refund As New clsRefund
     Dim auth As New clsAuth
     Dim authKey As Integer
     Private Sub btn_Ok_Click_(sender As Object, e As EventArgs) Handles btn_Ok.Click
@@ -50,6 +51,23 @@
             credPay.SetBalance(updatedBal)
             credPay.savePayment()
             MsgBox("Payment saved. User: " & frmCreditPay.tb_Name.Text & " balance is Php: " & updatedBal, vbInformation)
+        ElseIf lbl_Type.Text = 4 Then
+            refund.SetTransDate(frmRefundTransDate.dtp_Date.Value.ToString("yyyy-MM-dd"))
+            refund.SetManagerId(auth.setUserId)
+            refund.SetAmount(frmRefund.lbl_due_Total.Text)
+            refund.SetRemarks(frmRefundTransDate.tb_Remarks.Text)
+            refund.SetOrderId(frmRefund.lbl_OrderId.Text)
+            refund.SetBranchId(frmPos.lbl_branch_Id.Text)
+            refund.saveRefund()
+            MsgBox("Transaction saved successfully.")
+
+            frmRefund.dg_Search.Rows.Clear()
+            frmRefund.dg_Refund.Rows.Clear()
+            frmRefund.tb_receiptNo.Clear()
+            frmRefund.tb_Orders.Clear()
+            frmRefund.lbl_due_Total.Text = ""
+            frmRefund.cbo_Receipt.SelectedIndex = 0
+            frmRefund.dtp_Date.Value = Date.Now
         End If
         frmBalance.tb_initial_Bal.Clear()
         frmBalance.Close()

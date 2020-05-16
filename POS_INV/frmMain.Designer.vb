@@ -241,6 +241,7 @@ Partial Class frmMain
         Me.btn_Help.TabIndex = 13
         Me.btn_Help.Text = "&Help [F6]"
         Me.btn_Help.UseVisualStyleBackColor = False
+        Me.btn_Help.Visible = False
         '
         'Panel5
         '
