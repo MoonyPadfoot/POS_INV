@@ -48,6 +48,42 @@ Public Class clsManager
         DisconnectDatabase()
         Return False
     End Function
+    Public Function delete()
+        Try
+            ConnectDatabase()
+            Dim query = "DELETE FROM manager WHERE user_id = @user_id"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@user_id", Id)
+            cm.ExecuteNonQuery()
+            DisconnectDatabase()
+            'loadAutosuggest()
+            Return True
+
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
+    Public Function checkManagerExists() 'checks if item is already in use in other tables(user, stock)
+        Try
+            ConnectDatabase()
+            Dim query = "SELECT COUNT(*) FROM cashier_log INNER JOIN manager ON manager.manager_id = cashier_log.manager_id WHERE manager.user_id = @user_id"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@user_id", Id)
+            Dim count = cm.ExecuteScalar()
+            If count > 0 Then
+                Return True
+                DisconnectDatabase()
+            End If
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
     Public Function changePass()
         Try
             ConnectDatabase()

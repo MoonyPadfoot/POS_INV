@@ -8,7 +8,7 @@ Module mdlConnection
 
         Try
             If con.State = ConnectionState.Closed Then
-                con.ConnectionString = "DATABASE=" & My.Settings.myDb & ";" &
+                con.ConnectionString = "Persist Security Info = False; DATABASE=" & My.Settings.myDb & ";" &
                    "SERVER=" & My.Settings.myServer & ";user id=" & My.Settings.myUsername &
                    ";password=" & My.Settings.myPassword & ";port=" &
                    My.Settings.myPassword & ";charset=utf8;"

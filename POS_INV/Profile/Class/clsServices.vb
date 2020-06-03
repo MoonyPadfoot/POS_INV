@@ -62,6 +62,42 @@ Public Class clsServices
         DisconnectDatabase()
         Return False
     End Function
+    Public Function delete()
+        Try
+            ConnectDatabase()
+            Dim query = "DELETE FROM service WHERE service_code = @service_code"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@service_code", _ServiceCode)
+            cm.ExecuteNonQuery()
+            DisconnectDatabase()
+            'loadAutosuggest()
+            Return True
+
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
+    Public Function checkServiceExists() 'checks if item is already in use in other tables(user, stock)
+        Try
+            ConnectDatabase()
+            Dim query = "SELECT COUNT(*) FROM service WHERE service_code = @service_code"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@service_code", _ServiceCode)
+            Dim count = cm.ExecuteScalar()
+            If count > 0 Then
+                Return True
+                DisconnectDatabase()
+            End If
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
     Public Function checkServiceDuplicate()
         Try
             ConnectDatabase()

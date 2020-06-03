@@ -33,9 +33,12 @@ Partial Class frmProfiling
         Me.btn_Item = New System.Windows.Forms.Button()
         Me.btn_User = New System.Windows.Forms.Button()
         Me.pnl_Mid = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pnlHeader.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.pnl_Mid.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlHeader
@@ -167,11 +170,24 @@ Partial Class frmProfiling
         '
         'pnl_Mid
         '
+        Me.pnl_Mid.Controls.Add(Me.PictureBox1)
         Me.pnl_Mid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnl_Mid.Location = New System.Drawing.Point(0, 139)
         Me.pnl_Mid.Name = "pnl_Mid"
         Me.pnl_Mid.Size = New System.Drawing.Size(1272, 552)
         Me.pnl_Mid.TabIndex = 3
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox1.Image = Global.POS_INV.My.Resources.Resources.filler
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(1272, 552)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
         '
         'frmProfiling
         '
@@ -189,6 +205,8 @@ Partial Class frmProfiling
         Me.pnlHeader.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
+        Me.pnl_Mid.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -204,4 +222,5 @@ Partial Class frmProfiling
     Friend WithEvents pnl_Mid As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btn_Close As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

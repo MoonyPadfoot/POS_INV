@@ -107,18 +107,18 @@
                 .ShowDialog()
             End With
 
-            'ElseIf colName = "col_Delete" Then
-            '    Dim result = MsgBox("Are you sure you want to delete this record?", vbYesNo + vbQuestion)
-            '    If result = vbYes Then
-            '        user.Id = _id
-            '        If user.checkBranchExists = False Then
-            '            branch.delete()
-            '            MsgBox("Record has been successfully deleted.", vbInformation)
-            '            branch.loadRecord()
-            '        Else
-            '            MsgBox("Record already in use and therefore can not be deleted.", vbInformation)
-            '        End If
-            '    End If
+        ElseIf colname = "col_Delete" Then
+            Dim result = msgbox("are you sure you want to delete this record?", vbyesno + vbquestion)
+            If result = vbyes Then
+                user.id = _id
+                If user.checkUserExists = False Then
+                    user.delete()
+                    MsgBox("record has been successfully deleted.", vbInformation)
+                    user.loadRecord()
+                Else
+                    MsgBox("record already in use and therefore can not be deleted.", vbinformation)
+                End If
+            End If
 
         End If
     End Sub
@@ -155,18 +155,18 @@
                 .tb_Password.Focus()
                 .ShowDialog()
             End With
-            'ElseIf colName = "col_Delete" Then
-            '    Dim result = MsgBox("Are you sure you want to delete this record?", vbYesNo + vbQuestion)
-            '    If result = vbYes Then
-            '        user.Id = _id
-            '        If user.checkBranchExists = False Then
-            '            branch.delete()
-            '            MsgBox("Record has been successfully deleted.", vbInformation)
-            '            branch.loadRecord()
-            '        Else
-            '            MsgBox("Record already in use and therefore can not be deleted.", vbInformation)
-            '        End If
-            '    End If
+        ElseIf colName = "col_delete_Cashier" Then
+            Dim result = MsgBox("Are you sure you want to delete this record?", vbYesNo + vbQuestion)
+            If result = vbYes Then
+                cashier.Id = _id
+                If cashier.checkCashierExists = False Then
+                    cashier.delete()
+                    MsgBox("Record has been successfully deleted.", vbInformation)
+                    cashier.loadRecord()
+                Else
+                    MsgBox("Record already in use and therefore can not be deleted.", vbInformation)
+                End If
+            End If
 
         End If
     End Sub
@@ -203,18 +203,18 @@
                 .tb_Password.Focus()
                 .ShowDialog()
             End With
-            'ElseIf colName = "col_Delete" Then
-            '    Dim result = MsgBox("Are you sure you want to delete this record?", vbYesNo + vbQuestion)
-            '    If result = vbYes Then
-            '        user.Id = _id
-            '        If user.checkBranchExists = False Then
-            '            branch.delete()
-            '            MsgBox("Record has been successfully deleted.", vbInformation)
-            '            branch.loadRecord()
-            '        Else
-            '            MsgBox("Record already in use and therefore can not be deleted.", vbInformation)
-            '        End If
-            '    End If
+        ElseIf colName = "col_Delete_Manager" Then
+            Dim result = MsgBox("Are you sure you want to delete this record?", vbYesNo + vbQuestion)
+            If result = vbYes Then
+                manager.Id = _id
+                If manager.checkManagerExists = False Then
+                    manager.delete()
+                    MsgBox("Record has been successfully deleted.", vbInformation)
+                    manager.loadRecord()
+                Else
+                    MsgBox("Record already in use and therefore can not be deleted.", vbInformation)
+                End If
+            End If
 
         End If
     End Sub

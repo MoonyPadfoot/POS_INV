@@ -229,6 +229,7 @@ Partial Class frmManagerEntry
         Me.lbl_Id.Size = New System.Drawing.Size(19, 17)
         Me.lbl_Id.TabIndex = 53
         Me.lbl_Id.Text = "Id"
+        Me.lbl_Id.Visible = False
         '
         'btnCancel
         '

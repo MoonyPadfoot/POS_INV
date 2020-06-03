@@ -134,6 +134,7 @@ Partial Class frmSupplierEntry
         Me.lbl_Id.Size = New System.Drawing.Size(41, 17)
         Me.lbl_Id.TabIndex = 41
         Me.lbl_Id.Text = "lbl_Id"
+        Me.lbl_Id.Visible = False
         '
         'frmSupplierEntry
         '

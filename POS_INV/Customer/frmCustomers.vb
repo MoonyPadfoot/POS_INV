@@ -68,18 +68,18 @@
                 .ShowDialog()
             End With
 
-            'ElseIf colName = "col_Delete" Then
-            '    Dim result = MsgBox("Are you sure you want to delete this record?", vbYesNo + vbQuestion)
-            '    If result = vbYes Then
-            '        user.Id = _id
-            '        If user.checkBranchExists = False Then
-            '            branch.delete()
-            '            MsgBox("Record has been successfully deleted.", vbInformation)
-            '            branch.loadRecord()
-            '        Else
-            '            MsgBox("Record already in use and therefore can not be deleted.", vbInformation)
-            '        End If
-            '    End If
+        ElseIf colName = "col_Delete" Then
+            Dim result = MsgBox("Are you sure you want to delete this record?", vbYesNo + vbQuestion)
+            If result = vbYes Then
+                customer.SetId(_id)
+                If customer.checkCustomerExists = False Then
+                    customer.delete()
+                    MsgBox("Record has been successfully deleted.", vbInformation)
+                    customer.loadRecord()
+                Else
+                    MsgBox("Record already in use and therefore can not be deleted.", vbInformation)
+                End If
+            End If
 
         End If
     End Sub

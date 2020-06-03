@@ -22,8 +22,8 @@ Partial Class frmStockAdj_History
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btn_Close = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -97,24 +97,27 @@ Partial Class frmStockAdj_History
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(385, 33)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(444, 33)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(63, 17)
+        Me.Label2.Size = New System.Drawing.Size(88, 25)
         Me.Label2.TabIndex = 17
         Me.Label2.Text = "Date To:"
         '
         'dtp_To
         '
         Me.dtp_To.CustomFormat = "MM/dd/yyyy"
-        Me.dtp_To.Location = New System.Drawing.Point(463, 31)
+        Me.dtp_To.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_To.Location = New System.Drawing.Point(546, 31)
         Me.dtp_To.Name = "dtp_To"
-        Me.dtp_To.Size = New System.Drawing.Size(259, 22)
+        Me.dtp_To.Size = New System.Drawing.Size(259, 30)
         Me.dtp_To.TabIndex = 16
         Me.dtp_To.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
         '
         'btn_load_History
         '
-        Me.btn_load_History.Location = New System.Drawing.Point(749, 26)
+        Me.btn_load_History.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_load_History.Location = New System.Drawing.Point(832, 26)
         Me.btn_load_History.Name = "btn_load_History"
         Me.btn_load_History.Size = New System.Drawing.Size(132, 37)
         Me.btn_load_History.TabIndex = 15
@@ -124,18 +127,20 @@ Partial Class frmStockAdj_History
         'Label19
         '
         Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.Location = New System.Drawing.Point(24, 33)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(78, 17)
+        Me.Label19.Size = New System.Drawing.Size(109, 25)
         Me.Label19.TabIndex = 12
         Me.Label19.Text = "Date From:"
         '
         'dtp_From
         '
         Me.dtp_From.CustomFormat = "MM/dd/yyyy"
-        Me.dtp_From.Location = New System.Drawing.Point(108, 31)
+        Me.dtp_From.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_From.Location = New System.Drawing.Point(152, 31)
         Me.dtp_From.Name = "dtp_From"
-        Me.dtp_From.Size = New System.Drawing.Size(259, 22)
+        Me.dtp_From.Size = New System.Drawing.Size(259, 30)
         Me.dtp_From.TabIndex = 11
         Me.dtp_From.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
         '
@@ -149,8 +154,8 @@ Partial Class frmStockAdj_History
         Me.dg_stock_History.Name = "dg_stock_History"
         Me.dg_stock_History.RowHeadersVisible = False
         Me.dg_stock_History.RowHeadersWidth = 51
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dg_stock_History.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dg_stock_History.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dg_stock_History.RowTemplate.Height = 24
         Me.dg_stock_History.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dg_stock_History.Size = New System.Drawing.Size(1368, 595)
@@ -245,8 +250,8 @@ Partial Class frmStockAdj_History
         'Column10
         '
         Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column10.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column10.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column10.HeaderText = "Qty"
         Me.Column10.MinimumWidth = 6
         Me.Column10.Name = "Column10"

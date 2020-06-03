@@ -132,6 +132,7 @@ Partial Class frmPrice
         Me.lbl_Type.Size = New System.Drawing.Size(57, 25)
         Me.lbl_Type.TabIndex = 12
         Me.lbl_Type.Text = "Type"
+        Me.lbl_Type.Visible = False
         '
         'frmPrice
         '

@@ -95,33 +95,37 @@ Partial Class frmStockOut_History
         'dtp_To
         '
         Me.dtp_To.CustomFormat = "MM/dd/yyyy"
-        Me.dtp_To.Location = New System.Drawing.Point(463, 31)
+        Me.dtp_To.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_To.Location = New System.Drawing.Point(536, 31)
         Me.dtp_To.Name = "dtp_To"
-        Me.dtp_To.Size = New System.Drawing.Size(259, 22)
+        Me.dtp_To.Size = New System.Drawing.Size(259, 30)
         Me.dtp_To.TabIndex = 19
         Me.dtp_To.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
         '
         'dtp_From
         '
         Me.dtp_From.CustomFormat = "MM/dd/yyyy"
-        Me.dtp_From.Location = New System.Drawing.Point(108, 31)
+        Me.dtp_From.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_From.Location = New System.Drawing.Point(152, 31)
         Me.dtp_From.Name = "dtp_From"
-        Me.dtp_From.Size = New System.Drawing.Size(259, 22)
+        Me.dtp_From.Size = New System.Drawing.Size(259, 30)
         Me.dtp_From.TabIndex = 18
         Me.dtp_From.Value = New Date(2020, 3, 21, 0, 0, 0, 0)
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(385, 33)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(429, 33)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(63, 17)
+        Me.Label2.Size = New System.Drawing.Size(88, 25)
         Me.Label2.TabIndex = 17
         Me.Label2.Text = "Date To:"
         '
         'btn_load_History
         '
-        Me.btn_load_History.Location = New System.Drawing.Point(749, 26)
+        Me.btn_load_History.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_load_History.Location = New System.Drawing.Point(822, 26)
         Me.btn_load_History.Name = "btn_load_History"
         Me.btn_load_History.Size = New System.Drawing.Size(132, 37)
         Me.btn_load_History.TabIndex = 15
@@ -131,9 +135,10 @@ Partial Class frmStockOut_History
         'Label19
         '
         Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.Location = New System.Drawing.Point(24, 33)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(78, 17)
+        Me.Label19.Size = New System.Drawing.Size(109, 25)
         Me.Label19.TabIndex = 12
         Me.Label19.Text = "Date From:"
         '

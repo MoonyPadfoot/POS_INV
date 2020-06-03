@@ -25,7 +25,7 @@ Option Explicit On
 Partial Public Class DataSet1
     Inherits Global.System.Data.DataSet
     
-    Private tablestock_in As stock_inDataTable
+    Private tableDataTable As DataTableDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -56,8 +56,8 @@ Partial Public Class DataSet1
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("stock_in")) Is Nothing) Then
-                MyBase.Tables.Add(New stock_inDataTable(ds.Tables("stock_in")))
+            If (Not (ds.Tables("DataTable")) Is Nothing) Then
+                MyBase.Tables.Add(New DataTableDataTable(ds.Tables("DataTable")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -80,9 +80,9 @@ Partial Public Class DataSet1
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property stock_in() As stock_inDataTable
+    Public ReadOnly Property DataTable() As DataTableDataTable
         Get
-            Return Me.tablestock_in
+            Return Me.tableDataTable
         End Get
     End Property
     
@@ -153,8 +153,8 @@ Partial Public Class DataSet1
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("stock_in")) Is Nothing) Then
-                MyBase.Tables.Add(New stock_inDataTable(ds.Tables("stock_in")))
+            If (Not (ds.Tables("DataTable")) Is Nothing) Then
+                MyBase.Tables.Add(New DataTableDataTable(ds.Tables("DataTable")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -188,10 +188,10 @@ Partial Public Class DataSet1
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tablestock_in = CType(MyBase.Tables("stock_in"),stock_inDataTable)
+        Me.tableDataTable = CType(MyBase.Tables("DataTable"),DataTableDataTable)
         If (initTable = true) Then
-            If (Not (Me.tablestock_in) Is Nothing) Then
-                Me.tablestock_in.InitVars
+            If (Not (Me.tableDataTable) Is Nothing) Then
+                Me.tableDataTable.InitVars
             End If
         End If
     End Sub
@@ -204,13 +204,13 @@ Partial Public Class DataSet1
         Me.Namespace = "http://tempuri.org/DataSet1.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tablestock_in = New stock_inDataTable()
-        MyBase.Tables.Add(Me.tablestock_in)
+        Me.tableDataTable = New DataTableDataTable()
+        MyBase.Tables.Add(Me.tableDataTable)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Private Function ShouldSerializestock_in() As Boolean
+    Private Function ShouldSerializeDataTable() As Boolean
         Return false
     End Function
     
@@ -273,29 +273,25 @@ Partial Public Class DataSet1
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Delegate Sub stock_inRowChangeEventHandler(ByVal sender As Object, ByVal e As stock_inRowChangeEvent)
+    Public Delegate Sub DataTableRowChangeEventHandler(ByVal sender As Object, ByVal e As DataTableRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class stock_inDataTable
-        Inherits Global.System.Data.TypedTableBase(Of stock_inRow)
+    Partial Public Class DataTableDataTable
+        Inherits Global.System.Data.TypedTableBase(Of DataTableRow)
         
-        Private columnstock_in_id As Global.System.Data.DataColumn
+        Private columncash_in_id As Global.System.Data.DataColumn
         
-        Private columninventory_id As Global.System.Data.DataColumn
+        Private columncashier_id As Global.System.Data.DataColumn
         
-        Private columnbranch_id As Global.System.Data.DataColumn
-        
-        Private columnsupplier_id As Global.System.Data.DataColumn
-        
-        Private columnref_no As Global.System.Data.DataColumn
-        
-        Private columnqty As Global.System.Data.DataColumn
+        Private columnmanager_id As Global.System.Data.DataColumn
         
         Private columntrans_date As Global.System.Data.DataColumn
+        
+        Private columnamount As Global.System.Data.DataColumn
         
         Private columnremarks As Global.System.Data.DataColumn
         
@@ -303,7 +299,7 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "stock_in"
+            Me.TableName = "DataTable"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -336,49 +332,25 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property stock_in_idColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property cash_in_idColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnstock_in_id
+                Return Me.columncash_in_id
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property inventory_idColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property cashier_idColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columninventory_id
+                Return Me.columncashier_id
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property branch_idColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property manager_idColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnbranch_id
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property supplier_idColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnsupplier_id
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property ref_noColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnref_no
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property qtyColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnqty
+                Return Me.columnmanager_id
             End Get
         End Property
         
@@ -387,6 +359,14 @@ Partial Public Class DataSet1
         Public ReadOnly Property trans_dateColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columntrans_date
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property amountColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnamount
             End Get
         End Property
         
@@ -409,44 +389,44 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As stock_inRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As DataTableRow
             Get
-                Return CType(Me.Rows(index),stock_inRow)
+                Return CType(Me.Rows(index),DataTableRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event stock_inRowChanging As stock_inRowChangeEventHandler
+        Public Event DataTableRowChanging As DataTableRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event stock_inRowChanged As stock_inRowChangeEventHandler
+        Public Event DataTableRowChanged As DataTableRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event stock_inRowDeleting As stock_inRowChangeEventHandler
+        Public Event DataTableRowDeleting As DataTableRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event stock_inRowDeleted As stock_inRowChangeEventHandler
+        Public Event DataTableRowDeleted As DataTableRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Sub Addstock_inRow(ByVal row As stock_inRow)
+        Public Overloads Sub AddDataTableRow(ByVal row As DataTableRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function Addstock_inRow(ByVal inventory_id As Long, ByVal branch_id As Long, ByVal supplier_id As Long, ByVal ref_no As Long, ByVal qty As Integer, ByVal trans_date As Date, ByVal remarks As String) As stock_inRow
-            Dim rowstock_inRow As stock_inRow = CType(Me.NewRow,stock_inRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, inventory_id, branch_id, supplier_id, ref_no, qty, trans_date, remarks}
-            rowstock_inRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowstock_inRow)
-            Return rowstock_inRow
+        Public Overloads Function AddDataTableRow(ByVal cashier_id As Long, ByVal manager_id As Long, ByVal trans_date As Date, ByVal amount As Decimal, ByVal remarks As String) As DataTableRow
+            Dim rowDataTableRow As DataTableRow = CType(Me.NewRow,DataTableRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, cashier_id, manager_id, trans_date, amount, remarks}
+            rowDataTableRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowDataTableRow)
+            Return rowDataTableRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As stock_inDataTable = CType(MyBase.Clone,stock_inDataTable)
+            Dim cln As DataTableDataTable = CType(MyBase.Clone,DataTableDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -454,73 +434,67 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New stock_inDataTable()
+            Return New DataTableDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnstock_in_id = MyBase.Columns("stock_in_id")
-            Me.columninventory_id = MyBase.Columns("inventory_id")
-            Me.columnbranch_id = MyBase.Columns("branch_id")
-            Me.columnsupplier_id = MyBase.Columns("supplier_id")
-            Me.columnref_no = MyBase.Columns("ref_no")
-            Me.columnqty = MyBase.Columns("qty")
+            Me.columncash_in_id = MyBase.Columns("cash_in_id")
+            Me.columncashier_id = MyBase.Columns("cashier_id")
+            Me.columnmanager_id = MyBase.Columns("manager_id")
             Me.columntrans_date = MyBase.Columns("trans_date")
+            Me.columnamount = MyBase.Columns("amount")
             Me.columnremarks = MyBase.Columns("remarks")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnstock_in_id = New Global.System.Data.DataColumn("stock_in_id", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnstock_in_id)
-            Me.columninventory_id = New Global.System.Data.DataColumn("inventory_id", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columninventory_id)
-            Me.columnbranch_id = New Global.System.Data.DataColumn("branch_id", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnbranch_id)
-            Me.columnsupplier_id = New Global.System.Data.DataColumn("supplier_id", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnsupplier_id)
-            Me.columnref_no = New Global.System.Data.DataColumn("ref_no", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnref_no)
-            Me.columnqty = New Global.System.Data.DataColumn("qty", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnqty)
+            Me.columncash_in_id = New Global.System.Data.DataColumn("cash_in_id", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncash_in_id)
+            Me.columncashier_id = New Global.System.Data.DataColumn("cashier_id", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncashier_id)
+            Me.columnmanager_id = New Global.System.Data.DataColumn("manager_id", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmanager_id)
             Me.columntrans_date = New Global.System.Data.DataColumn("trans_date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntrans_date)
+            Me.columnamount = New Global.System.Data.DataColumn("amount", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnamount)
             Me.columnremarks = New Global.System.Data.DataColumn("remarks", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnremarks)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnstock_in_id}, false))
-            Me.columnstock_in_id.AutoIncrement = true
-            Me.columnstock_in_id.AutoIncrementSeed = -1
-            Me.columnstock_in_id.AutoIncrementStep = -1
-            Me.columnstock_in_id.Unique = true
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columncash_in_id}, false))
+            Me.columncash_in_id.AutoIncrement = true
+            Me.columncash_in_id.AutoIncrementSeed = -1
+            Me.columncash_in_id.AutoIncrementStep = -1
+            Me.columncash_in_id.Unique = true
             Me.columnremarks.MaxLength = 1020
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Newstock_inRow() As stock_inRow
-            Return CType(Me.NewRow,stock_inRow)
+        Public Function NewDataTableRow() As DataTableRow
+            Return CType(Me.NewRow,DataTableRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New stock_inRow(builder)
+            Return New DataTableRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(stock_inRow)
+            Return GetType(DataTableRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.stock_inRowChangedEvent) Is Nothing) Then
-                RaiseEvent stock_inRowChanged(Me, New stock_inRowChangeEvent(CType(e.Row,stock_inRow), e.Action))
+            If (Not (Me.DataTableRowChangedEvent) Is Nothing) Then
+                RaiseEvent DataTableRowChanged(Me, New DataTableRowChangeEvent(CType(e.Row,DataTableRow), e.Action))
             End If
         End Sub
         
@@ -528,8 +502,8 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.stock_inRowChangingEvent) Is Nothing) Then
-                RaiseEvent stock_inRowChanging(Me, New stock_inRowChangeEvent(CType(e.Row,stock_inRow), e.Action))
+            If (Not (Me.DataTableRowChangingEvent) Is Nothing) Then
+                RaiseEvent DataTableRowChanging(Me, New DataTableRowChangeEvent(CType(e.Row,DataTableRow), e.Action))
             End If
         End Sub
         
@@ -537,8 +511,8 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.stock_inRowDeletedEvent) Is Nothing) Then
-                RaiseEvent stock_inRowDeleted(Me, New stock_inRowChangeEvent(CType(e.Row,stock_inRow), e.Action))
+            If (Not (Me.DataTableRowDeletedEvent) Is Nothing) Then
+                RaiseEvent DataTableRowDeleted(Me, New DataTableRowChangeEvent(CType(e.Row,DataTableRow), e.Action))
             End If
         End Sub
         
@@ -546,14 +520,14 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.stock_inRowDeletingEvent) Is Nothing) Then
-                RaiseEvent stock_inRowDeleting(Me, New stock_inRowChangeEvent(CType(e.Row,stock_inRow), e.Action))
+            If (Not (Me.DataTableRowDeletingEvent) Is Nothing) Then
+                RaiseEvent DataTableRowDeleting(Me, New DataTableRowChangeEvent(CType(e.Row,DataTableRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Removestock_inRow(ByVal row As stock_inRow)
+        Public Sub RemoveDataTableRow(ByVal row As DataTableRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -580,7 +554,7 @@ Partial Public Class DataSet1
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "stock_inDataTable"
+            attribute2.FixedValue = "DataTableDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -627,105 +601,60 @@ Partial Public Class DataSet1
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class stock_inRow
+    Partial Public Class DataTableRow
         Inherits Global.System.Data.DataRow
         
-        Private tablestock_in As stock_inDataTable
+        Private tableDataTable As DataTableDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tablestock_in = CType(Me.Table,stock_inDataTable)
+            Me.tableDataTable = CType(Me.Table,DataTableDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property stock_in_id() As Long
+        Public Property cash_in_id() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tablestock_in.stock_in_idColumn),Long)
+                    Return CType(Me(Me.tableDataTable.cash_in_idColumn),Long)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'stock_in_id' in table 'stock_in' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cash_in_id' in table 'DataTable' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablestock_in.stock_in_idColumn) = value
+                Me(Me.tableDataTable.cash_in_idColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property inventory_id() As Long
+        Public Property cashier_id() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tablestock_in.inventory_idColumn),Long)
+                    Return CType(Me(Me.tableDataTable.cashier_idColumn),Long)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'inventory_id' in table 'stock_in' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cashier_id' in table 'DataTable' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablestock_in.inventory_idColumn) = value
+                Me(Me.tableDataTable.cashier_idColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property branch_id() As Long
+        Public Property manager_id() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tablestock_in.branch_idColumn),Long)
+                    Return CType(Me(Me.tableDataTable.manager_idColumn),Long)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'branch_id' in table 'stock_in' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'manager_id' in table 'DataTable' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablestock_in.branch_idColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property supplier_id() As Long
-            Get
-                Try 
-                    Return CType(Me(Me.tablestock_in.supplier_idColumn),Long)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'supplier_id' in table 'stock_in' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablestock_in.supplier_idColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property ref_no() As Long
-            Get
-                Try 
-                    Return CType(Me(Me.tablestock_in.ref_noColumn),Long)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'ref_no' in table 'stock_in' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablestock_in.ref_noColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property qty() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tablestock_in.qtyColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'qty' in table 'stock_in' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablestock_in.qtyColumn) = value
+                Me(Me.tableDataTable.manager_idColumn) = value
             End Set
         End Property
         
@@ -734,13 +663,28 @@ Partial Public Class DataSet1
         Public Property trans_date() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tablestock_in.trans_dateColumn),Date)
+                    Return CType(Me(Me.tableDataTable.trans_dateColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'trans_date' in table 'stock_in' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'trans_date' in table 'DataTable' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablestock_in.trans_dateColumn) = value
+                Me(Me.tableDataTable.trans_dateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property amount() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTable.amountColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'amount' in table 'DataTable' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTable.amountColumn) = value
             End Set
         End Property
         
@@ -749,110 +693,86 @@ Partial Public Class DataSet1
         Public Property remarks() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablestock_in.remarksColumn),String)
+                    Return CType(Me(Me.tableDataTable.remarksColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'remarks' in table 'stock_in' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'remarks' in table 'DataTable' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablestock_in.remarksColumn) = value
+                Me(Me.tableDataTable.remarksColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isstock_in_idNull() As Boolean
-            Return Me.IsNull(Me.tablestock_in.stock_in_idColumn)
+        Public Function Iscash_in_idNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable.cash_in_idColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setstock_in_idNull()
-            Me(Me.tablestock_in.stock_in_idColumn) = Global.System.Convert.DBNull
+        Public Sub Setcash_in_idNull()
+            Me(Me.tableDataTable.cash_in_idColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isinventory_idNull() As Boolean
-            Return Me.IsNull(Me.tablestock_in.inventory_idColumn)
+        Public Function Iscashier_idNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable.cashier_idColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setinventory_idNull()
-            Me(Me.tablestock_in.inventory_idColumn) = Global.System.Convert.DBNull
+        Public Sub Setcashier_idNull()
+            Me(Me.tableDataTable.cashier_idColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isbranch_idNull() As Boolean
-            Return Me.IsNull(Me.tablestock_in.branch_idColumn)
+        Public Function Ismanager_idNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable.manager_idColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setbranch_idNull()
-            Me(Me.tablestock_in.branch_idColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Issupplier_idNull() As Boolean
-            Return Me.IsNull(Me.tablestock_in.supplier_idColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setsupplier_idNull()
-            Me(Me.tablestock_in.supplier_idColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isref_noNull() As Boolean
-            Return Me.IsNull(Me.tablestock_in.ref_noColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setref_noNull()
-            Me(Me.tablestock_in.ref_noColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsqtyNull() As Boolean
-            Return Me.IsNull(Me.tablestock_in.qtyColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetqtyNull()
-            Me(Me.tablestock_in.qtyColumn) = Global.System.Convert.DBNull
+        Public Sub Setmanager_idNull()
+            Me(Me.tableDataTable.manager_idColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Istrans_dateNull() As Boolean
-            Return Me.IsNull(Me.tablestock_in.trans_dateColumn)
+            Return Me.IsNull(Me.tableDataTable.trans_dateColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Settrans_dateNull()
-            Me(Me.tablestock_in.trans_dateColumn) = Global.System.Convert.DBNull
+            Me(Me.tableDataTable.trans_dateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsamountNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable.amountColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetamountNull()
+            Me(Me.tableDataTable.amountColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsremarksNull() As Boolean
-            Return Me.IsNull(Me.tablestock_in.remarksColumn)
+            Return Me.IsNull(Me.tableDataTable.remarksColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetremarksNull()
-            Me(Me.tablestock_in.remarksColumn) = Global.System.Convert.DBNull
+            Me(Me.tableDataTable.remarksColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -860,16 +780,16 @@ Partial Public Class DataSet1
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Class stock_inRowChangeEvent
+    Public Class DataTableRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As stock_inRow
+        Private eventRow As DataTableRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New(ByVal row As stock_inRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As DataTableRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -877,7 +797,7 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Row() As stock_inRow
+        Public ReadOnly Property Row() As DataTableRow
             Get
                 Return Me.eventRow
             End Get
@@ -904,7 +824,7 @@ Namespace DataSet1TableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class stock_inTableAdapter
+    Partial Public Class DataTableTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.Odbc.OdbcDataAdapter
@@ -1021,14 +941,12 @@ Namespace DataSet1TableAdapters
             Me._adapter = New Global.System.Data.Odbc.OdbcDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "stock_in"
-            tableMapping.ColumnMappings.Add("stock_in_id", "stock_in_id")
-            tableMapping.ColumnMappings.Add("inventory_id", "inventory_id")
-            tableMapping.ColumnMappings.Add("branch_id", "branch_id")
-            tableMapping.ColumnMappings.Add("supplier_id", "supplier_id")
-            tableMapping.ColumnMappings.Add("ref_no", "ref_no")
-            tableMapping.ColumnMappings.Add("qty", "qty")
+            tableMapping.DataSetTable = "DataTable"
+            tableMapping.ColumnMappings.Add("cash_in_id", "cash_in_id")
+            tableMapping.ColumnMappings.Add("cashier_id", "cashier_id")
+            tableMapping.ColumnMappings.Add("manager_id", "manager_id")
             tableMapping.ColumnMappings.Add("trans_date", "trans_date")
+            tableMapping.ColumnMappings.Add("amount", "amount")
             tableMapping.ColumnMappings.Add("remarks", "remarks")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
@@ -1046,7 +964,7 @@ Namespace DataSet1TableAdapters
             Me._commandCollection = New Global.System.Data.Odbc.OdbcCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.Odbc.OdbcCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT * FROM `stock_in`"
+            Me._commandCollection(0).CommandText = "SELECT * FROM `cash_in`"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1054,7 +972,7 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet1.stock_inDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet1.DataTableDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -1067,9 +985,9 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DataSet1.stock_inDataTable
+        Public Overloads Overridable Function GetData() As DataSet1.DataTableDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DataSet1.stock_inDataTable = New DataSet1.stock_inDataTable()
+            Dim dataTable As DataSet1.DataTableDataTable = New DataSet1.DataTableDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function

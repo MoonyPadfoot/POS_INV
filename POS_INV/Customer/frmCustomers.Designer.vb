@@ -35,6 +35,17 @@ Partial Class frmCustomers
         Dim DataGridViewCellStyle65 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Code = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Gname = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Mi = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Fname = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Suffix = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Balance = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_Edit = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.col_Delete = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btn_Add = New System.Windows.Forms.Button()
@@ -52,17 +63,6 @@ Partial Class frmCustomers
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.lbl_Balance = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_Code = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_Gname = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_Mi = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_Fname = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_Suffix = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_Balance = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_Edit = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.col_Delete = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
@@ -100,6 +100,131 @@ Partial Class frmCustomers
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(1281, 376)
         Me.DataGridView1.TabIndex = 8
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.Visible = False
+        Me.DataGridViewTextBoxColumn4.Width = 125
+        '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle56.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle56
+        Me.Column6.HeaderText = "#"
+        Me.Column6.MinimumWidth = 6
+        Me.Column6.Name = "Column6"
+        Me.Column6.Width = 45
+        '
+        'col_Code
+        '
+        Me.col_Code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle57.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Code.DefaultCellStyle = DataGridViewCellStyle57
+        Me.col_Code.HeaderText = "Customer Code"
+        Me.col_Code.MinimumWidth = 6
+        Me.col_Code.Name = "col_Code"
+        Me.col_Code.ReadOnly = True
+        Me.col_Code.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_Code.Width = 123
+        '
+        'col_Gname
+        '
+        Me.col_Gname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle58.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Gname.DefaultCellStyle = DataGridViewCellStyle58
+        Me.col_Gname.HeaderText = "Given Name"
+        Me.col_Gname.MinimumWidth = 6
+        Me.col_Gname.Name = "col_Gname"
+        Me.col_Gname.ReadOnly = True
+        Me.col_Gname.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'col_Mi
+        '
+        Me.col_Mi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle59.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Mi.DefaultCellStyle = DataGridViewCellStyle59
+        Me.col_Mi.HeaderText = "M.I."
+        Me.col_Mi.MinimumWidth = 6
+        Me.col_Mi.Name = "col_Mi"
+        Me.col_Mi.ReadOnly = True
+        Me.col_Mi.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_Mi.Width = 59
+        '
+        'col_Fname
+        '
+        Me.col_Fname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle60.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Fname.DefaultCellStyle = DataGridViewCellStyle60
+        Me.col_Fname.HeaderText = "Family Name"
+        Me.col_Fname.MinimumWidth = 6
+        Me.col_Fname.Name = "col_Fname"
+        Me.col_Fname.ReadOnly = True
+        Me.col_Fname.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'col_Suffix
+        '
+        Me.col_Suffix.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle61.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Suffix.DefaultCellStyle = DataGridViewCellStyle61
+        Me.col_Suffix.HeaderText = "Suffix"
+        Me.col_Suffix.MinimumWidth = 6
+        Me.col_Suffix.Name = "col_Suffix"
+        Me.col_Suffix.ReadOnly = True
+        Me.col_Suffix.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.col_Suffix.Width = 71
+        '
+        'Column1
+        '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle62.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle62
+        Me.Column1.HeaderText = "Credit Limit"
+        Me.Column1.MinimumWidth = 6
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column1.Width = 99
+        '
+        'col_Balance
+        '
+        DataGridViewCellStyle63.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Balance.DefaultCellStyle = DataGridViewCellStyle63
+        Me.col_Balance.HeaderText = "Balance"
+        Me.col_Balance.MinimumWidth = 6
+        Me.col_Balance.Name = "col_Balance"
+        Me.col_Balance.Visible = False
+        Me.col_Balance.Width = 125
+        '
+        'col_Edit
+        '
+        Me.col_Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle64.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Edit.DefaultCellStyle = DataGridViewCellStyle64
+        Me.col_Edit.HeaderText = ""
+        Me.col_Edit.MinimumWidth = 6
+        Me.col_Edit.Name = "col_Edit"
+        Me.col_Edit.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.col_Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.col_Edit.Width = 23
+        '
+        'col_Delete
+        '
+        Me.col_Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle65.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.col_Delete.DefaultCellStyle = DataGridViewCellStyle65
+        Me.col_Delete.HeaderText = ""
+        Me.col_Delete.MinimumWidth = 6
+        Me.col_Delete.Name = "col_Delete"
+        Me.col_Delete.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.col_Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.col_Delete.Width = 23
         '
         'Panel3
         '
@@ -235,31 +360,31 @@ Partial Class frmCustomers
         '
         'lbl_amount_Receivable
         '
-        Me.lbl_amount_Receivable.AutoSize = True
-        Me.lbl_amount_Receivable.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_amount_Receivable.Location = New System.Drawing.Point(502, 28)
+        Me.lbl_amount_Receivable.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_amount_Receivable.Location = New System.Drawing.Point(520, 28)
         Me.lbl_amount_Receivable.Name = "lbl_amount_Receivable"
-        Me.lbl_amount_Receivable.Size = New System.Drawing.Size(91, 20)
+        Me.lbl_amount_Receivable.Size = New System.Drawing.Size(126, 20)
         Me.lbl_amount_Receivable.TabIndex = 29
         Me.lbl_amount_Receivable.Text = "Row Count"
+        Me.lbl_amount_Receivable.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Panel4
         '
         Me.Panel4.Controls.Add(Me.lbl_Balance)
         Me.Panel4.Controls.Add(Me.Label7)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel4.Location = New System.Drawing.Point(618, 0)
+        Me.Panel4.Location = New System.Drawing.Point(652, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(663, 77)
+        Me.Panel4.Size = New System.Drawing.Size(629, 77)
         Me.Panel4.TabIndex = 28
         '
         'lbl_Balance
         '
         Me.lbl_Balance.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbl_Balance.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Balance.Location = New System.Drawing.Point(301, 13)
+        Me.lbl_Balance.Location = New System.Drawing.Point(315, 13)
         Me.lbl_Balance.Name = "lbl_Balance"
-        Me.lbl_Balance.Size = New System.Drawing.Size(350, 50)
+        Me.lbl_Balance.Size = New System.Drawing.Size(302, 50)
         Me.lbl_Balance.TabIndex = 27
         Me.lbl_Balance.Text = "200,000.00"
         Me.lbl_Balance.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -273,131 +398,6 @@ Partial Class frmCustomers
         Me.Label7.Size = New System.Drawing.Size(271, 46)
         Me.Label7.TabIndex = 26
         Me.Label7.Text = "User Balance:"
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.Visible = False
-        Me.DataGridViewTextBoxColumn4.Width = 125
-        '
-        'Column6
-        '
-        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle56.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle56
-        Me.Column6.HeaderText = "#"
-        Me.Column6.MinimumWidth = 6
-        Me.Column6.Name = "Column6"
-        Me.Column6.Width = 45
-        '
-        'col_Code
-        '
-        Me.col_Code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle57.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.col_Code.DefaultCellStyle = DataGridViewCellStyle57
-        Me.col_Code.HeaderText = "Customer Code"
-        Me.col_Code.MinimumWidth = 6
-        Me.col_Code.Name = "col_Code"
-        Me.col_Code.ReadOnly = True
-        Me.col_Code.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_Code.Width = 123
-        '
-        'col_Gname
-        '
-        Me.col_Gname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle58.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.col_Gname.DefaultCellStyle = DataGridViewCellStyle58
-        Me.col_Gname.HeaderText = "Given Name"
-        Me.col_Gname.MinimumWidth = 6
-        Me.col_Gname.Name = "col_Gname"
-        Me.col_Gname.ReadOnly = True
-        Me.col_Gname.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'col_Mi
-        '
-        Me.col_Mi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle59.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.col_Mi.DefaultCellStyle = DataGridViewCellStyle59
-        Me.col_Mi.HeaderText = "M.I."
-        Me.col_Mi.MinimumWidth = 6
-        Me.col_Mi.Name = "col_Mi"
-        Me.col_Mi.ReadOnly = True
-        Me.col_Mi.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_Mi.Width = 59
-        '
-        'col_Fname
-        '
-        Me.col_Fname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle60.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.col_Fname.DefaultCellStyle = DataGridViewCellStyle60
-        Me.col_Fname.HeaderText = "Family Name"
-        Me.col_Fname.MinimumWidth = 6
-        Me.col_Fname.Name = "col_Fname"
-        Me.col_Fname.ReadOnly = True
-        Me.col_Fname.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'col_Suffix
-        '
-        Me.col_Suffix.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle61.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.col_Suffix.DefaultCellStyle = DataGridViewCellStyle61
-        Me.col_Suffix.HeaderText = "Suffix"
-        Me.col_Suffix.MinimumWidth = 6
-        Me.col_Suffix.Name = "col_Suffix"
-        Me.col_Suffix.ReadOnly = True
-        Me.col_Suffix.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.col_Suffix.Width = 71
-        '
-        'Column1
-        '
-        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle62.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle62
-        Me.Column1.HeaderText = "Credit Limit"
-        Me.Column1.MinimumWidth = 6
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column1.Width = 99
-        '
-        'col_Balance
-        '
-        DataGridViewCellStyle63.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.col_Balance.DefaultCellStyle = DataGridViewCellStyle63
-        Me.col_Balance.HeaderText = "Balance"
-        Me.col_Balance.MinimumWidth = 6
-        Me.col_Balance.Name = "col_Balance"
-        Me.col_Balance.Visible = False
-        Me.col_Balance.Width = 125
-        '
-        'col_Edit
-        '
-        Me.col_Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle64.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.col_Edit.DefaultCellStyle = DataGridViewCellStyle64
-        Me.col_Edit.HeaderText = ""
-        Me.col_Edit.MinimumWidth = 6
-        Me.col_Edit.Name = "col_Edit"
-        Me.col_Edit.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.col_Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_Edit.Width = 23
-        '
-        'col_Delete
-        '
-        Me.col_Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle65.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.col_Delete.DefaultCellStyle = DataGridViewCellStyle65
-        Me.col_Delete.HeaderText = ""
-        Me.col_Delete.MinimumWidth = 6
-        Me.col_Delete.Name = "col_Delete"
-        Me.col_Delete.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.col_Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_Delete.Width = 23
         '
         'frmCustomers
         '

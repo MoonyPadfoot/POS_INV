@@ -137,6 +137,7 @@ Partial Class frmChangePass
         Me.lbl_type.Size = New System.Drawing.Size(16, 17)
         Me.lbl_type.TabIndex = 28
         Me.lbl_type.Text = "1"
+        Me.lbl_type.Visible = False
         '
         'frmChangePass
         '

@@ -98,6 +98,7 @@ Partial Class frmBrandCat
         Me.lbl_brand_Cat.Size = New System.Drawing.Size(51, 17)
         Me.lbl_brand_Cat.TabIndex = 7
         Me.lbl_brand_Cat.Text = "Label1"
+        Me.lbl_brand_Cat.Visible = False
         '
         'frmBrandCat
         '

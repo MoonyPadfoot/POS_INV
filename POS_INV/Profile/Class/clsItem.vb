@@ -86,6 +86,42 @@ Public Class clsItem
         DisconnectDatabase()
         Return False
     End Function
+    Public Function delete()
+        Try
+            ConnectDatabase()
+            Dim query = "DELETE FROM item WHERE item_code = @item_code"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@item_code", _ItemCode)
+            cm.ExecuteNonQuery()
+            DisconnectDatabase()
+            'loadAutosuggest()
+            Return True
+
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
+    Public Function checkItemExists() 'checks if item is already in use in other tables(user, stock)
+        Try
+            ConnectDatabase()
+            Dim query = "SELECT COUNT(*) FROM item INNER JOIN inventory ON inventory.item_id = item.item_id WHERE item_code = @item_code"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@item_code", _ItemCode)
+            Dim count = cm.ExecuteScalar()
+            If count > 0 Then
+                Return True
+                DisconnectDatabase()
+            End If
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
     Public Function checkItemDuplicate()
         Try
             ConnectDatabase()

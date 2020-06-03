@@ -84,4 +84,5 @@
         frmMain.btn_Profile.BackColor = Color.FromArgb(149, 165, 166)
         Me.Close()
     End Sub
+
 End Class

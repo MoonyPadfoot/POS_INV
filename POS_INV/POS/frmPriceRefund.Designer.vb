@@ -42,6 +42,7 @@ Partial Class frmPriceRefund
         Me.lbl_Type.Size = New System.Drawing.Size(57, 25)
         Me.lbl_Type.TabIndex = 21
         Me.lbl_Type.Text = "Type"
+        Me.lbl_Type.Visible = False
         '
         'Label2
         '

@@ -178,6 +178,7 @@ Partial Class frmServiceEntry
         Me.lbl_Id.Size = New System.Drawing.Size(49, 17)
         Me.lbl_Id.TabIndex = 35
         Me.lbl_Id.Text = "Fee B:"
+        Me.lbl_Id.Visible = False
         '
         'frmServiceEntry
         '

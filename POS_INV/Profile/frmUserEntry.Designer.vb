@@ -287,6 +287,7 @@ Partial Class frmUserEntry
         Me.lbl_Id.Size = New System.Drawing.Size(19, 17)
         Me.lbl_Id.TabIndex = 42
         Me.lbl_Id.Text = "Id"
+        Me.lbl_Id.Visible = False
         '
         'GroupBox1
         '
@@ -366,6 +367,7 @@ Partial Class frmUserEntry
         Me.lbl_branch_Id.Size = New System.Drawing.Size(64, 17)
         Me.lbl_branch_Id.TabIndex = 45
         Me.lbl_branch_Id.Text = "BranchId"
+        Me.lbl_branch_Id.Visible = False
         '
         'frmUserEntry
         '

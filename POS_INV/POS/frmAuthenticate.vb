@@ -86,6 +86,8 @@
         End If
     End Sub
     Private Sub btn_Cancel_Click(sender As Object, e As EventArgs) Handles btn_Cancel.Click
+        tb_Password.Clear()
+        tb_Username.Clear()
         Me.Close()
     End Sub
 

@@ -25,8 +25,7 @@ Partial Class frmMain
         Me.components = New System.ComponentModel.Container()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lbl_Date = New System.Windows.Forms.Label()
         Me.pnlFooter = New System.Windows.Forms.Panel()
         Me.pnlHeader = New System.Windows.Forms.Panel()
         Me.lbl_branch_Id = New System.Windows.Forms.Label()
@@ -50,54 +49,50 @@ Partial Class frmMain
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lbl_Type = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
         Me.pnlFooter.SuspendLayout()
         Me.pnlHeader.SuspendLayout()
         Me.pnlBody.SuspendLayout()
+        Me.pnlMid.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.SystemColors.ControlDark
         Me.Panel4.Controls.Add(Me.Label2)
-        Me.Panel4.Controls.Add(Me.Label3)
+        Me.Panel4.Controls.Add(Me.lbl_Date)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel4.Location = New System.Drawing.Point(1568, 0)
+        Me.Panel4.Location = New System.Drawing.Point(1418, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(310, 38)
+        Me.Panel4.Size = New System.Drawing.Size(460, 49)
         Me.Panel4.TabIndex = 2
         '
-        'Label2
+        'lbl_Date
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(3, 8)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(42, 17)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Date:"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(133, 8)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(43, 17)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Time:"
+        Me.lbl_Date.AutoSize = True
+        Me.lbl_Date.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Date.Location = New System.Drawing.Point(183, 14)
+        Me.lbl_Date.Name = "lbl_Date"
+        Me.lbl_Date.Size = New System.Drawing.Size(55, 20)
+        Me.lbl_Date.TabIndex = 0
+        Me.lbl_Date.Text = "Date:"
         '
         'pnlFooter
         '
         Me.pnlFooter.BackColor = System.Drawing.SystemColors.ControlDark
         Me.pnlFooter.Controls.Add(Me.Panel4)
         Me.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlFooter.Location = New System.Drawing.Point(0, 532)
+        Me.pnlFooter.Location = New System.Drawing.Point(0, 521)
         Me.pnlFooter.Name = "pnlFooter"
-        Me.pnlFooter.Size = New System.Drawing.Size(1878, 38)
+        Me.pnlFooter.Size = New System.Drawing.Size(1878, 49)
         Me.pnlFooter.TabIndex = 1
         '
         'pnlHeader
@@ -122,6 +117,7 @@ Partial Class frmMain
         Me.lbl_branch_Id.TabIndex = 15
         Me.lbl_branch_Id.Text = "Branch"
         Me.lbl_branch_Id.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lbl_branch_Id.Visible = False
         '
         'lbl_Username
         '
@@ -132,6 +128,7 @@ Partial Class frmMain
         Me.lbl_Username.TabIndex = 14
         Me.lbl_Username.Text = "Admin"
         Me.lbl_Username.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lbl_Username.Visible = False
         '
         'btn_Logout
         '
@@ -165,16 +162,17 @@ Partial Class frmMain
         Me.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlBody.Location = New System.Drawing.Point(0, 48)
         Me.pnlBody.Name = "pnlBody"
-        Me.pnlBody.Size = New System.Drawing.Size(1878, 484)
+        Me.pnlBody.Size = New System.Drawing.Size(1878, 473)
         Me.pnlBody.TabIndex = 3
         '
         'pnlMid
         '
         Me.pnlMid.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.pnlMid.Controls.Add(Me.PictureBox1)
         Me.pnlMid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlMid.Location = New System.Drawing.Point(0, 59)
         Me.pnlMid.Name = "pnlMid"
-        Me.pnlMid.Size = New System.Drawing.Size(1878, 425)
+        Me.pnlMid.Size = New System.Drawing.Size(1878, 414)
         Me.pnlMid.TabIndex = 12
         '
         'Panel3
@@ -305,6 +303,7 @@ Partial Class frmMain
         Me.btn_sales_Report.TabIndex = 6
         Me.btn_sales_Report.Text = "&Sales Report [F5]"
         Me.btn_sales_Report.UseVisualStyleBackColor = False
+        Me.btn_sales_Report.Visible = False
         '
         'btn_Pos
         '
@@ -386,6 +385,28 @@ Partial Class frmMain
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "User:"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox1.Image = Global.POS_INV.My.Resources.Resources.filler
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(1878, 414)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(9, 14)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(138, 20)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Date and Time:"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -404,6 +425,7 @@ Partial Class frmMain
         Me.pnlHeader.ResumeLayout(False)
         Me.pnlHeader.PerformLayout()
         Me.pnlBody.ResumeLayout(False)
+        Me.pnlMid.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
@@ -411,13 +433,13 @@ Partial Class frmMain
         Me.Panel5.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lbl_Date As Label
     Friend WithEvents pnlFooter As Panel
     Friend WithEvents pnlHeader As Panel
     Friend WithEvents lbl_Header As Label
@@ -441,4 +463,6 @@ Partial Class frmMain
     Friend WithEvents btn_Help As Button
     Friend WithEvents lbl_Username As Label
     Friend WithEvents lbl_branch_Id As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label2 As Label
 End Class

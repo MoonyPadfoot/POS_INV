@@ -124,6 +124,7 @@ Partial Class frmAuthenticate
         Me.lbl_Type.Size = New System.Drawing.Size(40, 20)
         Me.lbl_Type.TabIndex = 8
         Me.lbl_Type.Text = "type"
+        Me.lbl_Type.Visible = False
         '
         'lbl_Id
         '
@@ -134,6 +135,7 @@ Partial Class frmAuthenticate
         Me.lbl_Id.Size = New System.Drawing.Size(92, 20)
         Me.lbl_Id.TabIndex = 9
         Me.lbl_Id.Text = "manager id"
+        Me.lbl_Id.Visible = False
         '
         'frmAuthenticate
         '

@@ -89,6 +89,42 @@ Public Class clsCustomer
         DisconnectDatabase()
         Return False
     End Function
+    Public Function delete()
+        Try
+            ConnectDatabase()
+            Dim query = "DELETE FROM customer WHERE customer_id = @customer_id"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@customer_id", _Id)
+            cm.ExecuteNonQuery()
+            DisconnectDatabase()
+            'loadAutosuggest()
+            Return True
+
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
+    Public Function checkCustomerExists() 'checks if item is already in use in other tables(user, stock)
+        Try
+            ConnectDatabase()
+            Dim query = "SELECT COUNT(*) FROM credit_payment WHERE credit_payment.customer_id= @customer_id"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@customer_id", _Id)
+            Dim count = cm.ExecuteScalar()
+            If count > 0 Then
+                Return True
+                DisconnectDatabase()
+            End If
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
     Public Sub loadRecord() 'HERE'
         Dim i As Integer
         frmCustomers.DataGridView1.Rows.Clear()

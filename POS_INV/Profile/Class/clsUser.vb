@@ -68,6 +68,47 @@ Public Class clsUser
         DisconnectDatabase()
         Return False
     End Function
+    Public Function delete()
+        Try
+            ConnectDatabase()
+            Dim query = "DELETE FROM user WHERE user_id = @user_id"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@user_id", Id)
+            cm.ExecuteNonQuery()
+            DisconnectDatabase()
+            'loadAutosuggest()
+            Return True
+
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
+    Public Function checkUserExists() 'checks if item is already in use in other tables(user, stock)
+        Try
+            ConnectDatabase()
+            Dim query = "SELECT COUNT(*) FROM cashier WHERE user_id = @user_id"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@user_id", Id)
+            Dim count = cm.ExecuteScalar()
+
+            query = "SELECT COUNT(*) FROM manager WHERE user_id = @user_id"
+            cm = New MySqlCommand(query, con)
+            cm.Parameters.AddWithValue("@user_id", Id)
+            Dim count2 = count + cm.ExecuteScalar
+            If count2 > 0 Then
+                Return True
+                DisconnectDatabase()
+            End If
+        Catch ex As Exception
+            DisconnectDatabase()
+            MsgBox(ex.Message, vbCritical)
+        End Try
+        DisconnectDatabase()
+        Return False
+    End Function
     Public Function changePass()
         Try
             ConnectDatabase()

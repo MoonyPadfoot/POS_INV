@@ -103,6 +103,7 @@
     End Sub
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+        lbl_Date.Text = DateTime.Now.ToString()
         If lbl_Type.Text = "Admin" Then
             btn_Pos.Enabled = False
             btn_Inventory.Enabled = False
