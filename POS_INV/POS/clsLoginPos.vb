@@ -74,8 +74,8 @@ Public Class clsLoginPos
     End Function
     Public Function setBranchId()
         ConnectDatabase()
-        Dim query = "SELECT user.branch_id FROM user INNER JOIN cashier ON cashier.user_id = user.user_id 
-                    INNER JOIN branch ON branch.branch_id = user.branch_id WHERE cashier.username = @username "
+        Dim query = "SELECT users.branch_id FROM users INNER JOIN cashier ON cashier.user_id = users.user_id 
+                    INNER JOIN branch ON branch.branch_id = users.branch_id WHERE cashier.username = @username "
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         Return cm.ExecuteScalar()
@@ -99,9 +99,9 @@ Public Class clsLoginPos
     End Function
     Public Function setName(_key As Integer)
         ConnectDatabase()
-        Dim query = "SELECT user_gname, user_surname FROM aje_pos.`user`
-                        INNER JOIN user_details ON user_details.`user_id` = user.`user_id`
-                        INNER JOIN cashier ON cashier.`user_id` = user.`user_id` WHERE cashier.user_id = '" & _key & "'"
+        Dim query = "SELECT user_gname, user_surname FROM aje_pos.`users`
+                        INNER JOIN user_details ON user_details.`user_id` = users.`user_id`
+                        INNER JOIN cashier ON cashier.`user_id` = users.`user_id` WHERE cashier.user_id = '" & _key & "'"
         cm = New MySqlCommand(query, con)
         dr = cm.ExecuteReader
         dr.Read()

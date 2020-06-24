@@ -223,19 +223,19 @@
             Select Case cbo_Filter.Text
                 Case "Username"
                     user.UserSearch = Trim(tb_Search.Text)
-                    user.searchUser("SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR)AS username, user_type, is_active FROM user " &
-                            "INNER JOIN user_details ON user.user_id = user_details.user_id " &
-                            "INNER JOIN branch ON branch.branch_id = user.branch_id WHERE user.username LIKE @0")
+                    user.searchUser("SELECT users.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR)AS username, user_type, is_active FROM users " &
+                            "INNER JOIN user_details ON users.user_id = user_details.user_id " &
+                            "INNER JOIN branch ON branch.branch_id = users.branch_id WHERE users.username LIKE @0")
                 Case "Name"
                     user.UserSearch = Trim(tb_Search.Text)
-                    user.searchUser("SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR)AS username, user_type, is_active FROM user " &
-                            "INNER JOIN user_details ON user.user_id = user_details.user_id " &
-                            "INNER JOIN branch ON branch.branch_id = user.branch_id WHERE user_details.user_gname LIKE @0 OR user_details.user_surname LIKE @0")
+                    user.searchUser("SELECT users.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR)AS username, user_type, is_active FROM users " &
+                            "INNER JOIN user_details ON users.user_id = user_details.user_id " &
+                            "INNER JOIN branch ON branch.branch_id = users.branch_id WHERE user_details.user_gname LIKE @0 OR user_details.user_surname LIKE @0")
                 Case "Branch"
                     user.UserSearch = Trim(tb_Search.Text)
-                    user.searchUser("SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR)AS username, user_type, is_active FROM user " &
-                            "INNER JOIN user_details ON user.user_id = user_details.user_id " &
-                            "INNER JOIN branch ON branch.branch_id = user.branch_id WHERE branch_address LIKE @0")
+                    user.searchUser("SELECT users.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR)AS username, user_type, is_active FROM users " &
+                            "INNER JOIN user_details ON users.user_id = user_details.user_id " &
+                            "INNER JOIN branch ON branch.branch_id = users.branch_id WHERE branch_address LIKE @0")
 
             End Select
         Else
@@ -249,12 +249,12 @@
                     cashier.CashierSearch = Trim(tb_search_Cashier.Text)
                     cashier.searchUser("SELECT cashier.user_id, user_surname, user_gname, user_mi, user_suffix, CAST(cashier.username AS CHAR) AS _c_username, cashier.is_active FROM cashier " &
                             "INNER JOIN user_details ON cashier.user_id = user_details.user_id " &
-                            "INNER JOIN user ON user.user_id = cashier.user_id WHERE cashier.username LIKE @0")
+                            "INNER JOIN users ON users.user_id = cashier.user_id WHERE cashier.username LIKE @0")
                 Case "Name"
                     cashier.CashierSearch = Trim(tb_search_Cashier.Text)
                     cashier.searchUser("SELECT cashier.user_id, user_surname, user_gname, user_mi, user_suffix, CAST(cashier.username AS CHAR) AS _c_username, cashier.is_active FROM cashier " &
                             "INNER JOIN user_details ON cashier.user_id = user_details.user_id " &
-                            "INNER JOIN user ON user.user_id = cashier.user_id WHERE user_details.user_gname LIKE @0 OR user_details.user_surname LIKE @0")
+                            "INNER JOIN users ON users.user_id = cashier.user_id WHERE user_details.user_gname LIKE @0 OR user_details.user_surname LIKE @0")
             End Select
         Else
             cashier.loadRecord()
@@ -267,12 +267,12 @@
                     manager.ManagerSearch = Trim(tb_search_Manager.Text)
                     manager.searchUser("SELECT manager.user_id, user_surname, user_gname, user_mi, user_suffix, CAST(manager.username AS CHAR) AS _m_username, manager.is_active FROM manager " &
                             "INNER JOIN user_details ON manager.user_id = user_details.user_id " &
-                            "INNER JOIN user ON user.user_id = manager.user_id WHERE manager.username LIKE @0")
+                            "INNER JOIN users ON users.user_id = manager.user_id WHERE manager.username LIKE @0")
                 Case "Name"
                     manager.ManagerSearch = Trim(tb_search_Manager.Text)
                     manager.searchUser("SELECT manager.user_id, user_surname, user_gname, user_mi, user_suffix, CAST(manager.username AS CHAR) AS _m_username, manager.is_active FROM manager " &
                             "INNER JOIN user_details ON manager.user_id = user_details.user_id " &
-                            "INNER JOIN user ON user.user_id = manager.user_id WHERE user_details.user_gname LIKE @0 OR user_details.user_surname LIKE @0")
+                            "INNER JOIN users ON users.user_id = manager.user_id WHERE user_details.user_gname LIKE @0 OR user_details.user_surname LIKE @0")
             End Select
         Else
             manager.loadRecord()

@@ -107,9 +107,9 @@ Public Class clsManager
         Dim i As Integer
         frmUser.DataGridView3.Rows.Clear()
         ConnectDatabase()
-        Dim query = "SELECT user.user_id,  user_surname, user_gname, user_mi, user_suffix, CAST(manager.username AS CHAR) AS _m_username, manager.is_active FROM user " &
-                    "INNER JOIN user_details ON user.user_id = user_details.user_id " &
-                    "INNER JOIN manager ON manager.user_id = user.user_id"
+        Dim query = "SELECT users.user_id,  user_surname, user_gname, user_mi, user_suffix, CAST(manager.username AS CHAR) AS _m_username, manager.is_active FROM users " &
+                    "INNER JOIN user_details ON users.user_id = user_details.user_id " &
+                    "INNER JOIN manager ON manager.user_id = users.user_id"
         cm = New MySqlCommand(query, con)
         dr = cm.ExecuteReader()
         While dr.Read

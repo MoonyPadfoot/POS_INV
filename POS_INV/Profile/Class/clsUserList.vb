@@ -7,9 +7,9 @@ Public Class clsUserList
         Dim i As Integer
         frmUserList.DataGridView1.Rows.Clear()
         ConnectDatabase()
-        Dim query = "SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR) AS username, user_type, is_active FROM user " &
-                    "INNER JOIN user_details ON user.user_id = user_details.user_id " &
-                    "INNER JOIN branch ON branch.branch_id = user.branch_id"
+        Dim query = "SELECT users.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR) AS username, user_type, is_active FROM users " &
+                    "INNER JOIN user_details ON users.user_id = user_details.user_id " &
+                    "INNER JOIN branch ON branch.branch_id = users.branch_id"
         cm = New MySqlCommand(query, con)
         dr = cm.ExecuteReader()
         While dr.Read
@@ -67,7 +67,7 @@ Public Class clsUserList
     End Function
     Public Function checkUserTypeManager()
         ConnectDatabase()
-        Dim query = "SELECT user_type FROM user WHERE @user_id = user_id"
+        Dim query = "SELECT user_type FROM users WHERE @user_id = user_id"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@user_id", ManagerId)
         dr = cm.ExecuteReader()

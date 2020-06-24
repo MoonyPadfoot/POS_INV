@@ -22,9 +22,22 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.CrystalReportViewer2 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.cr_CashIn1 = New POS_INV.cr_CashIn()
+        Me.CrystalReportViewer3 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.CrystalReport11 = New POS_INV.CrystalReport1()
         Me.SuspendLayout()
+        '
+        'CrystalReportViewer2
+        '
+        Me.CrystalReportViewer2.ActiveViewIndex = -1
+        Me.CrystalReportViewer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer2.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CrystalReportViewer2.Location = New System.Drawing.Point(0, 0)
+        Me.CrystalReportViewer2.Name = "CrystalReportViewer2"
+        Me.CrystalReportViewer2.Size = New System.Drawing.Size(800, 450)
+        Me.CrystalReportViewer2.TabIndex = 1
         '
         'CrystalReportViewer1
         '
@@ -37,11 +50,24 @@ Partial Class Form1
         Me.CrystalReportViewer1.Size = New System.Drawing.Size(800, 450)
         Me.CrystalReportViewer1.TabIndex = 0
         '
+        'CrystalReportViewer3
+        '
+        Me.CrystalReportViewer3.ActiveViewIndex = -1
+        Me.CrystalReportViewer3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer3.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CrystalReportViewer3.Location = New System.Drawing.Point(0, 0)
+        Me.CrystalReportViewer3.Name = "CrystalReportViewer3"
+        Me.CrystalReportViewer3.Size = New System.Drawing.Size(800, 450)
+        Me.CrystalReportViewer3.TabIndex = 2
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.CrystalReportViewer3)
+        Me.Controls.Add(Me.CrystalReportViewer2)
         Me.Controls.Add(Me.CrystalReportViewer1)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -50,5 +76,7 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
-    Friend WithEvents cr_CashIn1 As cr_CashIn
+    Friend WithEvents CrystalReportViewer2 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents CrystalReportViewer3 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents CrystalReport11 As CrystalReport1
 End Class

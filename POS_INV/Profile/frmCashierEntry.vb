@@ -14,19 +14,6 @@
                 Exit Sub
             End If
         Next
-        If tb_Username.Text.Substring(0, 1) = "_" Then 'checks if first character is unserscore
-            MsgBox("Username's first character must be a letter (a-z), or number (0-9)", vbExclamation)
-            Exit Sub
-        End If
-        For i = 0 To tb_Username.Text.Length - 2 'checks underscore repetition
-            If tb_Username.Text.Substring(i, 1) = "_" Then
-                If tb_Username.Text.Substring(i, 1) = tb_Username.Text.Substring(i + 1, 1) Then
-                    MsgBox("Username cannot contain consecutive underscores (_).", vbExclamation)
-                    Exit Sub
-                End If
-            End If
-            i += 1
-        Next
         If tb_Username.Text.Length < 6 Then '6 to 30 char
             MsgBox("Username must be 6 and 30 characters long.", vbExclamation)
             Exit Sub

@@ -4,6 +4,7 @@
     Dim item As New clsItem
     Dim category As New clsCategory
     Dim brand As New clsBrand
+    Dim unit As New clsUnit
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btn_Cancel.Click
         clearControls()
         Me.Close()
@@ -177,6 +178,7 @@
 
             brand.SetBrandName(Trim(tb_Brand.Text))
             category.SetCategoryName(Trim(tb_Category.Text))
+            unit.SetUnitName(Trim(tb_Unit.Text))
             lbl_brand_Id.Text = brand.BrandId()
             If CInt(lbl_brand_Id.Text) = -1 Then
                 MsgBox("Please choose an existing Brand, if not create one in the brand module.", vbExclamation)
@@ -185,6 +187,11 @@
             lbl_category_Id.Text = category.categoryId()
             If CInt(lbl_category_Id.Text) = -1 Then
                 MsgBox("Please choose an existing Category, if not create one in the category module.", vbExclamation)
+                Exit Sub
+            End If
+            lbl_unit_Id.Text = unit.UnitId()
+            If CInt(lbl_unit_Id.Text) = -1 Then
+                MsgBox("Please choose an existing Unit, if not create one in the unit module.", vbExclamation)
                 Exit Sub
             End If
             If Convert.ToDecimal(tb_unit_Price.Text) < Convert.ToDecimal(tb_price_B.Text) Or CDec(tb_unit_Price.Text) > CDec(tb_price_A.Text) Then
@@ -197,6 +204,7 @@
             End If
             item.SetCategory(CInt(lbl_category_Id.Text))
             item.SetBrand(CInt(lbl_brand_Id.Text))
+            item.SetUnit(CInt(lbl_unit_Id.Text))
             Dim result = MsgBox("Are you sure you want to save this record?", vbYesNo + vbQuestion)
             If item.checkItemDuplicate = True Then
                 MsgBox("Item is already existing.", vbInformation)
@@ -230,6 +238,7 @@
 
             brand.SetBrandName(Trim(tb_Brand.Text))
             category.SetCategoryName(Trim(tb_Category.Text))
+            unit.SetUnitName(Trim(tb_Unit.Text))
             lbl_category_Id.Text = category.categoryId()
             If CInt(lbl_category_Id.Text) = -1 Then
                 MsgBox("Please choose an existing Category, if not create one in the category module.", vbCritical)
@@ -238,6 +247,11 @@
             lbl_brand_Id.Text = brand.BrandId()
             If CInt(lbl_brand_Id.Text) = -1 Then
                 MsgBox("Please choose an existing Brand, if not create one in the brand module.", vbCritical)
+                Exit Sub
+            End If
+            lbl_unit_Id.Text = unit.UnitId()
+            If CInt(lbl_unit_Id.Text) = -1 Then
+                MsgBox("Please choose an existing Unit, if not create one in the unit module.", vbExclamation)
                 Exit Sub
             End If
             If Convert.ToDecimal(tb_unit_Price.Text) < Convert.ToDecimal(tb_price_B.Text) Or CDec(tb_unit_Price.Text) > CDec(tb_price_A.Text) Then
@@ -250,6 +264,7 @@
             End If
             item.SetCategory(CInt(lbl_category_Id.Text))
             item.SetBrand(CInt(lbl_brand_Id.Text))
+            item.SetUnit(CInt(lbl_unit_Id.Text))
             Dim result = MsgBox("Are you sure you want to update this record?", vbYesNo + vbQuestion)
 
             If result = vbYes Then
@@ -291,6 +306,9 @@
         ElseIf tb_Category.Text = vbNullString Then
             tb_Category.Focus()
             Return True
+        ElseIf tb_Unit.Text = vbNullString Then
+            tb_Unit.Focus()
+            Return True
         ElseIf tb_unit_Price.Text = vbNullString Then
             tb_unit_Price.Focus()
             Return True
@@ -303,4 +321,5 @@
         End If
         Return False
     End Function
+
 End Class

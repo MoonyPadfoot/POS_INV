@@ -208,6 +208,7 @@
     <Compile Include="Profile\Class\clsManager.vb" />
     <Compile Include="Profile\Class\clsServices.vb" />
     <Compile Include="Profile\Class\clsSupplier.vb" />
+    <Compile Include="Profile\Class\clsUnit.vb" />
     <Compile Include="Profile\Class\clsUser.vb" />
     <Compile Include="Profile\Class\clsUserList.vb" />
     <Compile Include="Profile\frmBranch.Designer.vb">
@@ -355,6 +356,12 @@
     <Compile Include="Profile\frmServices.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Profile\frmUnitEntry.Designer.vb">
+      <DependentUpon>frmUnitEntry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\frmUnitEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Profile\frmUser.Designer.vb">
       <DependentUpon>frmUser.vb</DependentUpon>
     </Compile>
@@ -395,10 +402,10 @@
     <Compile Include="Profile\frmUserList.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales Report\cr_CashIn.vb">
+    <Compile Include="Sales Report\CrystalReport1.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>cr_CashIn.rpt</DependentUpon>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Sales Report\DataSet1.Designer.vb">
@@ -538,6 +545,9 @@
     <EmbeddedResource Include="Profile\frmServices.resx">
       <DependentUpon>frmServices.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Profile\frmUnitEntry.resx">
+      <DependentUpon>frmUnitEntry.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Profile\frmUser.resx">
       <DependentUpon>frmUser.vb</DependentUpon>
     </EmbeddedResource>
@@ -556,9 +566,9 @@
     <EmbeddedResource Include="Profile\frmUserList.resx">
       <DependentUpon>frmUserList.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales Report\cr_CashIn.rpt">
+    <EmbeddedResource Include="Sales Report\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>cr_CashIn.vb</LastGenOutput>
+      <LastGenOutput>CrystalReport1.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales Report\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>

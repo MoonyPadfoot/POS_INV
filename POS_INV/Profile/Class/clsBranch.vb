@@ -105,7 +105,7 @@ Public Class clsBranch
     Public Function checkBranchExists() 'checks if branch is already in use in other tables(user, stock)
         Try
             ConnectDatabase()
-            Dim query = "SELECT branch_id FROM user WHERE branch_id = @branch_id"
+            Dim query = "SELECT branch_id FROM users WHERE branch_id = @branch_id"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@branch_id", BranchId)
             Dim count = Convert.ToInt16(cm.ExecuteScalar())

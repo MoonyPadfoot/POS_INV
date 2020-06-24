@@ -443,6 +443,7 @@ Partial Class frmRefund
         Me.lbl_OrderId.Size = New System.Drawing.Size(79, 24)
         Me.lbl_OrderId.TabIndex = 36
         Me.lbl_OrderId.Text = "Order Id"
+        Me.lbl_OrderId.Visible = False
         '
         'Panel9
         '

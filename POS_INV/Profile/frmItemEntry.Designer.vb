@@ -46,6 +46,9 @@ Partial Class frmItemEntry
         Me.lbl_Id = New System.Windows.Forms.Label()
         Me.lbl_brand_Id = New System.Windows.Forms.Label()
         Me.lbl_category_Id = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.lbl_unit_Id = New System.Windows.Forms.Label()
+        Me.tb_Unit = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -134,7 +137,7 @@ Partial Class frmItemEntry
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(42, 278)
+        Me.Label6.Location = New System.Drawing.Point(43, 324)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(88, 20)
         Me.Label6.TabIndex = 8
@@ -144,7 +147,7 @@ Partial Class frmItemEntry
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(42, 320)
+        Me.Label7.Location = New System.Drawing.Point(43, 366)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(69, 20)
         Me.Label7.TabIndex = 9
@@ -154,7 +157,7 @@ Partial Class frmItemEntry
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(42, 363)
+        Me.Label8.Location = New System.Drawing.Point(43, 409)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(70, 20)
         Me.Label8.TabIndex = 10
@@ -173,7 +176,7 @@ Partial Class frmItemEntry
         'tb_unit_Price
         '
         Me.tb_unit_Price.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_unit_Price.Location = New System.Drawing.Point(201, 277)
+        Me.tb_unit_Price.Location = New System.Drawing.Point(202, 323)
         Me.tb_unit_Price.MaxLength = 10
         Me.tb_unit_Price.Name = "tb_unit_Price"
         Me.tb_unit_Price.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -184,7 +187,7 @@ Partial Class frmItemEntry
         'tb_price_A
         '
         Me.tb_price_A.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_price_A.Location = New System.Drawing.Point(201, 319)
+        Me.tb_price_A.Location = New System.Drawing.Point(202, 365)
         Me.tb_price_A.MaxLength = 10
         Me.tb_price_A.Name = "tb_price_A"
         Me.tb_price_A.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -195,7 +198,7 @@ Partial Class frmItemEntry
         'tb_price_B
         '
         Me.tb_price_B.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_price_B.Location = New System.Drawing.Point(201, 362)
+        Me.tb_price_B.Location = New System.Drawing.Point(202, 408)
         Me.tb_price_B.MaxLength = 10
         Me.tb_price_B.Name = "tb_price_B"
         Me.tb_price_B.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -206,7 +209,7 @@ Partial Class frmItemEntry
         'btn_Save
         '
         Me.btn_Save.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_Save.Location = New System.Drawing.Point(390, 411)
+        Me.btn_Save.Location = New System.Drawing.Point(391, 457)
         Me.btn_Save.Name = "btn_Save"
         Me.btn_Save.Size = New System.Drawing.Size(98, 59)
         Me.btn_Save.TabIndex = 15
@@ -216,7 +219,7 @@ Partial Class frmItemEntry
         'btn_Update
         '
         Me.btn_Update.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_Update.Location = New System.Drawing.Point(494, 411)
+        Me.btn_Update.Location = New System.Drawing.Point(495, 457)
         Me.btn_Update.Name = "btn_Update"
         Me.btn_Update.Size = New System.Drawing.Size(98, 59)
         Me.btn_Update.TabIndex = 16
@@ -226,7 +229,7 @@ Partial Class frmItemEntry
         'btn_Cancel
         '
         Me.btn_Cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_Cancel.Location = New System.Drawing.Point(598, 411)
+        Me.btn_Cancel.Location = New System.Drawing.Point(599, 457)
         Me.btn_Cancel.Name = "btn_Cancel"
         Me.btn_Cancel.Size = New System.Drawing.Size(98, 59)
         Me.btn_Cancel.TabIndex = 17
@@ -266,7 +269,7 @@ Partial Class frmItemEntry
         'lbl_Id
         '
         Me.lbl_Id.AutoSize = True
-        Me.lbl_Id.Location = New System.Drawing.Point(42, 424)
+        Me.lbl_Id.Location = New System.Drawing.Point(43, 470)
         Me.lbl_Id.Name = "lbl_Id"
         Me.lbl_Id.Size = New System.Drawing.Size(19, 17)
         Me.lbl_Id.TabIndex = 43
@@ -276,7 +279,7 @@ Partial Class frmItemEntry
         'lbl_brand_Id
         '
         Me.lbl_brand_Id.AutoSize = True
-        Me.lbl_brand_Id.Location = New System.Drawing.Point(98, 424)
+        Me.lbl_brand_Id.Location = New System.Drawing.Point(99, 470)
         Me.lbl_brand_Id.Name = "lbl_brand_Id"
         Me.lbl_brand_Id.Size = New System.Drawing.Size(19, 17)
         Me.lbl_brand_Id.TabIndex = 44
@@ -286,18 +289,51 @@ Partial Class frmItemEntry
         'lbl_category_Id
         '
         Me.lbl_category_Id.AutoSize = True
-        Me.lbl_category_Id.Location = New System.Drawing.Point(157, 424)
+        Me.lbl_category_Id.Location = New System.Drawing.Point(158, 470)
         Me.lbl_category_Id.Name = "lbl_category_Id"
         Me.lbl_category_Id.Size = New System.Drawing.Size(19, 17)
         Me.lbl_category_Id.TabIndex = 45
         Me.lbl_category_Id.Text = "Id"
         Me.lbl_category_Id.Visible = False
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(43, 280)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(81, 20)
+        Me.Label9.TabIndex = 47
+        Me.Label9.Text = "Item Unit:"
+        '
+        'lbl_unit_Id
+        '
+        Me.lbl_unit_Id.AutoSize = True
+        Me.lbl_unit_Id.Location = New System.Drawing.Point(208, 470)
+        Me.lbl_unit_Id.Name = "lbl_unit_Id"
+        Me.lbl_unit_Id.Size = New System.Drawing.Size(19, 17)
+        Me.lbl_unit_Id.TabIndex = 48
+        Me.lbl_unit_Id.Text = "Id"
+        Me.lbl_unit_Id.Visible = False
+        '
+        'tb_Unit
+        '
+        Me.tb_Unit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_Unit.Location = New System.Drawing.Point(201, 280)
+        Me.tb_Unit.MaxLength = 50
+        Me.tb_Unit.Name = "tb_Unit"
+        Me.tb_Unit.ShortcutsEnabled = False
+        Me.tb_Unit.Size = New System.Drawing.Size(312, 30)
+        Me.tb_Unit.TabIndex = 49
+        '
         'frmItemEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(748, 495)
+        Me.ClientSize = New System.Drawing.Size(748, 538)
+        Me.Controls.Add(Me.tb_Unit)
+        Me.Controls.Add(Me.lbl_unit_Id)
+        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.lbl_category_Id)
         Me.Controls.Add(Me.lbl_brand_Id)
         Me.Controls.Add(Me.lbl_Id)
@@ -356,4 +392,7 @@ Partial Class frmItemEntry
     Friend WithEvents lbl_Id As Label
     Friend WithEvents lbl_brand_Id As Label
     Friend WithEvents lbl_category_Id As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents lbl_unit_Id As Label
+    Friend WithEvents tb_Unit As TextBox
 End Class

@@ -108,9 +108,9 @@ Public Class clsCashier
         Dim i As Integer
         frmUser.DataGridView2.Rows.Clear()
         ConnectDatabase()
-        Dim query = "SELECT user.user_id,  user_surname, user_gname, user_mi, user_suffix, CAST(cashier.username AS CHAR) AS _c_username, cashier.is_active FROM user " &
-                    "INNER JOIN user_details ON user.user_id = user_details.user_id " &
-                    "INNER JOIN cashier ON cashier.user_id = user.user_id"
+        Dim query = "SELECT users.user_id,  user_surname, user_gname, user_mi, user_suffix, CAST(cashier.username AS CHAR) AS _c_username, cashier.is_active FROM users " &
+                    "INNER JOIN user_details ON users.user_id = user_details.user_id " &
+                    "INNER JOIN cashier ON cashier.user_id = users.user_id"
         cm = New MySqlCommand(query, con)
         dr = cm.ExecuteReader()
         While dr.Read

@@ -91,8 +91,8 @@ Public Class clsCreditPay
         ConnectDatabase()
         Dim query = "SELECT credit_settle_id, user_gname, user_mi, user_surname, user_suffix, trans_date, pay_amount, receipt FROM credit_settle " &
                     "INNER JOIN cashier ON cashier.cashier_id = credit_settle.cashier_id " &
-                    "INNER JOIN user ON user.user_id = cashier.user_id " &
-                    "INNER JOIN user_details ON user_details.user_id = user.user_id " &
+                    "INNER JOIN users ON users.user_id = cashier.user_id " &
+                    "INNER JOIN user_details ON user_details.user_id = users.user_id " &
                     "WHERE trans_date BETWEEN @date_from AND @date_to AND customer_id = @customer_id"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@date_from", _DateFrom)

@@ -283,17 +283,21 @@ Partial Public Class DataSet1
     Partial Public Class DataTableDataTable
         Inherits Global.System.Data.TypedTableBase(Of DataTableRow)
         
-        Private columncash_in_id As Global.System.Data.DataColumn
+        Private columncashier_log_id As Global.System.Data.DataColumn
         
         Private columncashier_id As Global.System.Data.DataColumn
         
         Private columnmanager_id As Global.System.Data.DataColumn
         
-        Private columntrans_date As Global.System.Data.DataColumn
+        Private columnlog_date As Global.System.Data.DataColumn
         
-        Private columnamount As Global.System.Data.DataColumn
+        Private columntime_from As Global.System.Data.DataColumn
         
-        Private columnremarks As Global.System.Data.DataColumn
+        Private columntime_to As Global.System.Data.DataColumn
+        
+        Private columnbegin_bal As Global.System.Data.DataColumn
+        
+        Private columnend_bal As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -332,9 +336,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property cash_in_idColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property cashier_log_idColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columncash_in_id
+                Return Me.columncashier_log_id
             End Get
         End Property
         
@@ -356,25 +360,41 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property trans_dateColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property log_dateColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columntrans_date
+                Return Me.columnlog_date
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property amountColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property time_fromColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnamount
+                Return Me.columntime_from
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property remarksColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property time_toColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnremarks
+                Return Me.columntime_to
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property begin_balColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnbegin_bal
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property end_balColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnend_bal
             End Get
         End Property
         
@@ -415,9 +435,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddDataTableRow(ByVal cashier_id As Long, ByVal manager_id As Long, ByVal trans_date As Date, ByVal amount As Decimal, ByVal remarks As String) As DataTableRow
+        Public Overloads Function AddDataTableRow(ByVal cashier_id As Long, ByVal manager_id As Long, ByVal log_date As Date, ByVal time_from As System.TimeSpan, ByVal time_to As System.TimeSpan, ByVal begin_bal As Decimal, ByVal end_bal As Decimal) As DataTableRow
             Dim rowDataTableRow As DataTableRow = CType(Me.NewRow,DataTableRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, cashier_id, manager_id, trans_date, amount, remarks}
+            Dim columnValuesArray() As Object = New Object() {Nothing, cashier_id, manager_id, log_date, time_from, time_to, begin_bal, end_bal}
             rowDataTableRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDataTableRow)
             Return rowDataTableRow
@@ -440,35 +460,40 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columncash_in_id = MyBase.Columns("cash_in_id")
+            Me.columncashier_log_id = MyBase.Columns("cashier_log_id")
             Me.columncashier_id = MyBase.Columns("cashier_id")
             Me.columnmanager_id = MyBase.Columns("manager_id")
-            Me.columntrans_date = MyBase.Columns("trans_date")
-            Me.columnamount = MyBase.Columns("amount")
-            Me.columnremarks = MyBase.Columns("remarks")
+            Me.columnlog_date = MyBase.Columns("log_date")
+            Me.columntime_from = MyBase.Columns("time_from")
+            Me.columntime_to = MyBase.Columns("time_to")
+            Me.columnbegin_bal = MyBase.Columns("begin_bal")
+            Me.columnend_bal = MyBase.Columns("end_bal")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columncash_in_id = New Global.System.Data.DataColumn("cash_in_id", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncash_in_id)
+            Me.columncashier_log_id = New Global.System.Data.DataColumn("cashier_log_id", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncashier_log_id)
             Me.columncashier_id = New Global.System.Data.DataColumn("cashier_id", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncashier_id)
             Me.columnmanager_id = New Global.System.Data.DataColumn("manager_id", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnmanager_id)
-            Me.columntrans_date = New Global.System.Data.DataColumn("trans_date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columntrans_date)
-            Me.columnamount = New Global.System.Data.DataColumn("amount", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnamount)
-            Me.columnremarks = New Global.System.Data.DataColumn("remarks", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnremarks)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columncash_in_id}, false))
-            Me.columncash_in_id.AutoIncrement = true
-            Me.columncash_in_id.AutoIncrementSeed = -1
-            Me.columncash_in_id.AutoIncrementStep = -1
-            Me.columncash_in_id.Unique = true
-            Me.columnremarks.MaxLength = 1020
+            Me.columnlog_date = New Global.System.Data.DataColumn("log_date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnlog_date)
+            Me.columntime_from = New Global.System.Data.DataColumn("time_from", GetType(Global.System.TimeSpan), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntime_from)
+            Me.columntime_to = New Global.System.Data.DataColumn("time_to", GetType(Global.System.TimeSpan), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntime_to)
+            Me.columnbegin_bal = New Global.System.Data.DataColumn("begin_bal", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnbegin_bal)
+            Me.columnend_bal = New Global.System.Data.DataColumn("end_bal", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnend_bal)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columncashier_log_id}, false))
+            Me.columncashier_log_id.AutoIncrement = true
+            Me.columncashier_log_id.AutoIncrementSeed = -1
+            Me.columncashier_log_id.AutoIncrementStep = -1
+            Me.columncashier_log_id.Unique = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -615,16 +640,16 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property cash_in_id() As Long
+        Public Property cashier_log_id() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable.cash_in_idColumn),Long)
+                    Return CType(Me(Me.tableDataTable.cashier_log_idColumn),Long)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'cash_in_id' in table 'DataTable' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cashier_log_id' in table 'DataTable' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable.cash_in_idColumn) = value
+                Me(Me.tableDataTable.cashier_log_idColumn) = value
             End Set
         End Property
         
@@ -660,59 +685,89 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property trans_date() As Date
+        Public Property log_date() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable.trans_dateColumn),Date)
+                    Return CType(Me(Me.tableDataTable.log_dateColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'trans_date' in table 'DataTable' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'log_date' in table 'DataTable' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable.trans_dateColumn) = value
+                Me(Me.tableDataTable.log_dateColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property amount() As Decimal
+        Public Property time_from() As System.TimeSpan
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable.amountColumn),Decimal)
+                    Return CType(Me(Me.tableDataTable.time_fromColumn),Global.System.TimeSpan)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'amount' in table 'DataTable' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'time_from' in table 'DataTable' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable.amountColumn) = value
+                Me(Me.tableDataTable.time_fromColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property remarks() As String
+        Public Property time_to() As System.TimeSpan
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable.remarksColumn),String)
+                    Return CType(Me(Me.tableDataTable.time_toColumn),Global.System.TimeSpan)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'remarks' in table 'DataTable' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'time_to' in table 'DataTable' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable.remarksColumn) = value
+                Me(Me.tableDataTable.time_toColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Iscash_in_idNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable.cash_in_idColumn)
+        Public Property begin_bal() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTable.begin_balColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'begin_bal' in table 'DataTable' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTable.begin_balColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property end_bal() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTable.end_balColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'end_bal' in table 'DataTable' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTable.end_balColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Iscashier_log_idNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable.cashier_log_idColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setcash_in_idNull()
-            Me(Me.tableDataTable.cash_in_idColumn) = Global.System.Convert.DBNull
+        Public Sub Setcashier_log_idNull()
+            Me(Me.tableDataTable.cashier_log_idColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -741,38 +796,62 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Istrans_dateNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable.trans_dateColumn)
+        Public Function Islog_dateNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable.log_dateColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Settrans_dateNull()
-            Me(Me.tableDataTable.trans_dateColumn) = Global.System.Convert.DBNull
+        Public Sub Setlog_dateNull()
+            Me(Me.tableDataTable.log_dateColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsamountNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable.amountColumn)
+        Public Function Istime_fromNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable.time_fromColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetamountNull()
-            Me(Me.tableDataTable.amountColumn) = Global.System.Convert.DBNull
+        Public Sub Settime_fromNull()
+            Me(Me.tableDataTable.time_fromColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsremarksNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable.remarksColumn)
+        Public Function Istime_toNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable.time_toColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetremarksNull()
-            Me(Me.tableDataTable.remarksColumn) = Global.System.Convert.DBNull
+        Public Sub Settime_toNull()
+            Me(Me.tableDataTable.time_toColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isbegin_balNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable.begin_balColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setbegin_balNull()
+            Me(Me.tableDataTable.begin_balColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isend_balNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable.end_balColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setend_balNull()
+            Me(Me.tableDataTable.end_balColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -942,12 +1021,14 @@ Namespace DataSet1TableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "DataTable"
-            tableMapping.ColumnMappings.Add("cash_in_id", "cash_in_id")
+            tableMapping.ColumnMappings.Add("cashier_log_id", "cashier_log_id")
             tableMapping.ColumnMappings.Add("cashier_id", "cashier_id")
             tableMapping.ColumnMappings.Add("manager_id", "manager_id")
-            tableMapping.ColumnMappings.Add("trans_date", "trans_date")
-            tableMapping.ColumnMappings.Add("amount", "amount")
-            tableMapping.ColumnMappings.Add("remarks", "remarks")
+            tableMapping.ColumnMappings.Add("log_date", "log_date")
+            tableMapping.ColumnMappings.Add("time_from", "time_from")
+            tableMapping.ColumnMappings.Add("time_to", "time_to")
+            tableMapping.ColumnMappings.Add("begin_bal", "begin_bal")
+            tableMapping.ColumnMappings.Add("end_bal", "end_bal")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -964,7 +1045,7 @@ Namespace DataSet1TableAdapters
             Me._commandCollection = New Global.System.Data.Odbc.OdbcCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.Odbc.OdbcCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT * FROM `cash_in`"
+            Me._commandCollection(0).CommandText = "SELECT * FROM `cashier_log`"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

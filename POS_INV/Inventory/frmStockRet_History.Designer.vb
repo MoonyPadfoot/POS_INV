@@ -43,6 +43,7 @@ Partial Class frmStockRet_History
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
@@ -147,7 +148,7 @@ Partial Class frmStockRet_History
         '
         Me.dg_stock_History.AllowUserToAddRows = False
         Me.dg_stock_History.ColumnHeadersHeight = 29
-        Me.dg_stock_History.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn18, Me.Column11, Me.Column5, Me.Column16, Me.Column4, Me.Column13, Me.Column9, Me.Column12, Me.Column14, Me.Column10, Me.Column15})
+        Me.dg_stock_History.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn18, Me.Column11, Me.Column5, Me.Column16, Me.Column4, Me.Column13, Me.Column9, Me.Column12, Me.Column14, Me.Column1, Me.Column10, Me.Column15})
         Me.dg_stock_History.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dg_stock_History.Location = New System.Drawing.Point(0, 134)
         Me.dg_stock_History.Name = "dg_stock_History"
@@ -246,6 +247,16 @@ Partial Class frmStockRet_History
         Me.Column14.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column14.Width = 94
         '
+        'Column1
+        '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column1.HeaderText = "Unit"
+        Me.Column1.MinimumWidth = 6
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column1.Width = 62
+        '
         'Column10
         '
         Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
@@ -308,6 +319,7 @@ Partial Class frmStockRet_History
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column12 As DataGridViewTextBoxColumn
     Friend WithEvents Column14 As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
     Friend WithEvents Column15 As DataGridViewTextBoxColumn
 End Class

@@ -2,8 +2,9 @@
     Dim item As New clsItem
     Dim category As New clsCategory
     Dim brand As New clsBrand
+    Dim unit As New clsUnit
     Dim _id As Integer
-    Dim _code, _desc, _add_Desc, _brand, _category As String
+    Dim _code, _desc, _add_Desc, _brand, _category, _unit As String
     Dim _unit_Price, _price_A, _price_B As Double
     Private Sub btn_new_Category_Click(sender As Object, e As EventArgs) Handles btn_new_Category.Click
         frmBrandCat.lbl_Header.Text = "Category"
@@ -17,6 +18,11 @@
         frmBrandCat.btn_Update.Hide()
         frmBrandCat.btn_Save.Show()
         frmBrandCat.ShowDialog()
+    End Sub
+    Private Sub btn_new_Unit_Click(sender As Object, e As EventArgs) Handles btn_new_Unit.Click
+        frmUnitEntry.btn_Update.Hide()
+        frmUnitEntry.btn_Save.Show()
+        frmUnitEntry.ShowDialog()
     End Sub
 
     Private Sub btn_Add_Click(sender As Object, e As EventArgs) Handles btn_Add.Click
@@ -34,6 +40,8 @@
         category.loadAutosuggest()
         brand.loadRecord()
         brand.loadAutosuggest()
+        unit.loadRecord()
+        unit.loadAutosuggest()
     End Sub
 
     Private Sub dg_Items_SelectionChanged(sender As Object, e As EventArgs) Handles dg_Items.SelectionChanged
@@ -44,9 +52,10 @@
         _desc = dg_Items.Item(4, i).Value
         _add_Desc = dg_Items.Item(5, i).Value
         _category = dg_Items.Item(6, i).Value
-        _unit_Price = dg_Items.Item(7, i).Value
-        _price_A = dg_Items.Item(8, i).Value
-        _price_B = dg_Items.Item(9, i).Value
+        _unit = dg_Items.Item(7, i).Value
+        _unit_Price = dg_Items.Item(8, i).Value
+        _price_A = dg_Items.Item(9, i).Value
+        _price_B = dg_Items.Item(10, i).Value
     End Sub
 
     Private Sub dg_Items_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_Items.CellContentClick
@@ -60,6 +69,7 @@
                 .tb_Brand.Text = _brand
                 .tb_Category.Text = _category
                 .tb_unit_Price.Text = _unit_Price
+                .tb_Unit.Text = _unit
                 .tb_price_A.Text = _price_A
                 .tb_price_B.Text = _price_B
                 .tb_Code.ReadOnly = True
@@ -148,29 +158,64 @@
             End If
         End If
     End Sub
+    Private Sub Dg_Unit_SelectionChanged(sender As Object, e As EventArgs) Handles dg_Unit.SelectionChanged
+        Dim i As Integer = dg_Unit.CurrentRow.Index
+        _id = dg_Unit.Item(0, i).Value
+        _unit = dg_Unit.Item(2, i).Value
+    End Sub
+
+    Private Sub Dg_Unit_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg_Unit.CellContentClick
+        Dim colName As String = dg_Unit.Columns(e.ColumnIndex).Name
+        If colName = "col_edit_Unit" Then
+            With frmUnitEntry
+                .lbl_Id.Text = _id
+                .tb_Unit.Text = _unit
+                .btn_Save.Hide()
+                .btn_Update.Show()
+                .tb_Unit.Focus()
+                .ShowDialog()
+            End With
+        ElseIf colName = "col_delete_Unit" Then
+            Dim result = MsgBox("Are you sure you want to delete this record?", vbYesNo + vbQuestion)
+            If result = vbYes Then
+                unit.SetUnitId(_id)
+                If unit.checkUnitExists = False Then
+                    unit.delete()
+                    MsgBox("Record has been successfully deleted.", vbInformation)
+                    unit.loadRecord()
+                Else
+                    MsgBox("Record already in use and therefore can not be deleted.", vbInformation)
+                End If
+            End If
+        End If
+    End Sub
     Private Sub tb_Search_TextChanged(sender As Object, e As EventArgs) Handles tb_Search.TextChanged
         If Trim(tb_Search.Text) <> "" Then
             Select Case cbo_Filter.Text
                 Case "Code"
                     item.SetItemSearch(Trim(tb_Search.Text))
-                    item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, brand.brand_name, category.category_name FROM item " &
+                    item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, brand.brand_name, category.category_name, unit.unit_name FROM item " &
                                     "INNER JOIN brand ON brand.brand_id = item.brand_id " &
-                                    "INNER JOIN category ON category.category_id = item.category_id WHERE item_code LIKE @0")
+                                    "INNER JOIN category ON category.category_id = item.category_id " &
+                                    "INNER JOIN unit ON unit.unit_id = item.unit_id WHERE item_code LIKE @0")
                 Case "Description"
                     item.SetItemSearch(Trim(tb_Search.Text))
-                    item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, brand.brand_name, category.category_name FROM item " &
+                    item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, brand.brand_name, category.category_name, unit.unit_name FROM item " &
                                     "INNER JOIN brand ON brand.brand_id = item.brand_id " &
-                                    "INNER JOIN category ON category.category_id = item.category_id WHERE item_desc LIKE @0 OR item_add_desc LIKE @0")
+                                    "INNER JOIN category ON category.category_id = item.category_id " &
+                                    "INNER JOIN unit ON unit.unit_id = item.unit_id WHERE item_desc LIKE @0 OR item_add_desc LIKE @0")
                 Case "Brand"
                     item.SetItemSearch(Trim(tb_Search.Text))
-                    item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, brand.brand_name, category.category_name FROM item " &
+                    item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, brand.brand_name, category.category_name, unit.unit_name FROM item " &
                                     "INNER JOIN brand ON brand.brand_id = item.brand_id " &
-                                    "INNER JOIN category ON category.category_id = item.category_id WHERE brand_name LIKE @0")
+                                    "INNER JOIN category ON category.category_id = item.category_id " &
+                                    "INNER JOIN unit ON unit.unit_id = item.unit_id WHERE brand_name LIKE @0")
                 Case "Category"
                     item.SetItemSearch(Trim(tb_Search.Text))
-                    item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, brand.brand_name, category.category_name FROM item " &
+                    item.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, brand.brand_name, category.category_name, unit.unit_name FROM item " &
                                     "INNER JOIN brand ON brand.brand_id = item.brand_id " &
-                                    "INNER JOIN category ON category.category_id = item.category_id WHERE category_name LIKE @0")
+                                    "INNER JOIN category ON category.category_id = item.category_id " &
+                                    "INNER JOIN unit ON unit.unit_id = item.unit_id WHERE category_name LIKE @0")
             End Select
         Else
             item.loadRecord()
@@ -190,6 +235,14 @@
             brand.searchBrand("SELECT * FROM brand WHERE brand_name LIKE @0 ")
         Else
             brand.loadRecord()
+        End If
+    End Sub
+    Private Sub tb_Search_Unit_TextChanged(sender As Object, e As EventArgs) Handles tb_search_Unit.TextChanged
+        If Trim(tb_search_Unit.Text) <> "" Then
+            unit.SetUnitSearch(Trim(tb_search_Unit.Text))
+            unit.searchUnit("SELECT * FROM unit WHERE unit_name LIKE @0 ")
+        Else
+            unit.loadRecord()
         End If
     End Sub
 End Class

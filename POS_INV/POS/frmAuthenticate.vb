@@ -27,7 +27,7 @@
             cashLog.SetLogDate(Date.Now.ToString("yyyy-MM-dd"))
             cashLog.SetTimeIn(TimeOfDay.ToString("HH:mm:ss"))
             cashLog.SetInBal(frmBalance.tb_initial_Bal.Text)
-            cashLog.setCashierIn()
+            frmPos.cashier_log_id.Text = cashLog.setCashierIn()
 
         ElseIf lbl_Type.Text = 2 Then
             cashInOut.SetManagerId(auth.setUserId)
@@ -53,6 +53,7 @@
             MsgBox("Payment saved. User: " & frmCreditPay.tb_Name.Text & " balance is Php: " & updatedBal, vbInformation)
         ElseIf lbl_Type.Text = 4 Then
             refund.SetTransDate(frmRefundTransDate.dtp_Date.Value.ToString("yyyy-MM-dd"))
+            refund.SetCashierId(frmPos.lbl_user_Id.Text)
             refund.SetManagerId(auth.setUserId)
             refund.SetAmount(frmRefund.lbl_due_Total.Text)
             refund.SetRemarks(frmRefundTransDate.tb_Remarks.Text)

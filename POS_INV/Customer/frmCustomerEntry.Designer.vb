@@ -245,6 +245,7 @@ Partial Class frmCustomerEntry
         Me.lbl_Id.Size = New System.Drawing.Size(41, 17)
         Me.lbl_Id.TabIndex = 63
         Me.lbl_Id.Text = "lbl_Id"
+        Me.lbl_Id.Visible = False
         '
         'frmCustomerEntry
         '

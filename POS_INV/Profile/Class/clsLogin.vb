@@ -13,7 +13,7 @@ Public Class clsLogin
     Public Function authLogin() As Integer
         Dim salt As String = ""
         ConnectDatabase()
-        Dim query = "SELECT COUNT(*) FROM user WHERE username = @username" 'check if active
+        Dim query = "SELECT COUNT(*) FROM users WHERE username = @username" 'check if active
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         Dim count = CInt(cm.ExecuteScalar)
@@ -22,7 +22,7 @@ Public Class clsLogin
             Return 0
         End If
 
-        query = "SELECT COUNT(*) FROM user WHERE username = @username AND is_active = 1" 'check if active
+        query = "SELECT COUNT(*) FROM users WHERE username = @username AND is_active = 1" 'check if active
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         If CInt(cm.ExecuteScalar) <> 1 Then
@@ -31,7 +31,7 @@ Public Class clsLogin
         End If
 
 
-        query = "SELECT COUNT(*) FROM user WHERE username = @username AND is_logged_in = 0" 'check if logged_in
+        query = "SELECT COUNT(*) FROM users WHERE username = @username AND is_logged_in = 0" 'check if logged_in
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         If CInt(cm.ExecuteScalar) <> 1 Then
@@ -39,7 +39,7 @@ Public Class clsLogin
             Return 2
         End If
 
-        query = "SELECT CAST(salt AS CHAR) AS salt FROM user WHERE username = @username"
+        query = "SELECT CAST(salt AS CHAR) AS salt FROM users WHERE username = @username"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         dr = cm.ExecuteReader()
@@ -57,7 +57,7 @@ Public Class clsLogin
         Dim pass = encryption.hashString(_Password & _Username)
         Dim hashedAndSalt = encryption.hashString(String.Format("{0},{1}", pass, salt))
 
-        query = "SELECT COUNT(*) FROM user WHERE username = @username AND password = @password "
+        query = "SELECT COUNT(*) FROM users WHERE username = @username AND password = @password "
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         cm.Parameters.AddWithValue("@password", hashedAndSalt)
@@ -75,7 +75,7 @@ Public Class clsLogin
     End Function
     Public Function setUserId()
         ConnectDatabase()
-        Dim query = "SELECT user_id FROM user WHERE username = @username"
+        Dim query = "SELECT user_id FROM users WHERE username = @username"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         Return cm.ExecuteScalar()
@@ -83,7 +83,7 @@ Public Class clsLogin
     End Function
     Public Sub setUserLogin(_key As Integer)
         ConnectDatabase()
-        Dim query = "UPDATE user SET is_logged_in = '" & _key & "' WHERE username = @username"
+        Dim query = "UPDATE users SET is_logged_in = '" & _key & "' WHERE username = @username"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         cm.ExecuteScalar()
@@ -102,7 +102,7 @@ Public Class clsLogin
     End Function
     Public Function setUserType() As String
         ConnectDatabase()
-        Dim query = "SELECT user_type FROM user WHERE username = @username"
+        Dim query = "SELECT user_type FROM users WHERE username = @username"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         dr = cm.ExecuteReader
@@ -114,7 +114,7 @@ Public Class clsLogin
     End Function
     Public Function setBranchId() As String
         ConnectDatabase()
-        Dim query = "SELECT branch_id FROM user WHERE username = @username"
+        Dim query = "SELECT branch_id FROM users WHERE username = @username"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _Username)
         dr = cm.ExecuteReader

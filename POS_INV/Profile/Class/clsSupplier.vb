@@ -89,7 +89,7 @@ Public Class clsSupplier
     Public Function checkSupplierExists() 'checks if branch is already in use in other tables(user, stock)
         Try
             ConnectDatabase()
-            Dim query = "SELECT supplier_id FROM user WHERE supplier_id = @supplier_id"
+            Dim query = "SELECT supplier_id FROM users WHERE supplier_id = @supplier_id"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@supplier_id", SupplierId)
             Dim count = Convert.ToInt16(cm.ExecuteScalar())

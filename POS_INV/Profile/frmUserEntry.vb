@@ -20,23 +20,6 @@
                 Exit Sub
             End If
         Next
-        If tb_Username.Text.Substring(0, 1) = "_" Then 'checks if first character is unserscore
-            MsgBox("Username's first character must be a letter (a-z), or number (0-9)", vbExclamation)
-            Exit Sub
-        End If
-        For i = 0 To tb_Username.Text.Length - 1 'checks underscore repetition
-            If tb_Username.Text.Substring(i, 1) = "_" Then
-                If tb_Username.Text.Substring(i, 1) = tb_Username.Text.Substring(i + 1, 1) Then
-                    MsgBox("Username cannot contain consecutive underscores (_).", vbExclamation)
-                    Exit Sub
-                End If
-            End If
-            i += 1
-        Next
-        If tb_Username.Text.Length < 6 Then '6 to 30 char
-            MsgBox("Username must be 6 and 30 characters long.", vbExclamation)
-            Exit Sub
-        End If
         'password validation
         If tb_Password.Text.Length < 8 Then
             MsgBox("Password must be 8 or more characters long.", vbExclamation)
@@ -47,7 +30,7 @@
             Exit Sub
         End If
         Try
-
+            user.Username = Me.tb_Username.Text
             Dim result = MsgBox("Are you sure you want to save this record?", vbYesNo + vbQuestion)
             If user.checkUserDuplicate = True Then
                 MsgBox("Username is already existing.", vbInformation)

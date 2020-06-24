@@ -17,7 +17,7 @@ Public Class clsUser
         Dim _id As Integer
         Try
             ConnectDatabase()
-            Dim query = "INSERT INTO user (branch_id, username, password, salt, user_type, is_active) " &
+            Dim query = "INSERT INTO users (branch_id, username, password, salt, user_type, is_active) " &
                             "VALUES (@branch_id, @username, @password, @salt, @user_type, @is_active); " &
                             "SELECT LAST_INSERT_ID(); "
             cm = New MySqlCommand(query, con)
@@ -51,7 +51,7 @@ Public Class clsUser
     Public Function edit()
         Try
             ConnectDatabase()
-            Dim query = "UPDATE user SET branch_id=@branch_id, is_active=@is_active WHERE user_id=@user_id"
+            Dim query = "UPDATE users SET branch_id=@branch_id, is_active=@is_active WHERE user_id=@user_id"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@user_id", Id)
             cm.Parameters.AddWithValue("@branch_id", BranchId)
@@ -71,7 +71,7 @@ Public Class clsUser
     Public Function delete()
         Try
             ConnectDatabase()
-            Dim query = "DELETE FROM user WHERE user_id = @user_id"
+            Dim query = "DELETE FROM users WHERE user_id = @user_id"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@user_id", Id)
             cm.ExecuteNonQuery()
@@ -112,7 +112,7 @@ Public Class clsUser
     Public Function changePass()
         Try
             ConnectDatabase()
-            Dim query = "UPDATE user SET password = @password, salt = @salt WHERE username = @username"
+            Dim query = "UPDATE users SET password = @password, salt = @salt WHERE username = @username"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@password", Password)
             cm.Parameters.AddWithValue("@salt", Salt)
@@ -132,9 +132,9 @@ Public Class clsUser
         Dim i As Integer
         frmUser.DataGridView1.Rows.Clear()
         ConnectDatabase()
-        Dim query = "SELECT user.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR) AS _username, user_type, is_active FROM user " &
-                    "INNER JOIN user_details ON user.user_id = user_details.user_id " &
-                    "INNER JOIN branch ON branch.branch_id = user.branch_id"
+        Dim query = "SELECT users.user_id, branch.branch_address, user_surname, user_gname, user_mi, user_suffix, CAST(username AS CHAR) AS _username, user_type, is_active FROM users " &
+                    "INNER JOIN user_details ON users.user_id = user_details.user_id " &
+                    "INNER JOIN branch ON branch.branch_id = users.branch_id"
         cm = New MySqlCommand(query, con)
         dr = cm.ExecuteReader()
         While dr.Read
@@ -148,7 +148,7 @@ Public Class clsUser
     Public Function checkUserDuplicate()
         Try
             ConnectDatabase()
-            Dim query = "SELECT username FROM user WHERE username = @username"
+            Dim query = "SELECT username FROM users WHERE username = @username"
             Dim cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@username", Username)
             dr = cm.ExecuteReader
@@ -194,7 +194,7 @@ Public Class clsUser
     End Sub
     Public Function loadPassword(_username As String)
         ConnectDatabase()
-        Dim query = "SELECT CAST(password AS CHAR) FROM user WHERE username=@username"
+        Dim query = "SELECT CAST(password AS CHAR) FROM users WHERE username=@username"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@username", _username)
         Return cm.ExecuteScalar

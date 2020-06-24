@@ -22,6 +22,7 @@ Partial Class frmItemList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cbo_Filter = New System.Windows.Forms.ComboBox()
@@ -32,6 +33,10 @@ Partial Class frmItemList
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.dg_Items = New System.Windows.Forms.DataGridView()
+        Me.btn_Close = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
         Me.col_Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -39,11 +44,8 @@ Partial Class frmItemList
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_Select = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.btn_Close = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel4.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -134,18 +136,58 @@ Partial Class frmItemList
         '
         Me.dg_Items.AllowUserToAddRows = False
         Me.dg_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg_Items.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_Id, Me.Column6, Me.DataGridViewTextBoxColumn2, Me.Column7, Me.Column8, Me.column1, Me.DataGridViewTextBoxColumn3, Me.col_Select})
+        Me.dg_Items.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_Id, Me.Column6, Me.DataGridViewTextBoxColumn2, Me.Column7, Me.Column8, Me.column1, Me.DataGridViewTextBoxColumn3, Me.Column2, Me.col_Select})
         Me.dg_Items.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dg_Items.Location = New System.Drawing.Point(0, 82)
         Me.dg_Items.Name = "dg_Items"
         Me.dg_Items.RowHeadersVisible = False
         Me.dg_Items.RowHeadersWidth = 51
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dg_Items.RowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dg_Items.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dg_Items.RowTemplate.Height = 24
         Me.dg_Items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dg_Items.Size = New System.Drawing.Size(1263, 411)
         Me.dg_Items.TabIndex = 23
+        '
+        'btn_Close
+        '
+        Me.btn_Close.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_Close.Location = New System.Drawing.Point(0, 0)
+        Me.btn_Close.Name = "btn_Close"
+        Me.btn_Close.Size = New System.Drawing.Size(55, 44)
+        Me.btn_Close.TabIndex = 53
+        Me.btn_Close.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(77, 24)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Item List"
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Panel5)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1263, 44)
+        Me.Panel1.TabIndex = 23
+        '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.btn_Close)
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel5.Location = New System.Drawing.Point(1208, 0)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(55, 44)
+        Me.Panel5.TabIndex = 54
         '
         'col_Id
         '
@@ -213,6 +255,18 @@ Partial Class frmItemList
         Me.DataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewTextBoxColumn3.Width = 94
         '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column2.DefaultCellStyle = DataGridViewCellStyle1
+        Me.Column2.HeaderText = "Unit"
+        Me.Column2.MinimumWidth = 6
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column2.Width = 62
+        '
         'col_Select
         '
         Me.col_Select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -223,46 +277,6 @@ Partial Class frmItemList
         Me.col_Select.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.col_Select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.col_Select.Width = 23
-        '
-        'btn_Close
-        '
-        Me.btn_Close.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_Close.Location = New System.Drawing.Point(0, 0)
-        Me.btn_Close.Name = "btn_Close"
-        Me.btn_Close.Size = New System.Drawing.Size(55, 44)
-        Me.btn_Close.TabIndex = 53
-        Me.btn_Close.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(12, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(77, 24)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Item List"
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Panel5)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1263, 44)
-        Me.Panel1.TabIndex = 23
-        '
-        'Panel5
-        '
-        Me.Panel5.Controls.Add(Me.btn_Close)
-        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel5.Location = New System.Drawing.Point(1208, 0)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(55, 44)
-        Me.Panel5.TabIndex = 54
         '
         'frmItemList
         '
@@ -300,6 +314,7 @@ Partial Class frmItemList
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents dg_Items As DataGridView
+    Friend WithEvents Panel5 As Panel
     Friend WithEvents col_Id As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
@@ -307,6 +322,6 @@ Partial Class frmItemList
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents column1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents col_Select As DataGridViewButtonColumn
-    Friend WithEvents Panel5 As Panel
 End Class

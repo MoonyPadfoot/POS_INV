@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class cr_CashIn
+Public Class CrystalReport1
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class cr_CashIn
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "cr_CashIn.rpt"
+            Return "CrystalReport1.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class cr_CashIn
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "POS_INV.cr_CashIn.rpt"
+            Return "POS_INV.CrystalReport1.rpt"
         End Get
         Set
             'Do nothing
@@ -94,7 +94,7 @@ Public Class cr_CashIn
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class Cachedcr_CashIn
+Public Class CachedCrystalReport1
     Inherits Component
     Implements ICachedReport
     
@@ -136,7 +136,7 @@ Public Class Cachedcr_CashIn
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As cr_CashIn = New cr_CashIn()
+        Dim rpt As CrystalReport1 = New CrystalReport1()
         rpt.Site = Me.Site
         Return rpt
     End Function

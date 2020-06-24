@@ -30,7 +30,7 @@ Public Class clsStockList
             i += 1
             frmStock.dg_stock_List.Rows.Add(dr.Item("item_id").ToString, i, dr.Item("branch_address").ToString,
                                                dr.Item("item_code").ToString, dr.Item("brand_name").ToString, dr.Item("item_desc").ToString, dr.Item("item_add_desc").ToString,
-                                               dr.Item("category_name").ToString, dr.Item("qty").ToString)
+                                               dr.Item("category_name").ToString, dr.Item("unit_name").ToString, dr.Item("qty").ToString)
         End While
         DisconnectDatabase()
         frmStock.lbl_row_count_stock_List.Text = "(" & frmStock.dg_stock_List.RowCount & ") Record(s) found."
@@ -42,14 +42,14 @@ Public Class clsStockList
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@category_name", _CategoryName)
         cm.Parameters.AddWithValue("@brand_name", _BrandName)
-        cm.Parameters.AddWithValue("@item_search", _ItemSearch)
+        cm.Parameters.AddWithValue("@item_search", _ItemSearch & "%")
         cm.Parameters.AddWithValue("@branch_address", _BranchAddress)
         dr = cm.ExecuteReader()
         While dr.Read
             i += 1
             frmStock.dg_stock_List.Rows.Add(dr.Item("item_id").ToString, i, dr.Item("branch_address").ToString,
                                                dr.Item("item_code").ToString, dr.Item("brand_name").ToString, dr.Item("item_desc").ToString, dr.Item("item_add_desc").ToString,
-                                               dr.Item("category_name").ToString, dr.Item("qty").ToString)
+                                               dr.Item("category_name").ToString, dr.Item("unit_name").ToString, dr.Item("qty").ToString)
         End While
         dr.Close()
         DisconnectDatabase()

@@ -103,7 +103,7 @@
     End Sub
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
-        lbl_Date.Text = DateTime.Now.ToString()
+        Timer1.Start()
         If lbl_Type.Text = "Admin" Then
             btn_Pos.Enabled = False
             btn_Inventory.Enabled = False
@@ -163,5 +163,7 @@
 
     End Sub
 
-
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        lbl_Date.Text = Format(Now, "dd/MM/yyyy   hh:mm:ss tt")
+    End Sub
 End Class

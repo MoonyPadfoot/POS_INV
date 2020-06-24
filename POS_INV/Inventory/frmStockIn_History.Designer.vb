@@ -43,8 +43,10 @@ Partial Class frmStockIn_History
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel18.SuspendLayout()
         CType(Me.dg_stock_History, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,6 +84,7 @@ Partial Class frmStockIn_History
         '
         'Panel18
         '
+        Me.Panel18.Controls.Add(Me.Button1)
         Me.Panel18.Controls.Add(Me.Label2)
         Me.Panel18.Controls.Add(Me.dtp_To)
         Me.Panel18.Controls.Add(Me.btn_load_History)
@@ -147,7 +150,7 @@ Partial Class frmStockIn_History
         '
         Me.dg_stock_History.AllowUserToAddRows = False
         Me.dg_stock_History.ColumnHeadersHeight = 29
-        Me.dg_stock_History.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn18, Me.Column11, Me.Column5, Me.Column16, Me.Column4, Me.Column13, Me.Column9, Me.Column12, Me.Column14, Me.Column10, Me.Column15})
+        Me.dg_stock_History.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn18, Me.Column11, Me.Column5, Me.Column16, Me.Column4, Me.Column13, Me.Column9, Me.Column12, Me.Column14, Me.Column1, Me.Column10, Me.Column15})
         Me.dg_stock_History.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dg_stock_History.Location = New System.Drawing.Point(0, 134)
         Me.dg_stock_History.Name = "dg_stock_History"
@@ -246,6 +249,16 @@ Partial Class frmStockIn_History
         Me.Column14.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column14.Width = 94
         '
+        'Column1
+        '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column1.HeaderText = "Unit"
+        Me.Column1.MinimumWidth = 6
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column1.Width = 62
+        '
         'Column10
         '
         Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
@@ -267,6 +280,16 @@ Partial Class frmStockIn_History
         Me.Column15.ReadOnly = True
         Me.Column15.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column15.Width = 89
+        '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(969, 26)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(132, 37)
+        Me.Button1.TabIndex = 18
+        Me.Button1.Text = "Report"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'frmStockIn_History
         '
@@ -308,6 +331,8 @@ Partial Class frmStockIn_History
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column12 As DataGridViewTextBoxColumn
     Friend WithEvents Column14 As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
     Friend WithEvents Column15 As DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As Button
 End Class

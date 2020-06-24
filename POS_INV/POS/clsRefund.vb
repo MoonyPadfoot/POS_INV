@@ -5,6 +5,7 @@ Public Class clsRefund
     Private _InvoiceNo As Object
     Private _ItemSearch As Object
     Private _BranchId As Object
+    Private _CashierId As Object
     Private _ManagerId As Object
     Private _Amount As Object
     Private _Remarks As Object
@@ -23,6 +24,9 @@ Public Class clsRefund
     End Sub
     Public Sub SetBranchId(AutoPropertyValue As Object)
         _BranchId = AutoPropertyValue
+    End Sub
+    Public Sub SetCashierId(AutoPropertyValue As Object)
+        _CashierId = AutoPropertyValue
     End Sub
     Public Sub SetManagerId(AutoPropertyValue As Object)
         _ManagerId = AutoPropertyValue
@@ -129,9 +133,10 @@ Public Class clsRefund
     End Sub
     Public Sub saveRefund()
         ConnectDatabase()
-        Dim query = "INSERT INTO refund (order_id, manager_id, amount, trans_date, remarks) VALUE(@order_id, @manager_id, @amount, @trans_date, @remarks); SELECT LAST_INSERT_ID();"
+        Dim query = "INSERT INTO refund (order_id, cashier_id, manager_id, amount, trans_date, remarks) VALUE(@order_id, @cashier_id, @manager_id, @amount, @trans_date, @remarks); SELECT LAST_INSERT_ID();"
         cm = New MySqlCommand(query, con)
         cm.Parameters.AddWithValue("@order_id", _OrderId)
+        cm.Parameters.AddWithValue("@cashier_id", _CashierId)
         cm.Parameters.AddWithValue("@manager_id", _ManagerId)
         cm.Parameters.AddWithValue("@amount", _Amount)
         cm.Parameters.AddWithValue("@trans_date", _TransDate)

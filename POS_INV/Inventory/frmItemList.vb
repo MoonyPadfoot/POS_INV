@@ -27,7 +27,7 @@
                 If MsgBox("Add item to list?", vbYesNo + vbInformation) = vbYes Then
                     frmStock.dg_stock_In.Rows.Add(dg_Items.Rows(e.RowIndex).Cells(0).Value.ToString, frmStock.dg_stock_In.Rows.Count + 1.ToString, dg_Items.Rows(e.RowIndex).Cells(2).Value.ToString,
                                                   dg_Items.Rows(e.RowIndex).Cells(3).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(4).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(5).Value.ToString,
-                                                  dg_Items.Rows(e.RowIndex).Cells(6).Value.ToString, 0.ToString, "REMOVE")
+                                                  dg_Items.Rows(e.RowIndex).Cells(6).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(7).Value.ToString, 0.ToString, "REMOVE")
                     MsgBox("Item is added to the list.", vbInformation)
                 End If
             End If
@@ -45,7 +45,7 @@
                 If MsgBox("Add item to list?", vbYesNo + vbInformation) = vbYes Then
                     frmStock.dg_stock_Transfer.Rows.Add(dg_Items.Rows(e.RowIndex).Cells(0).Value.ToString, frmStock.dg_stock_Transfer.Rows.Count + 1.ToString, dg_Items.Rows(e.RowIndex).Cells(2).Value.ToString,
                                                   dg_Items.Rows(e.RowIndex).Cells(3).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(4).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(5).Value.ToString,
-                                                  dg_Items.Rows(e.RowIndex).Cells(6).Value.ToString, 0.ToString, "REMOVE")
+                                                  dg_Items.Rows(e.RowIndex).Cells(6).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(7).Value.ToString, 0.ToString, "REMOVE")
                     MsgBox("Item is added to the list.", vbInformation)
                 End If
             End If
@@ -63,7 +63,7 @@
                 If MsgBox("Add item to list?", vbYesNo + vbInformation) = vbYes Then
                     frmStock.dg_stock_Return.Rows.Add(dg_Items.Rows(e.RowIndex).Cells(0).Value.ToString, frmStock.dg_stock_Return.Rows.Count + 1.ToString, dg_Items.Rows(e.RowIndex).Cells(2).Value.ToString,
                                                   dg_Items.Rows(e.RowIndex).Cells(3).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(4).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(5).Value.ToString,
-                                                  dg_Items.Rows(e.RowIndex).Cells(6).Value.ToString, 0.ToString, "REMOVE")
+                                                  dg_Items.Rows(e.RowIndex).Cells(6).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(7).Value.ToString, 0.ToString, "REMOVE")
                     MsgBox("Item is added to the list.", vbInformation)
                 End If
             End If
@@ -81,7 +81,7 @@
                 If MsgBox("Add item to list?", vbYesNo + vbInformation) = vbYes Then
                     frmStock.dg_stock_Out.Rows.Add(dg_Items.Rows(e.RowIndex).Cells(0).Value.ToString, frmStock.dg_stock_Out.Rows.Count + 1.ToString, dg_Items.Rows(e.RowIndex).Cells(2).Value.ToString,
                                                   dg_Items.Rows(e.RowIndex).Cells(3).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(4).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(5).Value.ToString,
-                                                  dg_Items.Rows(e.RowIndex).Cells(6).Value.ToString, 0.ToString, "REMOVE")
+                                                  dg_Items.Rows(e.RowIndex).Cells(6).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(7).Value.ToString, 0.ToString, "REMOVE")
                     MsgBox("Item is added to the list.", vbInformation)
                 End If
             End If
@@ -99,7 +99,7 @@
                 If MsgBox("Add item to list?", vbYesNo + vbInformation) = vbYes Then
                     frmStock.dg_stock_Adjustment.Rows.Add(dg_Items.Rows(e.RowIndex).Cells(0).Value.ToString, frmStock.dg_stock_Out.Rows.Count + 1.ToString, dg_Items.Rows(e.RowIndex).Cells(2).Value.ToString,
                                                   dg_Items.Rows(e.RowIndex).Cells(3).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(4).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(5).Value.ToString,
-                                                  dg_Items.Rows(e.RowIndex).Cells(6).Value.ToString, 0.ToString, "REMOVE")
+                                                  dg_Items.Rows(e.RowIndex).Cells(6).Value.ToString, dg_Items.Rows(e.RowIndex).Cells(7).Value.ToString, 0.ToString, "REMOVE")
                     MsgBox("Item is added to the list.", vbInformation)
                 End If
             End If
@@ -112,22 +112,22 @@
                     itemList.ItemSearch = Trim(tb_Search.Text)
                     itemList.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, brand.brand_name, category.category_name FROM item " &
                                     "INNER JOIN brand ON brand.brand_id = item.brand_id " &
-                                    "INNER JOIN category ON category.category_id = item.category_id WHERE item_code LIKE @0")
+                                    "INNER JOIN category ON category.category_id = item.category_id INNER JOIN unit ON unit.unit_id = item.unit_id WHERE item_code LIKE @0")
                 Case "Description"
                     itemList.ItemSearch = Trim(tb_Search.Text)
                     itemList.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, brand.brand_name, category.category_name FROM item " &
                                     "INNER JOIN brand ON brand.brand_id = item.brand_id " &
-                                    "INNER JOIN category ON category.category_id = item.category_id WHERE item_desc LIKE @0 OR item_add_desc LIKE @0")
+                                    "INNER JOIN category ON category.category_id = item.category_id INNER JOIN unit ON unit.unit_id = item.unit_id WHERE item_desc LIKE @0 OR item_add_desc LIKE @0")
                 Case "Brand"
                     itemList.ItemSearch = Trim(tb_Search.Text)
                     itemList.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, brand.brand_name, category.category_name FROM item " &
                                     "INNER JOIN brand ON brand.brand_id = item.brand_id " &
-                                    "INNER JOIN category ON category.category_id = item.category_id WHERE brand_name LIKE @0")
+                                    "INNER JOIN category ON category.category_id = item.category_id INNER JOIN unit ON unit.unit_id = item.unit_id WHERE brand_name LIKE @0")
                 Case "Category"
                     itemList.ItemSearch = Trim(tb_Search.Text)
                     itemList.searchItem("SELECT item_id, item_code, item_desc, item_add_desc, brand.brand_name, category.category_name FROM item " &
                                     "INNER JOIN brand ON brand.brand_id = item.brand_id " &
-                                    "INNER JOIN category ON category.category_id = item.category_id WHERE category_name LIKE @0")
+                                    "INNER JOIN category ON category.category_id = item.category_id INNER JOIN unit ON unit.unit_id = item.unit_id WHERE category_name LIKE @0")
             End Select
         Else
             itemList.loadRecord()

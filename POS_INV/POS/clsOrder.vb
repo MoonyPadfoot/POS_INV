@@ -9,6 +9,7 @@ Public Class clsOrder
     Private _Receipt As Object
     Private _Invoice As Object
     Private _TransCode As Object
+    Private _ItemCode As Object
 
     Public Sub SetBranchId(AutoPropertyValue As Object)
         _BranchId = AutoPropertyValue
@@ -17,7 +18,6 @@ Public Class clsOrder
     Public Sub SetItemSearch(AutoPropertyValue As Object)
         _ItemSearch = AutoPropertyValue
     End Sub
-
     Public Sub SetOrderTransDate(AutoPropertyValue As Object)
         _OrderTransDate = AutoPropertyValue
     End Sub
@@ -38,6 +38,9 @@ Public Class clsOrder
     End Sub
     Public Sub SetTransCode(AutoPropertyValue As Object)
         _TransCode = AutoPropertyValue
+    End Sub
+    Public Sub SetItemCode(AutoPropertyValue As Object)
+        _ItemCode = AutoPropertyValue
     End Sub
 
     Public Sub saveOrder()
@@ -221,7 +224,7 @@ Public Class clsOrder
         dr = cm.ExecuteReader()
         While dr.Read
             frmPos.dg_Search.Rows.Add(dr.Item("item_id").ToString, dr.Item("item_code").ToString, dr.Item("brand_name").ToString & " | " & dr.Item("item_desc").ToString & " | " & dr.Item("item_add_desc").ToString & " | " &
-                                      dr.Item("category_name").ToString, dr.Item("item_price_A").ToString, dr.Item("item_price_B").ToString, "ADD")
+                                      dr.Item("category_name").ToString, dr.Item("unit_name").ToString, dr.Item("item_price_A").ToString, dr.Item("item_price_B").ToString, "ADD")
         End While
         dr.Close()
         DisconnectDatabase()
@@ -256,4 +259,14 @@ Public Class clsOrder
         DisconnectDatabase()
         Return getBalance
     End Function
+    Public Function checkItemQty()
+        ConnectDatabase()
+        Dim query = "SELECT qty FROM inventory INNER JOIN item ON item.item_id = inventory.item_id WHERE item_code = @item_code"
+        cm = New MySqlCommand(query, con)
+        cm.Parameters.AddWithValue("@item_code", _ItemCode)
+        Dim qty = cm.ExecuteScalar
+        DisconnectDatabase()
+        Return qty
+    End Function
+
 End Class

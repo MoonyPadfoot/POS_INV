@@ -5,6 +5,7 @@ Public Class clsItem
     Private _ItemAddDesc As Object
     Private _ItemBrand As Object
     Private _ItemCategory As Object
+    Private _ItemUnit As Object
     Private _ItemUnitPrice As Object
     Private _ItemPriceA As Object
     Private _ItemPriceB As Object
@@ -24,6 +25,9 @@ Public Class clsItem
     Public Sub SetCategory(AutoPropertyValue As Object)
         _ItemCategory = AutoPropertyValue
     End Sub
+    Public Sub SetUnit(AutoPropertyValue As Object)
+        _ItemUnit = AutoPropertyValue
+    End Sub
     Public Sub SetUnitPrice(AutoPropertyValue As Object)
         _ItemUnitPrice = AutoPropertyValue
     End Sub
@@ -39,7 +43,7 @@ Public Class clsItem
     Public Function save()
         Try
             ConnectDatabase()
-            Dim query = "INSERT INTO item (item_code, item_desc, item_add_desc, brand_id, category_id, item_unit_price, item_price_A, item_price_B) " &
+            Dim query = "INSERT INTO item (item_code, item_desc, item_add_desc, brand_id, category_id, unit_id, item_unit_price, item_price_A, item_price_B) " &
                         "VALUES (@item_code, @item_desc, @item_add_Desc, @brand_id, @category_id, @item_unit_Price, @item_price_A, @item_price_B)"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@item_code", _ItemCode)
@@ -47,6 +51,7 @@ Public Class clsItem
             cm.Parameters.AddWithValue("@item_add_Desc", _ItemAddDesc)
             cm.Parameters.AddWithValue("@brand_id", _ItemBrand)
             cm.Parameters.AddWithValue("@category_id", _ItemCategory)
+            cm.Parameters.AddWithValue("@unit_id", _ItemUnit)
             cm.Parameters.AddWithValue("@item_unit_Price", _ItemUnitPrice)
             cm.Parameters.AddWithValue("@item_price_A", _ItemPriceA)
             cm.Parameters.AddWithValue("@item_price_B", _ItemPriceB)
@@ -64,13 +69,14 @@ Public Class clsItem
     Public Function edit()
         Try
             ConnectDatabase()
-            Dim query = "UPDATE item SET item_desc = @item_desc, item_add_desc = @item_add_desc, brand_id = @brand_id, category_id = @category_id, item_unit_price = @item_unit_price, item_price_A = @item_price_A, item_price_B = @item_price_B WHERE item_code = @item_code"
+            Dim query = "UPDATE item SET item_desc = @item_desc, item_add_desc = @item_add_desc, brand_id = @brand_id, category_id = @category_id, unit_id = @unit_id, item_unit_price = @item_unit_price, item_price_A = @item_price_A, item_price_B = @item_price_B WHERE item_code = @item_code"
             cm = New MySqlCommand(query, con)
             cm.Parameters.AddWithValue("@item_code", _ItemCode)
             cm.Parameters.AddWithValue("@item_desc", _ItemDesc)
             cm.Parameters.AddWithValue("@item_add_Desc", _ItemAddDesc)
             cm.Parameters.AddWithValue("@brand_id", _ItemBrand)
             cm.Parameters.AddWithValue("@category_id", _ItemCategory)
+            cm.Parameters.AddWithValue("@unit_id", _ItemUnit)
             cm.Parameters.AddWithValue("@item_unit_Price", _ItemUnitPrice)
             cm.Parameters.AddWithValue("@item_price_A", _ItemPriceA)
             cm.Parameters.AddWithValue("@item_price_B", _ItemPriceB)
@@ -146,14 +152,15 @@ Public Class clsItem
         Dim i As Integer
         frmItem.dg_Items.Rows.Clear()
         ConnectDatabase()
-        Dim query = "SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, brand.brand_name, category.category_name FROM item " &
+        Dim query = "SELECT item_id, item_code, item_desc, item_add_desc, item_unit_price, item_price_A, item_price_B, brand.brand_name, category.category_name, unit.unit_name FROM item " &
             "INNER JOIN brand ON brand.brand_id = item.brand_id " &
-            "INNER JOIN category ON category.category_id = item.category_id"
+            "INNER JOIN category ON category.category_id = item.category_id " &
+            "INNER JOIN unit ON unit.unit_id = item.unit_id"
         cm = New MySqlCommand(query, con)
         dr = cm.ExecuteReader()
         While dr.Read
             i += 1
-            frmItem.dg_Items.Rows.Add(dr.Item("item_id").ToString, i, dr.Item("item_code").ToString, dr.Item("brand_name").ToString, dr.Item("item_desc").ToString, dr.Item("item_add_desc").ToString, dr.Item("category_name").ToString, dr.Item("item_unit_price").ToString, dr.Item("item_price_A").ToString, dr.Item("item_price_B"), "EDIT", "DELETE")
+            frmItem.dg_Items.Rows.Add(dr.Item("item_id").ToString, i, dr.Item("item_code").ToString, dr.Item("brand_name").ToString, dr.Item("item_desc").ToString, dr.Item("item_add_desc").ToString, dr.Item("category_name").ToString, dr.Item("unit_name").ToString, dr.Item("item_unit_price").ToString, dr.Item("item_price_A").ToString, dr.Item("item_price_B"), "EDIT", "DELETE")
         End While
         dr.Close()
         DisconnectDatabase()
@@ -169,7 +176,7 @@ Public Class clsItem
         While dr.Read
             i += 1
             frmItem.dg_Items.Rows.Add(dr.Item("item_id").ToString, i, dr.Item("item_code").ToString, dr.Item("brand_name").ToString, dr.Item("item_desc").ToString, dr.Item("item_add_desc").ToString,
-                                      dr.Item("category_name").ToString, dr.Item("item_unit_price").ToString, dr.Item("item_price_A").ToString, dr.Item("item_price_B"), "EDIT", "DELETE")
+                                      dr.Item("category_name").ToString, dr.Item("unit_name").ToString, dr.Item("item_unit_price").ToString, dr.Item("item_price_A").ToString, dr.Item("item_price_B"), "EDIT", "DELETE")
         End While
         dr.Close()
         DisconnectDatabase()

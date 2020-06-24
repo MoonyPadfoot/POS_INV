@@ -1,8 +1,9 @@
 ﻿Public Class frmPrice
     Dim strCurrency As String = ""
     Dim acceptableKey As Boolean = False
-    Dim _id, _code, _desc, _qty
+    Dim _id, _code, _desc, _qty, _unit
     Dim _total, _price, _priceA, _priceB As Double
+    Dim order As New clsOrder
     Private Sub tb_Price_KeyDown(sender As Object, e As KeyEventArgs) Handles tb_Price.KeyDown
         If (e.KeyCode >= Keys.D0 And e.KeyCode <= Keys.D9) OrElse (e.KeyCode >= Keys.NumPad0 And e.KeyCode <= Keys.NumPad9) OrElse e.KeyCode = Keys.Back Then
             acceptableKey = True
@@ -59,11 +60,21 @@
             MsgBox("Please input a valid quantity", vbExclamation)
             Exit Sub
         End If
+        Dim b = frmPos.dg_Search.CurrentRow.Index
+        order.SetItemCode(frmPos.dg_Search.Item(1, b).Value)
+        If order.checkItemQty < tb_Qty.Text Then
+            If MsgBox("The virtual item stocked exceeds the current order. Do you wish to Continue?", vbYesNo + vbQuestion) = vbNo Then
+                tb_Qty.Clear()
+                tb_Price.Clear()
+                Me.Close()
+                Exit Sub
+            End If
+        End If
 
         If lbl_Type.Text = 1 Then
             Dim i As Integer = frmPos.dg_Search.CurrentRow.Index      'sets price range price A and priceB
-            Dim priceA = frmPos.dg_Search.Item(3, i).Value
-            Dim priceB = frmPos.dg_Search.Item(4, i).Value
+            Dim priceA = frmPos.dg_Search.Item(4, i).Value
+            Dim priceB = frmPos.dg_Search.Item(5, i).Value
 
             If Val(tb_Price.Text) > Val(priceA) Or Val(tb_Price.Text) < Val(priceB) Then
                 MsgBox("Please input price within the price range.", vbExclamation)
@@ -75,18 +86,19 @@
             _desc = frmPos.dg_Search.Item(2, i).Value
             _qty = tb_Qty.Text
             _price = Val(tb_Price.Text)
+            _unit = frmPos.dg_Search.Item(3, i).Value
             _total = Val(tb_Price.Text) * Val(tb_Qty.Text)
-            _priceA = frmPos.dg_Search.Item(3, i).Value
-            _priceB = frmPos.dg_Search.Item(4, i).Value
+            _priceA = frmPos.dg_Search.Item(4, i).Value
+            _priceB = frmPos.dg_Search.Item(5, i).Value
 
-            frmPos.dg_Order.Rows.Add(_id, _code, _desc, Format(_price, "0.00"), _qty, Format(_total, "0.00"), "EDIT", "REMOVE", _priceA, _priceB)
+            frmPos.dg_Order.Rows.Add(_id, _code, _desc, Format(_price, "0.00"), _unit, _qty, Format(_total, "0.00"), "EDIT", "REMOVE", _priceA, _priceB)
 
             MsgBox("Item/Service has been added to cart.", vbInformation)
 
         ElseIf lbl_Type.Text = 2 Then
             Dim i As Integer = frmPos.dg_Order.CurrentRow.Index
-            Dim priceA = frmPos.dg_Order.Item(8, i).Value
-            Dim priceB = frmPos.dg_Order.Item(9, i).Value
+            Dim priceA = frmPos.dg_Order.Item(9, i).Value
+            Dim priceB = frmPos.dg_Order.Item(10, i).Value
 
             If Val(tb_Price.Text) > Val(priceA) Or Val(tb_Price.Text) < Val(priceB) Then
                 MsgBox("Please input price within the price range.", vbExclamation)
@@ -94,16 +106,15 @@
             End If
 
             frmPos.dg_Order.Item(3, i).Value = Format(Val(tb_Price.Text), "0.00")
-            frmPos.dg_Order.Item(4, i).Value = tb_Qty.Text
-            frmPos.dg_Order.Item(5, i).Value = Format(Val(tb_Price.Text) * Val(tb_Qty.Text), "0.00")
+            frmPos.dg_Order.Item(5, i).Value = tb_Qty.Text
+            frmPos.dg_Order.Item(6, i).Value = Format(Val(tb_Price.Text) * Val(tb_Qty.Text), "0.00")
             MsgBox("Item/Service has been updated.", vbInformation)
         End If
         Dim due_total As Decimal = 0.00
         For i = 0 To frmPos.dg_Order.RowCount - 1
-            due_total = due_total + frmPos.dg_Order.Item(5, i).Value
+            due_total = due_total + frmPos.dg_Order.Item(6, i).Value
         Next
-        frmPos.lbl_due_Total.Text = Format(due_total, "0.00") 'set due total
-
+        frmPos.lbl_due_Total.Text = Format(due_total, "0.00") 'set due total        
         frmPos.tb_Search.Select()
         tb_price_Range.Clear()
         tb_Price.Text = vbNullString
@@ -117,12 +128,12 @@
         If lbl_Type.Text = 1 Then
             If frmPos.dg_Search.RowCount <> 0 Then
                 Dim i As Integer = frmPos.dg_Search.CurrentRow.Index
-                tb_price_Range.Text = frmPos.dg_Search.Item(3, i).Value
+                tb_price_Range.Text = frmPos.dg_Search.Item(4, i).Value
             End If
         ElseIf lbl_Type.Text = 2 Then
             If frmPos.dg_Order.RowCount <> 0 Then
                 Dim i As Integer = frmPos.dg_Order.CurrentRow.Index
-                tb_price_Range.Text = frmPos.dg_Order.Item(8, i).Value
+                tb_price_Range.Text = frmPos.dg_Order.Item(9, i).Value
             End If
         End If
 
@@ -143,16 +154,16 @@
         If lbl_Type.Text = 1 Then
             Dim i As Integer = frmPos.dg_Search.CurrentRow.Index
             If cbo_Price.SelectedIndex = 0 Then
-                tb_price_Range.Text = frmPos.dg_Search.Item(3, i).Value
-            ElseIf cbo_Price.SelectedIndex = 1 Then
                 tb_price_Range.Text = frmPos.dg_Search.Item(4, i).Value
+            ElseIf cbo_Price.SelectedIndex = 1 Then
+                tb_price_Range.Text = frmPos.dg_Search.Item(5, i).Value
             End If
         ElseIf lbl_Type.Text = 2 Then
             Dim i As Integer = frmPos.dg_Order.CurrentRow.Index
             If cbo_Price.SelectedIndex = 0 Then
-                tb_price_Range.Text = frmPos.dg_Order.Item(8, i).Value
-            ElseIf cbo_Price.SelectedIndex = 1 Then
                 tb_price_Range.Text = frmPos.dg_Order.Item(9, i).Value
+            ElseIf cbo_Price.SelectedIndex = 1 Then
+                tb_price_Range.Text = frmPos.dg_Order.Item(10, i).Value
             End If
         End If
     End Sub
